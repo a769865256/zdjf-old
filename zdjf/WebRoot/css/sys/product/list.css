@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+
+
+.hide {
+	display: none;
+}
+
+.label_normal {
+	font-weight:normal;
+}
+
+.admin-main {
+	background: #FFFFFF;
+}
+
+.user_info_label {
+	font-size: 1.3rem;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.modal-label {
+	text-align: left;
+	font-size: 1.3rem;
+}
+
+.modal-textarea {
+	width: 94%;
+	font-size: 1.3rem;
+}

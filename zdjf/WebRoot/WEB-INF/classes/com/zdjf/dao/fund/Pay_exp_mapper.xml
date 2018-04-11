@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.pay">
+<select id="selectPayPage" resultType="com.zdjf.domain.fund.PayVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_pay
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectPayCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_pay
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectPayById" resultType="com.zdjf.domain.fund.Pay">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_pay
+		where 1=1
+		and id=#{id}
+	</select>
+	
+	<select id="updatePayById" parameterType="com.zdjf.domain.fund.Pay">
+		update zd_pay
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''"> id = #{id},</if>
+		<if test="relation_id != null and relation_id != ''"> relation_id = #{relation_id},</if>
+		<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+		<if test="pay_type != null and pay_type != ''"> pay_type = #{pay_type},</if>
+		<if test="total_money != null and total_money != ''"> total_money = #{total_money},</if>
+		<if test="status != null and status != ''"> status = #{status},</if>
+		<if test="real_recharged != null and real_recharged != ''"> real_recharged = #{real_recharged},</if>
+		<if test="available_paid != null and available_paid != ''"> available_paid = #{available_paid},</if>
+		<if test="biz_type != null and biz_type != ''"> biz_type = #{biz_type},</if>
+		<if test="create_time != null"> create_time = #{create_time},</if>
+		<if test="update_time != null"> update_time = #{update_time},</if>
+		<if test="pay_id != null and pay_id != ''"> pay_id = #{pay_id},</if>
+		<if test="old_relation_id != null and old_relation_id != ''"> old_relation_id = #{old_relation_id},</if>
+		<if test="uid != null and uid != ''"> uid = #{uid},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deletePayById" parameterType="long">
+			delete from zd_pay where id=#{id}
+	</select>
+	<select id="selectUserPayByUid" resultType="java.util.Map">
+		select * from zd_pay 
+		where 1=1
+		and user_id=${user_id}
+		<if test="status==0">
+		</if>
+		<if test="status!=0">
+			and status=${status}
+		</if>
+		order by update_time desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectUserPayByUidCn" resultType="java.lang.Long">
+		select count(0) from zd_pay 
+		where 1=1
+		and user_id=${user_id}
+		<if test="status==0">
+		</if>
+		<if test="status!=0">
+			and status=${status}
+		</if>
+		order by update_time desc
+	</select>
+</mapper>

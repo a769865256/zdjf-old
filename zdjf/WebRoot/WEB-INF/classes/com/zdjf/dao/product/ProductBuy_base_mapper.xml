@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product.productBuy">
+<sql id="columns">
+id,
+user_id,
+phone,
+product_id,
+product_name,
+type,
+create_time,
+pay_time,
+close_time,
+return_date,
+start_date,
+will_end_date,
+end_date,
+will_income_days,
+income_days,
+status,
+bid_status,
+product_interest,
+user_coupon_id,
+user_gift_id,
+amount,
+will_income,
+incomed,
+fee,
+coin,
+act_pay_money,
+reconciliation_id,
+req_source,
+first_buy_flag,
+freeze_trx_id,
+buy_id,
+uid,
+order_id,
+trade_no,
+inviter_phone,
+is_debt
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">  id,</if>
+<if test="user_id != null and user_id != ''">  user_id,</if>
+<if test="phone != null and phone != ''">  phone,</if>
+<if test="product_id != null and product_id != ''">  product_id,</if>
+<if test="product_name != null and product_name != ''">  product_name,</if>
+<if test="type != null and type != ''">  type,</if>
+<if test="create_time != null">  create_time,</if>
+<if test="pay_time != null">  pay_time,</if>
+<if test="close_time != null">  close_time,</if>
+<if test="return_date != null">  return_date,</if>
+<if test="start_date != null">  start_date,</if>
+<if test="will_end_date != null">  will_end_date,</if>
+<if test="end_date != null">  end_date,</if>
+<if test="will_income_days != null and will_income_days != ''">  will_income_days,</if>
+<if test="income_days != null and income_days != ''">  income_days,</if>
+<if test="status != null and status != ''">  status,</if>
+<if test="bid_status != null and bid_status != ''">  bid_status,</if>
+<if test="product_interest != null and product_interest != ''">  product_interest,</if>
+<if test="user_coupon_id != null and user_coupon_id != ''">  user_coupon_id,</if>
+<if test="user_gift_id != null and user_gift_id != ''">  user_gift_id,</if>
+<if test="amount != null and amount != ''">  amount,</if>
+<if test="will_income != null and will_income != ''">  will_income,</if>
+<if test="incomed != null and incomed != ''">  incomed,</if>
+<if test="fee != null and fee != ''">  fee,</if>
+<if test="coin != null and coin != ''">  coin,</if>
+<if test="act_pay_money != null and act_pay_money != ''">  act_pay_money,</if>
+<if test="reconciliation_id != null and reconciliation_id != ''">  reconciliation_id,</if>
+<if test="req_source != null and req_source != ''">  req_source,</if>
+<if test="first_buy_flag != null and first_buy_flag != ''">  first_buy_flag,</if>
+<if test="freeze_trx_id != null and freeze_trx_id != ''">  freeze_trx_id,</if>
+<if test="buy_id != null and buy_id != ''">  buy_id,</if>
+<if test="uid != null and uid != ''">  uid,</if>
+<if test="order_id != null and order_id != ''">  order_id,</if>
+<if test="trade_no != null and trade_no != ''">  trade_no,</if>
+<if test="inviter_phone != null and inviter_phone != ''">  inviter_phone,</if>
+<if test="is_debt != null and is_debt != ''">  is_debt,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">  #{id},</if>
+<if test="user_id != null and user_id != ''">  #{user_id},</if>
+<if test="phone != null and phone != ''">  #{phone},</if>
+<if test="product_id != null and product_id != ''">  #{product_id},</if>
+<if test="product_name != null and product_name != ''">  #{product_name},</if>
+<if test="type != null and type != ''">  #{type},</if>
+<if test="create_time != null">  #{create_time},</if>
+<if test="pay_time != null">  #{pay_time},</if>
+<if test="close_time != null">  #{close_time},</if>
+<if test="return_date != null">  #{return_date},</if>
+<if test="start_date != null">  #{start_date},</if>
+<if test="will_end_date != null">  #{will_end_date},</if>
+<if test="end_date != null">  #{end_date},</if>
+<if test="will_income_days != null and will_income_days != ''">  #{will_income_days},</if>
+<if test="income_days != null and income_days != ''">  #{income_days},</if>
+<if test="status != null and status != ''">  #{status},</if>
+<if test="bid_status != null and bid_status != ''">  #{bid_status},</if>
+<if test="product_interest != null and product_interest != ''">  #{product_interest},</if>
+<if test="user_coupon_id != null and user_coupon_id != ''">  #{user_coupon_id},</if>
+<if test="user_gift_id != null and user_gift_id != ''">  #{user_gift_id},</if>
+<if test="amount != null and amount != ''">  #{amount},</if>
+<if test="will_income != null and will_income != ''">  #{will_income},</if>
+<if test="incomed != null and incomed != ''">  #{incomed},</if>
+<if test="fee != null and fee != ''">  #{fee},</if>
+<if test="coin != null and coin != ''">  #{coin},</if>
+<if test="act_pay_money != null and act_pay_money != ''">  #{act_pay_money},</if>
+<if test="reconciliation_id != null and reconciliation_id != ''">  #{reconciliation_id},</if>
+<if test="req_source != null and req_source != ''">  #{req_source},</if>
+<if test="first_buy_flag != null and first_buy_flag != ''">  #{first_buy_flag},</if>
+<if test="freeze_trx_id != null and freeze_trx_id != ''">  #{freeze_trx_id},</if>
+<if test="buy_id != null and buy_id != ''">  #{buy_id},</if>
+<if test="uid != null and uid != ''">  #{uid},</if>
+<if test="order_id != null and order_id != ''">  #{order_id},</if>
+<if test="trade_no != null and trade_no != ''">  #{trade_no},</if>
+<if test="inviter_phone != null and inviter_phone != ''">  #{inviter_phone},</if>
+<if test="is_debt != null and is_debt != ''">  #{is_debt},</if>
+</sql>
+<sql id="conds">
+<if test="id != null and id != ''">  and id = #{id}</if>
+<if test="user_id != null and user_id != ''">  and user_id = #{user_id}</if>
+<if test="phone != null and phone != ''">  and phone = #{phone}</if>
+<if test="product_id != null and product_id != ''">  and product_id = #{product_id}</if>
+<if test="product_name != null and product_name != ''">  and product_name = #{product_name}</if>
+<if test="type != null and type != ''">  and type = #{type}</if>
+<if test="create_time != null">  and create_time = #{create_time}</if>
+<if test="pay_time != null">  and pay_time = #{pay_time}</if>
+<if test="close_time != null">  and close_time = #{close_time}</if>
+<if test="return_date != null">  and return_date = #{return_date}</if>
+<if test="start_date != null">  and start_date = #{start_date}</if>
+<if test="will_end_date != null">  and will_end_date = #{will_end_date}</if>
+<if test="end_date != null">  and end_date = #{end_date}</if>
+<if test="will_income_days != null and will_income_days != ''">  and will_income_days = #{will_income_days}</if>
+<if test="income_days != null and income_days != ''">  and income_days = #{income_days}</if>
+<if test="status != null and status != ''">  and status = #{status}</if>
+<if test="bid_status != null and bid_status != ''">  and bid_status = #{bid_status}</if>
+<if test="product_interest != null and product_interest != ''">  and product_interest = #{product_interest}</if>
+<if test="user_coupon_id != null and user_coupon_id != ''">  and user_coupon_id = #{user_coupon_id}</if>
+<if test="user_gift_id != null and user_gift_id != ''">  and user_gift_id = #{user_gift_id}</if>
+<if test="amount != null and amount != ''">  and amount = #{amount}</if>
+<if test="will_income != null and will_income != ''">  and will_income = #{will_income}</if>
+<if test="incomed != null and incomed != ''">  and incomed = #{incomed}</if>
+<if test="fee != null and fee != ''">  and fee = #{fee}</if>
+<if test="coin != null and coin != ''">  and coin = #{coin}</if>
+<if test="act_pay_money != null and act_pay_money != ''">  and act_pay_money = #{act_pay_money}</if>
+<if test="reconciliation_id != null and reconciliation_id != ''">  and reconciliation_id = #{reconciliation_id}</if>
+<if test="req_source != null and req_source != ''">  and req_source = #{req_source}</if>
+<if test="first_buy_flag != null and first_buy_flag != ''">  and first_buy_flag = #{first_buy_flag}</if>
+<if test="freeze_trx_id != null and freeze_trx_id != ''">  and freeze_trx_id = #{freeze_trx_id}</if>
+<if test="buy_id != null and buy_id != ''">  and buy_id = #{buy_id}</if>
+<if test="uid != null and uid != ''">  and uid = #{uid}</if>
+<if test="order_id != null and order_id != ''">  and order_id = #{order_id}</if>
+<if test="trade_no != null and trade_no != ''">  and trade_no = #{trade_no}</if>
+<if test="inviter_phone != null and inviter_phone != ''">  and inviter_phone = #{inviter_phone}</if>
+<if test="is_debt != null and is_debt != ''">  and is_debt = #{is_debt}</if>
+</sql>
+<insert id="saveProductBuy" parameterType="com.zdjf.domain.product.ProductBuy" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_product_buy (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectProductBuy" resultType="com.zdjf.domain.product.ProductBuyVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product_buy
+		where 1=1
+		<include refid="conds" />
+		<if test="status==null||status==0">
+		and status in (1,2,-2)
+		</if>
+		order by id desc
+	</select>
+	<select id="selectProductBuyNew" resultType="com.zdjf.domain.product.ProductBuyVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product_buy
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+	</select>
+	<delete id="deleteProductBuy">
+		delete from zd_product_buy
+		where id=#{id}
+	</delete>
+	
+	<update id="updateProductBuy">
+		update zd_product_buy
+		<set>
+			is_debt = #{is_debt}
+		</set>
+		where id=#{id}
+	</update>
+</mapper>

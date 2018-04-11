@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+.admin-main {
+    background: #FFFFFF;
+}
+
+.finance_label {
+    font-size: 1.3rem;
+}
+
+.center_div {
+    text-align: center;
+}
+
+.user_info_label {
+    font-size: 1.3rem;
+}
+.hide{
+    display: none;
+}

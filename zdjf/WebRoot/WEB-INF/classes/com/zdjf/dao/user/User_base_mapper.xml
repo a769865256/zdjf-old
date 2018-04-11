@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.user">
+	<!-- 所有列名 -->
+	<sql id="columns">
+	id,
+	user_name,
+	passwd,
+	pay_passwd,
+	invite_code,
+	phone,
+	real_name,
+	idcard_no,
+	real_name_auth,
+	idcard_auth_time,
+	pay_account,
+	sex,
+	update_time,
+	create_time,
+	inviter_phone,
+	birthday,
+	new_hand,
+	return_status,
+	remark,
+	user_type,
+	invite_source,
+	status,
+	reg_source,
+	last_login_time,
+	login_ip,
+	reg_ip,
+	open_account,
+	open_account_time,
+	uid,
+	sign_num,
+	sign_data
+	</sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''">
+		id,
+		</if>
+		<if test="user_name != null and user_name != ''">
+		user_name,
+		</if>
+		<if test="passwd != null and passwd != ''">
+		passwd,
+		</if>
+		<if test="pay_passwd != null and pay_passwd != ''">
+		pay_passwd,
+		</if>
+		<if test="invite_code != null and invite_code != ''">
+		invite_code,
+		</if>
+		<if test="phone != null and phone != ''">
+		phone,
+		</if>
+		<if test="real_name != null and real_name != ''">
+		real_name,
+		</if>
+		<if test="idcard_no != null and idcard_no != ''">
+		idcard_no,
+		</if>
+		<if test="real_name_auth != null and real_name_auth != ''">
+		real_name_auth,
+		</if>
+		<if test="idcard_auth_time != null">
+		idcard_auth_time,
+		</if>
+		<if test="pay_account != null and pay_account != ''">
+		pay_account,
+		</if>
+		<if test="sex != null and sex != ''">
+		sex,
+		</if>
+		<if test="update_time != null ">
+		update_time,
+		</if>
+		<if test="create_time != null ">
+		create_time,
+		</if>
+		<if test="inviter_phone != null and inviter_phone != ''">
+		inviter_phone,
+		</if>
+		<if test="birthday != null and birthday != ''">
+		birthday,
+		</if>
+		<if test="new_hand != null and new_hand != ''">
+		new_hand,
+		</if>
+		<if test="return_status != null and return_status != ''">
+		return_status,
+		</if>
+		<if test="remark != null and remark != ''">
+		remark,
+		</if>
+		<if test="user_type != null and user_type != ''">
+		user_type,
+		</if>
+		<if test="invite_source != null and invite_source != ''">
+		invite_source,
+		</if>
+		<if test="status != null and status != ''">
+		status,
+		</if>
+		<if test="reg_source != null and reg_source != ''">
+		reg_source,
+		</if>
+		<if test="last_login_time != null ">
+		last_login_time,
+		</if>
+		<if test="login_ip != null and login_ip != ''">
+		login_ip,
+		</if>
+		<if test="open_account != null and open_account != ''">
+		open_account,
+		</if>
+		<if test="open_account_time != null">
+		open_account_time,
+		</if>
+		<if test="reg_ip != null and reg_ip != ''">
+		reg_ip,
+		</if>
+		<if test="sign_num != null ">
+		sign_num,
+		</if>
+		<if test="sign_data != null">
+		sign_data
+		</if>
+	</sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+	<if test="id != null and id != ''">
+	#{id},
+	</if>
+	<if test="user_name != null and user_name != ''">
+	#{user_name},
+	</if>
+	<if test="passwd != null and passwd != ''">
+	#{passwd},
+	</if>
+	<if test="pay_passwd != null and pay_passwd != ''">
+	#{pay_passwd},
+	</if>
+	<if test="invite_code != null and invite_code != ''">
+	#{invite_code},
+	</if>
+	<if test="phone != null and phone != ''">
+	#{phone},
+	</if>
+	<if test="real_name != null and real_name != ''">
+	#{real_name},
+	</if>
+	<if test="idcard_no != null and idcard_no != ''">
+	#{idcard_no},
+	</if>
+	<if test="real_name_auth != null and real_name_auth != ''">
+	#{real_name_auth},
+	</if>
+	<if test="idcard_auth_time != null">
+	#{idcard_auth_time},
+	</if>
+	<if test="pay_account != null and pay_account != ''">
+	#{pay_account},
+	</if>
+	<if test="sex != null and sex != ''">
+	#{sex},
+	</if>
+	<if test="update_time != null ">
+	#{update_time},
+	</if>
+	<if test="create_time != null ">
+	#{create_time},
+	</if>
+	<if test="inviter_phone != null and inviter_phone != ''">
+	#{inviter_phone},
+	</if>
+	<if test="birthday != null and birthday != ''">
+	#{birthday},
+	</if>
+	<if test="new_hand != null and new_hand != ''">
+	#{new_hand},
+	</if>
+	<if test="return_status != null and return_status != ''">
+	#{return_status},
+	</if>
+	<if test="remark != null and remark != ''">
+	#{remark},
+	</if>
+	<if test="user_type != null and user_type != ''">
+	#{user_type},
+	</if>
+	<if test="invite_source != null and invite_source != ''">
+	#{invite_source},
+	</if>
+	<if test="status != null and status != ''">
+	#{status},
+	</if>
+	<if test="reg_source != null and reg_source != ''">
+	#{reg_source},
+	</if>
+	<if test="last_login_time != null ">
+	#{last_login_time},
+	</if>
+	<if test="login_ip != null and login_ip != ''">
+	#{login_ip},
+	</if>
+	<if test="open_account != null and open_account != ''">
+	#{open_account},
+	</if>
+	<if test="open_account_time != null">
+	#{open_account_time},
+	</if>
+	<if test="reg_ip != null and reg_ip != ''">
+	#{reg_ip},
+	</if>
+	<if test="sign_num != null ">
+	#{sign_num},
+	</if>
+	<if test="sign_data != null">
+	#{sign_data}
+	</if>
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+		and id = #{id}
+		</if>
+		<if test="user_name != null and user_name != ''">
+		and user_name = #{user_name}
+		</if>
+		<if test="passwd != null and passwd != ''">
+		and passwd = #{passwd}
+		</if>
+		<if test="pay_passwd != null and pay_passwd != ''">
+		and pay_passwd = #{pay_passwd}
+		</if>
+		<if test="invite_code != null and invite_code != ''">
+		and invite_code = #{invite_code}
+		</if>
+		<if test="phone != null and phone != ''">
+		and phone = #{phone}
+		</if>
+		<if test="real_name != null and real_name != ''">
+		and real_name = #{real_name}
+		</if>
+		<if test="idcard_no != null and idcard_no != ''">
+		and idcard_no = #{idcard_no}
+		</if>
+		<if test="real_name_auth != null and real_name_auth != ''">
+		and real_name_auth = #{real_name_auth}
+		</if>
+		<if test="idcard_auth_time != null">
+		and idcard_auth_time = #{idcard_auth_time}
+		</if>
+		<if test="pay_account != null and pay_account != ''">
+		and pay_account = #{pay_account}
+		</if>
+		<if test="sex != null and sex != ''">
+		and sex = #{sex}
+		</if>
+		<if test="update_time != null ">
+		and update_time = #{update_time}
+		</if>
+		<if test="create_time != null ">
+		and create_time = #{create_time}
+		</if>
+		<if test="inviter_phone != null and inviter_phone != ''">
+		and inviter_phone = #{inviter_phone,jdbcType=VARCHAR}
+		</if>
+		<if test="birthday != null and birthday != ''">
+		and birthday = #{birthday}
+		</if>
+		<if test="new_hand != null and new_hand != ''">
+		and new_hand = #{new_hand}
+		</if>
+		<if test="return_status != null and return_status != ''">
+		and return_status = #{return_status}
+		</if>
+		<if test="remark != null and remark != ''">
+		and remark = #{remark}
+		</if>
+		<if test="user_type != null and user_type != ''">
+		and user_type = #{user_type}
+		</if>
+		<if test="invite_source != null and invite_source != ''">
+		and invite_source = #{invite_source}
+		</if>
+		<if test="status != null and status != ''">
+		and status = #{status}
+		</if>
+		<if test="reg_source != null and reg_source != ''">
+		and reg_source = #{reg_source}
+		</if>
+		<if test="last_login_time != null ">
+		and last_login_time = #{last_login_time}
+		</if>
+		<if test="login_ip != null and login_ip != ''">
+		and login_ip = #{login_ip}
+		</if>
+		<if test="open_account != null and open_account != ''">
+		and open_account = #{open_account}
+		</if>
+		<if test="open_account_time != null">
+		and open_account_time = #{open_account_time}
+		</if>
+		<if test="reg_ip != null and reg_ip != ''">
+		and reg_ip = #{reg_ip}
+		</if>
+		<if test="sign_num != null ">
+		and sign_num = #{sign_num}
+		</if>
+		<if test="sign_data != null">
+		and sign_data = #{sign_data}
+		</if>
+	</sql>
+
+	<insert id="saveUser" parameterType="com.zdjf.domain.user.User" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_user (
+		<trim suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+
+	<delete id="deleteUser">
+		delete from zd_user
+		where id=#{id}
+	</delete>
+
+	<delete id="deleteByExampleUser">
+		delete from t_blood_fat
+		where 1=1
+		<include refid="conds" />
+	</delete>
+	
+	<select id="loadUser" resultType="com.zdjf.domain.user.UserVo">
+		select 
+		<include refid="columns"/>
+		from zd_user
+		where id=#{id}
+	</select>
+	
+	<select id="selectUser" parameterType="com.zdjf.domain.user.User" resultType="com.zdjf.domain.user.UserVo">
+		select 
+		*
+		from zd_user
+		where 1=1
+		<include refid="conds" />
+	</select>
+
+	<update id="updateUser">
+		update zd_user
+		<set>
+			id=#{id}, 
+			user_name=#{user_name}, 
+			passwd=#{passwd}, 
+			pay_passwd=#{pay_passwd}, 
+			invite_code=#{invite_code}, 
+			phone=#{phone}, 
+			real_name=#{real_name}, 
+			idcard_no=#{idcard_no}, 
+			real_name_auth=#{real_name_auth},
+			idcard_auth_time=#{idcard_auth_time},
+			pay_account=#{pay_account},
+			sex=#{sex},
+			update_time=#{update_time},
+			create_time=#{create_time},
+			inviter_phone=#{inviter_phone},
+			birthday=#{birthday},
+			new_hand=#{new_hand},
+			return_status=#{return_status},
+			remark=#{remark},
+			user_type=#{user_type},
+			invite_source=#{invite_source},
+			status=#{status},
+			last_login_time=#{last_login_time},
+			login_ip=#{login_ip},
+			reg_ip=#{reg_ip}
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="updateIgnoreNullUser">
+		update zd_user
+		<set>
+		<if test="id != null and id != ''">
+			id=#{id}, 
+		</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="updateByExampleUser">
+		update zd_user
+		<set>
+			<if test="id != null and id != ''">
+				id=#{id}, 
+			</if>
+		</set>
+		where 1=1
+		<include refid="conds" />
+	</update>
+
+</mapper>

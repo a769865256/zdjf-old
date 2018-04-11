@@ -1,0 +1,434 @@
+/* java环境标志去除   */
+#cl-dashboard{
+	display:none;
+}
+body{
+    background: #F6F6F6;
+}
+.header_logo{
+	height:1.07rem;
+    line-height: 1.07rem;
+    padding: 0 .3rem;
+}
+.logo_box{
+    float: left;
+}
+.logo_box img{
+    display: inline-block;
+    line-height: 1.07rem;
+    vertical-align: middle;
+}
+.logo_box img.logo{
+    width: 2.33rem;
+}
+.logo_box img.logo_sy{
+    width: 1.93rem;
+}
+.exit{
+    color: #7d7c7c;
+    float: right;
+    font-size: 14px;
+    line-height: 1.07rem;
+}
+.news_btn_box{
+    background: #fff;
+}
+.news_box{
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom:1px solid #e3e3e3;
+    margin: 0 0.4rem;
+    background: #fff;
+}
+.horn_box{
+    height: 1rem;
+    line-height: 1rem;
+    float: left;
+}
+.horn_box img{
+    width: 0.41rem;
+    height: 0.33rem;
+}
+.news{
+    line-height: 1rem;
+    font-size: 15px;
+    color: #7a7a7a;
+    float: left;
+    padding-left: 6px;
+    width: 8.5rem;
+}
+.news a{
+    display: block;
+    line-height: 1rem;
+    font-size: 15px;
+    color: #7a7a7a;
+}
+.row{
+    float: right;
+    padding-right: 0.1rem;
+    height: 1rem;
+}
+.row a{
+    height: 1rem;
+}
+.row a img{
+    width: 0.17rem;
+}
+.btn_box{
+    height: 1.6rem;
+    text-align: center;
+    background: #fff;
+}
+.btn_box a{
+    display: inline-block;
+    width: 3.4rem;
+    height: 1rem;
+    line-height: 1rem;
+    background: #2ca1fe;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    margin: 0.3rem 0.5rem;
+}
+.btn_box a:first-child{
+    background: #fa6453;
+}
+.btn_box a img{
+    width: 0.5rem;
+    margin-bottom: -0.1rem;
+    margin-right: 0.1rem;
+}
+.avatar{
+    width: 1rem;
+    height: 1rem;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avatar img{
+    width: 1rem;
+    height: 1rem;
+}
+ul.list_bid{
+    margin: 0.2rem;
+}
+ul.list_bid li{
+    height: 4.67rem;
+    border-radius: 10px;
+    background: #fff;
+    padding-left: 0.4rem;
+    padding-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    position: relative;
+}
+ul.list_bid li .img_xs{
+    position: absolute;
+    top: 0.1rem;
+    right: 0.26rem;
+}
+ul.list_bid li .img_xs img{
+    width: 0.94rem;
+}
+ul.list_bid li:first-child .img_xs{
+    position: absolute;
+    top: 0.1rem;
+    right: 0;
+}
+ul.list_bid li:first-child .img_xs img{
+    width: 0.53rem;
+}
+ul.list_bid li:first-child{
+    height: 6.72rem;
+    background: url("../img/index/bbj.png") center center no-repeat;
+}
+ul.list_bid li:first-child .bid_id{
+    height: 0.67rem;
+    line-height: 0.67rem;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+ul.list_bid li:first-child .bid_name{
+    height: 0.64rem;
+    line-height: 0.64rem;
+    text-align: center;
+    font-size: 12px;
+    color: #808080;
+}
+ul.list_bid li:first-child .bid_line{
+    display: block;
+    height: 2.6rem;
+}
+ul.list_bid li:first-child .bid_line .line_item:first-child .num{
+    font-size: 40px;
+}
+ul.list_bid li:first-child .bid_line .line_item{
+    float: left;
+    margin-top: 0.4rem;
+}
+ul.list_bid li:first-child .bid_line .line_item:first-child{
+    float: none;
+}
+ul.list_bid li:first-child .bid_line .line_item:nth-child(2){
+    width: 50%;
+    text-align: center;
+}
+ul.list_bid li:first-child .bid_line .line_item:last-child{
+    margin-top: 0.4rem;
+    width: 50%;
+    text-align: center;
+}
+.avatar{
+    margin-right: 0.3rem;
+}
+.bid_id{
+    color: #3B3B3B;
+    font-size: 15px;
+    height: 0.55rem;
+}
+.bid_id_name{
+    margin-bottom: 0.5rem;
+}
+.bid_name{
+    color: #808080;
+    font-size: 12px;
+    padding-right: 0.1rem;
+    height: 0.45rem;
+}
+.bid_line{
+    height: 1.6rem;
+    text-align: center;
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    justify-content:space-between;
+}
+.line_item:last-child .num{
+    color: #808080;
+}
+.num{
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 30px;
+    color: #FA6453;
+}
+.num span{
+    font-size: 16px;
+}
+.line_word{
+    font-size: 12px;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    color: #808080;
+}
+.bar_sold{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin-top: 0.4rem;
+}
+.bar_big_box{
+    width: 6.24rem;
+    padding-top: 0.22rem;
+    float: left;
+    position: relative;
+}
+.bar_box{
+    width: 6rem;
+    height: 0.06rem;
+    background: #808080;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    top: 0.22rem;
+}
+.bar_circle{
+    width: 6.24rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.bar{
+    height: 0.06rem;
+    background: #FA6453;
+    border-radius: 2px;
+}
+.circle{
+    width: 0.24rem;
+    height: 0.24rem;
+    margin-top: -0.09rem;
+    position: relative;
+}
+.circle1{
+    width: 0.24rem;
+    height: 0.24rem;
+    background: #FA6453;
+    border-radius: 50%;
+    opacity:0.5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.circle2{
+    width: 0.14rem;
+    height: 0.14rem;
+    background: #FA6453;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.05rem;
+    left: 0.05rem;
+    z-index: 2;
+}
+.sold{
+    color: #FA6453;
+    font-size: 12px;
+    float: left;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin-left: 0.5rem;
+}
+.ljtz{
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.ljtz button{
+    padding:0;
+    width: 4.28rem;
+    height: 1.07rem;
+    border-radius: 40px ;
+    font-size: 18px;
+}
+.get_more{
+    height: 1rem;
+    line-height: 1rem;
+    background:rgba(255,255,255,1);
+    border-radius: 8px ;
+    font-size: 14px;
+    color:rgba(250,100,83,1);
+    text-align: center;
+    margin: 0 0.2rem;
+}
+.note_list{
+    text-align: center;
+    margin-top: 12px;
+}
+.note_list img{
+    width: 8.36rem;
+}
+.download_app{
+    display: block;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 14px;
+    color: #008EFF;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+}
+.benan{
+    text-align: center;
+    /*margin-bottom: 0.3rem;*/
+}
+.benan{
+    padding-bottom: 0.2rem;
+}
+.benan img{
+    /*width: 6.02rem;*/
+}
+.ba_itmes{
+    color: #808080;
+    font-size: 12px;
+    line-height: 0.5rem;
+}
+.ba_itmes img{
+    width: 0.4rem;
+    height: 0.4rem;
+}
+
+.header a.back{
+	display: inline-block;
+	position: absolute;
+	width: 88px;
+	height: 88px;
+	left: 0;
+	top: 0px;
+	background: url(../img/backoff.png) center center no-repeat;
+}
+.header a.register{
+    display: inline-block;
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    right: 0;
+    top: 0px;
+    text-align: center;
+    line-height: 88px;
+    font-size: 28px;
+}
+.footer{
+    position: fixed;
+    height:100px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+}
+.footer a{
+    display: block;
+    flex:1;
+    height: 100%;
+    text-align: center;
+}
+.footer a.state1{background: url(../../static/img/findbtn_01.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.state2{background: url(../../static/img/findbtn_02.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.state3{background: url(../../static/img/findbtn_03.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.state4{background: url(../../static/img/findbtn_04.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.active p{color: #008eff;}
+.footer a img{
+    width: 50px;
+    padding: 10px 0;
+}
+.footer a p{
+    font-size: 20px;
+    color: #a0a0a0;
+    margin-top: 70px;
+}
+
+/* 棣栭〉banner鍒囨崲 */
+.swiper-container {
+    width: 100%;
+}
+.banner{
+    width: 100%;
+    height: 5.06rem;
+}
+.banner .swiper-slide img{
+    display: block;
+    width: 10rem;
+    height: 5.06rem;
+}
+.modular{
+    display: flex;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+.modular .modu{
+    flex:1;
+    height: 166px;
+}
+.modular .modu a{
+    display: block;
+    height: 100%;
+    text-align: center;
+}
+.modular .modu a h3{
+    font-size: 26px;
+    color: #3b3b3b;
+    padding: 110px 0 0;
+}
+.modular .mo1{background: url(../img/index/index01.png) center 40px no-repeat;background-size: 68px;}
+.modular .mo2{background: url(../img/index/index02.png) center 40px no-repeat;background-size: 68px;}
+.modular .mo3{background: url(../img/index/index03.png) center 40px no-repeat;background-size: 68px;}
+.modular .mo4{background: url(../img/index/index04.png) center 40px no-repeat;background-size: 68px;}

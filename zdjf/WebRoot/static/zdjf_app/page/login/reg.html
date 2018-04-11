@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/login.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="login">
+	<div class="header"><a class="back" href="login.html"></a>注册</div>
+	<div class="l_box">
+		<div class="relogo">
+			<img src="../../static/img/login/xrfl.jpg" alt="">
+		</div>
+		<div class="regist_box">
+			<ul>
+				<li class="phone"><input type="number" class="ph_num" id="acc" placeholder="输入手机号码"></li>
+				<li class="img"><input type="number" class="ph_num" id="code" placeholder="输入验证码">
+					<input type="button" class="verbtn btn2" id="btn" value="获取验证码">
+				</li>
+				<li class="pass"><input type="password" id="pwd" class="ph_num" placeholder="设置6-16位数字+英文组合的登录密码"></li>
+			</ul>
+			<div class="invita">
+				<p class="in_open"><span></span><input type="text" placeholder="邀请人手机号码" readonly></p>
+				<p class="inbox hide"><input type="number" id="invite" placeholder="输入邀请码/邀请人手机号码"></p>
+			</div>
+		</div>
+		<div class="l_btn">
+			<a href="javascript:" class="active" id="register">注册领红包</a>
+		</div>
+		<div class="xieyi">
+			<p><input type="checkbox" checked id="agreement">我已阅读并同意<a href="agreement.html">《正道金服服务协议》</a></p>
+		</div>
+	</div>
+</div>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+	(function() {
+        function pwdVerify(){
+            var regex = new RegExp('^(?=.*[0-9])(?=.*[a-zA-Z])(.{6,16})$');
+            if(!regex.test($("#pwd").val())){
+                $com.app.tip("密码必须为6-16位，数字和英文的组合");
+                return false;
+            }
+        }
+        $("#pwd").change(function () {
+            pwdVerify();
+        })
+		$('.regist_box input').focus(function () {
+		    $(this).parent().addClass('active');
+		}).blur(function () {
+		    $(this).parent().removeClass('active');
+		})
+	    //ios readonly失效问题解决；
+        $('.in_open input').on('focus', function() {
+            $(this).trigger('blur');
+        });
+		var countdown=60; 
+		function settime(obj) { //发送验证码倒计时
+		    if (countdown == 0) { 
+		        obj.removeAttr('disabled');
+		        obj.addClass('verbtn');
+		        obj.val("获取验证码");
+		        countdown = 60; 
+		        return;
+		    } else { 
+		        obj.attr('disabled',true);
+		        obj.val(countdown + "秒后重发");
+		        countdown--; 
+		    } 
+		    setTimeout(function() { 
+		        settime(obj) 
+		    },1000) 
+		}
+		$('#agreement').change(function () {
+			if($(this).is(':checked')){
+			    $('#register').addClass('active');
+			}else{
+                $('#register').removeClass('active');
+			}
+        })
+		$("body").delegate("#btn:not([disabled])", "click", function() {
+			
+			var acc = $("#acc").val();
+
+			if (!acc) {
+				$com.app.tip("请输入手机号");
+				return;
+			}
+
+			$(this).removeClass("verbtn");
+			settime($(this));
+			
+			$com.app.ajax({
+				phone : acc,
+				type : 1,
+				ip : $com.IP,
+				sign : $.md5(acc + "1" + $com.IP + $com.KEY),
+				$TYPE : "post",
+				$URI : "/m/sms/send.json"
+			}, function(data) {
+				//console.log(data);
+			});
+		});
+		
+		$('.in_open').click(function(){
+		    if($('.inbox').hasClass('hide')){
+		        $('.inbox').removeClass('hide');
+		    }else{
+		        $('.inbox').addClass('hide');
+		    }
+		});
+		$("#invite").val($com.uri.getUrlQuery().invite_phone);
+		$("body").delegate("#register.active", "click", function() {
+			var acc = $("#acc").val(),
+				code = $("#code").val(),
+				pwd = $("#pwd").val(),
+				invite = $("#invite").val();
+			$(this).removeClass("active");
+			if (!acc) {
+				$com.app.tip("请输入手机号");
+				recovery()
+				return;
+			}
+			
+			if (!code) {
+				$com.app.tip("请输入验证码");
+				recovery()
+				return;
+			}
+			
+			if (!pwd) {
+				$com.app.tip("请输入密码");
+				recovery()
+				return;
+			} else if (pwd.length < 6 || pwd.length > 16 || pwd.match(/^\w+$/g) == null) {
+				$com.app.tip("密码必须为6-16个字符，数字和英文的组合");
+				recovery();
+				return;
+			}
+            var regex = new RegExp('^(?=.*[0-9])(?=.*[a-zA-Z])(.{6,})$');
+            if(!regex.test($("#pwd").val())){
+                $com.app.tip("密码必须为6-16个字符，数字和英文的组合");
+                recovery();
+                return false;
+            }else{
+                $com.app.ajax({
+                    phone : acc,
+                    passwd : pwd,
+                    ip : $com.IP,
+                    verif : code,
+                    reg_source : 4,
+                    inviter_phone : invite,
+                    invite_source : $com.uri.getUrlQuery().invite_source,
+                    host_role : $com.uri.getUrlQuery().host_role,
+                    sign : $.md5(acc + code + $com.IP + $com.KEY),
+                    $TYPE : "post",
+                    $URI : "/m/user/register.json"
+                }, [function(data) {
+                    $com.cookie.set("user_name", acc);
+					$com.cookie.del("__DIS__");
+					setTimeout(function() {
+						window.location = "../../index.html";
+					}, 10);
+                }, function() {
+                    recovery();
+                }]);
+			}
+			function recovery() {
+				$("#register").addClass("active");
+			}
+		});
+	}());
+</script>
+</body>
+</html>
+

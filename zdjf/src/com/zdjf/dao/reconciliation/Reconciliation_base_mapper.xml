@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.reconciliation.reconciliation">
+<sql id="columns">
+id,
+order_date,
+mer_cust_id,
+invest_cust_id,
+borr_cust_id,
+trans_amt,
+trans_stat,
+pnr_date,
+pnr_seq_id,
+trans_type,
+hf_amt,
+hf_status,
+create_time,
+pro_status,
+order_id
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">  id,</if>
+<if test="order_date != null and order_date != ''">  order_date,</if>
+<if test="mer_cust_id != null and mer_cust_id != ''">  mer_cust_id,</if>
+<if test="invest_cust_id != null and invest_cust_id != ''">  invest_cust_id,</if>
+<if test="borr_cust_id != null and borr_cust_id != ''">  borr_cust_id,</if>
+<if test="trans_amt != null and trans_amt != ''">  trans_amt,</if>
+<if test="trans_stat != null and trans_stat != ''">  trans_stat,</if>
+<if test="pnr_date != null and pnr_date != ''">  pnr_date,</if>
+<if test="pnr_seq_id != null and pnr_seq_id != ''">  pnr_seq_id,</if>
+<if test="trans_type != null and trans_type != ''">  trans_type,</if>
+<if test="hf_amt != null and hf_amt != ''">  hf_amt,</if>
+<if test="hf_status != null and hf_status != ''">  hf_status,</if>
+<if test="create_time != null ">  create_time,</if>
+<if test="pro_status != null and pro_status != ''">  pro_status,</if>
+<if test="order_id != null and order_id != ''">  order_id,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">  #{id},</if>
+<if test="order_date != null and order_date != ''">  #{order_date},</if>
+<if test="mer_cust_id != null and mer_cust_id != ''">  #{mer_cust_id},</if>
+<if test="invest_cust_id != null and invest_cust_id != ''">  #{invest_cust_id},</if>
+<if test="borr_cust_id != null and borr_cust_id != ''">  #{borr_cust_id},</if>
+<if test="trans_amt != null and trans_amt != ''">  #{trans_amt},</if>
+<if test="trans_stat != null and trans_stat != ''">  #{trans_stat},</if>
+<if test="pnr_date != null and pnr_date != ''">  #{pnr_date},</if>
+<if test="pnr_seq_id != null and pnr_seq_id != ''">  #{pnr_seq_id},</if>
+<if test="trans_type != null and trans_type != ''">  #{trans_type},</if>
+<if test="hf_amt != null and hf_amt != ''">  #{hf_amt},</if>
+<if test="hf_status != null and hf_status != ''">  #{hf_status},</if>
+<if test="create_time != null ">  #{create_time},</if>
+<if test="pro_status != null and pro_status != ''">  #{pro_status},</if>
+<if test="order_id != null and order_id != ''">  #{order_id},</if>
+</sql>
+<sql id="conds">
+<if test="id != null and id != ''">  and id = #{id}</if>
+<if test="order_date != null and order_date != ''">  and order_date = #{order_date}</if>
+<if test="mer_cust_id != null and mer_cust_id != ''">  and mer_cust_id = #{mer_cust_id}</if>
+<if test="invest_cust_id != null and invest_cust_id != ''">  and invest_cust_id = #{invest_cust_id}</if>
+<if test="borr_cust_id != null and borr_cust_id != ''">  and borr_cust_id = #{borr_cust_id}</if>
+<if test="trans_amt != null and trans_amt != ''">  and trans_amt = #{trans_amt}</if>
+<if test="trans_stat != null and trans_stat != ''">  and trans_stat = #{trans_stat}</if>
+<if test="pnr_date != null and pnr_date != ''">  and pnr_date = #{pnr_date}</if>
+<if test="pnr_seq_id != null and pnr_seq_id != ''">  and pnr_seq_id = #{pnr_seq_id}</if>
+<if test="trans_type != null and trans_type != ''">  and trans_type = #{trans_type}</if>
+<if test="hf_amt != null and hf_amt != ''">  and hf_amt = #{hf_amt}</if>
+<if test="hf_status != null and hf_status != ''">  and hf_status = #{hf_status}</if>
+<if test="create_time != null ">  and create_time = #{create_time}</if>
+<if test="pro_status != null and pro_status != ''">  and pro_status = #{pro_status}</if>
+<if test="order_id != null and order_id != ''">  and order_id = #{order_id}</if>
+</sql>
+<insert id="saveReconciliation" parameterType="com.zdjf.domain.reconciliation.Reconciliation" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_reconciliation (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectReconciliation" resultType="com.zdjf.domain.reconciliation.ReconciliationVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_reconciliation
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

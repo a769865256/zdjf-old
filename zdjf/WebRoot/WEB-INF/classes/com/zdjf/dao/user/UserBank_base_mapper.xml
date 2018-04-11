@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.userBank">
+	<sql id="columns">
+		id,
+		user_id,
+		bank_no,
+		bank_alias,
+		card_user_name,
+		phone,
+		status,
+		remark,
+		create_time,
+		type,
+		uid,
+		bank_open,
+		province,
+		city,
+		request_no,
+		update_time,
+		card_id,
+		ticket,
+		unbind_ticket,
+		card_attribute
+	</sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''"> id,</if>
+		<if test="user_id != null and user_id != ''"> user_id,</if>
+		<if test="bank_no != null and bank_no != ''"> bank_no,</if>
+		<if test="bank_alias != null and bank_alias != ''"> bank_alias,</if>
+		<if test="card_user_name != null and card_user_name != ''"> card_user_name,</if>
+		<if test="phone != null and phone != ''"> phone,</if>
+		<if test="status != null and status != ''"> status,</if>
+		<if test="remark != null and remark != ''"> remark,</if>
+		<if test="create_time != null"> create_time,</if>
+		<if test="type != null and type != ''"> type,</if>
+		<if test="uid != null and uid != ''"> uid,</if>
+		<if test="bank_open != null and bank_open != ''"> bank_open,</if>
+		<if test="province != null and province != ''"> province,</if>
+		<if test="city != null and city != ''"> city,</if>
+		<if test="request_no != null and request_no != ''"> request_no,</if>
+		<if test="update_time != null"> update_time,</if>
+		<if test="card_id != null and card_id != ''"> card_id,</if>
+		<if test="ticket != null and ticket != ''"> ticket,</if>
+		<if test="unbind_ticket != null and unbind_ticket != ''"> unbind_ticket,</if>
+		<if test="card_attribute != null and card_attribute != ''"> card_attribute,</if>
+	</sql>
+	<sql id="vals">
+		<if test="id != null and id != ''"> #{id},</if>
+		<if test="user_id != null and user_id != ''"> #{user_id},</if>
+		<if test="bank_no != null and bank_no != ''"> #{bank_no},</if>
+		<if test="bank_alias != null and bank_alias != ''"> #{bank_alias},</if>
+		<if test="card_user_name != null and card_user_name != ''"> #{card_user_name},</if>
+		<if test="phone != null and phone != ''"> #{phone},</if>
+		<if test="status != null and status != ''"> #{status},</if>
+		<if test="remark != null and remark != ''"> #{remark},</if>
+		<if test="create_time != null"> #{create_time},</if>
+		<if test="type != null and type != ''"> #{type},</if>
+		<if test="uid != null and uid != ''"> #{uid},</if>
+		<if test="bank_open != null and bank_open != ''"> #{bank_open},</if>
+		<if test="province != null and province != ''"> #{province},</if>
+		<if test="city != null and city != ''"> #{city},</if>
+		<if test="request_no != null and request_no != ''"> #{request_no},</if>
+		<if test="update_time != null"> #{update_time},</if>
+		<if test="card_id != null and card_id != ''"> #{card_id},</if>
+		<if test="ticket != null and ticket != ''"> #{ticket},</if>
+		<if test="unbind_ticket != null and unbind_ticket != ''"> #{unbind_ticket},</if>
+		<if test="card_attribute != null and card_attribute != ''"> #{card_attribute},</if>
+	</sql>
+	<sql id="conds">
+		<if test="id != null and id != ''"> and id = #{id}</if>
+		<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+		<if test="bank_no != null and bank_no != ''"> and bank_no = #{bank_no}</if>
+		<if test="bank_alias != null and bank_alias != ''"> and bank_alias = #{bank_alias}</if>
+		<if test="card_user_name != null and card_user_name != ''"> and card_user_name = #{card_user_name}</if>
+		<if test="phone != null and phone != ''"> and phone = #{phone}</if>
+		<if test="status != null and status != ''"> and status = #{status}</if>
+		<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+		<if test="create_time != null"> and create_time = #{create_time}</if>
+		<if test="type != null and type != ''"> and type = #{type}</if>
+		<if test="uid != null and uid != ''"> and uid = #{uid}</if>
+		<if test="bank_open != null and bank_open != ''"> and bank_open = #{bank_open}</if>
+		<if test="province != null and province != ''"> and province = #{province}</if>
+		<if test="city != null and city != ''"> and city = #{city}</if>
+		<if test="request_no != null and request_no != ''"> and request_no = #{request_no}</if>
+		<if test="card_id != null and card_id != ''"> and card_id = #{card_id}</if>
+		<if test="ticket != null and ticket != ''"> and ticket = #{ticket}</if>
+		<if test="unbind_ticket != null and unbind_ticket != ''"> and unbind_ticket = #{unbind_ticket}</if>
+		<if test="card_attribute != null and card_attribute != ''"> and card_attribute = #{card_attribute}</if>
+		<if test="update_time != null"> and update_time = #{update_time}</if>
+	</sql>
+	<insert id="saveUserBank" parameterType="com.zdjf.domain.user.UserBank" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_user_bank (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	
+	<delete id="deleteUserBank">
+		delete from zd_user_bank
+		where id=#{id}
+	</delete>
+
+	
+	<select id="loadUserBank" resultType="com.zdjf.domain.user.UserBankVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_user_bank
+		where id=#{id}
+	</select>
+	
+	<select id="selectUserBank" resultType="com.zdjf.domain.user.UserBankVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_user_bank
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

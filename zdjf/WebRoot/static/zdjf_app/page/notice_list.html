@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+	<!-- 公共文件 -->
+	<link rel="stylesheet" href="../static/css/style.css"/> <!-- 样式reset -->
+	<link rel="stylesheet" href="../static/css/index.css"/>  <!-- 公用样式 -->
+	<style id="_zoom"></style>
+	<!-- 公共文件end -->
+	<link rel="stylesheet" href="../static/css/notice_list.css"/>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="javascript:history.go(-1)"></a>公告</div>
+<div class="body_content">
+	<ul class="notice_list">
+
+	</ul>
+</div>
+</body>
+<script type="text/javascript" src="../static/js/zoom.js"></script>
+<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../static/js/public.js"></script>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script>
+    (function () {
+        var HTML = {
+            notice_list:['<li>',
+            '<a href="notice_details.html?id={{id}}">',
+            '<div class="word">{{title}}</div>',
+            '<div class="time_row">',
+            '<div class="row fr">',
+            '<img src="../static/img/index/row.png" alt="">',
+            '</div>',
+            '<div class="time fr">{{update_time}}</div>',
+            '</div>',
+            '</a>',
+            '</li>'].join("")
+        }
+        $com.app.ajax({
+            $TYPE : "post",
+            $URI : "/m/news/notice.json"
+        },[function (data) {
+            var notice_l, notice_obj = [];
+            $(data.dataList).each(function (index,ele) {
+                notice_obj.push({
+					id:ele.id,
+					title:ele.title,
+                    update_time:ele.update_time
+				})
+            })
+            notice_l = $com.util.template(notice_obj, HTML.notice_list);
+            $('ul.notice_list').html(notice_l);
+        }]);
+    }());
+</script>
+</html>
+

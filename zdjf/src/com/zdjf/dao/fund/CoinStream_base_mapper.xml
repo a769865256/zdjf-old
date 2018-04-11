@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.coinStream">
+	<sql id="columns">
+		id,
+		user_id,
+		relation_id,
+		action,
+		type,
+		amount,
+		balance,
+		status,
+		remark,
+		create_time,
+		stream_id,
+		uid,
+		old_relation_id,
+		num
+	</sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''"> id,</if>
+		<if test="user_id != null and user_id != ''"> user_id,</if>
+		<if test="relation_id != null and relation_id != ''"> relation_id,</if>
+		<if test="action != null and action != ''"> action,</if>
+		<if test="type != null and type != ''"> type,</if>
+		<if test="amount != null and amount != ''"> amount,</if>
+		<if test="balance != null and balance != ''"> balance,</if>
+		<if test="status != null and status != ''"> status,</if>
+		<if test="remark != null and remark != ''"> remark,</if>
+		<if test="create_time != null"> create_time,</if>
+		<if test="stream_id != null and stream_id != ''"> stream_id,</if>
+		<if test="uid != null and uid != ''"> uid,</if>
+		<if test="old_relation_id != null and old_relation_id != ''"> old_relation_id,</if>
+		<if test="num != null and num != ''"> num,</if>
+	</sql>
+	<sql id="vals">
+		<if test="id != null and id != ''"> #{id},</if>
+		<if test="user_id != null and user_id != ''"> #{user_id},</if>
+		<if test="relation_id != null and relation_id != ''"> #{relation_id},</if>
+		<if test="action != null and action != ''"> #{action},</if>
+		<if test="type != null and type != ''"> #{type},</if>
+		<if test="amount != null and amount != ''"> #{amount},</if>
+		<if test="balance != null and balance != ''"> #{balance},</if>
+		<if test="status != null and status != ''"> #{status},</if>
+		<if test="remark != null and remark != ''"> #{remark},</if>
+		<if test="create_time != null"> #{create_time},</if>
+		<if test="stream_id != null and stream_id != ''"> #{stream_id},</if>
+		<if test="uid != null and uid != ''"> #{uid},</if>
+		<if test="old_relation_id != null and old_relation_id != ''"> #{old_relation_id},</if>
+		<if test="num != null and num != ''"> #{num},</if>
+	</sql>
+	<sql id="conds">
+		<if test="id != null and id != ''"> and id = #{id}</if>
+		<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+		<if test="relation_id != null and relation_id != ''"> and relation_id = #{relation_id}</if>
+		<if test="action != null and action != ''"> and action = #{action}</if>
+		<if test="type != null and type != ''"> and type = #{type}</if>
+		<if test="amount != null and amount != ''"> and amount = #{amount}</if>
+		<if test="balance != null and balance != ''"> and balance = #{balance}</if>
+		<if test="status != null and status != ''"> and status = #{status}</if>
+		<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+		<if test="create_time != null"> and create_time = #{create_time}</if>
+		<if test="stream_id != null and stream_id != ''"> and stream_id = #{stream_id}</if>
+		<if test="uid != null and uid != ''"> and uid = #{uid}</if>
+		<if test="old_relation_id != null and old_relation_id != ''"> and old_relation_id = #{old_relation_id}</if>
+		<if test="num != null and num != ''"> and num = #{num}</if>
+	</sql>
+	<insert id="saveCoinStream" parameterType="com.zdjf.domain.fund.CoinStream" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_coin_stream (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	
+	<delete id="deleteCoinStream">
+		delete from zd_coin_stream
+		where id=#{id}
+	</delete>
+
+	
+	<select id="loadCoinStream" resultType="com.zdjf.domain.fund.CoinStreamVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coin_stream
+		where id=#{id}
+	</select>
+	
+	<select id="selectCoinStream" resultType="com.zdjf.domain.fund.CoinStreamVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coin_stream
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

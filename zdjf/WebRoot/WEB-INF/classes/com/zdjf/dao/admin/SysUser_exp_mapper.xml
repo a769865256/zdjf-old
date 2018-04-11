@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.admin">
+	<sql id="columnsAs">
+		t1.id,t1.login_name,t1.password, t1.real_name, t1.status, t1.last_login_time, t1.last_login_ip, t1.create_time,
+		 t1.update_time,t1.jurisdiction,t1.error_count,t1.error_time
+	</sql>
+
+	<select id="selectSysUserPage" resultType="com.zdjf.domain.admin.SysUser">
+		select
+		<include refid="columnsAs"/>
+		from
+		zd_sys_user t1
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectSysUserCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_sys_user
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	
+	<select id="loginSysUser" resultType="com.zdjf.domain.admin.SysUser" parameterType="com.zdjf.domain.admin.SysUser">
+		select 
+		<include refid="columns"/>
+		from zd_sys_user a
+		where a.login_name=#{login_name}
+	</select>
+	
+</mapper>

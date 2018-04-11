@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>帮助中心</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/find.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="find">
+	<div class="header"><a class="back" href="javascript:history.go(-1);"></a>提现</div>
+	<div class="f_recharge">
+		<div class="recharge_item active">
+			<div class="recharge_item_tit">
+				<div class="yd flex">
+					<img src="../../static/img/help/yd.png" alt="">
+				</div>
+				<div class="recharge_item_tit_word">提现</div>
+				<div class="recharge_item_tit_row flex">
+					<img src="../../static/img/help/row.png" alt="">
+				</div>
+			</div>
+			<ul class="recharge_item_con">
+				<li>
+					<div class="recharge_item_con_tit">
+						<div class="recharge_item_con_tit_con">如何进行提现？</div>
+						<div class="recharge_item_tit_row recharge_item_con_tit_row flex">
+							<img src="../../static/img/help/row.png" alt="">
+						</div>
+					</div>
+					<div class="recharge_item_con_con">
+						<div class="diamond_box">
+							<div class="diamond"></div>
+						</div>
+						<div class="p_box">
+							<p>登录正道金服账户，在“我的 - “提现”中输入您要提现的金额，确认提现银行卡，跳转上海银行页面核对所提现信息，输入交易密码即可提现成功。</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="recharge_item_con_tit">
+						<div class="recharge_item_con_tit_con"> 提现需要收费吗？</div>
+						<div class="recharge_item_tit_row recharge_item_con_tit_row flex">
+							<img src="../../static/img/help/row.png" alt="">
+						</div>
+					</div>
+					<div class="recharge_item_con_con">
+						<div class="diamond_box">
+							<div class="diamond"></div>
+						</div>
+						<div class="p_box">
+							<p>为庆祝上海银行存管系统正式上线，平台特此推出“提现免手续费”活动以回馈广大用户。至下一新版本上线之前，正道金服所有理财投资人，申请提现无论金额大小均不收取任何手续费，提现手续费由正道金服垫付。</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="recharge_item_con_tit">
+						<div class="recharge_item_con_tit_con">申请提现后多久到账？</div>
+						<div class="recharge_item_tit_row recharge_item_con_tit_row flex">
+							<img src="../../static/img/help/row.png" alt="">
+						</div>
+					</div>
+					<div class="recharge_item_con_con">
+						<div class="diamond_box">
+							<div class="diamond"></div>
+						</div>
+						<div class="p_box">
+							<p>上海银行在收到您的提现申请后，将于T+1个自然日内将资金转入您本人绑定的银行卡账户中。具体到账时间请参考：<br>
+								（1）平日的提现申请，银行当天处理， T+1个自然日到账。<br>
+								（2）法定节假日的提现申请，到账日统一以平台公告为准。<br>
+								（3）由于银行处理业务的时间不同，具体到账时间请以银行为准，如有疑问，请致电您的提现银行。
+							</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="recharge_item_con_tit">
+						<div class="recharge_item_con_tit_con">为什么提现会失败？</div>
+						<div class="recharge_item_tit_row recharge_item_con_tit_row flex">
+							<img src="../../static/img/help/row.png" alt="">
+						</div>
+					</div>
+					<div class="recharge_item_con_con">
+						<div class="diamond_box">
+							<div class="diamond"></div>
+						</div>
+						<div class="p_box">
+							<p>（1）提现的银行卡在平台预留的银行信息有误<br>
+								（2）银行卡出现过期、挂失、作废等情况<br>
+								如果出现其他提现失败的情况，请联系在线客服处理，或拨打客服热线100-690-9898。
+							</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="recharge_item_con_tit">
+						<div class="recharge_item_con_tit_con">提现有限额吗？</div>
+						<div class="recharge_item_tit_row recharge_item_con_tit_row flex">
+							<img src="../../static/img/help/row.png" alt="">
+						</div>
+					</div>
+					<div class="recharge_item_con_con">
+						<div class="diamond_box">
+							<div class="diamond"></div>
+						</div>
+						<div class="p_box">
+							<p>上海银行存管上线后，目前提现均不设置限额。</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../../static/js/zepto.js"></script>
+<script type="text/javascript" src="../../static/js/find.js"></script>
+<script>
+    $(function(){
+        window.android.fundBackBtn();
+    });
+</script>
+</body>
+</html>
+

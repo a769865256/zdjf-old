@@ -1,0 +1,12 @@
+.error{overflow: hidden;width: 100%;}
+.error .errorCentent{padding: 69px 0 67px 0;display: flex;flex-direction: column;align-items: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-moz-flex-direction: column;-moz-align-items: center;-ms-flex-direction: column;-ms-align-items: center;}
+.error .errorCentent img.error_404{margin-bottom: 30px;}
+.error .errorCentent img.ewm{margin: 14px 0;}
+.error .errorCentent p{font-size: 16px;}
+.error .errorCentent p:nth-of-type(1){margin-bottom: 28px;}
+.error .errorCentent p:nth-of-type(2){color: #1088F1;}
+.error .errorCentent p:last-child{font-size: 14px;color: #333333;}
+.error .errorCentent p span{}
+.error .errorCentent p a{color: #1088F1;margin-left: 16px;}
+
+

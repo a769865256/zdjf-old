@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>撤销投资</title>
+    <link rel="stylesheet" type="text/css" href="/index/css/public.css?t=120161222">
+    <link rel="stylesheet" type="text/css" href="/index/css/index.css?t=20161222">
+    <style>
+        .banner {
+            height: 415px;
+            margin: 70px 0;
+            height: 415px;
+            margin: 70px auto;
+            width: 800px;
+            border: 1px solid #b5b5b5;
+            border-radius: 8px;
+            /* padding-top: 50px; */
+            box-sizing: border-box;
+        }
+        
+        .listbox {
+            height: 45px;
+            text-align: center;
+        }
+        
+        .banner p {
+            height: 60px;
+            line-height: 60px;
+            border-bottom: 1px solid #b5b5b5;
+            font-size: 18px;
+            padding-left: 40px;
+            margin-bottom: 80px;
+        }
+        
+        input {
+            width: 273px;
+            height: 38px;
+            line-height: 38px;
+            border: 1px solid #b5b5b5;
+            border-radius: 5px;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+        
+        input:hover {
+            box-shadow: 0px 0px 5px #ff6456;
+            border: 1px solid #ff6456;
+            outline: medium none;
+        }
+        
+        input:focus {
+            box-shadow: 0px 0px 5px #ff6456;
+            border: 1px solid #ff6456;
+            outline: medium none;
+        }
+        
+        .submit {
+            width: 273px;
+            height: 38px;
+            line-height: 38px;
+            background-color: #ff6456;
+            border-radius: 5px;
+            color: #FFF;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            margin-left: 78px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="siteNav"></div>
+    <!-- header -->
+
+    <div id="header"></div>
+    <div class="banner">
+        <p> 绑卡</p>
+        <div class="listbox"><span>手机号码：</span> <input class="phone" type="text" /></div>
+
+        <div class="listbox"><button class="submit"> 确认</button></div>
+    </div>
+    <div class="height50"></div>
+    <div id="bottom"></div>
+    <script type="text/javascript" src="/index/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/index/js/common.js?t=20161108"></script>
+    <script type="text/javascript" src="/common/ui-common.js"></script>
+</body>
+
+<script type="text/javascript">
+    $(function() {
+        var API_ROOT = {
+            Host: "http://" + window.location.host,
+            Active: ""
+        };
+
+        //本地接口api用
+        API_ROOT.Active = API_ROOT.Host.indexOf('web') >= 0 ? (API_ROOT.Host + '/api') : API_ROOT.Host;
+        var uid, transAmt, ordId, orderDate;
+        uid = UserPhone ? UserPhone : -1;
+
+        $(".submit").click(function() {
+            if (uid == -1) {
+                window.location.href = "/user/login?url=/index/cancel.html?re=pc"
+            } else {
+                phone = $(".phone").val();
+
+                $.ajax({
+                    url: API_ROOT.Active + 'act/querycard',
+                    type: "post",
+                    data: {
+                        phone: phone
+                    },
+                    success: function(data) {
+                        if (data.respCode == 000) {
+                            alert("成功")
+                        }
+                    }
+                })
+            }
+        })
+    });
+</script>
+
+</html>

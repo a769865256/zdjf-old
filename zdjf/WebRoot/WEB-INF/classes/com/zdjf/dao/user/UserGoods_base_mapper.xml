@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.userGoods">
+	<sql id="columns">
+		id,
+		user_id,
+		product_id,
+		goods_type,
+		relation_id,
+		price,
+		num,
+		amount,
+		derate_amount,
+		pay_amount,
+		status,
+		remark,
+		create_time,
+		update_time,
+		uid,
+		goods_id,
+		old_relation_id
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''">  id,</if>
+	<if test="user_id != null and user_id != ''">  user_id,</if>
+	<if test="product_id != null and product_id != ''">  product_id,</if>
+	<if test="goods_type != null and goods_type != ''">  goods_type,</if>
+	<if test="relation_id != null and relation_id != ''">  relation_id,</if>
+	<if test="price != null and price != ''">  price,</if>
+	<if test="num != null and num != ''">  num,</if>
+	<if test="amount != null and amount != ''">  amount,</if>
+	<if test="derate_amount != null and derate_amount != ''">  derate_amount,</if>
+	<if test="pay_amount != null and pay_amount != ''">  pay_amount,</if>
+	<if test="status != null and status != ''">  status,</if>
+	<if test="remark != null and remark != ''">  remark,</if>
+	<if test="create_time != null">  create_time,</if>
+	<if test="update_time != null">  update_time,</if>
+	<if test="uid != null and uid != ''">  uid,</if>
+	<if test="goods_id != null and goods_id != ''">  goods_id,</if>
+	<if test="old_relation_id != null and old_relation_id != ''">  old_relation_id,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''"> #{ id},</if>
+	<if test="user_id != null and user_id != ''"> #{ user_id},</if>
+	<if test="product_id != null and product_id != ''"> #{ product_id},</if>
+	<if test="goods_type != null and goods_type != ''"> #{ goods_type},</if>
+	<if test="relation_id != null and relation_id != ''"> #{ relation_id},</if>
+	<if test="price != null and price != ''"> #{ price},</if>
+	<if test="num != null and num != ''"> #{ num},</if>
+	<if test="amount != null and amount != ''"> #{ amount},</if>
+	<if test="derate_amount != null and derate_amount != ''"> #{ derate_amount},</if>
+	<if test="pay_amount != null and pay_amount != ''"> #{ pay_amount},</if>
+	<if test="status != null and status != ''"> #{ status},</if>
+	<if test="remark != null and remark != ''"> #{ remark},</if>
+	<if test="create_time != null"> #{ create_time},</if>
+	<if test="update_time != null"> #{ update_time},</if>
+	<if test="uid != null and uid != ''"> #{ uid},</if>
+	<if test="goods_id != null and goods_id != ''"> #{ goods_id},</if>
+	<if test="old_relation_id != null and old_relation_id != ''"> #{ old_relation_id},</if>
+	</sql>
+	<sql id="conds">
+		<if test="id != null and id != ''">  and id = #{id}</if>
+		<if test="user_id != null and user_id != ''">  and user_id = #{user_id}</if>
+		<if test="product_id != null and product_id != ''">  and product_id = #{product_id}</if>
+		<if test="goods_type != null and goods_type != ''">  and goods_type = #{goods_type}</if>
+		<if test="relation_id != null and relation_id != ''">  and relation_id = #{relation_id}</if>
+		<if test="price != null and price != ''">  and price = #{price}</if>
+		<if test="num != null and num != ''">  and num = #{num}</if>
+		<if test="amount != null and amount != ''">  and amount = #{amount}</if>
+		<if test="derate_amount != null and derate_amount != ''">  and derate_amount = #{derate_amount}</if>
+		<if test="pay_amount != null and pay_amount != ''">  and pay_amount = #{pay_amount}</if>
+		<if test="status != null and status != ''">  and status = #{status}</if>
+		<if test="remark != null and remark != ''">  and remark = #{remark}</if>
+		<if test="create_time != null">  and create_time = #{create_time}</if>
+		<if test="update_time != null">  and update_time = #{update_time}</if>
+		<if test="uid != null and uid != ''">  and uid = #{uid}</if>
+		<if test="goods_id != null and goods_id != ''">  and goods_id = #{goods_id}</if>
+		<if test="old_relation_id != null and old_relation_id != ''">  and old_relation_id = #{old_relation_id}</if>
+  	</sql>
+  	
+  	<insert id="saveUserGoods" parameterType="com.zdjf.domain.user.UserGoods" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_user_goods (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectUserGoods" resultType="com.zdjf.domain.user.UserGoodsVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_user_goods
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteUserGoods">
+		delete from zd_user_goods
+		where id=#{id}
+	</delete>
+</mapper>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../css/front/register.css">
+</head>
+<body>
+	<!-- header -->
+	<div class="header"></div>
+	<!-- header end -->
+
+	<!-- content -->
+	<div class="realname">
+		<div class="realbox">
+			<h3>开通上海银行存管账户</h3>
+			<div class="statebox">
+				<div class="state active"><i class="iconfont">1</i><p>实名认证</p></div>
+				<div class="line go_two"></div>
+				<div class="state bank"><i class="iconfont">2</i><p>绑定银行卡</p></div>
+				<div class="line go_three"></div>
+				<div class="state paypassword"><i class="iconfont">3</i><p>设置支付密码</p></div>
+			</div>
+			<div class="name_one" style="display: none;">
+				<ul>
+					<li>
+						<span>真实姓名:</span><input type="text" placeholder="请输入真实姓名">
+						<div class="error">请输入真实姓名</div>
+					</li>
+					<li>
+						<span>身份证号:</span><input type="text" placeholder="请输入身份证号">
+						<div class="error">请输入真实姓名</div>
+					</li>
+					<li>
+						<a href="javascript:" class="next_one">下一步</a>
+						<p>* 必须开通上海银行存管账户才能进行投资、提现、充值等操作</p>
+					</li>
+				</ul>
+			</div>
+			<div class="name_two">
+				<ul>
+					<li>
+						<span>借记卡号:</span><input class="two_bank debit_card" type="text" placeholder="请输入借记卡号">
+						<div class="addform">
+							<div class="layui-form">
+								<div class="layui-form-item">
+							    	<div class="layui-inline" style="width: 100%;">
+							      		<div class="layui-input-inline" style="width: 100%;">
+									        <select name="bank_accounts" id="bank_accounts" class="bank_accounts">
+									          	<option value="">请选择开户行</option>
+									          	<option value="CCB">中国建设银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+												<option value="CMB">招商银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+									          	<option value="CITIC">中信银行</option>
+												<optgroup label="单笔限额5千元，单卡单日限额2万元，每月限额5万"></optgroup>
+									          	<option value="CIB">兴业银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>
+									          	<option value="BOS">上海银行</option>
+												<optgroup label="单笔限额5千元，单卡单日限额1万元，每月限额2万元"></optgroup>
+									          	<option value="PSBC">邮政储蓄银行</option>
+									          	<optgroup label="单笔限额5千元，单卡单日限额5千元"></optgroup>
+									          	<option value="SZPAB">平安银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>
+									          	<option value="SPDB">浦发银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>
+									          	<option value="COMM">交通银行</option>
+									          	<optgroup label="单笔限额9999元，单卡单日限额50万元"></optgroup>
+									          	<option value="GDB">广发银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+									          	<option value="HXB">华夏银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额30万元"></optgroup>
+									          	<option value="BOC">中国银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+									          	<option value="ABC">中国农业银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额20万元"></optgroup>
+									          	<option value="ICBC">中国工商银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额10万元"></optgroup>
+									          	<option value="CEB">光大银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>	
+									        </select>
+								    	</div>
+									</div>
+								</div>
+							</div>	
+							<div class="add_lyu">
+								<select name="province" id="province" class="province">
+									<option value="">省</option>
+									<option value="010">北京</option>
+									<option value="021">上海</option>
+									<option value="0571">杭州</option>
+								</select>
+								<select name="city" id="city" class="city">
+									<option value="">市</option>
+									<option value="010">北京</option>
+									<option value="021">上海</option>
+									<option value="0571">杭州</option>
+								</select>
+								<i class="sanjiao provincesj"></i>
+								<i class="sanjiao citysj"></i>
+							</div>
+						</div>
+						<div class="error">请输入真实姓名</div>
+					</li>
+					<li>
+						<span>预留手机号:</span><input class="two_bank" type="text" placeholder="请输入银行预留手机号">
+						<div class="error">请输入真实姓名</div>
+					</li>
+					<li class="verification">
+						<span>短信验证码:</span><input type="text" class="two_message" placeholder="请输入短信验证码"><input type="button" class="" id="btn3" value="获取验证码" onclick="sendemail()" />
+						<div class="error">请输入真实姓名</div>
+					</li>
+					<li>
+						<a href="javascript:" class="next_two">下一步</a>
+						<p>* 必须开通上海银行存管账户才能进行投资、提现、充值等操作</p>
+					</li>
+				</ul>
+			</div>
+			<div class="name_three" style="display: none;">
+				<ul>
+					<li><p>设置支付密码后方可进行操作</p></li>
+					<li>
+						<a href="javascript:" class="next_three">前往设置</a>
+						<p class="next_threetxt">* 必须开通上海银行存管账户才能进行投资、提现、充值等操作</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+
+	<!-- footer -->
+	<!-- footer -->
+	<div id="footer">
+		<div class="f_top">
+			<div class="top_one">
+				<div class="topbox">
+					<span>信息披露</span>
+					<a href="javascript:">平台数据</a>
+					<a href="javascript:">安全保障</a>
+					<a href="javascript:">公司简介</a>
+					<a href="javascript:">公司事记</a>
+					<a href="javascript:">公司动态</a>
+					<a href="javascript:">联系我们</a>
+				</div>
+				<div class="topbox">
+					<span>帮助中心</span>
+					<a href="javascript:">常见问题</a>
+					<a href="javascript:">投资指南</a>
+					<a href="javascript:">会员福利</a>
+					<a href="javascript:">资金存管</a>
+					<a href="javascript:">其他问题</a>
+				</div>
+				<div class="topbox">
+					<span>新手指南</span>
+					<a href="javascript:">注册登录</a>
+					<a href="javascript:">充值提现</a>
+					<a href="javascript:">投资理财</a>
+				</div>
+			</div>
+			<div class="top_two">
+				<ul>
+					<li><p>官方微信</p></li><li><p>移动客户端</p></li>
+				</ul>
+			</div>
+			<div class="top_three">
+				<div class="tlt">全国服务热线</div>
+				<p class="txt">400-690-9898</p>
+				<p class="txt">0571-56929127</p>
+				<div class="tlt addtlt">
+					<p>工作日: 9:00-19:00</p>
+					<p>节假日: 10:00-17:30</p>
+				</div>
+				<div class="tlt">官方交流QQ群：463637911</div>
+				<div class="police"></div>
+			</div>
+		</div>
+		<div class="f_bot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有　ICP经营许可证：浙B2-20170101 浙ICP备1</div>
+	</div>
+	<!-- footer end -->
+    <script src="../../../module/jquery/jquery.min.js"></script>
+    <script src="../../../module/sticky-header.js"></script>
+    <script src="../../../module/layui/layui.js"></script>
+    <script src="../../../js/front/realname.js"></script>
+    <script type="text/javascript">
+    	$('.header').stickMe({
+			topOffset:100
+		});
+    </script>
+</body>
+</html>

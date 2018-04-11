@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/login.css"/>
+	<link rel="stylesheet" href="../../static/css/login_source.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="login_source">
+	<div class="bg_img" style="width:100%;height:3705px;">
+		<img src="../../static/img/login/bg_lq.jpg" alt="" style="width:100%;height:3705px;">
+	</div>
+	<div class="register_box">
+		<div class="register_sbox">
+			<div class="register_item">
+				<div class="icon flex">
+					<img src="../../static/img/login/icon1.png" alt="">
+				</div>
+				<div class="input">
+					<input type="number" class="ph_num" id="acc" placeholder="输入手机号码">
+				</div>
+			</div>
+			<div class="register_item">
+				<div class="icon flex">
+					<img src="../../static/img/login/icon2.png" alt="">
+				</div>
+				<div class="input">
+					<input type="password" id="pwd" class="ph_num" placeholder="设置6-16位数字+英文组合的登录密码">
+				</div>
+			</div>
+			<div class="register_item">
+				<div class="icon flex">
+					<img src="../../static/img/login/icon3.png" alt="">
+				</div>
+				<div class="input">
+					<input type="number" class="ph_num" id="code" placeholder="请输入短信验证码">
+				</div>
+				<div class="code">
+					<input type="button" class="verbtn btn2" id="btn" value="获取验证码">
+				</div>
+			</div>
+		</div>
+		<div class="register_submit">
+			<a href="javascript:;" id="register">立即注册</a>
+		</div>
+	</div>
+</div>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script src="../../static/js/reg_source.js"></script>
+</body>
+</html>
+

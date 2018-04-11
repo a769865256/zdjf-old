@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.guarantee">
+	<sql id="columnsAs">
+		t1.id, t1.amount, t1.lender_type, t1.name,
+		t1.phone,t1.idcard,t1.marital,t1.address,t1.comp_alias,t1.comp_name,
+		t1.comp_code,t1.reg_date,t1.reg_money,t1.comp_address,t1.status,t1.create_time,t1.remark,t1.user_type,t1.user_id
+	</sql>
+
+	<select id="selectGuaranteePage" resultType="com.zdjf.domain.file.Guarantee">
+		select
+		<include refid="columnsAs" />
+		from
+		zd_guarantee t1
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+
+	<select id="selectGuaranteeCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_guarantee
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<!-- 批量插入 -->
+	<insert id="insertGuaranteeBatch" parameterType="java.util.List">
+		<selectKey resultType="Long" keyProperty="id" order="AFTER">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+		insert into zd_guarantee
+		id,
+		from_id,
+		create_time,
+		guarantee_name,
+		guarantee_desc,
+		guarantee_num
+		values
+		<foreach collection="list" item="reddemCode" index="index"
+			separator=",">
+			(
+			#{reddemCode.id},
+			#{reddemCode.from_id},
+			#{reddemCode.create_time},
+			#{reddemCode.guarantee_name},
+			#{reddemCode.guarantee_desc},
+			#{reddemCode.guarantee_num}
+			)
+		</foreach>
+	</insert>
+
+
+</mapper>

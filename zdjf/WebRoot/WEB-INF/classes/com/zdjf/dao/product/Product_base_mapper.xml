@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product">
+
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id, product_code, product_name, status, debt_code,is_serial,serial_no,is_fresh,ensure_type,mortgage_type,start_date,will_end_date,
+		end_date,debt_money,money,sale_money,balance,buyer_count,pay_min,pay_add,pay_max,income,income_offline,income_method,return_method,
+		online,remark,create_id,create_time,audit_id,audit_time,issue_time,full_time,order_no,photo,label,will_issue_time,will_show_time,act_show_time,
+		advance_status,advance_date,is_send_msg,platform_interest,product_type,return_days,product_id,home_order,home_stats,lender_id,loan_id,product_desc,
+		lend_use,protect_msg,protect_mode,fill_time,loan_time
+   </sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''"> id,</if>
+		<if test="product_code != null and product_code != ''"> product_code,</if>
+		<if test="product_name != null and product_name != ''"> product_name,</if>
+		<if test="status != null and status != ''"> status,</if>
+		<if test="debt_code != null and debt_code != ''"> debt_code,</if>
+		<if test="is_serial != null and is_serial != ''"> is_serial,</if>
+		<if test="serial_no != null and serial_no != ''"> serial_no,</if>
+		<if test="is_fresh != null and is_fresh != ''"> is_fresh,</if>
+		<if test="ensure_type != null and ensure_type != ''"> ensure_type,</if>
+		<if test="mortgage_type != null and mortgage_type != ''"> mortgage_type,</if>
+		<if test="start_date != null"> start_date,</if>
+		<if test="will_end_date != null"> will_end_date,</if>
+		<if test="end_date != null"> end_date,</if>
+		<if test="debt_money != null and debt_money != ''"> debt_money,</if>
+		<if test="money != null and money != ''"> money,</if>
+		<if test="sale_money != null and sale_money != ''"> sale_money,</if>
+		<if test="balance != null and balance != ''"> balance,</if>
+		<if test="buyer_count != null and buyer_count != ''"> buyer_count,</if>
+		<if test="pay_min != null and pay_min != ''"> pay_min,</if>
+		<if test="pay_add != null and pay_add != ''"> pay_add,</if>
+		<if test="pay_max != null and pay_max != ''"> pay_max,</if>
+		<if test="income != null and income != ''"> income,</if>
+		<if test="income_offline != null and income_offline != ''"> income_offline,</if>
+		<if test="income_method != null and income_method != ''"> income_method,</if>
+		<if test="return_method != null and return_method != ''"> return_method,</if>
+		<if test="online != null and online != ''"> online,</if>
+		<if test="remark != null and remark != ''"> remark,</if>
+		<if test="create_id != null and create_id != ''"> create_id,</if>
+		<if test="create_time != null"> create_time,</if>
+		<if test="audit_id != null and audit_id != ''"> audit_id,</if>
+		<if test="audit_time != null"> audit_time,</if>
+		<if test="issue_time != null"> issue_time,</if>
+		<if test="full_time != null"> full_time,</if>
+		<if test="order_no != null and order_no != ''"> order_no,</if>
+		<if test="photo != null and photo != ''"> photo,</if>
+		<if test="label != null and label != ''"> label,</if>
+		<if test="will_issue_time != null"> will_issue_time,</if>
+		<if test="will_show_time != null"> will_show_time,</if>
+		<if test="act_show_time != null"> act_show_time,</if>
+		<if test="advance_status != null and advance_status != ''"> advance_status,</if>
+		<if test="advance_date != null"> advance_date,</if>
+		<if test="is_send_msg != null and is_send_msg != ''"> is_send_msg,</if>
+		<if test="platform_interest != null and platform_interest != ''"> platform_interest,</if>
+		<if test="product_type != null and product_type != ''"> product_type,</if>
+		<if test="return_days != null and return_days != ''"> return_days,</if>
+		<if test="product_id != null and product_id != ''"> product_id,</if>
+		<if test="home_stats != null and home_stats != ''"> home_stats,</if>
+		<if test="home_order != null and home_order != ''"> home_order,</if>
+		<if test="lender_id != null and lender_id != ''"> lender_id,</if>
+		<if test="product_desc != null and product_desc != ''"> product_desc,</if>
+		<if test="lend_use != null and lend_use != ''"> lend_use,</if>
+		<if test="protect_msg != null and protect_msg != ''"> protect_msg,</if>
+		<if test="protect_mode != null and protect_mode != ''"> protect_mode,</if>
+		<if test="loan_id != null and loan_id != ''"> loan_id,</if>
+		<if test="fill_time != null"> fill_time,</if>
+		<if test="loan_time != null"> loan_time,</if>
+	</sql>
+	<sql id="vals">
+		<if test="id != null and id != ''"> #{id},</if>
+		<if test="product_code != null and product_code != ''"> #{product_code},</if>
+		<if test="product_name != null and product_name != ''"> #{product_name},</if>
+		<if test="status != null and status != ''"> #{status},</if>
+		<if test="debt_code != null and debt_code != ''"> #{debt_code},</if>
+		<if test="is_serial != null and is_serial != ''"> #{is_serial},</if>
+		<if test="serial_no != null and serial_no != ''"> #{serial_no},</if>
+		<if test="is_fresh != null and is_fresh != ''"> #{is_fresh},</if>
+		<if test="ensure_type != null and ensure_type != ''"> #{ensure_type},</if>
+		<if test="mortgage_type != null and mortgage_type != ''"> #{mortgage_type},</if>
+		<if test="start_date != null"> #{start_date},</if>
+		<if test="will_end_date != null"> #{will_end_date},</if>
+		<if test="end_date != null"> #{end_date},</if>
+		<if test="debt_money != null and debt_money != ''"> #{debt_money},</if>
+		<if test="money != null and money != ''"> #{money},</if>
+		<if test="sale_money != null and sale_money != ''"> #{sale_money},</if>
+		<if test="balance != null and balance != ''"> #{balance},</if>
+		<if test="buyer_count != null and buyer_count != ''"> #{buyer_count},</if>
+		<if test="pay_min != null and pay_min != ''"> #{pay_min},</if>
+		<if test="pay_add != null and pay_add != ''"> #{pay_add},</if>
+		<if test="pay_max != null and pay_max != ''"> #{pay_max},</if>
+		<if test="income != null and income != ''"> #{income},</if>
+		<if test="income_offline != null and income_offline != ''"> #{income_offline},</if>
+		<if test="income_method != null and income_method != ''"> #{income_method},</if>
+		<if test="return_method != null and return_method != ''"> #{return_method},</if>
+		<if test="online != null and online != ''"> #{online},</if>
+		<if test="remark != null and remark != ''"> #{remark},</if>
+		<if test="create_id != null and create_id != ''"> #{create_id},</if>
+		<if test="create_time != null"> #{create_time},</if>
+		<if test="audit_id != null and audit_id != ''"> #{audit_id},</if>
+		<if test="audit_time != null"> #{audit_time},</if>
+		<if test="issue_time != null"> #{issue_time},</if>
+		<if test="full_time != null"> #{full_time},</if>
+		<if test="order_no != null and order_no != ''"> #{order_no},</if>
+		<if test="photo != null and photo != ''"> #{photo},</if>
+		<if test="label != null and label != ''"> #{label},</if>
+		<if test="will_issue_time != null"> #{will_issue_time},</if>
+		<if test="will_show_time != null"> #{will_show_time},</if>
+		<if test="act_show_time != null"> #{act_show_time},</if>
+		<if test="advance_status != null and advance_status != ''"> #{advance_status},</if>
+		<if test="advance_date != null"> #{advance_date},</if>
+		<if test="is_send_msg != null and is_send_msg != ''"> #{is_send_msg},</if>
+		<if test="platform_interest != null and platform_interest != ''"> #{platform_interest},</if>
+		<if test="product_type != null and product_type != ''"> #{product_type},</if>
+		<if test="return_days != null and return_days != ''"> #{return_days},</if>
+		<if test="product_id != null and product_id != ''"> #{product_id},</if>
+		<if test="home_stats != null and home_stats != ''"> #{home_stats},</if>
+		<if test="home_order != null and home_order != ''"> #{home_order},</if>
+		<if test="lender_id != null and lender_id != ''"> #{lender_id},</if>
+		<if test="product_desc != null and product_desc != ''"> #{product_desc},</if>
+		<if test="lend_use != null and lend_use != ''"> #{lend_use},</if>
+		<if test="protect_msg != null and protect_msg != ''"> #{protect_msg},</if>
+		<if test="protect_mode != null and protect_mode != ''"> #{protect_mode},</if>
+		<if test="loan_id != null and loan_id != ''"> #{loan_id},</if>
+		<if test="fill_time != null"> #{fill_time},</if>
+		<if test="loan_time != null"> #{loan_time},</if>
+	</sql>
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''"> and id = #{id}</if>
+		<if test="product_code != null and product_code != ''"> and product_code = #{product_code}</if>
+		<if test="product_name != null and product_name != ''"> and product_name = #{product_name}</if>
+		<if test="status != null and status != ''"> and status = #{status}</if>
+		<if test="debt_code != null and debt_code != ''"> and debt_code = #{debt_code}</if>
+		<if test="is_serial != null and is_serial != ''"> and is_serial = #{is_serial}</if>
+		<if test="serial_no != null and serial_no != ''"> and serial_no = #{serial_no}</if>
+		<if test="is_fresh != null and is_fresh != ''"> and is_fresh = #{is_fresh}</if>
+		<if test="ensure_type != null and ensure_type != ''"> and ensure_type = #{ensure_type}</if>
+		<if test="mortgage_type != null and mortgage_type != ''"> and mortgage_type = #{mortgage_type}</if>
+		<if test="start_date != null"> and start_date = #{start_date}</if>
+		<if test="will_end_date != null"> and will_end_date = #{will_end_date}</if>
+		<if test="end_date != null"> and end_date = #{end_date}</if>
+		<if test="debt_money != null and debt_money != ''"> and debt_money = #{debt_money}</if>
+		<if test="money != null and money != ''"> and money = #{money}</if>
+		<if test="sale_money != null and sale_money != ''"> and sale_money = #{sale_money}</if>
+		<if test="balance != null and balance != ''"> and balance = #{balance}</if>
+		<if test="buyer_count != null and buyer_count != ''"> and buyer_count = #{buyer_count}</if>
+		<if test="pay_min != null and pay_min != ''"> and pay_min = #{pay_min}</if>
+		<if test="pay_add != null and pay_add != ''"> and pay_add = #{pay_add}</if>
+		<if test="pay_max != null and pay_max != ''"> and pay_max = #{pay_max}</if>
+		<if test="income != null and income != ''"> and income = #{income}</if>
+		<if test="income_offline != null and income_offline != ''"> and income_offline = #{income_offline}</if>
+		<if test="income_method != null and income_method != ''"> and income_method = #{income_method}</if>
+		<if test="return_method != null and return_method != ''"> and return_method = #{return_method}</if>
+		<if test="online != null and online != ''"> and online = #{online}</if>
+		<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+		<if test="create_id != null and create_id != ''"> and create_id = #{create_id}</if>
+		<if test="create_time != null"> and create_time = #{create_time}</if>
+		<if test="audit_id != null and audit_id != ''"> and audit_id = #{audit_id}</if>
+		<if test="audit_time != null"> and audit_time = #{audit_time}</if>
+		<if test="issue_time != null"> and issue_time = #{issue_time}</if>
+		<if test="full_time != null"> and full_time = #{full_time}</if>
+		<if test="order_no != null and order_no != ''"> and order_no = #{order_no}</if>
+		<if test="photo != null and photo != ''"> and photo = #{photo}</if>
+		<if test="label != null and label != ''"> and label = #{label}</if>
+		<if test="will_issue_time != null"> and will_issue_time = #{will_issue_time}</if>
+		<if test="will_show_time != null"> and will_show_time = #{will_show_time}</if>
+		<if test="act_show_time != null"> and act_show_time = #{act_show_time}</if>
+		<if test="advance_status != null and advance_status != ''"> and advance_status = #{advance_status}</if>
+		<if test="advance_date != null"> and advance_date = #{advance_date}</if>
+		<if test="is_send_msg != null and is_send_msg != ''"> and is_send_msg = #{is_send_msg}</if>
+		<if test="platform_interest != null and platform_interest != ''"> and platform_interest = #{platform_interest}</if>
+		<if test="product_type != null and product_type != ''"> and product_type = #{product_type}</if>
+		<if test="return_days != null and return_days != ''"> and return_days = #{return_days}</if>
+		<if test="product_id != null and product_id != ''"> and product_id = #{product_id}</if>
+		<if test="home_stats != null and home_stats != ''"> and home_stats = #{home_stats}</if>
+		<if test="home_order != null and home_order != ''"> and home_order = #{home_order}</if>
+		<if test="lender_id != null and lender_id != ''"> and lender_id = #{lender_id}</if>
+		<if test="loan_id != null and loan_id != ''"> and loan_id = #{loan_id}</if>
+		<if test="product_desc != null and product_desc != ''"> and product_desc = #{product_desc}</if>
+		<if test="lend_use != null and lend_use != ''"> and lend_use = #{lend_use}</if>
+		<if test="protect_msg != null and protect_msg != ''"> and protect_msg = #{protect_msg}</if>
+		<if test="protect_mode != null and protect_mode != ''"> and protect_mode = #{protect_mode}</if>
+		<if test="fill_time != null"> and fill_time = #{fill_time}</if>
+		<if test="loan_time != null"> and loan_time = #{loan_time}</if>
+	</sql>
+	
+	
+	<insert id="saveProduct" parameterType="com.zdjf.domain.product.Product" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_product (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectProduct" resultType="com.zdjf.domain.product.ProductVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteProduct">
+		delete from zd_product
+		where id=#{id}
+	</delete>
+
+
+</mapper>

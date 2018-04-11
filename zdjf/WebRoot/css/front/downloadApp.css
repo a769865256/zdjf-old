@@ -1,0 +1,29 @@
+.download{width: 100%;max-width: 1920px;min-width: 1200px;margin: 0 auto;overflow: hidden;}
+.top{width: 100%;height: 800px;background: url(../../images/front/img/downloadApp/top_bj.jpg) center no-repeat;position: relative;}
+.top .ios,.top .Android{width: 184px;height: 50px;line-height: 50px;text-align: center;position: absolute;}
+.top .ios{top: 504px;left: 50%;background: #FFF;border-radius: 2px ;}
+.top .ios a{color: #1088F1;font-size:18px;display: flex;display: -webkit-flex;flex-direction: row;align-items: center;justify-content: center;-webkit-flex-direction: row;-webkit-align-items: center;-webkit-justify-content: center;}
+.top .ios a i{margin-right: 11px;background: url(../../images/front/img/downloadApp/ios_check.png) center no-repeat;display: inline-block;width: 23px;height: 28px; }
+.top .Android{top: 548px;left: 50%;border-radius: 2px ;border: 1px solid #fff;}
+.top .Android a{color: #fff;font-size:18px;display: inline-block;display: flex;display: -webkit-flex;flex-direction: row;align-items: center;justify-content: center;-webkit-flex-direction: row;-webkit-align-items: center;-webkit-justify-content: center;}
+.top .Android a i{margin-right: 11px;background: url(../../images/front/img/downloadApp/and_bai.png) center no-repeat;display: inline-block;width: 23px;height: 28px; }
+.top .erwm{position: absolute;width: 121px;height: 146px;top: 467px;left: 63%;text-align: center;}
+.top .erwm a{width: 100%;height: 100%;overflow: hidden;display: inline-block;color: #fff;}
+.top .erwm a img,.footer .footerM .erwm a img{margin-bottom: 4px;}
+.centent_1{width: 100%;height: 700px;background: url(../../images/front/img/downloadApp/centent_1.jpg) center no-repeat;}
+
+.centent_2{width: 100%;height: 700px;background: url(../../images/front/img/downloadApp/centent_2.jpg) center no-repeat;}
+
+.centent_3{width: 100%;height: 700px;background: url(../../images/front/img/downloadApp/centent_3.jpg) center no-repeat;}
+
+.footer{width: 100%;height: 296px;background: url(../../images/front/img/downloadApp/footer.jpg) center no-repeat;}
+.footer .footerM{display: flex;display: -webkit-flex;flex-direction: row;align-items: center;justify-content: center;-webkit-flex-direction: row;-webkit-align-items: center;-webkit-justify-content: center;height: 100%;}
+.footer .footerM .Android,.footer .footerM .ios{width: 184px;height: 50px;line-height: 50px;text-align: center;}
+.footer .footerM .ios{background: #FFF;border-radius: 2px;margin-right: 60px;}
+.footer .footerM .ios a{color: #1088F1;font-size:18px;display: flex;display: -webkit-flex;flex-direction: row;align-items: center;justify-content: center;-webkit-flex-direction: row;-webkit-align-items: center;-webkit-justify-content: center;}
+.footer .footerM .ios a i{margin-right: 11px;background: url(../../images/front/img/downloadApp/ios_check.png) center no-repeat;display: inline-block;width: 23px;height: 28px; }
+.footer .footerM .Android{border-radius: 2px ;border: 1px solid #fff;margin-right: 69px;}
+.footer .footerM .Android a{color: #fff;font-size:18px;display: inline-block;display: flex;display: -webkit-flex;flex-direction: row;align-items: center;justify-content: center;-webkit-flex-direction: row;-webkit-align-items: center;-webkit-justify-content: center;}
+.footer .footerM .Android a i{margin-right: 11px;background: url(../../images/front/img/downloadApp/and_bai.png) center no-repeat;display: inline-block;width: 23px;height: 28px; }
+.footer .footerM .erwm{}
+.footer .footerM .erwm a{color: #fff;display: flex;display: -webkit-flex;flex-direction: column;align-items: center;justify-content: center;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.app.appRelease">
+
+<!-- 所有列名 -->
+	<sql id="columns">
+		id, release_version, sub_version, release_content,is_force, is_release,down_url,release_channel,create_time,re_release_time
+	</sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id}, #{release_version}, #{sub_version}, #{release_content},#{is_force}, #{is_release}, #{down_url}, #{release_channel}, #{create_time},#{re_release_time}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="release_version != null and release_version != ''">
+			and release_version = #{release_version}
+		</if>
+		<if test="sub_version != null and sub_version != ''">
+			and sub_version = #{sub_version}
+		</if>
+		<if test="release_content != null and release_content != ''">
+			and release_content = #{release_content}
+		</if>
+		<if test="is_force != null and is_force != ''">
+			and is_force = #{is_force}
+		</if>
+		<if test="is_release != null and is_release != ''">
+			and is_release = #{is_release}
+		</if>
+		<if test="down_url != null and down_url != ''">
+			and down_url = #{down_url}
+		</if>
+		<if test="release_channel != null and release_channel != ''">
+			and release_channel = #{release_channel}
+		</if>
+		<if test="create_time != null and create_time != ''">
+			and create_time = #{create_time}
+		</if>
+		<if test="re_release_time != null and re_release_time != ''">
+			and re_release_time = #{re_release_time}
+		</if>
+		
+	</sql>
+	
+	<insert id="saveAppRelease" parameterType="com.zdjf.domain.app.AppRelease" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_app_release (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+
+	<delete id="deleteAppRelease">
+		delete from zd_app_release
+		where id=#{id}
+	</delete>
+
+	<delete id="deleteByExampleAppRelease">
+		delete from zd_app_release
+		where 1=1
+		<include refid="conds" />
+	</delete>
+	
+	<select id="loadAppRelease" resultType="com.zdjf.domain.app.AppRelease">
+		select 
+		<include refid="columns"/>
+		from zd_app_release
+		where id=#{id}
+	</select>
+	
+	<select id="selectAppRelease" resultType="com.zdjf.domain.app.AppReleaseVo">
+		select 
+		<include refid="columns"/>
+		from zd_app_release
+		where 1=1
+		<include refid="conds" />
+	</select>
+
+	<update id="updateAppRelease">
+		update zd_app_release
+		<set>
+			id=#{id}, 
+			release_version=#{release_version}, 
+			sub_version=#{sub_version}, 
+			release_content=#{release_content}, 
+			is_release=#{is_release},
+			is_force=#{is_force},
+			down_url=#{down_url}, 
+			release_channel=#{release_channel}, 
+			create_time=#{create_time}, 
+			re_release_time=#{re_release_time}
+		</set>
+		where id=#{id}
+	</update>
+
+
+</mapper>

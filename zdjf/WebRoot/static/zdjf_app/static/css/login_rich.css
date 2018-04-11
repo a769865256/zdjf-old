@@ -1,0 +1,210 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+/*特殊字体*/
+@font-face {
+  font-family: 'fzzyjt';
+  src: url('../iconfont/fzzyjt.ttf');
+}
+.jm_kt_alerts_sign{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+.jm_kt_box{
+    height: 594px;
+    left: 50%;
+    top: 50%;
+    margin-top: -297px;
+    margin-left: -305px;
+}
+.jm_kt{
+    width: 610px;
+    height: 594px;
+}
+.jm_kt_img img{
+    width: 610px;
+    height: 594px;
+}
+.jm_kt_word{
+    width: 457px;
+    height: 90px;
+    position: absolute;
+    left: 0;
+    top: 246px;
+}
+.jm_kt_word .zjz{
+    font-size: 36px;
+    color: #ff8400;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+.jm_kt_word .success{
+    height: 36px;
+    line-height: 36px;
+    font-size: 28px;
+    color: #696969;
+    text-align: center;
+}
+.jm_kt_close_sign{
+    position: absolute;
+    left: 286px;
+    bottom: -38px;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+}
+.jm_kt_close_sign img{
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+}
+.login_rich{
+	position:relative;
+	overflow: hidden;
+}
+.rule_box{
+	width: 132px;
+	height: 40px;
+    position: absolute;
+    right: 0;
+    top: 70px;
+}
+.number_day{
+	width: 214px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	top: 484px;
+	font-family: 'fzzyjt';
+	color: #ffe7a8;
+	font-size: 26px;
+	text-align: right;
+	font-weight: bold;
+}
+.number_day span{
+	font-size: 54px;
+	margin-right: 2px;
+}
+.register_box{
+	width:100%;
+	padding: 0 69px;
+	position: absolute;
+	left: 0;
+	top: 746px;
+}
+.register_item{
+	width: 612px;
+	height: 78px;
+	line-height: 78px;
+	border-radius: 50px;
+	margin-bottom: 20px;
+	position: relative;
+}
+.register_item:last-child{
+	margin-bottom: 0;
+}
+.icon{
+	width: 100px;
+	height: 90px;
+	float: left;
+}
+.icon img{
+	width: 40px;
+	height: 50px;
+}
+.input{
+	width: 612px;
+	height: 78px;
+	border: 1px solid #b6851a;
+	border-radius: 50px;
+}
+.register_item_code .input{
+	width: 388px;
+}
+.input input{
+	width:100%;
+	height: 78px;
+	line-height: 78px;
+	background: none;
+	font-size: 26px;
+	padding: 0 30px;
+}
+.code{
+	width: 208px;
+	height: 78px;
+	line-height: 78px;
+	background: #ff5146;
+	border-radius: 50px;
+}
+.code input{
+	width:100%;
+	height: 78px;78px;
+	background: none;
+	font-size: 24px;
+	color:#ffe7a8;
+}
+.xieyi{
+	height: 50px;
+	line-height: 50px;
+}
+.img_gx{
+	width: 50px;
+	height: 50px;
+	margin-left: 10px;
+}
+.xieyi_word{
+	height: 50px;
+	line-height: 50px;
+	font-size: 22px;
+	color: #b6851a;
+	padding-top: 3px;
+}
+.xieyi_word a{
+	color: #ff564a;
+	line-height: 50px;
+	font-size: 22px;
+}
+.register_submit{
+	width: 612px;
+	height: 78px;
+	border-radius: 50px;
+	background: #ff5146;
+	margin: 40px auto;
+}
+.register_submit a{
+	display: block;
+	width: 100%;
+	height: 100%;
+    text-align: center;
+    line-height: 78px;
+    font-size: 32px;
+    color: #ffe7a8;
+    border-radius: 5px;
+}
+.upload {
+    width: 100%;
+    height: 160px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.app_upload_btn {
+    width: 210px;
+    height: 70px;
+    border-radius: 50px;
+    position: absolute;
+    right: 34px;
+    top: 30px;
+}

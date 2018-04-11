@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.guarantee">
+
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id, from_id, from_table, guarantee_name, guarantee_desc,create_time,guarantee_num
+   </sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id}, #{from_id}, #{from_table}, #{guarantee_name}, #{guarantee_desc}, #{create_time}, #{guarantee_num}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="from_id != null and from_id != ''">
+			and from_id = #{from_id}
+		</if>
+		
+	</sql>
+	
+	
+	<insert id="saveGuarantee" parameterType="com.zdjf.domain.file.Guarantee" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_guarantee (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+	
+	<select id="selectGuarantee" resultType="com.zdjf.domain.file.Guarantee">
+		select 
+		<include refid="columns"/>
+		from zd_guarantee
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="loadGuarantee" resultType="com.zdjf.domain.file.Guarantee">
+		select 
+		<include refid="columns"/>
+		from zd_guarantee
+		where id=#{id}
+	</select>
+
+
+</mapper>

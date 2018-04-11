@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>1.0</tlib-version>
+	<short-name>el</short-name>
+	<function>
+		<!-- 对这个EL方法的描述 -->
+		<description>calculate string length</description>
+		<name>FunctionsEl</name><!-- 调用EL方法的名称 -->
+		<function-class>main.java.com.sxcf.common.tag.FunctionsEl</function-class>
+		<function-signature>java.lang.String elEncode(java.lang.String)</function-signature>
+		<!-- 例如 -->
+		<example>${el:FunctionsEl(str)}</example>
+	</function>
+</taglib>

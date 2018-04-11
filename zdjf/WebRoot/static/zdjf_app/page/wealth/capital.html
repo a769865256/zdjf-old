@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/wealth.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="wealth">
+	<div class="header"><a class="back" href="wealth.html"></a>资金明细</div>
+    <div class="capital">
+        <div class="tab">
+            <span class="active" data-type="0">全部</span>
+            <span data-type="1">充值</span>
+            <span data-type="2">提现</span>
+            <span data-type="3">投资</span>
+            <span data-type="4">回款</span>
+        </div>
+        <div class="tabbox">
+            <!-- <p class="time">2017年03月</p> -->
+            <!-- <ul>
+                <li>
+                    <div class="catab sta5">
+                        <div class="tab_box"><h3>充值</h3><h3 class="tlt">充值成功</h3><p>08-14  19:03:34</p></div>
+                        <div class="tab_box t_col2">+4,500.00</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="catab sta6">
+                        <div class="tab_box"><h3>投资</h3><h3 class="tlt">投资车财道12333-2期提交失败</h3><p>08-14  19:03:34</p></div>
+                        <div class="tab_box t_col3">0.00</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="catab sta7">
+                        <div class="tab_box"><h3>流标退款</h3><h3 class="tlt">投资车财道12333-2期流标退款</h3><p>08-14  19:03:34</p></div>
+                        <div class="tab_box t_col3">0.00</div>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+    //rem布局
+    (function(win) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var tid;
+
+        function refreshRem() {
+            var width = docEl.getBoundingClientRect().width;
+            if (width > 750) { // 最大宽度
+                width = 750;
+            }
+            var rem = width / 10;
+            docEl.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        refreshRem();
+
+    })(window);
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/wealth.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+    (function() {
+        if(!$com.cookie.get("user_name")){
+            window.location = "../login/login.html";
+        }
+
+        var HTML = {
+            // t_col1增加 t_col2减少 t_col3失败
+            // sta1 成功提现 sta2 提现失败 sta3 回款成功 sta4 成功收益 sta5 充值成功 sta6 投资失败 sta7 退款成功
+            LIST : ['<li data-type="{{typeID}}"><div class="catab {{type}}">',
+                    '<div class="tab_box"><h3>{{title}}</h3><h3 class="tlt">{{desc}}</h3><p>{{time}}</p></div>',
+                    '<div class="tab_box {{status}}">{{amount}}</div>',
+                    '</div></li>'].join(""),
+            TITLE : '<p class="time">{{year}}</p>',
+            UL : '<ul>{{content}}</ul>'
+        };
+
+        var ACTION = ["", "+", "-"];
+        var STATUS = ["", "t_col2", "t_col3"];
+
+        //明细请求
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            operate_type : "",
+            $TYPE : "get",
+            $URI : "/m/combination/transaction/details.json"
+        }, [function(data) {
+            var ret = filterData(data.dataList),
+                str = "";
+
+            for (var p in ret) {
+                str += $com.util.template({year:p}, HTML.TITLE);
+                str += $com.util.template({content : _getList(ret[p])}, HTML.UL);
+            }
+
+            function _getList(item) {
+                var _str = "";
+
+                $(item).each(function(i, d) {
+                    _str += $com.util.template(d, HTML.LIST);
+                });
+
+                return _str;
+            }
+
+            $(".tabbox").html(str);
+        }, function() {
+            
+        }]);
+
+        $("body").delegate(".tab span", "click", function() {
+            var $this = $(this),
+                type = $this.attr("data-type");
+
+            if (type == 0) {
+                $(".tabbox li").removeClass("hide");
+            } else {
+                $(".tabbox li").addClass("hide");
+                $(".tabbox li[data-type="+ type +"]").removeClass("hide");
+            }
+
+            titleCheck();
+        });
+
+        function getType(operate_type, status) {
+            var ret;
+
+            if (operate_type == 11) {
+                ret = {
+                    name : "充值",
+                    id : 1,
+                    cls : status == 1 ? "cz_success" : "cz_fail"
+                }
+            } else if (operate_type == 18 || operate_type == 19 || operate_type == 21){
+                ret = {
+                    name : "提现",
+                    id : 2,
+                    cls : status == 1 ? "tx_success" : "tx_fail"
+                }
+            } else if (operate_type == 22){
+                ret = {
+                    name : "投资",
+                    id : 3,
+                    cls : status == 1 ? "tz_success" : "tz_fail"
+                }
+            } else if (operate_type == 12 || operate_type == 13){
+                ret = {
+                    name : "回款",
+                    id : 4,
+                    cls : status == 1 ? "hk_success" : "hk_fail"
+                }
+            }
+
+            return ret;
+        }
+
+        function filterData(dataList) {
+            var ret = {};
+
+            $(dataList).each(function(i, item) {
+                var t = $com.util.format("yyyy年MM月", item.create_time),
+                    ST = getType(item.operate_type, item.status);
+                
+                !ret[t] && (ret[t] = []);
+                ret[t].push({
+                    type : ST.cls,
+                    typeID : ST.id,
+                    title : ST.name,
+                    desc : item.summary || ST.name,
+                    time : $com.util.format("yyyy-MM-dd hh:mm:ss", item.create_time),
+                    status : item.status == 1 ? "t_col1" : "t_col3",
+                    amount : ACTION[item.action] + item.amount
+                })
+            });
+
+            return ret;
+        }
+
+        function titleCheck() {
+            $(".time").each(function() {
+                var $this = $(this),
+                    $ul = $this.next();
+                if ($ul.find("> li:not(.hide)").length === 0) {
+                    $this.addClass("hide");
+                } else {
+                    $this.removeClass("hide");
+                }
+            });
+        }
+    }());
+</script>
+</body>
+</html>
+

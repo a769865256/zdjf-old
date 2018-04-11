@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/mui.min.css"/>
+	<link rel="stylesheet" href="../../static/css/real_name.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom body_kt_no">
+<div class="binding">
+	<div class="header"><a class="back" href="javascript:;"></a>开通上海银行存管账户</div>
+	<div class="progress_box">
+		<img src="../../static/img/real/top2.png" alt="">
+	</div>
+	<div class="l_box">
+		<div class="regist_box">
+			<div class="li_note">银行卡信息</div>
+			<ul>
+				<li><label for="">银行卡号</label><input type="text" class="idCard" id="idcard" placeholder="输入卡号"></li>
+				<li>
+					<label for="" class="fl">选择银行</label>
+					<div class="choose_row fl" id="bank">
+						<!-- <div class="choose fl">选择开户银行</div>
+						<div class="row fr">
+							<img src="../../static/img/index/row.png" alt="">
+						</div> -->
+						<select id="bankList" style="width:100%;border:none;">
+							<option value="-1">选择开户银行</option>
+						</select>
+					</div>
+					
+				</li>
+				<li>
+					<label for="" class="fl">开户省份</label>
+					<div class="choose_row fl" id="province">
+						<!-- <div class="choose fl">选择开户省份</div>
+						<div class="row fr">
+							<img src="../../static/img/index/row.png" alt="">
+						</div> -->
+						<select id="provinceList" style="width:100%;border:none;">
+							<option value="-1">选择开户省份</option>
+						</select>
+					</div>
+					<!-- <select id="provinceList" style="width:0;height:0;border:none;"></select> -->
+				</li>
+				<li>
+					<label for="" class="fl">开户城市</label>
+					<div class="choose_row fl" id="city">
+						<!-- <div class="choose fl">选择开户城市</div>
+						<div class="row fr">
+							<img src="../../static/img/index/row.png" alt="">
+						</div> -->
+						<select id="cityList" style="width:100%;border:none;">
+							<option value="-1">选择开户城市</option>
+						</select>
+					</div>
+					<!-- <select id="cityList" style="width:0;height:0;border:none;"></select> -->
+				</li>
+			</ul>
+			<div class="li_note">银行卡验证</div>
+			<ul>
+				<li><label for="">手机号</label><input type="text" id="acc" class="idCard" placeholder="输入银行卡预留手机号码"></li>
+				<li><label for="">验证码</label><input type="text" id="code" class="ph_num" placeholder="输入短信验证码"><input type="button" class="verbtn" id="btn" value="获取验证码"></li>
+			</ul>
+		</div>
+		<div class="l_btn">
+			<a href="javascript:" class="active" id="next">下一步</a>
+			<div class="xieyi">
+				<div class="xieyi_tit">
+					<div class="tit_img fl">
+						<img src="../../static/img/real/xl.png" alt="">
+					</div>
+					<div class="tit_word fl">温馨提示：</div>
+				</div>
+				<p>为保障资金安全，请务必绑定本人的银行借记卡(暂不支持信用卡), 此银行借记卡将作为您在APP内唯一的支付及提现卡。</p>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+    //rem布局
+(function(win) {
+    var doc = win.document;
+    var docEl = doc.documentElement;
+    var tid;
+
+    function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        if (width > 750) { // 最大宽度
+            width = 750;
+        }
+        var rem = width / 10;
+        docEl.style.fontSize = rem + 'px';
+    }
+
+    win.addEventListener('resize', function() {
+        clearTimeout(tid);
+        tid = setTimeout(refreshRem, 300);
+    }, false);
+    win.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }
+    }, false);
+
+    refreshRem();
+
+})(window);
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script src="../../module/layer_mobile/layer.js"></script>
+<script src="../../static/js/mui.min.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+	(function() {
+		if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+
+        if ($com.uri.getUrlQuery().id) {
+        	$(".back").attr("href", "../bid/bid_details.html?id=" + $com.uri.getUrlQuery().id);
+        } else {
+        	$(".back").attr("href", "../wealth/wealth.html");
+        }
+		//获取银行列表
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/userBank/bank/list.json"
+        }, [function(data) {
+            $("#bankList").append($com.util.template(data.dataList, "<option value='{{num}}'>{{name}}</option>"));
+        }, function() {}]);
+
+		//获取省
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/util/province.json"
+        }, [function(data) {
+            $("#provinceList").append($com.util.template(filterCity(data.dataList), "<option value='{{name}}'>{{name}}</option>"));
+        }, function() {
+            
+        }]);
+
+
+		$("body").delegate("#provinceList", "change", function() {
+			//获取省
+			console.log($(this).val());
+	        $com.app.ajax({
+	            phone : $com.cookie.get("user_name"),
+	            reg_source : 4,
+	            province : $(this).val(),
+	            sign : $.md5($com.cookie.get("user_name") + 4 + $(this).val() + $com.KEY),
+	            $TYPE : "get",
+	            $URI : "/m/util/city.json"
+	        }, [function(data) {
+	            console.log(data);
+	            $("#cityList").html($com.util.template(filterCity(data.dataList), "<option value='{{name}}'>{{name}}</option>"));
+	        }, function() {
+	            
+	        }]);
+		})
+
+		var countdown=60; 
+		function settime(obj) { //发送验证码倒计时
+		    if (countdown == 0) { 
+		        obj.removeAttr('disabled');
+		        obj.addClass('verbtn');
+		        obj.val("获取验证码");
+		        countdown = 60; 
+		        return;
+		    } else { 
+		        obj.attr('disabled',true);
+		        obj.val(countdown + "秒后重发");
+		        countdown--; 
+		    } 
+		    setTimeout(function() { 
+		        settime(obj) 
+		    },1000) 
+		}
+		
+		$("body").delegate("#btn:not([disabled])", "click", function() {
+			
+			var acc = $("#acc").val(),
+				idcard = $("#idcard").val(),
+				bank = $("#bankList").val(),
+				province = $("#provinceList").val(),
+				city = $("#cityList").val();
+
+			if (!idcard) {
+				$com.app.tip("请输入银行卡号");
+				return;
+			}
+
+			if (bank < 0) {
+				$com.app.tip("请选择开户银行");
+				return;
+			}
+
+			if (province < 0) {
+				$com.app.tip("请选择开户省");
+				return;
+			}
+
+			if (city < 0) {
+				$com.app.tip("请选择开户城市");
+				return;
+			}
+			
+			if (!acc) {
+				$com.app.tip("请输入银行卡预留手机号码");
+				return;
+			}
+
+			$(this).removeClass("verbtn");
+			settime($(this));
+			
+			$com.app.ajax({
+				phone : $com.cookie.get("user_name"),
+				sign : $.md5($com.cookie.get("user_name") + idcard + acc + $com.KEY),
+				other_phone : acc,
+				card_attribute : "C",
+				province : province,
+				city : city,
+				bank_no : idcard,
+				bank_alias : bank,
+				reg_source : 4, //微信
+				$TYPE : "post",
+				$URI : "/m/userBank/bind.json"
+			}, function(data) {
+				//console.log(data);
+			});
+		})
+
+		.delegate("#next.active", "click", function() {
+			
+			var acc = $("#acc").val(),
+				idcard = $("#idcard").val(),
+				bank = $("#bankList").val(),
+				province = $("#provinceList").val(),
+				city = $("#cityList").val(),
+				code = $("#code").val();
+
+			$(this).removeClass("active");
+
+			if (!idcard) {
+				$com.app.tip("请输入银行卡号");
+				clear()
+				return;
+			}
+
+			if (bank < 0) {
+				$com.app.tip("请选择开户银行");
+				clear()
+				return;
+			}
+
+			if (province < 0) {
+				$com.app.tip("请选择开户省");
+				clear()
+				return;
+			}
+
+			if (city < 0) {
+				$com.app.tip("请选择开户城市");
+				clear()
+				return;
+			}
+			
+			if (!acc) {
+				$com.app.tip("请输入银行卡预留手机号码");
+				clear()
+				return;
+			}
+			
+			if (!code) {
+				$com.app.tip("请输入短信验证码");
+				clear()
+				return;
+			}
+			
+			$com.app.ajax({
+				phone : $com.cookie.get("user_name"),
+				ip : $com.IP,
+				valid_code : code,
+				sign : $.md5($com.cookie.get("user_name") + code + $com.IP + $com.KEY),
+				other_phone : acc,
+				card_attribute : "C",
+				province : province,
+				city : city,
+				bank_no : idcard,
+				bank_alias : bank,
+				$TYPE : "post",
+				$URI : "/m/userBank/bank/advance.json"
+			}, [function(data) {
+				$com.app.ajax({
+		            phone : $com.cookie.get("user_name"),
+		            ip : $com.IP,
+		            reg_source : 4,
+		            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+		            $TYPE : "post",
+		            $URI : "/m/user/paypasswd.json"
+		        }, function(data) {
+		        	clear()
+		            window.location = data.dataList;
+		        });
+			}, function() {
+				clear();
+			}]);
+
+			function clear() {
+				$("#next").addClass("active");
+			}
+		});
+
+		function filterCity(arr) {
+			var ret = [];
+
+			$(arr).each(function(i, item) {
+				ret.push({
+					name : item
+				});
+			});
+
+			return ret;
+		}
+	}());
+</script>
+</body>
+</html>
+

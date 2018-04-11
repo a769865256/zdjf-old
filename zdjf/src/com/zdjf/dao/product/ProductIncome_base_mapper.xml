@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product.productIncome">
+<sql id="columns">
+id,
+product_id,
+start_date,
+end_date,
+days,
+pay_date,
+income_dailly,
+income,
+amount,
+create_time,
+status,
+income_id,
+old_product_id
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">    id,</if>
+<if test="product_id != null and product_id != ''">    product_id,</if>
+<if test="start_date != null">    start_date,</if>
+<if test="end_date != null">    end_date,</if>
+<if test="days != null and days != ''">    days,</if>
+<if test="pay_date != null">    pay_date,</if>
+<if test="income_dailly != null and income_dailly != ''">    income_dailly,</if>
+<if test="income != null and income != ''">    income,</if>
+<if test="amount != null and amount != ''">    amount,</if>
+<if test="create_time != null">    create_time,</if>
+<if test="status != null and status != ''">    status,</if>
+<if test="income_id != null and income_id != ''">    income_id,</if>
+<if test="old_product_id != null and old_product_id != ''">    old_product_id,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">    #{id},</if>
+<if test="product_id != null and product_id != ''">    #{product_id},</if>
+<if test="start_date != null">    #{start_date},</if>
+<if test="end_date != null">    #{end_date},</if>
+<if test="days != null and days != ''">    #{days},</if>
+<if test="pay_date != null">    #{pay_date},</if>
+<if test="income_dailly != null and income_dailly != ''">    #{income_dailly},</if>
+<if test="income != null and income != ''">    #{income},</if>
+<if test="amount != null and amount != ''">    #{amount},</if>
+<if test="create_time != null">    #{create_time},</if>
+<if test="status != null and status != ''">    #{status},</if>
+<if test="income_id != null and income_id != ''">    #{income_id},</if>
+<if test="old_product_id != null and old_product_id != ''">    #{old_product_id},</if>
+</sql>
+<sql id="conds">
+<if test="id != null and id != ''">   and id = #{id}</if>
+<if test="product_id != null and product_id != ''">   and product_id = #{product_id}</if>
+<if test="start_date != null">   and start_date = #{start_date}</if>
+<if test="end_date != null">   and end_date = #{end_date}</if>
+<if test="days != null and days != ''">   and days = #{days}</if>
+<if test="pay_date != null">   and pay_date = #{pay_date}</if>
+<if test="income_dailly != null and income_dailly != ''">   and income_dailly = #{income_dailly}</if>
+<if test="income != null and income != ''">   and income = #{income}</if>
+<if test="amount != null and amount != ''">   and amount = #{amount}</if>
+<if test="create_time != null">   and create_time = #{create_time}</if>
+<if test="status != null and status != ''">   and status = #{status}</if>
+<if test="income_id != null and income_id != ''">   and income_id = #{income_id}</if>
+<if test="old_product_id != null and old_product_id != ''">   and old_product_id = #{old_product_id}</if>
+</sql>
+<insert id="saveProductIncome" parameterType="com.zdjf.domain.product.ProductIncome" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_product_income (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectProductIncome" resultType="com.zdjf.domain.product.ProductIncomeVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product_income
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteProductIncome">
+		delete from zd_product_income
+		where 1=1
+		<include refid="conds" />
+	</delete>
+</mapper>

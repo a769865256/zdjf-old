@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+.admin-main {
+	background: #FFFFFF;
+}
+
+.min-height200 {
+	min-height: 200px;
+}
+
+.user_info_label {
+	font-size: 1.3rem;
+}
+
+.user_info_content {
+	color: #828282;
+}
+
+.user_info_p {
+	line-height: 24px;
+	height: 24px;
+}
+
+.am-progress-xs {
+	height: .1rem
+}
+
+.am-checkbox .am-icon-checked, .am-checkbox .am-icon-unchecked,
+	.am-checkbox-inline .am-icon-checked, .am-checkbox-inline .am-icon-unchecked,
+	.am-radio .am-icon-checked, .am-radio .am-icon-unchecked,
+	.am-radio-inline .am-icon-checked, .am-radio-inline .am-icon-unchecked
+	{
+	margin-top: -5px;
+}

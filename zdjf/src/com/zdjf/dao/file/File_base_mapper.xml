@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.file">
+
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id, from_id, from_table, file_type, file_name,file_desc,file_url,create_time,file_num,file_width,
+		file_height
+   </sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id}, #{from_id}, #{from_table}, #{file_type}, #{file_name}, #{file_desc}, #{file_url},#{create_time},#{file_num},#{file_width},
+		#{file_height}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="from_id != null and from_id != ''">
+			and from_id = #{from_id}
+		</if>
+		
+	</sql>
+	
+	
+	<insert id="saveFile" parameterType="com.zdjf.domain.file.File" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_files (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+	
+	<select id="selectFile" resultType="com.zdjf.domain.file.File">
+		select 
+		*
+		from zd_files
+		where 1=1
+		and from_id=${from_id}
+		and file_type=${file_type}
+	</select>
+	
+	<select id="loadFile" resultType="com.zdjf.domain.file.File">
+		select 
+		<include refid="columns"/>
+		from zd_files
+		where id=#{id}
+	</select>
+	<select id="deleteFile" parameterType="com.zdjf.domain.file.File">
+		delete from zd_files where from_id=${from_id}
+	</select>
+
+
+</mapper>

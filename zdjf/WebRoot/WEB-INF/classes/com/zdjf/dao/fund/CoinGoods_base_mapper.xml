@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.coinGoods">
+	<sql id="columns">
+	id,
+	goods_name,
+	coin_cost,
+	goods_type,
+	exchange_name,
+	goods_number,
+	amount,
+	max_count,
+	status,
+	order_num,
+	des,
+	remark,
+	relation_id,
+	create_time,
+	update_time,
+	investment_quota,
+	min_day,
+	effective_day,
+	use_type
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''">    id,</if>
+	<if test="goods_name != null and goods_name != ''">    goods_name,</if>
+	<if test="coin_cost != null and coin_cost != ''">    coin_cost,</if>
+	<if test="goods_type != null and goods_type != ''">    goods_type,</if>
+	<if test="exchange_name != null and exchange_name != ''">    exchange_name,</if>
+	<if test="amount != null and amount != ''">    amount,</if>
+	<if test="max_count != null and max_count != ''">    max_count,</if>
+	<if test="status != null and status != ''">    status,</if>
+	<if test="order_num != null and order_num != ''">    order_num,</if>
+	<if test="des != null and des != ''">    des,</if>
+	<if test="remark != null and remark != ''">    remark,</if>
+	<if test="goods_number != null and goods_number != ''">    goods_number,</if>
+	<if test="relation_id != null and relation_id != ''">    relation_id,</if>
+	<if test="create_time != null">    create_time,</if>
+	<if test="update_time != null">    update_time,</if>
+	<if test="investment_quota != null and investment_quota != ''">    investment_quota,</if>
+	<if test="min_day != null and min_day != ''">    min_day,</if>
+	<if test="effective_day != null and effective_day != ''">    effective_day,</if>
+	<if test="use_type != null and use_type != ''">    use_type,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''">   #{ id},</if>
+	<if test="goods_name != null and goods_name != ''">   #{ goods_name},</if>
+	<if test="coin_cost != null and coin_cost != ''">   #{ coin_cost},</if>
+	<if test="goods_type != null and goods_type != ''">   #{ goods_type},</if>
+	<if test="exchange_name != null and exchange_name != ''">   #{ exchange_name},</if>
+	<if test="amount != null and amount != ''">   #{ amount},</if>
+	<if test="max_count != null and max_count != ''">   #{ max_count},</if>
+	<if test="status != null and status != ''">   #{ status},</if>
+	<if test="order_num != null and order_num != ''">   #{ order_num},</if>
+	<if test="des != null and des != ''">   #{ des},</if>
+	<if test="remark != null and remark != ''">   #{ remark},</if>
+	<if test="goods_number != null and goods_number != ''">   #{ goods_number},</if>
+	<if test="relation_id != null and relation_id != ''">   #{ relation_id},</if>
+	<if test="create_time != null">   #{ create_time},</if>
+	<if test="update_time != null">   #{ update_time},</if>
+	<if test="investment_quota != null and investment_quota != ''">   #{ investment_quota},</if>
+	<if test="min_day != null and min_day != ''">   #{ min_day},</if>
+	<if test="effective_day != null and effective_day != ''">   #{ effective_day},</if>
+	<if test="use_type != null and use_type != ''">   #{ use_type},</if>
+	</sql>
+	<sql id="conds">
+		<if test="id != null and id != ''">   and id = #{id}</if>
+		<if test="goods_name != null and goods_name != ''">   and goods_name = #{goods_name}</if>
+		<if test="coin_cost != null and coin_cost != ''">   and coin_cost = #{coin_cost}</if>
+		<if test="goods_type != null and goods_type != ''">   and goods_type = #{goods_type}</if>
+		<if test="exchange_name != null and exchange_name != ''">   and exchange_name = #{exchange_name}</if>
+		<if test="amount != null and amount != ''">   and amount = #{amount}</if>
+		<if test="max_count != null and max_count != ''">   and max_count = #{max_count}</if>
+		<if test="status != null and status != ''">   and status = #{status}</if>
+		<if test="order_num != null and order_num != ''">   and order_num = #{order_num}</if>
+		<if test="des != null and des != ''">   and des = #{des}</if>
+		<if test="remark != null and remark != ''">   and remark = #{remark}</if>
+		<if test="goods_number != null and goods_number != ''">   and goods_number = #{goods_number}</if>
+		<if test="relation_id != null and relation_id != ''">   and relation_id = #{relation_id}</if>
+		<if test="create_time != null ">   and create_time = #{create_time}</if>
+		<if test="update_time != null">   and update_time = #{update_time}</if>
+		<if test="investment_quota != null and investment_quota != ''">   and investment_quota = #{investment_quota}</if>
+		<if test="min_day != null and min_day != ''">   and min_day = #{min_day}</if>
+		<if test="effective_day != null and effective_day != ''">   and effective_day = #{effective_day}</if>
+		<if test="use_type != null and use_type != ''">   and use_type = #{use_type}</if>
+	</sql>
+	<insert id="saveCoinGoods" parameterType="com.zdjf.domain.fund.CoinGoods" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_coin_goods (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectCoinGoods" resultType="com.zdjf.domain.fund.CoinGoodsVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coin_goods
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteCoinGoods">
+		delete from zd_coin_goods
+		where id=#{id}
+	</delete>
+</mapper>

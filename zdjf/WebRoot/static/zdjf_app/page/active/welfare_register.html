@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../../../module/layui/css/layui.mobile.css"/>
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/welfare.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="walfare">
+	<img src="../../static/img/active/xr1.jpg" alt="">
+    <div class="cnxf"></div>
+	<img src="../../static/img/active/xr3.jpg" alt="">
+    <!--如果已达到获得奖励条件，添加active类名-->
+    <div class="ymjr">
+        <div class="invest_need">还需投资 <span>500</span> 元</div>
+    </div>
+	<img src="../../static/img/active/xr5.jpg" alt="">
+    <!--如果已达到获得奖励条件，添加active类名-->
+	<div class="pcwl">
+        <div class="invest_need">还需投资 <span>500</span> 元</div>
+    </div>
+	<img src="../../static/img/active/xr7.jpg" alt="">
+    <div class="rule_active"></div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+    // 控制活动规则显示隐藏
+    $('.rule_active').click(function () {
+        if($(this).hasClass('show')){
+            $(this).removeClass('show');
+        }else{
+            $(this).addClass('show');
+        }
+    })
+    //菜鸟先飞判断用户是否登录
+    $('.cnxf').click(function () {
+        if(!$(this).hasClass('active')){
+            // 用户没有登录，跳转到app注册页面
+            window.location.href = '';
+        }
+    })
+    // 一鸣惊人,鹏程万里判断用户是否获得奖励
+    $('.ymjr,.pcwl').click(function () {
+        if(!$(this).hasClass('active')){
+            // 用户没达到奖励条件，跳转到app投资页面
+            window.location.href = '';
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>充值</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+	<link rel="stylesheet" href="../../static/css/find.css"/>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="javascript:history.go(-1)"></a>充值</div>
+<div class="find body_content">
+	<div class="re_title">充值金额将进入您的上海银行个人存管账户</div>
+    <div class="re_bank" id="my-bank"></div>
+    <div class="bank_mon">账户余额(元)：<span id="balance">-</span></div>
+    <div class="re_add">
+        <div class="add fl">充值:</div>
+        <div class="add fr">
+            <input type="number" class="money" id="amount" placeholder="请输入充值金额">
+        </div>
+    </div>
+    <!--该说明仅在用户充值金额超过充值限额情况下出现。出现该说明，确认充值按钮置灰不可使用。-->
+    <div class="readd_tlt">
+        <p>当前充值金额超出限额，请分笔充值或<a href="large.html">使用其他充值方式></a></p>
+    </div>
+    <div class="re_addbtn">
+        <!-- r_ok.html -->
+        <a href="javascript:;" class="active" id="next">确认充值</a>
+        <!--<p>当日充值金额，下一个工作日方可提现</p>-->
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script src="../../module/layer_mobile/layer.js"></script>
+<script src="../../static/js/public.js"></script>
+<script>
+    (function() {
+        if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+//         判断充值来源：投资页面或者我的财富页面
+		if($com.cookie.get("product_id_recharge")){
+			$('.toInvest').html('继续投资');
+		}
+        var cbcount = 2, entity_bank, entity_list, global_entity;
+        var HTML = {
+            BANK : ['<div class="banklogo flex">',
+                    '<img src="../../static/img/LOGO_BANK/{{code}}.png" alt=""></div>',
+                    '<div class="bank_name"><h4>{{name}}(尾号{{num}})</h4>',
+                    '<p>单笔限额{{single}}w元，单日限额{{day}}w元</p></div>'].join("")
+        }
+        //用户获取银行卡page
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/userBank/page.json"
+        }, function(data) {
+            entity_bank = data.dataList[0];
+            if (--cbcount == 0) {
+                cbfn(entity_bank, entity_list);
+            }
+        }); 
+		//获取银行list
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/userBank/bank/list.json"
+        }, function(data) {
+            entity_list = data.dataList;
+            if (--cbcount == 0) {
+                cbfn(entity_bank, entity_list);
+            }
+        }); 
+
+        function cbfn(eb, el) {
+            var eb2 = null,
+                data = null,
+                len = eb.bank_no.length;
+
+            $(el).each(function(i, item) {
+                if (item.num == eb.bank_alias) {
+                    eb2 = item;
+                }
+            });
+
+            data = {
+                img : "",
+                name : eb2.name,
+                num : eb.bank_no.slice(len - 4, len),
+                single : eb2.single_max / 10000,
+                day : eb2.day_max / 10000,
+                code : eb.bank_alias
+            };
+
+            $("#my-bank").html($com.util.template(data, HTML.BANK));
+        } 
+		//获取账户余额
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "post",
+            $URI : "/m/userFundStat/balance/query.json"
+        }, [function(data) {
+            $("#balance").html("¥" + data.dataList.balance);
+        }, function() {
+            
+        }]);
+
+//         $com.app.ajax({
+//             phone : $com.cookie.get("user_name"),
+//             reg_source : 4,
+//             ip : $com.IP,
+//             sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+//             $TYPE : "post",
+//             $URI : "/m/userFundStat/pre/recharge.json"
+//         }, [function(data) {
+//             var len = data.other_phone.length;
+//             global_entity = data;
+//             $("#phone").html(data.other_phone.slice(0, 3) + "****" + data.other_phone.slice(len - 4, len));
+//         }, function() {
+            
+//         }]);
+		//充值只能输入数字和小数点
+        $("#amount").bind("keyup",function(){
+             $("#amount").val($("#amount").val().replace(/^d*(?:.d{0,2})?$/.test(this.value),''));
+        });  
+        // 提交金额跳转
+        $("body").delegate("#next.active", "click", function() {
+            var amount = $("#amount").val();
+            
+            $(this).removeClass("active");
+            
+            if (!amount || Number(amount) <= 0) {
+                $com.app.tip("请输入充值金额");
+                recovery();
+                return;
+            }
+
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                amount : amount,
+                summary : "微信充值",
+                pay_type : 1,
+                recharge_type : 1,
+                sign : $.md5($com.cookie.get("user_name") + 4 + amount + $com.KEY),
+                $TYPE : "post",
+                $URI : "/m/userFundStat/recharge.json"
+            }, [function(data) {
+            	$com.cookie.set('product_id_recharge', $com.uri.getUrlQuery().id);
+            	window.location = data;
+            }, function() {
+                recovery();
+            }]);
+
+            function recovery() {
+                $("#next").addClass("active");
+            }
+        });
+
+        
+        $("body").delegate("#paycode:not([disabled])", "click", function() {
+            var amount = $("#amount").val();
+            settime($("#paycode"));
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                amount : amount,
+                summary : "",
+                pay_type : 1,
+                sign : $.md5($com.cookie.get("user_name") + 4 + amount + $com.KEY),
+                $TYPE : "post",
+                $URI : "/m/userFundStat/recharge.json"
+            }, [function(data) {
+               
+            }, function() {}]);
+        });
+    }());
+</script>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product.productBuyRob">
+<sql id="columns">
+id,
+buy_id,
+user_id,
+product_id,
+rob_type,
+coin,
+create_time,
+remark
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">   id,</if>
+<if test="buy_id != null and buy_id != ''">   buy_id,</if>
+<if test="user_id != null and user_id != ''">   user_id,</if>
+<if test="product_id != null and product_id != ''">   product_id,</if>
+<if test="rob_type != null and rob_type != ''">   rob_type,</if>
+<if test="coin != null and coin != ''">   coin,</if>
+<if test="create_time != null">   create_time,</if>
+<if test="remark != null and remark != ''">   remark,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">   #{id},</if>
+<if test="buy_id != null and buy_id != ''">   #{buy_id},</if>
+<if test="user_id != null and user_id != ''">   #{user_id},</if>
+<if test="product_id != null and product_id != ''">   #{product_id},</if>
+<if test="rob_type != null and rob_type != ''">   #{rob_type},</if>
+<if test="coin != null and coin != ''">   #{coin},</if>
+<if test="create_time != null">   #{create_time},</if>
+<if test="remark != null and remark != ''">   #{remark},</if>
+</sql>
+<sql id="conds">
+<if test="id != null and id != ''">   and id = #{id}</if>
+<if test="buy_id != null and buy_id != ''">   and buy_id = #{buy_id}</if>
+<if test="user_id != null and user_id != ''">   and user_id = #{user_id}</if>
+<if test="product_id != null and product_id != ''">   and product_id = #{product_id}</if>
+<if test="rob_type != null and rob_type != ''">   and rob_type = #{rob_type}</if>
+<if test="coin != null and coin != ''">   and coin = #{coin}</if>
+<if test="create_time != null">   and create_time = #{create_time}</if>
+<if test="remark != null and remark != ''">   and remark = #{remark}</if>
+</sql>
+<insert id="saveProductBuyRobBuy" parameterType="com.zdjf.domain.product.ProductBuyRob" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_product_buy_rob (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectProductBuyRobBuy" resultType="com.zdjf.domain.product.ProductBuyRobVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product_buy_rob
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteProductBuyRobBuy">
+		delete from zd_product_buy_rob
+		where id=#{id}
+	</delete>
+</mapper>

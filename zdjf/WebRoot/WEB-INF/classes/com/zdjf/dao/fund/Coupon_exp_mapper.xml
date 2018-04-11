@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.coupon">
+	<select id="updateCouponById" parameterType="com.zdjf.domain.fund.Coupon">
+		update zd_coupon
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''"> id=#{id},</if>
+			<if test="coupon_name != null and coupon_name != ''"> coupon_name=#{coupon_name},</if>
+			<if test="coupon_source != null and coupon_source != ''"> coupon_source=#{coupon_source},</if>
+			<if test="interest != null and interest != ''"> interest=#{interest},</if>
+			<if test="invalid_type != null and invalid_type != ''"> invalid_type=#{invalid_type},</if>
+			<if test="invalid_days != null and invalid_days != ''"> invalid_days=#{invalid_days},</if>
+			<if test="invalid_start_date != null "> invalid_start_date=#{invalid_start_date},</if>
+			<if test="invalid_end_date != null "> invalid_end_date=#{invalid_end_date},</if>
+			<if test="limit_count != null and limit_count != ''"> limit_count=#{limit_count},</if>
+			<if test="use_type != null and use_type != ''"> use_type=#{use_type},</if>
+			<if test="create_time != null"> create_time=#{create_time},</if>
+			<if test="status != null and status != ''"> status=#{status},</if>
+			<if test="min_amount != null and min_amount != ''"> min_amount=#{min_amount},</if>
+			<if test="min_days != null and min_days != ''"> min_days=#{min_days},</if>
+			<if test="remark != null and remark != ''"> remark=#{remark},</if>
+			<if test="coupon_id != null and coupon_id != ''"> coupon_id=#{coupon_id},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteCouponById" parameterType="long">
+			delete from zd_coupon where id=#{id}
+	</select>
+	<select id="selectCouponPage" resultType="java.util.Map">
+		select
+		<include refid="columns"/>
+		from
+		zd_coupon 
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectCouponCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_coupon
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

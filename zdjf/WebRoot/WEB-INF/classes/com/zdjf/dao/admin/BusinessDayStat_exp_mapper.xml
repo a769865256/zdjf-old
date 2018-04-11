@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.admin.businessDayStat">
+	<sql id="columnsAs">
+		t1.id,t1.stat_date, t1.web_register, t1.android_register, t1.ios_register, t1.wap_register, t1.first_invest_count, t1.web_recharge,
+		t1.android_recharge, t1.ios_recharge, t1.wap_recharge, t1.web_invest_amount, t1.android_invest_amount, t1.ios_invest_amount,
+		t1.wap_invest_amount, t1.web_withdrawals_amount, t1.android_withdrawals_amount, t1.ios_withdrawals_amount, t1.wap_withdrawals_amount,
+		t1.invest_service_charge, t1.withdrawals_service_charge, t1.pending_withdrawals_count, t1.user_count, t1.real_user_count,
+		t1.invest_user_count, t1.invest_amount, t1.pending_principal, t1.interest, t1.all_invest_amount, t1.all_invest_amount,
+		t1.all_behind_amout, t1.rest_amout, t1.all_service_charge, t1.today_pending_amout, t1.tomorrow_pending_amout, t1.third_pending_amout,
+		t1.fourth_pending_amout, t1.fifth_pending_amout, t1.sixth_pending_amout, t1.seventh_pending_amout
+	</sql>
+
+	<select id="selectBusinessDayStatPage" resultType="com.zdjf.domain.admin.BusinessDayStat">
+		select
+		<include refid="columnsAs"/>
+		from
+		zd_business_day_stat t1
+		where 1=1
+		<include refid="conds" />
+		order by stat_date desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectBusinessDayStatCount" resultType="java.lang.Long">
+		select
+		count(stat_date)
+		from zd_business_day_stat
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	
+</mapper>

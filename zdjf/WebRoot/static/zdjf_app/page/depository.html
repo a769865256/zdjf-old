@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../static/css/style.css"/>
+    <link rel="stylesheet" href="../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../static/css/sign.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="depo" style="padding-bottom: 181px;">
+	<div class="depo_box">
+		<div class="depo_img">
+			<img src="../static/img/depo.jpg" alt="">
+		</div>
+		<a href="help/customer.html" class="problem_more">更多问题详情请查看帮助中心</a>
+	</div>
+</div>
+<div class="debox">
+	<div class="de_img">
+		<img src="../static/img/depo2.jpg" alt="">
+	</div>
+	<div class="btn_box">
+		<div class="btn"></div>
+	</div>
+</div>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../module/layer_mobile/layer.js"></script>
+<script src="../static/js/mui.min.js"></script>
+<script type="text/javascript" src="../static/js/public.js"></script>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script>
+	if($com.uri.getUrlQuery().phone || $com.cookie.get("user_name")){
+	    if($com.uri.getUrlQuery().phone){
+	        var phone = $com.uri.getUrlQuery().phone;
+	        var reg_source = $com.uri.getUrlQuery().reg_source;
+		}else{
+            var phone = $com.cookie.get("user_name");
+            var reg_source = 4;
+		}
+        $com.app.ajax({
+            phone : phone,
+            reg_source : reg_source,
+            ip : $com.IP,
+            sign : $.md5(phone + reg_source + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/user/details.json"
+        }, [function(data) {
+            console.log(data);
+            // 判断用户是否实名，是：添加active类名
+            if( data.status == 3 || data.status ==4){
+                $('.btn_box .btn').addClass('active');
+			}
+            $('.btn_box .btn').attr('data-status',data.status).attr('data-auth',data.real_name_auth)
+        }, function() {
+
+        }]);
+	}
+	var flag = true;
+    mui('.debox').on("tap",".btn",function () {
+	    if(flag){
+	    	flag = false;
+	    	if(!$(this).hasClass('active')){
+	            if($com.uri.getUrlQuery().phone){
+	                if($(this).data('auth') == 1){
+	                    if($(this).data('status') == 2){
+	                        window.location = 'toSetTradePwd';
+	                    }else{
+	                        window.location = 'toBindCard';
+	                    }
+	                }else{
+	                    window.location = 'toRealName';
+	                }
+	            }else{
+	                window.location = 'toLogin';
+	            }
+	    	}
+	    }
+    })
+</script>
+</body>
+</html>
+

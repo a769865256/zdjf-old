@@ -1,0 +1,63 @@
+body{
+    padding-bottom: 0.2rem;
+}
+.login{}
+.login .l_box{padding: 88px 0 0;}
+.login .l_box .zdlogo{height: 250px;text-align: center;background: #ffffff;}
+.login .l_box .zdlogo img{width: 150px;margin: 50px 0 0;}
+.login .l_box .formbox{padding: 0 30px;background: #ffffff;}
+.login .l_box .formbox ul{}
+.login .l_box .formbox ul li{height: 120px;line-height: 120px;border-bottom: 1px solid #e3e3e3;}
+.login .l_box .formbox ul li.phone{background: url(../img/login/phone.png) left 22px top 43px no-repeat;}
+.login .l_box .formbox ul li.img{background: url(../img/login/img.png) left 22px top 43px no-repeat;position: relative;}
+.login .l_box .formbox ul li.pass{background: url(../img/login/pass.png) left 22px top 43px no-repeat;}
+.login .l_box .formbox ul li.img .cord{position: absolute;display: inline-block;width: 90px;height: 35px;right: 30px;top: 60px;background: #efefef;line-height: 35px;text-align: center;}
+.login .l_box .formbox ul li.phone input{width: 80%;height: 50px;margin: 35px 0 0 60px;line-height: 50px;border: none;font-size: 24px;color: #3b3b3b;float: left;}
+.login .l_box .formbox ul li.img input{width: 80%;height: 50px;margin: 35px 0 0 60px;line-height: 50px;border: none;font-size: 24px;color: #3b3b3b;float: left;}
+.login .l_box .formbox ul li.pass input{width: 80%;height: 50px;margin: 35px 0 0 60px;line-height: 50px;border: none;font-size: 24px;color: #3b3b3b;float: left;}
+.login .l_box .formbox p{text-align: right;line-height: 50px;}
+.login .l_box .formbox .forget{font-size: 24px;color: #008eff;}
+.login .l_box .l_btn{margin: 70px 30px 20px;}
+.login .l_box .l_btn a{display: block;height: 84px;background: #bababa;text-align: center;line-height: 84px;font-size: 32px;color: #ffffff;border-radius: 5px;}
+.login .l_box .l_btn p{font-size: 24px;color: #c3c3c3;text-align: center;}
+.login .l_box .l_btn img{width: 20px;vertical-align: bottom;}
+.login .l_box .l_btn a.active{background: #008eff;}
+
+.login .l_box .regist_box{padding: 0 30px;background: #ffffff;}
+.login .l_box .regist_box ul{}
+.login .l_box .regist_box ul li{height: 120px;line-height: 120px;border-bottom: 1px solid #e3e3e3;}
+.login .l_box .regist_box ul li.phone{background: url(../img/login/phone.png) left 22px top 43px no-repeat;}
+.login .l_box .regist_box ul li.img{background: url(../img/login/img.png) left 22px top 48px no-repeat;position: relative;}
+.login .l_box .regist_box ul li.pass{background: url(../img/login/pass.png) left 22px top 47px no-repeat;}
+.login .l_box .regist_box ul li.img #btn{position: absolute;display: inline-block;height: 40px;line-height: 40px;width: 140px;right: 30px;top: 40px;background: #efefef;color: #c3c3c3;font-size: 20px;margin: 0;-webkit-appearance: none; }
+.login .l_box .regist_box ul li.img .verbtn{background: #008eff !important;color: #ffffff !important;}
+.login .l_box .regist_box ul li.active{
+    border-color: #008eff;
+}
+
+.login .l_box .regist_box ul li.phone input{width: 80%;height: 50px;margin: 35px 0 0 60px;line-height: 50px;border: none;font-size: 24px;color: #3b3b3b;}
+.login .l_box .regist_box ul li.img input{width: 80%;height: 50px;margin: 35px 0 0 60px;line-height: 50px;border: none;font-size: 24px;color: #3b3b3b;}
+.login .l_box .regist_box ul li.pass input{width: 80%;height: 50px;margin: 35px 0 0 60px;line-height: 50px;border: none;font-size: 24px;color: #3b3b3b;}
+.login .l_box .regist_box p{text-align: right;line-height: 50px;}
+.open_input{
+    width: 90%;
+    display: inline-block;
+    height: 100%;
+    line-height: 100%;
+    font-size: 24px;
+    color: #c3c3c3;
+}
+.login .l_box .regist_box .forget{font-size: 24px;color: #008eff;}
+
+.relogo{}
+.relogo img{width: 100%;display: block;}
+.invita{}
+.invita p{line-height: 70px;height: 70px;background: url(../img/login/reg_invita.png) left 22px top 30px no-repeat;background-size:24px;}
+.invita p input{width: 90%;display: inline-block;height: 100%;line-height: 100%;border: none;font-size: 24px;color: #c3c3c3;}
+/*.invita p:first-child span{background: url(../img/login/reg_invita.png) left center no-repeat;background-size:24px;width: 24px;height: 100%;display: inline-block;float: left;}*/
+.invita p:last-child{background: url(../img/login/reg_yaoqing.png) left 22px top 24px no-repeat;background-size:24px;}
+.xieyi p{font-size: 24px;color: #c3c3c3;text-align: center;padding-top: 20px;}
+.xieyi input{width: 20px;height: 20px;border: 1px solid #c3c3c3;border-radius: 50%;margin-right: 2px;background: none;}
+.xieyi a{font-size: 24px;color: #008eff;}
+
+.login .l_box .error{padding: 0 30px;background: #ffffff;font-size: 24px;text-align: center;color: red;}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../../../module/layui/css/layui.mobile.css"/>
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/AprilFoolsDay.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="AprilFoolsDay">
+	<div class="zjz_box">老板，您的正经值剩余<span class="toLogin" id="btn_login">登录查看</span></div>
+	<div class="lottery_box">
+		<div id="lottery">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr class="lottery-group">
+					<td class="lottery-unit td_1" >
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_0.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_0.png" class="light" />
+						</div>
+					</td>
+					<td class="gap"></td>
+					<td class="lottery-unit td_2">
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_1.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_1.png" class="light" />
+						</div>
+					</td>
+					<td class="gap"></td>
+					<td class="lottery-unit td_3">
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_2.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_2.png" class="light" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="gap-2" colspan="5"></td>
+				</tr>
+				<tr class="lottery-group">
+					<td class="lottery-unit td_4">
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_2.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_2.png" class="light" />
+						</div>
+					</td>
+					<td class="gap"></td>
+					<td class="td_5">
+						<div class="img btn_go toLogin" id="btn_go">
+							<p class="word_sy">（剩余<span>3</span>次）</p>
+						</div>
+					</td>
+					<td class="gap"></td>
+					<td class="lottery-unit td_6">
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_3.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_3.png" class="light" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="gap-2" colspan="5"></td>
+				</tr>
+				<tr class="lottery-group">
+					<td class="lottery-unit td_7">
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_3.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_3.png" class="light" />
+						</div>
+					</td>
+					<td class="gap"></td>
+					<td class="lottery-unit td_8">
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_0.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_0.png" class="light" />
+						</div>
+					</td>
+					<td class="gap"></td>
+					<td class="lottery-unit td_9">
+						<div class="img">
+							<img src="../../static/img/active/AprilFoolsDay/lottery1_1.png" class="dark" />
+							<img src="../../static/img/active/AprilFoolsDay/lottery_1.png" class="light" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="ranking">
+		<ul class="mz">
+		</ul>
+		<ul class="bmz">
+		</ul>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/lottery.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+	(function() {
+        var reg_source = $com.uri.getUrlQuery().reg_source ? $com.uri.getUrlQuery().reg_source : 4;
+		var phone = $com.uri.getUrlQuery().phone || $com.cookie.get("user_name") || '';
+		if(reg_source == 4){
+			var toLogin = '../login/login.html';
+		}else{
+			var toLogin = 'toLogin';
+		}
+		var number_zjz; //正经值
+		var number_cs; //抽奖次数
+		var number_zj; //中奖号
+		if(phone){
+			$('.zjz_box span,#btn_go').removeClass('toLogin');
+		}else{
+			$('#btn_go').removeClass('btn_go');
+		}
+		$com.app.ajax({
+			phone : phone,
+			reg_source : reg_source,
+	        $TYPE : "post",
+	        $URI : "/getUserFoolsInfoAndInvtList.action"
+	    }, function(data) {
+	        var str = '',str_bmz = '';
+	        $.each(data.investList,function(index,ele){
+	            if(index<3){
+	            	str+= '<li class="mz"><div class="user_name fl">'+ele.phone+'</div><div class="amount_invest fr">¥'+ele.amt+'</div></li>';
+	            }else{
+	            	str_bmz+= '<li class="bmz"><div class="user_name fl">'+ele.phone+'</div><div class="amount_invest fr">¥'+ele.amt+'</div></li>';
+	            }
+	        })
+	        $('.ranking ul.mz').append(str);
+	        $('.ranking ul.bmz').append(str_bmz);
+	        if(phone){
+	        	number_zjz = data.coinBlance;
+		        number_cs = data.awardNum;
+		        $('.zjz_box span').html(data.coinBlance);
+				$(".word_sy span").html(data.awardNum);
+				if(data.awardNum == 0){
+					$('#btn_go').addClass('no_number').removeClass('btn_go');
+					$(".word_sy").hide();
+				}else if(data.coinBlance < 5){
+					$('#btn_go').addClass('no_go').removeClass('btn_go');
+					$(".word_sy").hide();
+				}else{
+					// $('#btn_go').addClass('btn_go');
+				}
+	        }
+	    });
+		lottery.lottery({
+			selector:     '#lottery',
+			width:        3,
+			height:       3,
+			index:        -1,    // 初始位置
+			initSpeed:    200,  // 初始转动速度
+			beforeRoll: function () { // 重写滚动前事件：beforeRoll
+				if(phone){
+					$com.app.ajax({
+						phone : phone,
+						reg_source : reg_source,
+			            $TYPE : "post",
+			            $URI : "/activity/doAward.action"
+			        }, function(data) {
+			        	if(parseInt(data) == 1){//红包
+			        		number_zj = Math.random()<0.5?2:7;
+			        	}else if(parseInt(data) == 2){//加息券
+			        		number_zj = Math.random()<0.5?3:6;
+			        	}else if(parseInt(data) == 3){//正经值
+			        		number_zj = Math.random()<0.5?1:4;
+			        	}else{
+			        		number_zj = Math.random()<0.5?0:5;
+			        	}
+			            $(".dark").show();
+						$(".light").hide();
+						number_zjz = number_zjz - 5;
+						number_cs--;
+						$('.zjz_box span').html(number_zjz);
+						$(".word_sy span").html(number_cs);
+			        });
+				}else{
+					window.location = toLogin;
+				}
+				
+			},
+			_roll: function () { // 转盘滚动
+				// console.log(this.options.index % this._count()); //获取下标
+			},
+			beforeDown: function () { // 重写减速前事件：beforeDown支持用户追加操作（例如：从后台获取中奖号）
+				// console.log(this);
+			},
+			aim: function () { // 重写计算中奖号的方法：aim（默认随机数字）
+				// console.log(this);
+				this.options.target = number_zj;
+			},
+			_stop: function () { // 转盘停止
+				// console.log(this.options.target);
+				// console.log(this.options.isRunning);
+				if(this.options.isRunning == false) {
+		            if(this.options.index % this._count() != 0 && this.options.index % this._count() != 5){
+		               	$com.app.tip('您的奖品已放入红包卡券中');
+		            }
+		            if(number_cs == 0) { //次数为0抽奖按钮置灰，点击无效
+		                lottery._disable();	//禁止点击
+		                $('#btn_go').addClass('no_number').removeClass('btn_go');
+						$(".word_sy").hide();
+		            }else if(number_zjz < 5) { //正经值小于5显示正经值不足
+		            	lottery._disable();	//禁止点击
+		                $('#btn_go').addClass('no_go').removeClass('btn_go');
+						$(".word_sy").hide();
+		            }
+				}
+			}
+		});
+		$('#btn_login,#btn_go').click(function(){
+			if($(this).hasClass('toLogin')){
+				window.location = toLogin;
+			}
+		})
+    }());
+</script>
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product.productIncome">
+<select id="selectProductIncomePage" resultType="com.zdjf.domain.product.ProductIncomeVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_product_income
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectProductIncomeCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_product_income
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectProductIncomeById" resultType="com.zdjf.domain.product.ProductIncome">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product_income
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="deleteProductIncomeById" parameterType="long">
+			delete from zd_product_income where id=#{id}
+	</select>
+	<select id="updateProductIncomeById" parameterType="com.zdjf.domain.product.ProductIncome">
+		update zd_product_income
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''">    id = #{id},</if>
+		<if test="product_id != null and product_id != ''">    product_id = #{product_id},</if>
+		<if test="start_date != null">    start_date = #{start_date},</if>
+		<if test="end_date != null">    end_date = #{end_date},</if>
+		<if test="days != null and days != ''">    days = #{days},</if>
+		<if test="pay_date != null">    pay_date = #{pay_date},</if>
+		<if test="income_dailly != null and income_dailly != ''">    income_dailly = #{income_dailly},</if>
+		<if test="income != null and income != ''">    income = #{income},</if>
+		<if test="amount != null and amount != ''">    amount = #{amount},</if>
+		<if test="create_time != null">    create_time = #{create_time},</if>
+		<if test="status != null and status != ''">    status = #{status},</if>
+		<if test="income_id != null and income_id != ''">    income_id = #{income_id},</if>
+		<if test="old_product_id != null and old_product_id != ''">    old_product_id = #{old_product_id},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="selectProductIncomeEnd" resultType="com.zdjf.domain.product.ProductIncome" parameterType="java.util.Map">
+		select * 
+		from zd_product_income
+		where 1=1
+		<if test="end_dates != null"  >
+			and DATE_FORMAT(end_date,'%Y-%m-%d') = #{end_dates}
+		</if>
+	</select>
+</mapper>

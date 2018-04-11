@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>投资成功</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/wealth.css"/>
+    <link rel="stylesheet" href="../../static/css/recharge.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="../../index.html"></a>投资成功</div>
+<div class="wealth body_content">
+    <div class="in_ok">
+        <div class="ok_img">
+            <img src="../../static/img/recharge/in_ok.png" alt="投资成功" width="230" height="67">
+        </div>
+<!--         <div class="in_ok_box"> -->
+<!--             <h3>2017-09-25</h3> -->
+<!--             <p>成功投资1000.00元</p> -->
+<!--             <h3>2017-09-25</h3> -->
+<!--             <p>开始计算收益</p> -->
+<!--             <h3>2017-09-25</h3> -->
+<!--             <p>本息全部到账</p> -->
+<!--         </div> -->
+        <a href="../wealth/wealth.html">前往个人中心</a>
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script type="text/javascript" src="../../static/js/wealth.js"></script>
+<script>
+    (function() {
+        $com.cookie.del("__DIS__");
+    }());
+</script>
+</html>
+

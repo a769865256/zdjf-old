@@ -1,0 +1,61 @@
+.sign{width: 100%;}
+.s_one{background: #fdae2a;}
+.s_two{background: #fdae2a;position: relative;}
+.s_three{background: #fea721;position: relative;}
+.s_four{position: relative;}
+.s_five{position: relative;}
+.s_six{position: relative;}
+.s_seven{position: relative;}
+
+.s_two .twobox{position: absolute;width: 100%;height: 100%;top: 0;left: 0;text-align: center;}
+.s_two .twobox span{display: inline-block;width:65px;height: 72px;}
+.s_two .twobox a{width: 269px;height: 72px;display: inline-block;vertical-align: bottom;margin: 0 50px;line-height: 65px;font-size: 35px;color: #ff6c00;}
+
+.s_three .threebox{width: 100%;margin-top: 100px;height: 140px;overflow: hidden;}
+.s_three .threebox p{width: 470px;margin: 0 auto;font-size: 20px;color: #763016;line-height: 50px;}
+.s_three .threebox p span{font-size: 20px;color: #ff6c00;float: right;text-align: right;}
+
+.s_four .fourbox{position:absolute;width: 100%;left: 0;top: 267px;text-align: center;color: #ffffff;line-height: 47px;}
+.s_four .fourbox span{color: #ffffff;font-size: 20px;}
+.s_four .fourbox a{position: absolute;right: 43px;font-size: 20px;}
+
+.s_five .fivebox{position: absolute;display: flex;width: 100%;top: 250px;left: 0;}
+.s_five .box{flex:1;text-align: center;}
+.s_five .box h3{font-size: 22px;color: #fe8f07;text-align: center;margin: 0 0 15px;}
+.s_five .box p{font-size: 22px;color: #fe8f07;}
+.s_five .box p img{vertical-align: sub;margin: 0 10px 0 0;}
+.s_five .box:first-child{text-indent: 70px;} 
+.s_five .box:first-child h3{font-size: 20px;}
+.s_five .box:first-child p{font-size: 20px;}
+.s_five .box:last-child h3{color: #fde142;font-size: 20px;text-align: left;text-indent: 11px;}
+.s_five .box:last-child p{color: #fde142;font-size: 20px;text-align: left;text-indent: 11px;}
+
+.s_six .sixbox{position: absolute;top: 22px;width: 100%;text-align: center;}
+.s_six .sixbox p{font-size: 20px;color: #f28c37;margin: 0 0 27px;}
+.s_six .sixbox p span{float: right;font-size: 22px;color: #f28c37;margin: 0 37px 0 0;}
+
+.s_seven .sevenbox{position: absolute;width: 100%;top: 112px;text-align: center;}
+.s_seven .sevenbox a{display: inline-block;width: 51px;height: 43px;}
+
+/* 存管宣传 */
+.depo{background: #6551a5;}
+.depo img{width: 100%;}
+.depo .debox{width: 100%;height: 65px;text-align: center;text-align: center;position: relative;}
+.debox .btn{position: absolute;text-align: center;width: 100%;height: 100%;top: 0;}
+.debox .btn a{display: inline-block;font-size: 22px;color: #333333;line-height: 60px;}
+
+.depo_ok{text-align: center;}
+.depo_ok img{width: 100%;}
+.depo_ok a{width: 440px;height: 84px;line-height: 84px;text-align: center;display: inline-block;background: #ffffff;font-size: 32px;color: #008eff;margin: 100px 0 0;}
+
+
+
+
+
+
+
+
+
+
+
+

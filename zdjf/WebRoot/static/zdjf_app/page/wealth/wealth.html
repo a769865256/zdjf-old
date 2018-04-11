@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+	<link rel="stylesheet" href="../../static/css/wealth.css"/>
+</head>
+<body class="zoom">
+<div class="wealth">
+	<div class="header"><a class="back" href="../../index.html"></a>我的财富</div>
+    <div class="wea_head">
+        <div class="main">
+            <a href="total.html">
+                <h3 id="total">-</h3>
+                <p>总资产(元)<img src="../../static/img/mywealth/more.png" alt=""></p>
+            </a>
+        </div>
+        <div class="secon">
+            <div class="sebox">
+                <h4 id="incomed">-</h4>
+                <p>累计赚取(元)<img src="../../static/img/mywealth/more.png" alt=""></p>
+            </div>
+            <div class="sebox">
+                <h4 id="balance">-</h4>
+                <p>可用余额(元)<img src="../../static/img/mywealth/more.png" alt=""></p>
+            </div>
+        </div>
+        <div class="mybox">
+            <div class="box">
+                <div class="boxsta sta1">
+                    <a href="invest.html">
+                        <h4>我的投资</h4>
+                        <p id="investment">-项履约中</p>
+                    </a>
+                </div>
+                <div class="boxsta sta2">
+                    <a href="discount.html">
+                        <h4>我的优惠</h4>
+                        <p id="gift">-张可用</p>
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxsta sta3">
+                    <a href="capital.html">
+                        <h4>资金明细</h4>
+                        <p>查看详情</p>
+                    </a>
+                </div>
+                <div class="boxsta sta4">
+                    <a href="javascript:;">
+                        <h4>邀请有礼</h4>
+                        <p>TA投资你赚钱</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mybtn">
+            <a href="javascript:;" id="with">提现</a>
+            <a href="javascript:;" id="recharge">充值</a>
+        </div>
+        <div class="my_tlt">
+            <p><img src="../../static/img/login/btntxt.png" alt="">上海银行资金监管</p>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/wealth.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+    (function() {
+        if(!$com.cookie.get("user_name")){
+            window.location = "../login/login.html";
+        }
+
+        /*$('.sta1 a,.sta3 a,.sta4 a').click(function () {
+            layer.open({
+                content: '体验更多功能，享受更多优惠，请下载正道金服app'
+                ,btn: ['下载', '取消']
+                ,yes: function(index){
+                    upload_app();
+                    layer.close(index);
+                }
+            });
+        })*/
+        var HTML = {};
+        var mySwiper, current = 0, page = 1;
+
+        var status = 0, real_status = 0, real_name = -1;
+
+        //银行存管检测
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/user/details.json"
+        }, [function(data) {
+            real_status = data.status;
+            $("#with, #recharge").addClass("active");
+        }, function() {
+            
+        }]);
+        
+        $("body")
+
+        .delegate("#with.active", "click", function() {            
+            var isLogin = $com.cookie.get("user_name");
+            if (!isLogin) {
+                window.location = "../login/login.html";
+            } else if (real_status == 3){
+                window.location = "../recharge/with.html";
+            } else if (real_status == 4){
+                window.location = "../../check.html";
+            } else {
+                jm_kt_alert();
+            } 
+
+        })
+
+        .delegate("#recharge.active", "click", function() {            
+            var isLogin = $com.cookie.get("user_name");
+            if (!isLogin) {
+                window.location = "../login/login.html";
+            } else if (real_status == 3){
+                window.location = "../recharge/recharge.html";
+            } else if (real_status == 4){
+                window.location = "../../check.html";
+            } else {
+                jm_kt_alert();
+            }
+        })
+
+
+        .delegate("#dialog_btn", "click", function() {
+            if (real_status == 2){
+                window.location = "../../check.html";
+            }else{
+                window.location = "../real/real_name.html";
+            }
+        });
+        
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/combination/mypage.json"
+        }, [function(data) {
+            $("#total").html(Number(data.total_assets).toFixed(2));
+            $("#incomed").html(Number(data.incomed).toFixed(2));
+            $("#balance").html(Number(data.balance).toFixed(2));
+            $("#investment").html(data.investment + "项履约中");
+            $("#gift").html(data.giftCoupon + "张可用");
+
+        }, function() {
+            
+        }]);
+        
+        $("#logout").click(function() {
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                ip : $com.IP,
+                sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+                $TYPE : "post",
+                $URI : "/m/user/loginout.json"
+            }, [function(data) {
+                $com.cookie.del("user_name");
+                window.location = "page/login/login.html";
+            }, function() {
+                
+            }]);
+        });
+    }());
+</script>
+</html>

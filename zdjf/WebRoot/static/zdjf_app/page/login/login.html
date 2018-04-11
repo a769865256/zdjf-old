@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/login.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="login">
+	<div class="header"><a class="back" href="../../index.html"></a>登录
+		<a href="reg.html" class="register">注册</a></div>
+	<div class="l_box">
+		<div class="zdlogo">
+			<img src="../../static/img/login/login.png" alt="">
+		</div>
+		<div class="formbox">
+			<ul>
+				<li class="phone"><input type="number" class="ph_num" placeholder="输入手机号码" id="acc"></li>
+				<!-- 输入错误三次之后显示该区域 控制显示隐藏的class类名：hide -->
+				<li class="img hide"><input type="text" class="ph_num" id="code" placeholder="输入图片验证码">
+					<span class="cord">HLR9</span>
+				</li>
+				<li class="pass"><input type="password" class="ph_num" id="pwd" placeholder="请输入登录密码"></li>
+			</ul>
+			<p><a href="forget.html" class="forget">忘记密码</a></p>
+		</div>
+		<div class="l_btn">
+			<a href="javascript:" class="active" id="login">登录</a>
+			<p><img src="../../static/img/login/btntxt.png" alt="">上海银行资金监管</p>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+	(function() {
+		$('.regist_box input').focus(function () {
+		    $(this).parent().addClass('active');
+		}).blur(function () {
+		    $(this).parent().removeClass('active');
+		});
+		
+		var countdown=60; 
+		function sendemail(){
+		    var obj = $(".btn2");
+		    obj.removeClass('verbtn');
+		    settime(obj);
+		}
+		function settime(obj) { //发送验证码倒计时
+		    if (countdown == 0) { 
+		        obj.removeAttr('disabled');
+		        obj.addClass('verbtn');
+		        obj.val("获取验证码");
+		        countdown = 60; 
+		        return;
+		    } else { 
+		        obj.attr('disabled',true);
+		        obj.val(countdown + "秒后重发");
+		        countdown--; 
+		    } 
+		    setTimeout(function() { 
+		        settime(obj) 
+		    },1000) 
+		}
+		
+		$('.in_open').click(function(){
+		    if($('.inbox').hasClass('hide')){
+		        $('.inbox').removeClass('hide');
+		    }else{
+		        $('.inbox').addClass('hide');
+		    }
+		});
+		
+		$("body").delegate("#login.active", "click", function() {
+			var acc = $.trim($("#acc").val()),
+				pwd = $.trim($("#pwd").val());
+			$("#login").removeClass("active");
+			
+			if (!acc) {
+				$com.app.tip("请输入手机号码");
+				recovery();
+				return;
+			}
+			
+			if (!pwd) {
+				$com.app.tip("请输入密码");
+				recovery();
+				return;
+			}
+			
+			$com.app.ajax({
+				phone : acc,
+				passwd : pwd,
+				ip : $com.IP,
+				reg_source : 4, //微信
+				is_new : 1, //新版本
+				sign : $.md5(acc + pwd + $com.IP + $com.KEY),
+				$TYPE : "post",
+				$URI : "/m/user/login.json"
+			}, [function(data) {
+				$com.cookie.set("user_name", acc);
+				$com.cookie.del("__DIS__");
+				setTimeout(function() {
+					window.location = "../../index.html";
+				}, 10);
+			}, function() {
+				recovery();
+			}]);
+			
+			function recovery() {
+				$("#login").addClass("active");
+			}
+		});
+	}());
+</script>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>2017年度运营报告</title>
+    <!-- 公共样式 -->
+	<link rel="stylesheet" href="../../module/swiper/swiper-3.4.2.min.css"/>
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+    <link rel="stylesheet" href="../../static/css/report.css"/>
+	<!-- 公共样式end -->
+    <style id="_zoom"></style>
+</head>
+<body class="zoom report_year">
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y0.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y1.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y2.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y3.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y4.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y5.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y6.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y7.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y8.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y9.png" alt="">
+        	</div>
+            <div class="to_next_page">
+                <img src="../../static/img/report/next.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide">
+        	<div class="con_img flex">
+        		<img src="../../static/img/report/y10.png" alt="">
+        	</div>
+            <div class="to_index_page">
+                <img src="../../static/img/report/index.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript">
+var mySwiper = new Swiper('.swiper-container',{
+    direction : 'vertical',
+})
+$('.to_next_page').click(function(){
+    mySwiper.slideNext();
+})
+$('.to_index_page').click(function(){
+    mySwiper.slideTo(0, 1000, false);//切换到第一个slide，速度为1秒
+})
+</script>
+</html>

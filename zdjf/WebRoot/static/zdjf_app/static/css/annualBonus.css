@@ -1,0 +1,34 @@
+/*字体 */
+@font-face {
+  font-family: 'sign_lg_font';
+  src: url('../../../../module/iconfont/SourceHanSansCN-Regular.TTF');
+}
+.annualBonus{width: 100%;overflow: hidden;font-family: 'sign_lg_font';}
+.annualBonus .annualBonus_banner{width: 100%;height: 100%;}
+.annualBonus .annualBonus_banner img{width: 100%;height: 6.7rem;}
+
+.annualBonus .annualBonus_middle{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .baiyin{overflow: hidden;width: 100%;height: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .baiyin img{width: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod{overflow: hidden;position: relative;width: 100%;height: 14.6rem;background: url(../../static/img/active/annualBonus/nz_glod.png) center top no-repeat;background-size: cover;}
+
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox{width: 100%;margin: 3.2rem auto 0;display: flex;flex-direction: column;align-items: center;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb{display: flex;flex-direction: column;align-items: center;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb.second_hb{margin-top: 0.94rem;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb.third_hb{margin-top: 0.9rem;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent{position: relative;width: 3.8rem;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent img{width: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent .left{position: absolute;top: 50%; color: #fff;font-size: 0.28rem;width: 2.2rem;text-align: center;transform: translateY(-50%);-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent .rmb{position: absolute;top: 50%;right: 0; color: #e34a54;font-size: 0.46rem;width: 1.8rem;text-align: center;transform: translateY(-50%);-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .btn{float: left;color: #e34a54;font-size: 0.28rem;margin: 0.1rem 0.2rem 0;text-align: center; width: 1.12rem;height: 0.54rem;line-height: 0.54rem;background: url(../../static/img/active/annualBonus/btn.png) center no-repeat;background-size: cover;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .btn.active{color: #a4161e;background: url(../../static/img/active/annualBonus/btn_checked.png) center no-repeat;background-size: cover;}
+
+.annualBonus .annualBonus_middle .annualBonus_middle_box .zuanshi{overflow: hidden;width: 100%;height: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .zuanshi img{width: 100%;}
+
+.annualBonus .annualBonus_bottom{overflow: hidden;}
+.annualBonus .annualBonus_bottom .annualBonus_bottom_box{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.annualBonus .annualBonus_bottom .annualBonus_bottom_box .bottom{overflow: hidden;width: 100%;height: 100%;}
+.annualBonus .annualBonus_bottom .annualBonus_bottom_box .bottom img{width: 100%;}
+

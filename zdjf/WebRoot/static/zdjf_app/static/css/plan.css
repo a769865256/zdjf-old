@@ -1,0 +1,26 @@
+.table{
+    padding: 40px;
+}
+th{
+    width: 160px;
+    height: 98px;
+    line-height: 98px;
+    color: #333;
+    font-size: 30px;
+    background: #f7ecea;
+    text-align: center;
+    border: 1px solid #e7d9d6;
+}
+th:last-child{
+    width: 510px;
+}
+td{
+    width: 160px;
+    height: 98px;
+    line-height: 98px;
+    color: #333;
+    font-size: 30px;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #f5f5f5;
+}

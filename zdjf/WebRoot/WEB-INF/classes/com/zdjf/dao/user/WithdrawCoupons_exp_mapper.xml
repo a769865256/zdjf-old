@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.withdrawCoupons">
+<select id="selectWithdrawCouponsPage" resultType="com.zdjf.domain.user.WithdrawCouponsVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_withdraw_coupons
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectWithdrawCouponsCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_withdraw_coupons
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectWithdrawCouponsById" resultType="com.zdjf.domain.user.WithdrawCoupons">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_withdraw_coupons
+		where 1=1
+		and id=#{id}
+	</select>
+	
+	<select id="updateWithdrawCouponsById" parameterType="com.zdjf.domain.user.WithdrawCoupons">
+		update zd_withdraw_coupons
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''"> id = #{id},</if>
+		<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+		<if test="action != null and action != ''"> action = #{action},</if>
+		<if test="type != null and type != ''"> type = #{type},</if>
+		<if test="num != null and num != ''"> num = #{num},</if>
+		<if test="balance != null and balance != ''"> balance = #{balance},</if>
+		<if test="relation_id != null and relation_id != ''"> relation_id = #{relation_id},</if>
+		<if test="remark != null and remark != ''"> remark = #{remark},</if>
+		<if test="create_time != null"> create_time = #{create_time},</if>
+		<if test="old_id != null and old_id != ''"> old_id = #{old_id},</if>
+		<if test="uid != null and uid != ''"> uid = #{uid},</if>
+		<if test="old_relation_id != null and old_relation_id != ''"> old_relation_id = #{old_relation_id},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteWithdrawCouponsById" parameterType="long">
+			delete from zd_withdraw_coupons where id=#{id}
+	</select>
+	<select id="selectWithdrawCouponCountByUid" resultType="java.lang.Integer">
+		select count(0) from zd_withdraw_coupons where (type=-1 OR type=1) and user_id=#{user_id}
+	</select>
+	<select id="selectWithdrawCouponPageByMap" resultType="com.zdjf.domain.user.WithdrawCoupons">
+		select
+		*
+		from
+		zd_withdraw_coupons 
+		where 1=1
+		<if test="user_id != null and user_id !=''">and user_id=${user_id}</if>
+		<if test="status != null and status !=''">and type =${status}</if>
+		order by status,create_time desc,amount
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectWithdrawCouponPageCnByMap" resultType="java.lang.Long">
+		select
+		count(0)
+		from
+		zd_withdraw_coupons 
+		where 1=1
+		<if test="user_id != null and user_id !=''">and user_id=${user_id}</if>
+		<if test="status != null and status !=''">and type =${status}</if>
+	</select>
+</mapper>

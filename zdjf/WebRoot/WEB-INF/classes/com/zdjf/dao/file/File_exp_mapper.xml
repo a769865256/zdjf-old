@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.file">
+	<sql id="columnsAs">
+		t1.id, t1.from_id, t1.from_table, t1.file_type,
+		t1.file_name,t1.file_desc,t1.file_url,t1.create_time,t1.file_num,t1.file_width,
+		t1.file_height
+	</sql>
+
+	<select id="selectFilePage" resultType="com.zdjf.domain.file.File">
+		select
+		<include refid="columnsAs" />
+		from
+		zd_files t1
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+
+	<select id="selectFileCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_file
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<!-- 批量插入 -->
+	<insert id="insertFileBatch" parameterType="java.util.List">
+		<selectKey resultType="Long" keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into zd_file
+		id,
+		from_id,
+		file_type,
+		file_name,
+		file_url,
+		create_time,
+		file_num,
+		file_width,
+		file_height
+		values
+		<foreach collection="list" item="reddemCode" index="index"
+			separator=",">
+			(
+			#{reddemCode.id},
+			#{reddemCode.from_id},
+			#{reddemCode.file_type},
+			#{reddemCode.file_name},
+			#{reddemCode.file_url},
+			#{reddemCode.create_time},
+			#{reddemCode.file_num},
+			#{reddemCode.file_width},
+			#{reddemCode.file_height}
+			)
+		</foreach>
+	</insert>
+	
+	<select id="getFileList" parameterType="java.util.Map" resultType="com.zdjf.domain.file.File">
+		select * from zd_files where from_id=#{from_id} and from_table=#{from_table} order by file_num asc
+	</select>
+</mapper>

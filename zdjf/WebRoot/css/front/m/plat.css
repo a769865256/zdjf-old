@@ -1,0 +1,44 @@
+.plat{}
+.f_plat{height: 400px;background:#3a459a;color: #ffffff;text-align: center;}
+.f_plat h3{font-size: 32px;padding: 90px 0 33px;}
+.f_plat span{font-size: 60px;border: 1px solid #63baff;padding: 0 24px;}
+.f_plat h4{font-size: 26px;color: #afb2d1;margin: 20px 0 0;}
+
+.cumulative{height: 210px;position: relative;background: #f6f6f6;margin: 0 24px;}
+.cumulative .cumu{position: absolute;height: 230px;width: 100%;bottom: 30px;background: #ffffff;display: flex;}
+.cumulative .cumu .cubox{flex:1;text-align: center;}
+.cumulative .cumu .cu1{background: url(../img/plat_01.png) center 45px no-repeat;background-size: 55px;}
+.cumulative .cumu .cu2{background: url(../img/plat_02.png) center 45px no-repeat;background-size: 55px;}
+.cumulative .cumu .cu3{background: url(../img/plat_03.png) center 45px no-repeat;background-size: 55px;}
+
+.cumulative .cumu .cubox h3{font-size: 24px;color: #3f3f3f;padding: 120px 0 17px;}
+.cumulative .cumu .cubox p{font-size: 20px;color: #9f9f9f;}
+
+.operate{background: #ffffff;}
+.operate h3{line-height: 105px;background: url(../img/plat_tltbj.png)center center no-repeat;background-size: 390px;text-align: center;font-size: 24px;color: #3f3f3f;}
+.operate img{width: 100%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

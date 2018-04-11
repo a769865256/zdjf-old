@@ -1,0 +1,144 @@
+.progress_box{
+    text-align: center;
+    padding-top: 88px;
+}
+.progress_box img{
+    width: 100%;
+    display: block;
+}
+.l_box .regist_box ul{
+	background: #ffffff;
+}
+.l_box .regist_box ul li{
+    height: 94px;
+    line-height:94px;
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0 30px;
+    position: relative;
+    overflow:hidden;}
+.l_box .regist_box ul li:last-child{
+	border-bottom:0;
+}
+.l_box .regist_box ul li select{
+    padding: 0;
+    margin: 0;
+    font-size: 28px;
+    color: #C3C3C3;
+    height: 92px;
+    line-height: 94px;
+    padding-left: 15px;
+}
+.l_box .regist_box ul li label{
+    display: inline-block;
+    width: 21%;
+    font-size: 30px;
+    color: #3B3B3B;
+}
+ .l_box .regist_box ul li input {
+    width: 69%;
+    height: 50px;
+    line-height: 50px;
+    border: none;
+    font-size: 28px;
+    color: #3b3b3b;
+}
+.l_box .regist_box ul.disabled li input{
+    color: #C3C3C3;
+}
+.l_box .l_btn {
+    margin: 0 30px;
+}
+.l_box .l_btn a {
+    display: block;
+    height: 84px;
+    background: #bababa;
+    text-align: center;
+    line-height: 84px;
+    font-size: 32px;
+    color: #ffffff;
+    border-radius: 5px;
+    margin: 70px 0 20px;
+}
+.l_box .l_btn a.active {
+    background: #008eff;
+}
+.xieyi p{
+    height: 30px;
+    line-height: 30px;
+    font-size: 19px;
+    color: #9F9F9F;
+}
+.xieyi_tit{
+	height:24px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.tit_img{
+	width:22px;
+	height:24px;
+    margin-right: 5px;
+}
+.tit_img img{
+    width:22px;
+	height:24px;
+}
+.tit_word{
+	height:24px;
+	line-height:24px;
+    font-size: 24px;
+    color: #3B3B3B;
+}
+.li_note{
+    height: 70px;
+    line-height: 70px;
+    font-size: 28px;
+    color: #9F9F9F;
+    margin: 0 30px;
+}
+.binding .l_box .regist_box ul li label{
+    width: 24%;
+}
+.binding .l_box .regist_box ul li input{
+    width: 70%;
+}
+.choose_row{
+    display: inline-block;
+    width: 76%;
+}
+.choose{
+    color: #C3C3C3;
+    font-size: 28px;
+    padding-left:15px;
+}
+.row{
+    margin-right: 10px;
+    height:94px;
+}
+.l_box .regist_box ul li #btn {
+    position: absolute;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 140px;
+    right: 30px;
+    top: 26px;
+    background: #efefef;
+    color: #c3c3c3;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+.l_box .regist_box ul li .verbtn {
+    background: #008eff !important;
+    color: #ffffff !important;
+}
+.mui-poppicker{
+	bottom:259px;
+    zoom:2;
+}
+.mui-poppicker-header{
+    background: #fff;
+}
+.mui-picker{
+    background: #fff;
+}

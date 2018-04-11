@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>平台数据</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../static/css/style.css"/>
+    <link rel="stylesheet" href="../static/css/index.css"/>
+    <link rel="stylesheet" href="../static/css/iSlider.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../static/css/plat.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="plat">
+	<div class="f_plat">
+		<div class="mon_num">
+			<h3>实时数据</h3>
+			<span id="sumAmt">-</span>
+			<h4>累计成交余额(元)</h4>
+		</div>
+	</div>
+	<div class="cumulative">
+		<div class="cumu">
+			<div class="cubox cu1">
+				<h3>累计注册人数</h3>
+				<p id="userCount">-人</p>
+			</div>
+			<div class="cubox cu2">
+				<h3>累计赚取收益</h3>
+				<p id="totalIncomed">-元</p>
+			</div>
+			<div class="cubox cu3">
+				<h3>累计投资笔数</h3>
+				<p id="invtNum">-笔</p>
+			</div>
+		</div>
+	</div>
+	<div class="operate">
+		<h3>运营数据</h3>
+		<div class="islider_box">
+			<div id="iSlider-wrapper">
+			
+			</div>
+		</div>	
+		<div>
+			<h3>投资人概括</h3>
+			<img src="../static/img/plat_in.png" alt="">
+			<div class="man_woman">
+				<div class="man_box fl">
+					<div class="man_left fl">
+						<img src="../static/img/man.png" alt="">
+					</div>
+					<div class="man_right fl">
+						<div class="man_percent" id="manPercent"></div>
+						<div class="man_description">男性投资人</div>
+					</div>
+				</div>
+				<div class="man_box fl">
+					<div class="man_left fl">
+						<img src="../static/img/woman.png" alt="">
+					</div>
+					<div class="man_right fl">
+						<div class="man_percent" id="womanPercent"></div>
+						<div class="man_description">女性投资人</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../static/js/iSlider.min.js"></script>
+<script type="text/javascript" src="../static/js/iSlider.animate.min.js"></script>
+<script type="text/javascript" src="../static/js/common.js"></script>
+<script>
+	//千位分隔符，保留n位小数
+	function RetainedDecimalPlaces(num, del) //值：num 小数位：del 
+	{
+	　　if (del != 0)
+	　　{
+	　　　　 num = parseFloat(num).toFixed(del); //天花板函数保留小数并四舍五入
+	　　 }
+	　　var source = String(num).split(".");//按小数点分成2部分
+	　　source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{3})+$)', 'ig'), "$1,");//只将整数部分进行都好分割
+	　　return source.join(".");//再将小数部分合并进来
+	};
+	//万位分隔符无小数
+	function toWanWeiFenGe(num){
+		var yiyi = 100000000;
+		var yiwan = 10000;
+		if(num >= yiyi){
+	    	var num_yi = Math.floor(num/yiyi);
+	    	var num_wan = Math.floor(num%yiyi/yiwan);
+	    	var num_ge = num%yiyi%yiwan;
+	    	num = num_yi+"亿"+num_wan+"万"+num_ge;
+	    }else if( num < yiyi && num >= yiwan){
+	    	var num_wan = Math.floor(num/yiwan);
+	    	var num_ge = Number(num%yiwan);
+	    	num = num_wan+"万"+num_ge;
+	    }
+	    return num;
+	}
+	//万位分隔符有小数
+	function toWanWeiFenGe2(num){
+		var yiyi = 100000000;
+		var yiwan = 10000;
+		if(num >= yiyi){
+	    	var num_yi = Math.floor(num/yiyi);
+	    	var num_wan = Math.floor(num%yiyi/yiwan);
+	    	var num_ge = num%yiyi%yiwan;
+	    	num = num_yi+"亿"+num_wan+"万"+num_ge;
+	    }else if( num < yiyi && num >= yiwan){
+	    	var num_wan = Math.floor(num/yiwan);
+	    	var num_ge = Number(num%yiwan).toFixed(2);
+	    	num = num_wan+"万"+num_ge;
+	    }
+	    return num;
+	}
+	var list = [
+		{
+			content: '<a href="report/report_2017.html"><img src="../static/img/active/report_2017.png" alt=""></a>'
+		},{
+			content: '<a href="report/report_half.html"><img src="../static/img/active/report_half.jpg" alt=""></a>'
+		},{
+			content: '<a href="report/report_quarter.html"><img src="../static/img/active/report_quarter.jpg" alt=""></a>'
+		}
+	];
+	var list_a = ['/report/report_quarter.html','/report/report_2017.html','/report/report_half.html']
+	var S = new iSlider({
+		data: list,
+		dom: document.getElementById("iSlider-wrapper"),
+		type: 'dom',
+        isLooping: 1,
+        isOverspread: 1,
+        isAutoplay: 0,
+		isDebug: 0,
+        animateTime: 800,
+        animateType: 'depth',
+    });
+	//查询新春投资排行
+	$com.app.ajax({
+        $TYPE : "post",
+        $URI : "/info/platformData.action"
+    }, function(data) {
+    	console.log(data);
+        $('#sumAmt').html(RetainedDecimalPlaces(Number(data.sumAmt), 2));
+        $('#userCount').html(toWanWeiFenGe(Number(data.userCount))+"人");
+        $('#totalIncomed').html(toWanWeiFenGe2(Number(data.totalIncomed))+"元");
+        $('#invtNum').html(toWanWeiFenGe(Number(data.invtNum))+"笔");
+        $('#manPercent').html(data.manPercent);
+        $('#womanPercent').html(data.womanPercent);
+    });
+</script>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.pay">
+	<sql id="columns">
+	id,
+	relation_id,
+	user_id,
+	pay_type,
+	total_money,
+	status,
+	real_recharged,
+	available_paid,
+	biz_type,
+	create_time,
+	update_time,
+	pay_id,
+	old_relation_id,
+	uid
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''"> id,</if>
+	<if test="relation_id != null and relation_id != ''"> relation_id,</if>
+	<if test="user_id != null and user_id != ''"> user_id,</if>
+	<if test="pay_type != null and pay_type != ''"> pay_type,</if>
+	<if test="total_money != null and total_money != ''"> total_money,</if>
+	<if test="status != null and status != ''"> status,</if>
+	<if test="real_recharged != null and real_recharged != ''"> real_recharged,</if>
+	<if test="available_paid != null and available_paid != ''"> available_paid,</if>
+	<if test="biz_type != null and biz_type != ''"> biz_type,</if>
+	<if test="create_time != null"> create_time,</if>
+	<if test="update_time != null"> update_time,</if>
+	<if test="pay_id != null and pay_id != ''"> pay_id,</if>
+	<if test="old_relation_id != null and old_relation_id != ''"> old_relation_id,</if>
+	<if test="uid != null and uid != ''"> uid,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''"> #{id},</if>
+	<if test="relation_id != null and relation_id != ''"> #{relation_id},</if>
+	<if test="user_id != null and user_id != ''"> #{user_id},</if>
+	<if test="pay_type != null and pay_type != ''"> #{pay_type},</if>
+	<if test="total_money != null and total_money != ''"> #{total_money},</if>
+	<if test="status != null and status != ''"> #{status},</if>
+	<if test="real_recharged != null and real_recharged != ''"> #{real_recharged},</if>
+	<if test="available_paid != null and available_paid != ''"> #{available_paid},</if>
+	<if test="biz_type != null and biz_type != ''"> #{biz_type},</if>
+	<if test="create_time != null"> #{create_time},</if>
+	<if test="update_time != null"> #{update_time},</if>
+	<if test="pay_id != null and pay_id != ''"> #{pay_id},</if>
+	<if test="old_relation_id != null and old_relation_id != ''"> #{old_relation_id},</if>
+	<if test="uid != null and uid != ''"> #{uid},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''"> and id = #{id}</if>
+	<if test="relation_id != null and relation_id != ''"> and relation_id = #{relation_id}</if>
+	<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+	<if test="pay_type != null and pay_type != ''"> and pay_type = #{pay_type}</if>
+	<if test="total_money != null and total_money != ''"> and total_money = #{total_money}</if>
+	<if test="status != null and status != ''"> and status = #{status}</if>
+	<if test="real_recharged != null and real_recharged != ''"> and real_recharged = #{real_recharged}</if>
+	<if test="available_paid != null and available_paid != ''"> and available_paid = #{available_paid}</if>
+	<if test="biz_type != null and biz_type != ''"> and biz_type = #{biz_type}</if>
+	<if test="create_time != null"> and create_time = #{create_time}</if>
+	<if test="update_time != null"> and update_time = #{update_time}</if>
+	<if test="pay_id != null and pay_id != ''"> and pay_id = #{pay_id}</if>
+	<if test="old_relation_id != null and old_relation_id != ''"> and old_relation_id = #{old_relation_id}</if>
+	<if test="uid != null and uid != ''"> and uid = #{uid}</if>
+	</sql>
+	<insert id="savePay" parameterType="com.zdjf.domain.fund.Pay" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_pay (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectPay" resultType="com.zdjf.domain.fund.PayVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_pay
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deletePay">
+		delete from zd_pay
+		where id=#{id}
+	</delete>
+</mapper>

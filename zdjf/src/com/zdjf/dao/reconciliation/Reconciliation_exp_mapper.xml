@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.reconciliation.reconciliation">
+<select id="updateReconciliationById" parameterType="com.zdjf.domain.reconciliation.Reconciliation">
+		update zd_reconciliation
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''">  id = #{id},</if>
+		<if test="order_date != null and order_date != ''">  order_date = #{order_date},</if>
+		<if test="mer_cust_id != null and mer_cust_id != ''">  mer_cust_id = #{mer_cust_id},</if>
+		<if test="invest_cust_id != null and invest_cust_id != ''">  invest_cust_id = #{invest_cust_id},</if>
+		<if test="borr_cust_id != null and borr_cust_id != ''">  borr_cust_id = #{borr_cust_id},</if>
+		<if test="trans_amt != null and trans_amt != ''">  trans_amt = #{trans_amt},</if>
+		<if test="trans_stat != null and trans_stat != ''">  trans_stat = #{trans_stat},</if>
+		<if test="pnr_date != null and pnr_date != ''">  pnr_date = #{pnr_date},</if>
+		<if test="pnr_seq_id != null and pnr_seq_id != ''">  pnr_seq_id = #{pnr_seq_id},</if>
+		<if test="trans_type != null and trans_type != ''">  trans_type = #{trans_type},</if>
+		<if test="hf_amt != null and hf_amt != ''">  hf_amt = #{hf_amt},</if>
+		<if test="hf_status != null and hf_status != ''">  hf_status = #{hf_status},</if>
+		<if test="create_time != null ">  create_time = #{create_time},</if>
+		<if test="pro_status != null and pro_status != ''">  pro_status = #{pro_status},</if>
+		<if test="order_id != null and order_id != ''">  order_id = #{order_id},</if>
+		</trim>
+		where 1=1
+		and id = #{id}
+	</select>
+<select id="deleteReconciliationById" parameterType="java.lang.Long">
+			delete from zd_reconciliation where 1=1
+			and id=#{id}
+	</select>
+	<select id="selectReconciliationPage" resultType="java.util.Map">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_reconciliation
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectReconciliationCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_reconciliation
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectReconciliationById" resultType="com.zdjf.domain.reconciliation.Reconciliation">
+		select
+		*
+		from zd_reconciliation
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

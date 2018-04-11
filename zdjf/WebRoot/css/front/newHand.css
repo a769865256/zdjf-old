@@ -1,0 +1,56 @@
+.newHand{width: 100%;max-width: 1920px;height: 100%;overflow: hidden;margin: 0 auto;}
+.newHand .newHandBox{z-index: 1;position: relative;overflow: hidden;width: 100%;height: 3310px;background: url(../../images/front/img/active/newHand/banner_bj.png) center no-repeat;background-size: cover;}
+.newHand .newHandBox img.banner_tlt{margin: 165px auto 0;display: block;}
+.newHand .newHandBox .flower{overflow: hidden;width: 100%;height: 2124px;background: url(../../images/front/img/active/newHand/flower.png) center -5px no-repeat;position: absolute;top: 1088px;z-index: 99;margin: 0 auto;}
+.newHand .newHandBox .cainiao{overflow: hidden;}
+.newHand .newHandBox .cainiao .cainiao_tlt{position: relative; overflow: hidden;width: 738px;height: 169px;background: url(../../images/front/img/active/newHand/cainiaoxainfei_tlt.png) center no-repeat;background-size: cover;margin: 32px auto 19px;transform: translateX(-86px);-webkit-transform: translateX(-86px);-ms-transform: translateX(-86px);-moz-transform: translateX(-86px);}
+.newHand .newHandBox .cainiao .cainiao_tlt .cainiao_hd{position: absolute;bottom: 15px;width: 400px;line-height: 23px;left: 116px;font-size: 17px;color: #6044be;font-weight: 600;letter-spacing: 1px;}
+.newHand .newHandBox .cainiao .cainiao_table{overflow: hidden;width: 651px;height: 265px;background: url(../../images/front/img/active/newHand/cainiaoxainfei_table.png) center no-repeat;background-size: cover;margin: 0 auto;transform: translateX(-25px);-webkit-transform: translateX(-25px);-ms-transform: translateX(-25px);-moz-transform: translateX(-25px);}
+.newHand .newHandBox .cainiao .cainiao_btn{overflow: hidden;}
+.newHand .newHandBox .cainiao .cainiao_btn a{z-index: 999;position: relative;width: 234px;height: 66px;line-height: 66px;font-family: 'newHand_font';font-size: 34px; text-align: center; border-radius: 100px;display:block;color: #fff;margin: 0 auto;transform: translateX(-27px);-webkit-transform: translateX(-23px);-ms-transform: translateX(-23px);-moz-transform: translateX(-23px);}
+.newHand .newHandBox .cainiao .cainiao_btn a.cainiao_getJL{background: #6a3dfb;}
+.newHand .newHandBox .cainiao .cainiao_btn a.cainiao_registration{background: #fbb83d;}
+.newHand .newHandBox .cainiao .cainiao_btn .cainiao_btn_down{z-index: 1;position: absolute;left: 50%;display: block; width: 234px;height: 11px;background: url(../../images/front/img/active/newHand/btn_down.png) center no-repeat;background-size: cover;margin: 0 auto;transform: translateX(-60%) translateY(-4px);-webkit-transform: translateX(-60%) translateY(-4px);-ms-transform: translateX(-60%) translateY(-4px);-moz-transform: translateX(-60%) translateY(-4px);}
+
+
+.newHand .newHandBox .yimingjingren{overflow: hidden;position: relative;height: 550px;}
+.newHand .newHandBox .yimingjingren .yiming_tlt{position: relative; overflow: hidden;width: 737px;height: 114px;background: url(../../images/front/img/active/newHand/yimingjingren_tlt.png) center no-repeat;margin: 42px auto 19px;transform: translateX(29px);-webkit-transform: translateX(29px);-ms-transform: translateX(29px);-moz-transform: translateX(29px);}
+.newHand .newHandBox .yimingjingren .yiming_table{overflow: hidden;width: 651px;height: 265px;background: url(../../images/front/img/active/newHand/yimingjingren_table.png) center 0 no-repeat;background-size: cover;margin: 0 auto;transform: translateX(-34px);-webkit-transform: translateX(-34px);-ms-transform: translateX(-34px);-moz-transform: translateX(-34px);}
+.newHand .newHandBox .yimingjingren .yiming_btn{overflow: hidden;}
+.newHand .newHandBox .yimingjingren .yiming_btn a{z-index: 999;position: relative;width: 234px;height: 66px;line-height: 66px;font-family: 'newHand_font';font-size: 34px; text-align: center; border-radius: 100px;display:block;color: #fff;margin: 0 auto;transform: translateX(-27px);-webkit-transform: translateX(-23px);-ms-transform: translateX(-23px);-moz-transform: translateX(-23px);}
+.newHand .newHandBox .yimingjingren .yiming_btn a.yiming_getJL{background: #6a3dfb;}
+.newHand .newHandBox .yimingjingren .yiming_btn a.yiming_investment{background: #fb963d;}
+.newHand .newHandBox .yimingjingren .yiming_btn .yiming_btn_down{z-index: 1;position: absolute;left: 50%;display: block; width: 234px;height: 11px;background: url(../../images/front/img/active/newHand/btn_down.png) center no-repeat;background-size: cover;margin: 0 auto;transform: translateX(-60%) translateY(-4px);-webkit-transform: translateX(-60%) translateY(-4px);-ms-transform: translateX(-60%) translateY(-4px);-moz-transform: translateX(-60%) translateY(-4px);}
+.newHand .newHandBox .yimingjingren .need_investment{color: #6044be;font-size: 20px;font-weight: 600;text-align: center;margin-top: 18px;transform: translateX(-27px);-webkit-transform: translateX(-27px);-ms-transform: translateX(-27px);-moz-transform: translateX(-27px);}
+.newHand .newHandBox .yimingjingren .need_investment span{color: #fb963d;font-size: 20px;margin: 0 8px;}
+.newHand .newHandBox .yimingjingren .libao{width: 223px;height: 211px;background: url(../../images/front/img/active/newHand/yimingjingren_libao.png) center 0 no-repeat;position: absolute;top: 50%;left: 50%;transform: translate(-266%,-40%);-webkit-transform: translate(-266%,-40%);-ms-transform: translate(-266%,-40%);-moz-transform: translate(-266%,-40%);}
+
+
+.newHand .newHandBox .pengchengwanli{overflow: hidden;position: relative;height: 536px;}
+.newHand .newHandBox .pengchengwanli .pengcheng_tlt{position: relative; overflow: hidden;width: 816px;height: 220px;background: url(../../images/front/img/active/newHand/pengchengwanli_tlt.png) center no-repeat;margin: 0 auto 14px;transform: translateX(-52px);-webkit-transform: translateX(-52px);-ms-transform: translateX(-52px);-moz-transform: translateX(-52px);}
+.newHand .newHandBox .pengchengwanli .pengcheng_table{overflow: hidden;width: 731px;height: 192px;background: url(../../images/front/img/active/newHand/pengchengwanli_table.png) 40px 0 no-repeat;background-size: cover;margin: 0 auto;transform: translateX(-44px);-webkit-transform: translateX(-44px);-ms-transform: translateX(-44px);-moz-transform: translateX(-44px);}
+.newHand .newHandBox .pengchengwanli .pengcheng_btn{overflow: hidden;}
+.newHand .newHandBox .pengchengwanli .pengcheng_btn a{z-index: 999;position: relative;width: 234px;height: 66px;line-height: 66px;font-size: 34px;font-family: 'newHand_font'; text-align: center; border-radius: 100px;display:block;color: #fff;margin: 0 auto;transform: translateX(-23px);-webkit-transform: translateX(-23px);-ms-transform: translateX(-23px);-moz-transform: translateX(-23px);}
+.newHand .newHandBox .pengchengwanli .pengcheng_btn a.pengcheng_getJL{background: #6a3dfb;}
+.newHand .newHandBox .pengchengwanli .pengcheng_btn a.pengcheng_investment{background: #43baec;}
+.newHand .newHandBox .pengchengwanli .pengcheng_btn .pengcheng_btn_down{z-index: 1;position: absolute;left: 50%;display: block; width: 234px;height: 11px;background: url(../../images/front/img/active/newHand/btn_down.png) center no-repeat;background-size: cover;margin: 0 auto;transform: translateX(-60%) translateY(-4px);-webkit-transform: translateX(-60%) translateY(-4px);-ms-transform: translateX(-60%) translateY(-4px);-moz-transform: translateX(-60%) translateY(-4px);}
+.newHand .newHandBox .pengchengwanli .need_investment{color: #6044be;font-size: 20px;font-weight: 600;text-align: center;margin-top: 18px;transform: translateX(-27px);-webkit-transform: translateX(-27px);-ms-transform: translateX(-27px);-moz-transform: translateX(-27px);}
+.newHand .newHandBox .pengchengwanli .need_investment span{color: #fb963d;font-size: 20px;margin: 0 8px;}
+
+
+.newHand .newHandBox .rule{overflow: hidden;position: relative;}
+.newHand .newHandBox .rule .rule_bj{width: 867px;height: 248px;background: url(../../images/front/img/active/newHand/redPacketRule_kuang.png) center no-repeat;margin: 74px auto 14px;transform: translateX(-24px);-webkit-transform: translateX(-24px);-ms-transform: translateX(-24px);-moz-transform: translateX(-24px);}
+.newHand .newHandBox .rule .rule_bj .rule_box{padding: 20px 110px;font-family: 'newHand_font';}
+.newHand .newHandBox .rule .rule_bj .rule_box h3{text-align: center;color: #5c40ba;font-size: 28px;}
+.newHand .newHandBox .rule .rule_bj .rule_box h5{text-align: center;color: #6749ce;font-size: 18px;margin-bottom: 10px;}
+.newHand .newHandBox .rule .rule_bj .rule_box p{color: #5c40ba;font-size: 16px;line-height: 25px;}
+
+.newHand .newHandBox .active_rule_btn{z-index: 9999;position: relative;text-align: center;color: #fff;font-size: 28px;font-family: 'newHand_font';margin: 10px 0 30px;transform: translateX(-18px);-webkit-transform: translateX(-18px);-ms-transform: translateX(-18px);-moz-transform: translateX(-18px);}
+.newHand .newHandBox .active_rule_btn i{display: inline-block;font-size: 22px;transform: rotate(90deg);-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-ms-transform: rotate(-90deg);-o-transform: rotate(-90deg);margin: 0 8px;}
+.newHand .newHandBox .active_rule_btn i:hover{cursor: pointer;}
+
+.newHand .newHandBox .active_rule{overflow: hidden;position: relative;z-index: 999;}
+.newHand .newHandBox .active_rule ul{width: 678px;margin: 0 auto;transform: translateX(-14px);}
+.newHand .newHandBox .active_rule ul li{color: #6044be;font-size: 14px;font-weight: 600;margin-bottom: 10px;}
+
+

@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+.admin-main {
+	background: #FFFFFF;
+}
+.user_info_label {
+	font-size: 1.3rem;
+}
+.modal-label {
+	text-align: left;
+	font-size: 1.3rem;
+}
+
+.modal-textarea {
+	width: 94%;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.lable-middle {
+	padding: .5em;
+}
+
+.am-checkbox {
+	margin-top: -10px;
+	margin-bottom: 0px;
+}
+.word-break-all{
+	word-break:break-all;
+	width: 300px;
+}
+.prompt-content,.prompt-reply-content{
+	word-wrap: break-word;
+	word-break:break-all;
+	text-indent: 2em;
+	margin-bottom: 10px;
+	text-align: left;
+}
+.am-form-group {
+    margin-bottom: 2rem;
+}
+.form-replied-answer{
+	color:#0e90d2;
+}
+.align-right {
+    margin-right: 1rem;
+    text-align: right;
+}
+.am-comment-main {
+    margin-left: 23px;
+}
+.height20{
+	height:20px;
+}
+.height50{
+	height:50px;
+}

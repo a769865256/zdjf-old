@@ -1,0 +1,344 @@
+.tg_register{
+	width: 100%;
+    min-width: 1100px;
+    max-width: 1920px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.tg_register .main{
+	width: 100%;
+    max-width: 1920px;
+    min-width: 1100px;
+    height: 2822px;
+    margin: 0 auto;
+    background-image: url(../../images/front/img/active/register/bg.png);
+    background-repeat: no-repeat;
+    background-size: 1920px auto;
+    background-position-x: center;
+    background-position-y: 0;
+    overflow: hidden;
+}
+.tg_register .main .tlt{
+	width: 100%;
+	margin: 56px auto 0;
+}
+.tg_register .main .tlt img{
+	margin: 0 auto;
+    display: block;
+}
+.telReg {
+    width: 598px;
+    height: 495px;
+    padding-top: 300px;
+    margin: 20px auto 0;
+    background-image: url(../../images/front/img/active/register/redRe.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-x: -10px;
+}
+.telReg input::-webkit-input-placeholder {
+	color: #ec1539;
+	font-size: 18px;
+	font-weight: 600;
+}
+.telReg input {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-family: 'zjz_r_font';
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 15px;
+}
+.telReg input[type=text] {
+    font-size: 16px;
+    color: #ec1539;
+    margin-bottom: 20px;
+	border: none !important;
+    outline: none !important;
+}
+.fixed {
+    zoom: 1;
+}
+.fixed:after {
+    display: block;
+    clear: both;
+    content: '';
+    visibility: hidden;
+    height: 0;
+}
+.telReg .yzm, .telReg .mm {
+    width: 320px;
+    height: 60px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.telReg .yzm, .telReg .mm {
+    padding: 0 5px;
+}
+.telReg .yzm>input, .telReg .mm>input {
+    height: 60px;
+    line-height: 60px;
+    color: #ec1539;
+    font-size: 16px;
+    padding: 0 10px;
+    border: none !important;
+    border-radius: 5px;
+    text-align: left;
+    outline: none !important;
+    float: left;
+}
+.telReg .yzm>input {
+    width: 160px;
+	margin-bottom: 0;
+}
+.xqb_reg_ul_doubleimg {
+    width: 100px;
+    float: right;
+    margin-right: 14px;
+}
+.xqb_reg_ul_doubleimg input.buttonInput {
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0;
+    border: 1px solid #EC1538;
+    border-radius: 5px;
+    color: #ec1539;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.telReg .ts_txt {
+    display: none;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+.telReg .btn {
+    width: 330px;
+    height: 68px;
+    margin: 0 auto;
+    padding-top: 6px;
+    border: 2px dashed #ffffff;
+    border-radius: 5px;
+}
+.btn input[type=button] {
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: none !important;
+    outline: none !important;
+    font-family: 'Microsoft YaHei';
+    text-align: center;
+    line-height: 60px;
+    background-image: url(../../images/front/img/active/register/tgx_hb_btn.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-size: 24px;
+    color: #ec1539;
+    cursor: pointer;
+}
+.content {
+    width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.content .zxCon {
+    margin-bottom: 25px;
+}
+.content .zxCon .zxCard {
+	overflow: hidden;
+    width: 620px;
+    height: 349px;
+    margin: 0 auto;
+    background-image: url(../../images/front/img/active/register/syyx.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.zxCard_sj {
+    width: 480px;
+    height: 107px;
+    margin: 90px auto 0;
+    color: #f85343;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 15px;
+    font-family: "number_font";
+}
+.zxCard_sj span {
+    font-size: 64px;
+}
+.zxCard_con {
+    width: 325px;
+    margin: 27PX auto 0;
+    height: 67px;
+    line-height: 67px;
+    font-size: 18px;
+    color: #ffffff;
+}
+.zxCard_con>div {
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+.zxCard_con>div>i {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    position: relative;
+    top: 5px;
+}
+.zxCard_con>div:first-child>i {
+    background-image: url(../../images/front/img/active/register/ioc1.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+.zxCard_con>div:first-child+div>i {
+    background-image: url(../../images/front/img/active/register/ioc2.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+.content2, .content3 {
+    margin-bottom: 30px;
+}
+.content2 img, .content3 img {
+    display: block;
+    width: 836px;
+    margin: 0 auto;
+}
+p.foot,p.wz {
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: 'zjz_m_font';
+}
+/* 弹窗 */
+.qluser {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+.qluser_bg {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.4;
+}
+.qluser_txt02 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    width: 300px;
+    background-color: #FFFFFF;
+}
+.qluser_txt02x {
+    text-align: right;
+}
+.qluser_txt02x span {
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    width: 30px;
+    font-size: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    color: #CCCCCC;
+    padding: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+.qluser_txt02ts {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    margin-top: 30px;
+}
+#qluser_close {
+    display: block;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 30px auto 30px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #3abad7;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.qluser_txt02>p.scanCode {
+    width: 100px;
+    text-align: center;
+    color: #3abad7;
+    font-size: 14px;
+    margin: 0 auto 20px auto;
+    cursor: pointer;
+}
+/* 提示弹窗 */
+.layui-layer-page .layui-layer-content {
+	overflow: inherit;
+}
+.register_bat .sub_box{
+	text-align: center;
+	font-size: 16px;
+	color: #333333;
+	margin-top: 20px;
+}
+.register_bat .sub_box p {
+	margin: 28px 32px 0;
+	text-align: center;
+	font-size: 14px;
+	color: #333333;
+}
+.register_bat .sub_box p a {
+	display: block;
+	box-shadow: 0 2px 8px #1088f1;
+	width: 180px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 16px;
+	background: #1088f1;
+	margin: 0 auto 0;
+	border-radius: 2px;
+}
+.register_bat {
+	border-radius: 6px !important;
+}
+.register_bat .layui-layer-title {
+	border-radius: 6px 6px 0 0;
+}
+.register_bat .layui-layer-title {
+	border-bottom: none;
+	border-radius: 6px 6px 0 0;
+}
+.register_bat .layui-layer-content {
+	overflow: inherit !important;
+}

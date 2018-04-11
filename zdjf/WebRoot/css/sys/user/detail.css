@@ -1,0 +1,20 @@
+td{
+	width:200pt;
+}
+
+.user_info_label {
+	font-size: 1.3rem;
+}
+
+.user_info_content {
+	color: #828282;
+}
+
+.user_info_importent {
+	color: #dd514c;
+}
+
+.user_info_p {
+	line-height: 24px;
+	height: 24px;
+}

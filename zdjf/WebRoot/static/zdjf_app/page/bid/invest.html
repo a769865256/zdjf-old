@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>投资</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+    <!-- 公共样式end -->
+    <link rel="stylesheet" href="../../static/css/invest.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="bid_details.html"></a>投资</div>
+<div class="qt_sy">
+    <div class="qt fl" id="min">起投金额:100元</div>
+    <div class="qt fr" id="rest">剩余可投:-元</div>
+</div>
+<div class="tzje_hkxz">
+    <div class="tzje_box">
+        <div class="tzje_word">投资金额(元)</div>
+        <div class="yqsy_box">
+            <div class="yqsy_sbox fr">
+                <div class="yqsy">预期收益<span id="income">-</span></div>
+            </div>
+        </div>
+        <div class="input_num">
+            <input type="number" id="money" value="100" placeholder="请输入1的整数倍" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" readonly>
+        </div>
+    </div>
+    <ul class="hkxz">
+        <li>
+            <label for="" class="fl">优惠券：</label>
+            <div class="choose_row fr">
+                <a href="javascript:;" id="choose">
+                    <div class="row fr flex">
+                        <img src="../../static/img/index/row.png" alt="">
+                    </div>
+                    <div class="choose fr">请选择优惠券</div>
+                </a>
+            </div>
+        </li>
+        <li>
+            <label for="" class="fl">账户余额(元)：</label>
+            <div class="choose_row fr">
+                <div class="choose fr" id="balance">-</div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="xieyi">
+    <p><input type="checkbox" checked>我已阅读并同意<a href="javascript:;">《债权转让协议》</a></p>
+</div>
+<div class="l_btn">
+    <a href="javascript:" class="active" id="invest">实际支付0元</a>
+</div>
+<script type="text/javascript" src="../../static/js/zoom.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+
+<script>
+    (function() {
+        $('.xieyi a').click(function(){
+        	window.location.href = $com.hostRootUrl +'/product/agreement.action?type=0';
+        })
+        var global = {
+            product : null,
+            account : null,
+            min : 100,
+            trade_no : "",
+            amount : 100,
+            discount : 0,
+            coupon : 0
+        };
+
+        var refresh = true;
+
+        var coupon, coupon_name;
+
+        var UQ = $com.uri.getUrlQuery();
+
+        if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+
+        $(".back").attr("href", "bid_details.html?id=" + UQ.id);
+
+        // 红包筛选
+        if ($com.uri.getUrlQuery().c) {
+            coupon_name = [];
+            coupon = $com.app.getCoupon($com.cookie.get("__DIS__"));
+            if (coupon && coupon.length > 0) {
+                $(coupon).each(function(i, item) {
+                    if (item.type == 1) {
+                        global.coupon += item.amount;
+                        coupon_name.push("红包抵" + item.amount + "元");
+                    } else if (item.type == 2) {
+                        global.discount = item.amount;
+                        coupon_name.push("加息券折扣" + item.amount + "%");
+                    } else if (item.type == 3) {
+                        global.coupon += item.amount;
+                        coupon_name.push("正经值抵" + item.amount + "元");
+                    }
+                });
+
+                $("#choose .choose").text(coupon_name.join(","));
+                $("#invest").text("实际支付" + (100 - global.coupon < 0 ? 0 : 100 - global.coupon) + "元");
+            }
+        }
+
+        if ($com.uri.getUrlQuery().amount) {
+            $("#money").val($com.uri.getUrlQuery().amount);
+        }
+
+        // 获取项目详情
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            ip : $com.IP,
+            reg_source : 4,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            product_id : $com.uri.getUrlQuery().id,
+            $TYPE : "get",
+            $URI : "/m/product/details.json"
+        }, [function(data) {
+            global.product = data.product;
+            var product_balance = Math.floor(data.product.balance);
+            // 数据填充
+            if (data.product) {
+                $("#rest").html("剩余可投:" + data.product.balance + "元");
+                if (data.product.balance < 100) {
+                    $("#min").html("起投金额:" + product_balance + "元");
+                    $("#money").html(product_balance);
+                    $("#income").html(getIncome(data.product.balance, global.discount));
+                    global.min = 1;
+                } else {
+                    $("#income").html(getIncome(100, global.discount));
+                }
+            }
+
+            $("#money").removeAttr("readonly");
+            $("#choose").attr("href", "coupon.html?" + $com.uri.setUrlQuery({
+                id : $com.uri.getUrlQuery().id,
+                amount : global.amount,
+                income_days : global.product.income_days
+            }));
+
+            if (global.account && global.product) {
+                $("#money").trigger("input");
+                refresh = false;
+            }
+        }, function() {
+            
+        }]);
+
+        // 获取账户余额
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            ip : $com.IP,
+            reg_source : 4,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "post",
+            $URI : "/m/userFundStat/balance/query.json"
+        }, [function(data) {
+            global.account = data.dataList;
+            $("#balance").html("¥" + global.account.balance);
+            if (global.account && global.product) {
+                $("#money").trigger("input");
+                refresh = false;
+            }
+        }, function() {
+            
+        }]);
+
+        getTradeNo();
+
+        function getTradeNo() {
+            // 获取投标trade_no
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                ip : $com.IP,
+                reg_source : 4,
+                sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+                $TYPE : "post",
+                $URI : "/m/investment/token.json"
+            }, [function(data) {
+                global.trade_no = data;
+            }, function() {
+                
+            }]);
+        }
+    
+        $("body")
+
+        /*.delegate("#choose", "click", function() {
+            if (!global.product) {
+                $com.app.tip("数据加载中...");
+                return;
+            }
+            window.location = "coupon.html?" + $com.uri.setUrlQuery({
+                id : $com.uri.getUrlQuery().id,
+                amount : global.amount,
+                income_days : global.product.income_days
+            });
+        })*/
+
+        .delegate("#invest.active", "click", function() {            
+            var isLogin = $com.cookie.get("user_name");
+            $(this).removeClass("active");
+            if (!isLogin) {
+                recovery()
+                window.location = "../login/login.html";
+            } else if ($(this).hasClass("more")){
+                recovery()
+                window.location = "../recharge/recharge.html?id=" + $com.uri.getUrlQuery().id;
+            } else if (global.trade_no){
+                if (global.amount < 100 && Number(global.product.balance) > 100) {
+                    $com.app.tip("最低起投金额100元");
+                    recovery()
+                    return;
+                }
+                var data = {
+                    id : $com.uri.getUrlQuery().id,
+                    amount : global.amount,
+                    goods_id : global.product.debt_code,
+                    trade_no : global.trade_no,
+                    gift_money : "",
+                    user_gift_id : "",
+                    coin : "",
+                    user_coupon_id : "" 
+                };
+
+                if (coupon && coupon.length > 0) {
+
+                    $(coupon).each(function(i, item) {
+                        switch (item.type) {
+                            case 1:
+                                data.user_gift_id = item.id;
+                                data.gift_money = item.amount;
+                            break;
+                            case 2:
+                                data.user_coupon_id = item.id;
+                            break;
+                            case 3:
+                                data.coin = item.amount;
+                                data.gift_money = item.amount;
+                            break;
+                        }
+                    });
+                }
+
+                $com.app.ajax({
+                    phone : $com.cookie.get("user_name"),
+                    reg_source : 4,
+                    amount : data.amount,
+                    summary : "微信投标",
+                    pay_type : 1,
+                    sign : $.md5($com.cookie.get("user_name") + data.goods_id + data.amount + $com.KEY),
+                    goods_id : data.goods_id,
+                    gift_money : data.gift_money,
+                    user_gift_id : data.user_gift_id,
+                    coin : data.coin,
+                    user_coupon_id : data.user_coupon_id,
+                    trade_no : data.trade_no,
+                    $TYPE : "post",
+                    $URI : "/m/investment/collect/trade.json"
+                }, [function(url) {
+                    recovery();
+                    window.location = url;
+                }, function() {
+                    recovery();
+                    getTradeNo();
+                }]);
+            } else {
+                recovery();
+            }
+
+            function recovery() {
+                $("#invest").addClass("active");
+            }
+        })
+
+        .delegate("#money", "input", function() {
+
+            // 红包操作
+            // 
+            if (!refresh) {
+                coupon = [];
+                global.discount = 0;
+                global.coupon = 0;
+                $com.cookie.del("__DIS__");
+                $("#choose .choose").text("请选择优惠券");
+            }
+
+            var count = Number($(this).val());
+            if (count > Number(global.product.balance)) {
+                $(this).val(Math.floor(Number(global.product.balance)));
+                count = Number(global.product.balance);
+            }
+
+            $("#income").html(getIncome(count, global.discount));
+            
+            //实际支付100元
+            //余额不足，还需充值xxx.xx元
+            if (count > Number(global.account.balance) + global.coupon) {
+                $("#invest").html("余额不足，还需充值" + (count - Number(global.account.balance) - global.coupon) + "元");
+                $("#invest").addClass("more");
+                global.amount = count;
+            } else {
+                $("#invest").html("实际支付" + (count - global.coupon < 0 ? 0 : count - global.coupon) + "元");
+                $("#invest").removeClass("more");
+                global.amount = count;
+            }
+
+            $("#choose").attr("href", "coupon.html?" + $com.uri.setUrlQuery({
+                id : $com.uri.getUrlQuery().id,
+                amount : global.amount,
+                income_days : global.product.income_days
+            }));
+        });
+
+        function getIncome(num, discount) {
+            var amount = num * ((Number(global.product.income) + (discount || 0)) / 100) / 360 * global.product.income_days;
+            return amount.toFixed(2);
+        }
+    }());
+</script>
+</body>
+</html>

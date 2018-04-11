@@ -1,0 +1,94 @@
+.depo_ok {
+    text-align: center;
+    padding-top:60px;
+}
+
+.depo_ok a {
+    width: 440px;
+    height: 84px;
+    line-height: 84px;
+    text-align: center;
+    display: inline-block;
+    background: #ffffff;
+    font-size: 32px;
+    color: #008eff;
+    margin: 100px 0 0;
+}
+/*充值成功*/
+.ok_prompt{
+    width: 100%;
+    height: 334px;
+    background: #FEF1F0;
+}
+.prompt_img{
+    text-align: center;
+    padding-top: 50px;
+}
+.prompt_img img{
+    width: 138px;
+    height: 138px;
+}
+.prompt{
+    color: #FF6161;
+    font-size: 28px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+.mybtn {
+    height: 115px;
+    text-align: center;
+    margin: 40px 30px 0;
+}
+.mybtn a {
+    display: block;
+    height: 84px;
+    background: #2ca1fe;
+    text-align: center;
+    line-height: 84px;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 32px;
+}
+/*.mybtn a:first-child {*/
+    /*border: 2px solid #2ca1fe;*/
+    /*color: #2ca1fe;*/
+    /*margin: 0 42px 0 0;*/
+/*}*/
+/*.mybtn a:last-child {*/
+    /*border: 2px solid #2ca1fe;*/
+    /*background: #2ca1fe;*/
+    /*color: #ffffff;*/
+/*}*/
+.depo_ok .mybtn a{
+    display: block;
+    width: 362px;
+    height: 84px;
+    background: #2ca1fe;
+    margin: 20px auto;
+    color: #ffffff;
+}
+.depo_ok .mybtn a:last-child{
+    background: #fff;
+    color: #008eff;
+    border: 0;
+}
+/* 投资成功 */
+.in_ok{}
+.in_ok .in_ok_box{background: url(../img/mywealth/in_ok_02.png) left 80px center no-repeat #ffffff;background-size: 44px;height: 376px;margin: 15px 0 100px;text-indent: 150px;}
+.in_ok .in_ok_box h3{font-size: 30px;color: #008eff;margin: 0 0 13px;}
+.in_ok .in_ok_box p{font-size: 24px;color: #008eff;margin-bottom: 55px;}
+.in_ok .in_ok_box h3:first-child{padding: 34px 0 0;}
+.in_ok .in_ok_box h3:last-child{color: #3b3b3b;}
+.in_ok .in_ok_box p:last-child{color: #9f9f9f;}
+.in_ok a{display: block;background:#ffffff;font-size: 32px;color: #008eff;height: 84px;line-height: 84px;text-align: center;width: 590px;margin: 100px auto;}
+.ok_img{
+    width: 100%;
+    height: 170px;
+    background: #fff;
+}
+.ok_img img{
+    padding-top: 60px;
+    padding-left: 80px;
+}

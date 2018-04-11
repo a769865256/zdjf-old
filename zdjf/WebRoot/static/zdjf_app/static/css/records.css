@@ -1,0 +1,161 @@
+.mc_box{
+    background: #fff;
+    padding: 0 25px;
+    margin-bottom: 16px;
+}
+.tz_title{
+    overflow: hidden;
+}
+.title_items{
+    width: 270px;
+    height: 74px;
+    line-height: 74px;
+    color: #3B3B3B;
+    font-size: 28px;
+    text-align: center;
+}
+.title_items:first-child{
+    width: 100px;
+    margin-left: 100px;
+    text-align: center;
+}
+.title_items:last-child{
+    width: 223px;
+    text-align: center;
+}
+.con{
+    margin: 0 auto;
+    width: 693px;
+    padding-bottom: 16px;
+    text-align: center;
+}
+.con_items{
+    width: 693px;
+    height: 190px;
+    background: url("../img/bid/bg2.png") 100% 100% no-repeat;
+    margin-bottom: 18px;
+}
+.con_items:first-child{
+    background: url("../img/bid/bg1.png") 100% 100% no-repeat;
+}
+.con_items:last-child{
+    background: url("../img/bid/bg3.png") 100% 100% no-repeat;
+}
+.item_list{
+    padding-top: 13px;
+    overflow: hidden;
+}
+.con_items:nth-child(2) .item_list{
+    padding-top: 20px;
+}
+.con_items:nth-child(2) .item_list:first-child{
+    padding-top: 40px;
+}
+.con_items:last-child .item_list{
+    padding-top: 70px;
+}
+.list_mc{
+    width: 100px;
+    height: 46px;
+    line-height: 46px;
+    margin-left: 100px;
+}
+.list_mc img{
+    width: 37px;
+    height: 46px;
+}
+.list_user{
+    width: 270px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 28px;
+}
+.list_num{
+    width: 223px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 28px;
+}
+.list_user,.list_num{
+    color: #FFBA00;
+}
+.con_items:first-child .list_user,.con_items:first-child .list_num{
+    color: #FB6453;
+}
+.con_items:last-child .list_user,.con_items:last-child .list_num{
+    color: #3865E6;
+}
+.records_tit{
+    height: 80px;
+    line-height: 80px;
+    background: #fff;
+    padding: 0 30px;
+}
+.records_tit_fix{
+    position: fixed;
+    top: 88px;
+    left: 0;
+    background: #fff;
+}
+.records_tit_left{
+    width: 350px;
+}
+.records_tit_right{
+    width: 340px;
+    text-align: right;
+}
+.user{
+    width: 30px;
+    height: 80px;
+    margin-left: 46px;
+    margin-right: 15px;
+}
+.word{
+    height: 80px;
+    line-height: 80px;
+    font-size: 28px;
+    color: #3B3B3B;
+}
+.records_tit_right .word{
+    margin-right: 40px;
+}
+.user img{
+    width: 30px;
+    height: 30px;
+}
+.records_big_box{
+    padding: 0 30px;
+    background: #fff;
+}
+.records_list li{
+    height: 120px;
+    border-top: 1px solid #AAAAAA;
+}
+.records_left{
+    width: 350px;
+}
+.records_right{
+    width: 340px;
+}
+.user_name{
+    height: 46px;
+    line-height: 46px;
+    font-size: 30px;
+    color: #3B3B3B;
+    padding-top: 26px;
+}
+.user_time{
+    height: 48px;
+    line-height: 48px;
+    font-size: 24px;
+    color: #9F9F9F;
+}
+.money{
+    padding-top: 12px;
+    height: 108px;
+    line-height: 108px;
+    font-size: 30px;
+    color: #3B3B3B;
+    text-align: right;
+    padding-right: 6px;
+}

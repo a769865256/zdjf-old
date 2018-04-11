@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.funds">
+<select id="selectFundsPage" resultType="com.zdjf.domain.fund.FundsVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_funds
+		where 1=1
+		<include refid="conds" />
+		order by create_time desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectFundsCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_funds
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	
+	<select id="selectMyFundsList" parameterType="java.util.Map" resultType="com.zdjf.domain.fund.FundsVo">
+		select * 
+		from zd_funds f 
+		where 1=1 and user_id = #{user_id} and status &lt;=4 
+		<if test="beginDate != null and beginDate != ''">
+		 and create_time &gt;= #{beginDate}
+		
+		</if>
+		<if test="endDate != null and endDate != ''">
+		 and create_time &lt;= #{endDate}
+		
+		</if>
+		<choose>
+        <when test="operate_type !=null and operate_type != ''">
+            and operate_type = #{operate_type}
+        </when>
+        <otherwise>
+            
+        </otherwise>
+    	</choose>
+    	 order by create_time desc limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectMyFundsListCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_funds
+		where 1=1 and user_id = #{user_id} and status &lt;=4 
+		<if test="beginDate != null and beginDate != ''">
+		 and create_time &gt;= #{beginDate}
+		
+		</if>
+		<if test="endDate != null and endDate != ''">
+		 and create_time &lt;= #{endDate}
+		
+		</if>
+		<choose>
+        <when test="operate_type !=null and operate_type != ''">
+            and operate_type = #{operate_type}
+        </when>
+        <otherwise>
+            
+        </otherwise>
+    	</choose>
+	</select>
+	
+	<select id="selectFundsById" resultType="com.zdjf.domain.fund.Funds">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_funds
+		where 1=1
+		and id=#{id}
+	</select>
+	
+	<select id="updateFundsById" parameterType="com.zdjf.domain.fund.Funds">
+		update zd_funds
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''"> id = #{id},</if>
+		<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+		<if test="relation_id != null and relation_id != ''"> relation_id = #{relation_id},</if>
+		<if test="amount != null and amount != ''"> amount = #{amount},</if>
+		<if test="balance != null and balance != ''"> balance = #{balance},</if>
+		<if test="action != null and action != ''"> action = #{action},</if>
+		<if test="operate_type != null and operate_type != ''"> operate_type = #{operate_type},</if>
+		<if test="status != null and status != ''"> status = #{status},</if>
+		<if test="remark != null and remark != ''"> remark = #{remark},</if>
+		<if test="create_time != null"> create_time = #{create_time},</if>
+		<if test="uid != null and uid != ''"> uid = #{uid},</if>
+		<if test="funds_id != null and funds_id != ''"> funds_id = #{funds_id},</if>
+		<if test="trade_no != null and trade_no != ''"> trade_no = #{trade_no},</if>
+		<if test="ticket != null and ticket != ''"> ticket = #{ticket},</if>
+		<if test="summary != null and summary != ''"> summary = #{summary},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteFundsById" parameterType="long">
+			delete from zd_funds where id=#{id}
+	</select>
+	<select id="selectFirstFunds" parameterType="com.zdjf.domain.fund.Funds" resultType="java.util.Map">
+		select MAX(f.create_time),uid 
+		from pt$user_funds f 
+		where 1=1
+		and f.`status` = #{status} and  f.operate_type = #{operate_type}
+		GROUP BY f.uid	
+	</select>
+	<select id="queryAmount"  resultType="java.util.Map">
+	select count(0) as amount,user_id from zd_funds f where  f.`status` = 1 and  f.operate_type = 22 GROUP BY user_id
+	</select>
+	<select id="selectFundsList" resultType="com.zdjf.domain.fund.FundsVo">
+		select * from zd_funds
+		where 1=1
+		and	status not in(5,6)
+		<if test="user_id != null and user_id !=''">
+		and user_id=#{user_id}
+		</if>
+		<if test="startTime==null and endTime==null and time!=null">
+		and create_time &gt; #{time}
+		</if>
+		<if test="startTime!=null">
+		and create_time &gt; #{startTime} 
+		</if>
+		<if test="endTime!=null">
+		and create_time &lt; #{endTime} 
+		</if>
+		<if test="operate_type==0">
+		and operate_type in (11,12,21,22,13)
+		</if>
+		<if test="operate_type!=null and operate_type!='' and operate_type!=0">
+		and operate_type =#{operate_type}
+		</if>
+		order by create_time desc,id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectFundsListCn" resultType="java.lang.Long">
+		select count(0) from zd_funds
+		where 1=1
+		and	status not in(5,6)
+		<if test="user_id != null and user_id !=''">
+		and user_id=#{user_id}
+		</if>
+		<if test="time!=null">
+		and create_time &lt; #{time}
+		</if>
+		<if test="operate_type==0">
+		and operate_type in (11,12,21,22,13)
+		</if>
+		<if test="operate_type!=null and operate_type!='' and operate_type!=0">
+		and operate_type =#{operate_type}
+		</if>
+	</select>
+	<select id="selectCashList" resultType="java.util.Map">
+		select * from zd_funds
+		where 1=1
+		<if test="user_id!=null and user_id!='' ">
+		and user_id =#{user_id}
+		</if>
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectCashListCn" resultType="java.lang.Long">
+		select count(0) from zd_funds
+		where 1=1
+		<if test="user_id!=null and user_id!='' ">
+		and user_id =#{user_id}
+		</if>
+	</select>
+	
+	<select id="getAmountFundsList" resultType="com.zdjf.domain.fund.FundsVo">
+		SELECT * FROM `zd_funds` where create_time &gt;='2017-12-06' group by user_id
+	</select>
+
+	<select id="selectFundListNoRes" resultType="com.zdjf.domain.fund.FundsVo">
+		select * from zd_funds
+		where status = 3 and operate_type in (11,21)
+		<if test="user_id != null and user_id !=''">
+			and user_id=#{user_id}
+		</if>
+		order by create_time desc,id desc
+	</select>
+</mapper>

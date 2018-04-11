@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+	<link rel="stylesheet" href="../../static/css/coupon.css"/>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="invest.html"></a>优惠券</div>
+<div class="wealth body_content">
+    <div class="discount">
+        <div class="tabbox">
+            <div class="box">
+                <div class="coupon_title hide" id="positive_title">正经值</div>
+                <ul id="positive">
+                   <!--  <li class="conpon_zjz">
+                        <div class="count">
+                            <div class="price fl">¥<span class="sss">2209.00</span></div>
+                            <div class="txt fl">
+                                <h4>正经值抵现</h4>
+                                <p>可用余额¥449.87</p>
+                                <span>锁定0.00</span>
+                            </div>
+                        </div>
+                        <div class="conpon_check">
+                            <img src="../../static/img/bid/true.png" alt="">
+                        </div>
+                        <div class="conpon_overdue_box">
+                            <div class="conpon_overdue">
+                                <img src="../../static/img/bid/overdue.png" alt="">
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="box">
+                <div class="coupon_title hide" id="coupon_title">红包、加息券</div>
+                <ul id="coupon">
+                    <!-- <li class="conpon_hb">
+                        <div class="count">
+                            <div class="price fl">
+                                <div class="prices"><span class="ss">99.99</span>%</div>
+                                <div class="note">新手标</div>
+                            </div>
+                            <div class="txt fl">
+                                <h4>新手注册加息券</h4>
+                                <p>收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                        <div class="conpon_check">
+                            <img src="../../static/img/bid/true.png" alt="">
+                        </div>
+                        <div class="conpon_overdue_box">
+                            <div class="conpon_overdue">
+                                <img src="../../static/img/bid/overdue.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="conpon_hb">
+                        <div class="count">
+                            <div class="price fl">
+                                <div class="prices">¥<span class="s">9999</span></div>
+                                <div class="note">新手标</div>
+                            </div>
+                            <div class="txt fl">
+                                <h4>新手投资红包</h4>
+                                <p>收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                        <div class="conpon_check">
+                            <img src="../../static/img/bid/true.png" alt="">
+                        </div>
+                        <div class="conpon_overdue_box">
+                            <div class="conpon_overdue">
+                                <img src="../../static/img/bid/overdue.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="conpon_gq">
+                        <div class="count">
+                            <div class="price fl">
+                                <div class="prices">¥<span>209</span></div>
+                                <div class="note">全部</div>
+                            </div>
+                            <div class="txt fl">
+                                <h4>新手投资红包</h4>
+                                <p>收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                        <div class="conpon_check">
+                            <img src="../../static/img/bid/true.png" alt="">
+                        </div>
+                        <div class="conpon_overdue_box">
+                            <div class="conpon_overdue">
+                                <img src="../../static/img/bid/overdue.png" alt="">
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="javascript:;" class="btn_qt active" id="next">确定</a>
+<!-- 弹窗 -->
+<div class="no_pay" style="display: none;">
+    <div class="box">
+        <h3>未支付订单</h3>
+        <p>该笔订单未完成支付</p>
+        <div class="btn">
+            <a href="javascript:" class="cancelbtn">取消订单</a>
+            <a href="javascript:">立即支付</a>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+    //rem布局
+    (function(win) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var tid;
+
+        function refreshRem() {
+            var width = docEl.getBoundingClientRect().width;
+            if (width > 750) { // 最大宽度
+                width = 750;
+            }
+            var rem = width / 10;
+            docEl.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        refreshRem();
+
+    })(window);
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+    (function() {
+
+        if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+
+        var status;
+
+        var USED = ['', '全部', '新手标', '非新手标'];
+        
+        var HTML = {
+            POSITIVE : ['<li class="hb-list conpon_zjz" data-id="{{id}}" data-type="{{type}}"><a href="javascript:void(0);">',
+                        '<div class="count">',
+                            '<div class="price fl">¥<span class="{{len}}">{{amount}}</span></div>',
+                            '<div class="txt fl">',
+                                '<h4>{{name}}</h4>',
+                                '<p>可用余额¥{{dates}}</p>',
+                                '<span>锁定0.00</span>',
+                            '</div>',
+                        '</div>',
+                        '<div class="conpon_check">',
+                            '<img src="../../static/img/bid/true.png" alt="">',
+                        '</div>',
+                        '<div class="conpon_overdue_box">',
+                            '<div class="conpon_overdue {{overdue}}">',
+                                '<img src="../../static/img/bid/overdue.png" alt="">',
+                            '</div>',
+                        '</div></a></li>'].join(""),
+
+            DISCOUNT : ['<li class="hb-list {{cls}}" data-id="{{id}}" data-type="{{type}}"><a href="javascript:void(0);">',
+                        '<div class="count">',
+                            '<div class="price fl">',
+                                '<div class="prices"><span class="{{len}}">{{amount}}</span>%</div>',
+                                '<div class="note">{{use_type}}</div>',
+                            '</div>',
+                            '<div class="txt fl">',
+                                '<h4>{{name}}</h4>',
+                                '<p>收益天数≥{{invest_dates}}天</p>',
+                                '<span>{{dates}}</span>',
+                            '</div>',
+                        '</div>',
+                        '<div class="conpon_check">',
+                            '<img src="../../static/img/bid/true.png" alt="">',
+                        '</div>',
+                        '<div class="conpon_overdue_box">',
+                            '<div class="conpon_overdue {{overdue}}">',
+                                '<img src="../../static/img/bid/overdue.png" alt="">',
+                            '</div>',
+                        '</div>',
+                    '</a></li>'].join(""),
+
+            COUPON : ['<li class="hb-list {{cls}}" data-id="{{id}}" data-type="{{type}}"><a href="javascript:void(0);">',
+                        '<div class="count">',
+                            '<div class="price fl">',
+                                '<div class="prices">¥<span class="{{len}}">{{amount}}</span></div>',
+                                '<div class="note">{{use_type}}</div>',
+                            '</div>',
+                            '<div class="txt fl">',
+                                '<h4>{{name}}</h4>',
+                                '<p>投资≥{{invest_amount}}元,收益天数≥{{invest_dates}}天</p>',
+                                '<span>{{dates}}</span>',
+                            '</div>',
+                        '</div>',
+                        '<div class="conpon_check">',
+                            '<img src="../../static/img/bid/true.png" alt="">',
+                        '</div>',
+                        '<div class="conpon_overdue_box">',
+                            '<div class="conpon_overdue {{overdue}}">',
+                                '<img src="../../static/img/bid/overdue.png" alt="">',
+                            '</div>',
+                        '</div>',
+                    '</a></li>'].join("")
+
+        };
+
+        var UQ = $com.uri.getUrlQuery();
+
+        var global = {
+            coupon : [],
+            discount : [],
+            positive : [],
+            unuse : {
+                coupon : [],
+                discount : []
+            }
+        };
+
+        var coupon = $com.app.getCoupon($com.cookie.get("__DIS__"));
+
+        $(".back").attr("href", "invest.html?id=" + UQ.id + "&amount=" + UQ.amount);
+
+        //可用红包
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            product_id : UQ.id,
+            amount : UQ.amount,
+            income_days : UQ.income_days,
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + UQ.income_days + UQ.amount + $com.KEY),
+            $TYPE : "post",
+            $URI : "/m/investment/pro/collect/trade.json"
+        }, [function(data) { 
+            $(data.use).each(function(i, item) {
+                filterData(item);
+            });
+
+            // 数据过滤区分， 正经值，加息券，红包
+            $(data.unUser).each(function(i, item) {
+                filterData(item, true);
+            });
+            
+            //标题展示
+            if (global.positive.length > 0) {
+                $("#positive_title").removeClass("hide");
+            }
+
+            if (global.coupon.length > 0 || 
+                global.discount.length > 0 ||
+                global.unuse.discount.length > 0 ||
+                global.unuse.coupon.length > 0) {
+                
+                $("#coupon_title").removeClass("hide");
+            }
+
+            $("#positive").html($com.util.template(global.positive, HTML.POSITIVE));
+            $("#coupon").html($com.util.template(global.discount, HTML.DISCOUNT));
+            $("#coupon").append($com.util.template(global.coupon, HTML.COUPON));
+            $("#coupon").append($com.util.template(global.unuse.discount, HTML.DISCOUNT));
+            $("#coupon").append($com.util.template(global.unuse.coupon, HTML.COUPON));
+            
+            
+            if (coupon && coupon.length > 0) {
+                //alert("coupon")
+                $(coupon).each(function(i, item) {
+                    $("li.hb-list[data-id='"+ String(item.id) +"']").addClass("active");
+                });
+                checkbtn();
+            } else if (data.recommend.length > 0) {
+                //alert("recommend")
+                $(data.recommend).each(function(i, item) {
+                    $("li.hb-list[data-id='"+ String(item.node_id) +"']").addClass("active");
+                });
+                checkbtn();
+            }
+        }, function() {
+            
+        }]);
+
+        $("body")
+
+            .delegate("li.hb-list:not(.conpon_gq) a", "click", function() {
+                var $this = $(this).parent(),
+                    type = $this.attr("data-type"),
+                    id = $this.attr("data-id"),
+                    isActive = $this.hasClass("active");
+                if (isActive) {
+                    $this.removeClass("active");
+                    checkbtn();
+                    return;
+                };
+
+                if (type == 2) {
+                    $("li.hb-list[data-type=2]").removeClass("active");
+                } else {
+                    $("li.hb-list[data-type=1],li.hb-list[data-type=3]").removeClass("active");
+                }
+
+                $this.addClass("active");
+                checkbtn();
+            })
+
+            .delegate("#next.active", "click", function() {
+                var ret = [];
+                $("li.hb-list.active").each(function() {
+                    var $this = $(this);
+
+                    ret.push($com.app.setCoupon(
+                            $this.attr("data-type"),
+                            $this.attr("data-id"),
+                            $this.find(".price span").text(),
+                            escape($this.find(".txt h4").text())
+                        ));
+                });
+
+                $com.cookie.set("__DIS__", ret.join(","));
+
+                window.location = "invest.html?id=" + $com.uri.getUrlQuery().id + "&c=u&amount=" + $com.uri.getUrlQuery().amount;
+            });
+
+        function getLenClass(len) {
+            if (len >= 6) {
+                return "sss";
+            } else if (len >= 4) {
+                return "ss";
+            } else if (len >= 2) {
+                return "s"
+            } else {
+                return "";
+            }
+        }
+
+        function filterData(item, unuse) {
+            var U;
+            if (item.type == 1) {
+                U = unuse ? global.unuse.coupon : global.coupon;
+                U.push({
+                    id : item.node_id,
+                    len : getLenClass(String(item.amount).length),
+                    amount : item.amount,
+                    dates : item.dates,
+                    overdue : item.overdue ? "" : "hide",
+                    name : item.name,
+                    use_type : USED[item.use_type],
+                    invest_dates : item.invest_dates,
+                    invest_amount : item.invest_amount,
+                    type : item.type,
+                    cls : unuse ? "conpon_gq" : "conpon_hb"
+                });
+            } else if (item.type == 2) {
+                U = unuse ? global.unuse.discount : global.discount;
+                U.push({
+                    id : item.node_id,
+                    len : getLenClass(String(item.amount).length),
+                    amount : item.amount,
+                    dates : item.dates,
+                    overdue : item.overdue ? "" : "hide",
+                    name : item.name,
+                    use_type : USED[item.use_type],
+                    invest_dates : item.invest_dates,
+                    type : item.type,
+                    cls : unuse ? "conpon_gq" : "conpon_hb"
+                });
+            } else if (item.type == 3) {
+                global.positive.push({
+                    id : item.node_id,
+                    len : getLenClass(String(item.amount).length),
+                    amount : item.amount,
+                    dates : item.dates,
+                    overdue : item.overdue ? "" : "hide",
+                    name : item.name,
+                    type : item.type
+                });
+            }
+        }
+
+        function checkbtn() {
+            /*if ($("li.hb-list.active").length > 0) {
+                !$("#next").hasClass("active") && $("#next").addClass("active");
+            } else {
+                $("#next").removeClass("active");
+            }*/
+        }
+    }());
+</script>
+</html>
+

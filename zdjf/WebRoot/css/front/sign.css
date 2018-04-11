@@ -1,0 +1,135 @@
+.sign_s{background: #fcf9c6;overflow: hidden;width: 100%;max-width: 1920px;margin: 0 auto;font-family: 'sign_lg_font';}
+.sign_s .sign_top{background: url(../../images/front/m/sign/sign_top_01.jpg) center center no-repeat;height: 671px;}
+.sign_s .sign_centent1{background: url(../../images/front/m/sign/sign_centent1.jpg) center 0 no-repeat;overflow: hidden;position: relative;}
+.sign_s .sign_centent1 .huodong1{margin-top: 52px;text-align: center;color: #fff;font-size: 32px;}
+.sign_s .sign_centent1 .qiandaomsg{margin: 60px auto 0;width: 700px;border: 6px solid #feac24;background: #fff;border-radius: 8px;padding: 20px 0;box-shadow: 0 0 23px #feac24;}
+.sign_s .sign_centent1 .qiandaomsg p{text-align: center;color: #333;font-size: 18px;line-height: 30px;font-family: 'sign_sm_font';}
+.sign_s .sign_centent1 .qiandaomsg p span{color:#feac24;font-weight: 600;margin: 0 5px;}
+.sign_s .sign_centent1 .jihui{position: absolute;left: 66%;top: 369px;}
+.sign_s .sign_centent1 .jihui span{color: #763016;font-weight: 600;font-size: 18px;}
+.sign_s .sign_centent1 .jihui i{margin-left: 5px;color: #763016;display: inline-block;font-size: 24px;transform: translateY(3px);-webkit-transform: translateY(3px);-moz-transform: translateY(3px);-ms-transform: translateY(3px);}
+.sign_s .sign_centent1 .jihui i:hover{cursor: pointer;}
+.sign_s .sign_centent1 .jihui .jihui_msg{display: none;width: 132px;height: 74px;background: url(../../images/front/m/sign/sign_centent1_kuang.png) center no-repeat;background-size: 100%;padding: 22px 10px;margin-top: -5px;margin-left: 46px;}
+.sign_s .sign_centent1 .jihui .jihui_msg div{margin-top: 10px;}
+.sign_s .sign_centent1 .jihui .jihui_msg div p{color: #f39f15;margin-bottom: 5px;font-size: 14px;font-weight: 600;text-align: center}
+.sign_s .sign_centent1 .sign_centent1_btn{background: url(../../images/front/m/sign/sign_centent1_btn.png) center no-repeat;width: 222px;height: 60px;line-height: 51px;text-align: center;margin: 820px auto 0;color: #ff6c00;font-size: 22px;}
+.sign_s .sign_centent1 .sign_centent1_btn a{color: #ff6c00;font-size: 24px;}
+.sign_s .sign_centent1 .rili_btn{width: 54px;height: 60px;line-height: 60px;background: url(../../images/front/m/sign/rili.png) center no-repeat;display: block;position: absolute;top: 1122px;left: 62%;}
+.sign_s .sign_centent1 .rili_btn .yue{color: #ff6c00;font-size: 12px;font-weight: 600;display: inline-block;width: 54px;text-align: center;}
+.sign_s .sign_centent1 .rili{display: none;width: 820px;height: 624px;margin: 25px auto 0;}
+.sign_s .sign_centent1 .rili .sign_rili{width: 100%;height: 100%;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date{width: 100%;height: 100%;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date #layui-laydate1 {width: 100%;height: 100%;border: none;box-shadow: none;border-radius: 12px;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 {width: 100% !important;height: 100%;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-header{background: url(../../images/front/m/sign/rili.jpg) center no-repeat;line-height: 70px;width: 100%;background-size: 100%;padding: 0;border-radius: 12px 12px 0 0;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-header .laydate-set-ym{color: #fff;font-size: 24px;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-header i{top: 0;color: #fff;display: none;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content{width: 100%;height: 89%;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table{width: 100%;height: 100%;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr th{font-size: 26px;font-family: 'sign_sm_font';}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr th:first-child{color: #fd8300;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr th:last-child{color: #fd8300;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr td{border: 1px solid #fff;font-size: 26px;color: #333333;font-family: 'sign_sm_font';}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr td.laydate-day-next,.sign .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr td.laydate-day-prev{color: #d2d2d2 !important;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr td:first-child{color: #fd8300;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table tr td:last-child{color: #fd8300;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table .layui-this{background: url(../../images/front/m/sign/circular.png) center no-repeat;background-color: transparent !important;}
+.layui-laydate-content table td.active {width: 59px;height: 59px; background: url(../../images/front/m/sign/circular.png) center no-repeat;color: #fff !important;}
+.layui-laydate-content td, .layui-laydate-content th{padding: 18px 5px !important;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table .laydate-day-mark{height: 76px; color: #333;text-indent: -4em;font-size: 19px;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table .laydate-day-mark::after{background: transparent;}
+.sign_s .sign_centent1 .rili .sign_rili #sign_date .laydate-main-list-0 .layui-laydate-content table .laydate-day-mark .markDiv{position: absolute;color: #ff970a;background: url(../../images/front/m/sign/rili_jinbi.png) center no-repeat;background-size: contain;width: 62px;height: 62px;line-height: 62px; top: 50%;left: 50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);font-size: 24px;text-indent: 0;}
+.sign_s .sign_centent1 .zuijinqiandao{position: relative;z-index: 1;background: url(../../images/front/m/sign/zuijinqiandao.png) center no-repeat;background-size: cover;width: 768px;height: 228px;margin: 35px auto 70px;}
+.sign_s .sign_centent1 .zuijinqiandao p{text-align: center;color: #ff6c00;font-size: 28px;line-height: 87px;font-weight: 600;}
+.sign_s .sign_centent1 .zuijinqiandao ul{overflow: hidden;}
+.sign_s .sign_centent1 .zuijinqiandao ul li{text-align: center;line-height: 46px;color: #763016;font-size: 18px;font-family: 'sign_sm_font';}
+.sign_s .sign_centent1 .zuijinqiandao ul li span{color: #ff6c00;margin-left: 10px;font-weight: 600;}
+.sign_s .sign_centent1 .gua{display: flex;flex-direction: row;position: absolute;bottom: -96px;left: 50%;transform: translateX(-50%);}
+.sign_s .sign_centent1 .gua .guajian{background: url(../../images/front/m/sign/gua.png) 28px no-repeat;width: 92px;height: 129px;}
+.sign_s .sign_centent1 .gua .guajian:nth-of-type(1){margin: 0 63px;}
+.sign_s .sign_centent1 .gua .guajian:nth-of-type(2){margin: 0 70px;}
+.sign_s .sign_centent1 img{width: 100%;height: 4%;position: absolute;bottom: 0;left: 0;}
+
+.sign_s .sign_centent2{background: url(../../images/front/m/sign/sign_centent2.jpg) center 0 no-repeat;overflow: hidden;position: relative;margin-top: -5px;}
+.sign_s .sign_centent2 .huodong2{margin-top: 48px;text-align: center;color: #fff;font-size: 32px;}
+.sign_s .sign_centent2 .ti{text-align: center;font-size: 20px;margin-top: 87px;color: #333333; font-family: 'sign_sm_font';}
+.sign_s .sign_centent2 .ti span{color: #ff6c00;}
+.sign_s .sign_centent2 .bang{margin-top: 82px;text-align: center;line-height: 37px;position: relative;}
+.sign_s .sign_centent2 .bang span{margin-left: -5px;color: #fff;font-size: 28px;letter-spacing: 8px;line-height: 67px;display: inline-block;padding: 0 48px;background: #ff6c00;border: 5px solid #ffed42;border-radius: 100px;}
+.sign_s .sign_centent2 .bang a{margin-left: 302px;color: #fff;font-size: 21px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);}
+.sign_s .sign_centent2 .bang a i{margin-left: 6px;color: #fff;font-size: 16px;}
+
+.sign_s .sign_centent2 .ljt{display: flex;flex-direction: row;align-items: center;display: -webkit-flex;-webkit-flex-direction: row;-webkit-align-items: center;-ms-flex-direction: row;-ms-align-items: center;-moz-flex-direction: row;-moz-align-items: center;background: url(../../images/front/m/sign/lingjt.png) center no-repeat;width: 741px;height: 404px;margin: 81px auto 0;}
+.sign_s .sign_centent2 .ljt .tow,.sign_s .sign_centent2 .ljt .one,.sign_s .sign_centent2 .ljt .three{display: flex;flex-direction: column;align-items: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-ms-flex-direction: column;-ms-align-items: center;-moz-flex-direction: column;-moz-align-items: center;}
+.sign_s .sign_centent2 .ljt .one{margin-top: 75px;margin-left: 0;width: 228px;}
+.sign_s .sign_centent2 .ljt .tow{margin-top: 138px;margin-left: 28px;width: 228px;}
+.sign_s .sign_centent2 .ljt .three{margin-top: 166px;margin-left: 0;width: 228px;}
+.sign_s .sign_centent2 .ljt .tow .gold2{background: url(../../images/front/m/sign/tow.png) center no-repeat;width: 78px;height: 77px;background-size: contain;}
+.sign_s .sign_centent2 .ljt .one .gold1{background: url(../../images/front/m/sign/one.png) center no-repeat;width: 86px;height: 94px;background-size: contain;}
+.sign_s .sign_centent2 .ljt .three .gold3{background: url(../../images/front/m/sign/three.png) center no-repeat;width: 57px;height: 53px;background-size: contain;}
+.sign_s .sign_centent2 .ljt .tow .getMsg,.sign_s .sign_centent2 .ljt .one .getMsg,.sign_s .sign_centent2 .ljt .three .getMsg{font-size: 20px;color: #fe8f07;display: flex;flex-direction: column;align-items: center;justify-content: center;}
+.sign_s .sign_centent2 .ljt .one .getMsg{margin-top: 46px;}
+.sign_s .sign_centent2 .ljt .three .getMsg{color: #fde142;}
+.sign_s .sign_centent2 .ljt .tow .getMsg .phoneNmb{}
+.sign_s .sign_centent2 .ljt .one .getMsg .phoneNmb{}
+.sign_s .sign_centent2 .ljt .three .getMsg .phoneNmb{}
+.sign_s .sign_centent2 .ljt .tow .getMsg .beis{margin-top: 10px;display: flex;flex-direction: row;align-items: center;display: -webkit-flex;-webkit-flex-direction: row;-webkit-align-items: center;-ms-flex-direction: row;-ms-align-items: center;-moz-flex-direction: row;-moz-align-items: center;}
+.sign_s .sign_centent2 .ljt .tow .getMsg .beis .jinbi{display: inline-block;background: url(../../images/front/m/sign/jinbi.png) center no-repeat;width: 31px;height: 32px;margin-right: 13px;}
+.sign_s .sign_centent2 .ljt .tow .getMsg .beis .point{margin-left: 10px;}
+.sign_s .sign_centent2 .ljt .one .getMsg .beis{margin-top: 8px;display: flex;flex-direction: row;align-items: center;display: -webkit-flex;-webkit-flex-direction: row;-webkit-align-items: center;-ms-flex-direction: row;-ms-align-items: center;-moz-flex-direction: row;-moz-align-items: center;}
+.sign_s .sign_centent2 .ljt .one .getMsg .beis .jinbi{display: inline-block;background: url(../../images/front/m/sign/jinbi.png) center no-repeat;width: 31px;height: 32px;margin-right: 13px;}
+.sign_s .sign_centent2 .ljt .one .getMsg .beis .point{margin-left: 10px;}
+.sign_s .sign_centent2 .ljt .three .getMsg .beis{margin-top: 8px;display: flex;flex-direction: row;align-items: center;display: -webkit-flex;-webkit-flex-direction: row;-webkit-align-items: center;-ms-flex-direction: row;-ms-align-items: center;-moz-flex-direction: row;-moz-align-items: center;}
+.sign_s .sign_centent2 .ljt .three .getMsg .beis .jinbi{display: inline-block;background: url(../../images/front/m/sign/jinbi.png) center no-repeat;width: 31px;height: 32px;margin-right: 13px;}
+.sign_s .sign_centent2 .ljt .three .getMsg .beis .point{margin-left: 10px;}
+
+
+.sign_s .sign_centent2 .huojiang_4_8{background: url(../../images/front/m/sign/juxingkuang.png) center no-repeat;width: 741px;height: 309px;margin: -23px auto 0;overflow: hidden;}
+.sign_s .sign_centent2 .huojiang_4_8 ul{}
+.sign_s .sign_centent2 .huojiang_4_8 ul li{margin-top: 17px;padding-left: 68px;color: #f28c37;font-size: 20px;display: flex;flex-direction: row;align-items: center;display: -webkit-flex;-webkit-flex-direction: row;-webkit-align-items: center;-ms-flex-direction: row;-ms-align-items: center;-moz-flex-direction: row;-moz-align-items: center;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .rank4{display: inline-block;background: url(../../images/front/m/sign/4.png) center no-repeat;width: 15px;height: 22px;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .phonenber{padding-left: 237px;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .jinbi{display: inline-block;background: url(../../images/front/m/sign/jinbi.png) center no-repeat;width: 31px;height: 32px;margin-left: 110px;margin-right: 10px;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .point{margin-left: 10px;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .rank5{display: inline-block;background: url(../../images/front/m/sign/5.png) center no-repeat;width: 15px;height: 22px;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .rank6{display: inline-block;background: url(../../images/front/m/sign/6.png) center no-repeat;width: 15px;height: 22px;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .rank7{display: inline-block;background: url(../../images/front/m/sign/7.png) center no-repeat;width: 15px;height: 22px;}
+.sign_s .sign_centent2 .huojiang_4_8 ul li .rank8{display: inline-block;background: url(../../images/front/m/sign/8.png) center no-repeat;width: 15px;height: 22px;}
+
+.sign_s .sign_centent2 .ahook{background: url(../../images/front/m/sign/guagou.png) center no-repeat;width: 433px;height: 209px;margin: -16px auto 0;overflow: hidden;}
+.sign_s .sign_centent2 .ahook p{text-align: center;color: #fff;font-size: 34px;margin-top: 69px;}
+.sign_s .sign_centent2 .ahook i{margin-top: 38px;display: inline-block;margin-left: 50%;transform: translateX(-50%) rotate(90deg);color: #fff;}
+.sign_s .sign_centent2 .ahook i:hover{cursor: pointer;}
+
+
+.sign_s .sign_centent2 .guize{display: none;background: url(../../images/front/m/sign/guize_kuang.png) center no-repeat;width: 1035px;height: 650px;margin: -5px auto 0;overflow: hidden;}
+.sign_s .sign_centent2 .guize ul{padding: 110px 56px 0 56px;overflow: hidden;font-family: 'sign_sm_font';}
+.sign_s .sign_centent2 .guize ul li{color: #333333;font-size: 16px;margin-bottom: 2px;}
+.sign_s .sign_centent2 .guize ul li:last-child p:last-child{margin-top: 45px;}
+.sign_s .sign_centent2 .guize ul li span{color: #333;font-weight: 600;font-size: 18px;}
+.sign_s .sign_centent2 .guize ul li p{color: #333333;font-size: 16px;margin-top: 8px;}
+.sign_s .sign_centent2 .guize ul li p:nth-of-type(1){margin-top: 5px;}
+.sign_s .sign_centent2 img:nth-of-type(1){position: absolute;bottom: 0;left: -5px;width: 520px;height: 270px;}
+.sign_s .sign_centent2 img:nth-of-type(2){position: absolute;bottom: 0;right: -143px;width: 520px;height: 270px;}
+
+/* 绛惧埌鎴愬姛寮圭獥 */
+.qd_success{z-index: 9;display: none;position: fixed;width: 100%;height: 100%;top: 0;left: 0;background: rgba(0,0,0,0.2);}
+.qd_success .success{background: url(../../images/front/m/sign/qd_success.png) center no-repeat;width:333px;height: 288px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);}
+.qd_success .success p:nth-of-type(1){font-size: 20px;color: #ff8400;font-weight: 600;text-align: center; margin-top: 140px;}
+.qd_success .success p:nth-of-type(2){font-size: 16px;color: #727272;font-weight: 600;text-align: center;margin-top: 14px;}
+.qd_success .success span.close{background: url(../../images/front/m/sign/close.png) center no-repeat;width:31px;height: 31px;display: inline-block;margin-left: 340px;}
+.qd_success .success span.close:hover{cursor: pointer;}
+
+/* 浜岀淮鐮� */
+.ewm_box{z-index: 9;display: none;position: fixed;width: 100%;height: 100%;top: 0;left: 0;background: rgba(0,0,0,0.5);}
+.ewm_box .ewm{width: 280px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);}
+.ewm_box .ewm .centent{}
+.ewm_box .ewm .centent .top{}
+.ewm_box .ewm .centent .top .close{background: url(../../images/front/m/sign/close.png) center no-repeat;width:31px;height: 31px;display: inline-block;margin-left: 240px;}
+.ewm_box .ewm .centent .top .close:hover{cursor: pointer;}
+.ewm_box .ewm .centent .top .xian{border-left: 1px solid #fff;display: block;height: 70px;margin-left: 255px;margin-top: -4px;}
+.ewm_box .ewm .centent img{width: 100%;}
+.ewm_box .ewm .centent p{font-size: 21px;color: #fff;text-align: center; margin-top: 30px;}
+
+/* 婊氬姩 */
+#scrollBox{overflow:hidden;height: 140px;}

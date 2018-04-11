@@ -1,0 +1,345 @@
+.register{width: 100%;min-width: 1200px;min-height: 620px;background: url(../../images/front/img/register/register.png) 50% 50% no-repeat;}
+.register .rebox{width: 1200px;height: 100%;margin: 0 auto;position: relative;}
+.register .rebox form h3{font-size: 24px;color: #1088F1;text-align: center;padding: 29px 0 27px;}
+.register .rebox form{width: 360px;background: #ffffff;float: right;position: absolute;top: 30px;right: 50px;border-radius: 2px;}
+.register .rebox form ul{margin: 0 30px;}
+.register .rebox form ul li{position: relative;}
+.register .rebox form ul li .wd:hover{cursor:pointer;}
+.register .rebox form ul li .wd1:hover{cursor:pointer;}
+.register .rebox form ul li .wd.active{color: #1088f1;}
+.register .rebox form ul li input{outline: none;padding: 0 11px;width: 276px;height: 38px;border: 1px solid #d7d7d7;font-size: 14px;color: #999;border-radius: 2px;}
+.register .rebox form ul li input:focus{border: 1px solid #1187f1;}
+.register .rebox form ul li .error{width: 100%;height: 30px;line-height: 30px;color: #ff5959;font-size: 12px;}
+.register .rebox form ul li input.vercode{width: 148px;padding: 0 11px;}
+.register .rebox form ul li input.verbtn{width: 120px;height: 40px;line-height: 40px;background: #1187f1;display: inline-block;float: right;font-size: 14px;color: #ffffff;text-align: center;border-radius: 2px;border: 0;}
+.register .rebox form ul li input.verbtn:hover{background: #2398ff;}
+.register .rebox form ul li input.noverbtn{background: #999;}
+
+.register .rebox form ul li i.iconfont{font-size: 20px;color: #999999;position: absolute;right: 10px;top: 10px;}
+.register .rebox form ul li p{font-size: 14px;color: #1088f1;line-height: 40px;}
+.register .rebox form ul li p#yqm{text-indent: 18px; background: url(../../images/front/img/help/hbtn_open.png) left center no-repeat;}
+.register .rebox form ul li p#yqm.active{background: url(../../images/front/img/help/hbtn_close.png) left center no-repeat;}
+.register .rebox form ul li p#yqm:hover{cursor:pointer;color: #2398ff;}
+.register .rebox form ul li label input.agreement{width: 15px;height: 15px;vertical-align: sub;border: none;}
+.register .rebox form ul li label {font-size: 14px;color: #333;line-height: 40px;}
+.register .rebox form ul li label a{font-size: 14px;color: #1187f1;}
+.register .rebox form ul li a.registbtn{text-align: center;display: block;line-height: 50px;background: #1088F1;color: #ffffff;font-size: 18px;border-radius: 2px;}
+.register .rebox form ul li a.registbtn:hover{background: #2398ff;}
+.register .rebox form ul li p.btntxt{line-height: 30px;text-align: center;font-size: 12px;color: #666;}
+.register .rebox form ul li p.btntxt a{color:#1187f1;}
+.nocheck{background: #999 !important;color: #666 !important;}
+
+/* 瀹炲悕璁よ瘉 */
+.realname{width: 1200px;margin:60px auto;min-height: 500px;}
+.realname .realbox{width: 800px;min-height: 500px;background: #ffffff;margin:0 auto;border-radius: 2px;}
+.realname .realbox h3{line-height: 60px;font-size: 18px;color: #333;text-align: center;border-bottom: 2px solid #f5f5f5;}
+.realname .realbox .statebox{width: 520px;margin: 20px auto 30px;overflow: hidden;}
+.realname .realbox .statebox .state{display: inline-block;width: 100px;text-align: center;color: #d7d7d7;}
+.realname .realbox .statebox .active i{box-shadow: 0 6px 16px #97CEFF;background: #1187f1 !important;}
+.realname .realbox .statebox .state i{font-size: 20px;width: 40px;height: 40px;line-height: 40px;background: rgba(215,215,215,1);color: #fff;border-radius: 50%;display: inline-block;}
+.realname .realbox .statebox .state p{font-size: 14px;color: #333;margin: 15px 0 0;}
+.realname .realbox .statebox .line{display: inline-block;width: 99px;height: 2px;background: #d7d7d7;position: relative;top: -50px;}
+.realname .realbox .statebox .line_active{background: #1187f1;}
+.realname .realbox .statebox .line.active{background: #1187f1;}
+.realname .realbox .name_one{width: 440px;margin: 0 auto;}
+.realname .realbox .name_one ul li{line-height: 40px;}
+.realname .realbox .name_one ul li span{display: inline-block;width: 70px;font-size: 14px;color: #333;}
+.realname .realbox .name_one ul li input{height: 38px;line-height: 38px;width: 298px;border-radius: 2px;border: 1px solid #d7d7d7;text-indent: 10px;}
+.realname .realbox .name_one ul li a{display: inline-block;height: 50px;width: 300px;border-radius: 2px;background: #1187f1;text-align: center;color: #ffffff;line-height: 50px;margin: 0 0 0 70px;font-size: 18px;}
+.realname .realbox .name_one ul li a:hover{background: #2398ff;}
+.realname .realbox .name_one ul li p{font-size: 14px;color: #333;text-align: center;margin: 0;}
+.realname .realbox .name_one ul li div.error{color: #ff5959;font-size: 13px;line-height: 30px;height: 30px;text-indent: 70px;}
+.realname .realbox .name_two{width: 440px;margin: 0 auto;} 
+.realname .realbox .name_two ul li{line-height: 40px;}
+.realname .realbox .name_two ul li span{display: inline-block;width: 80px;font-size: 14px;color: #333;}
+.realname .realbox .name_two ul li input.two_bank{text-indent: 10px;height: 38px;line-height: 38px;width: 298px;color: #999;border-radius: 2px;border: 1px solid #d7d7d7;}
+.realname .realbox .name_two ul li input.two_message{text-indent: 10px;height: 40px;line-height: 38px;width: 148px;border-radius: 2px;border: 1px solid #d7d7d7;}
+.realname .realbox .name_two ul li a{display: inline-block;height: 50px;width: 300px;border-radius: 2px;background: #1187f1;text-align: center;color: #ffffff;line-height: 50px;margin: 0 0 0 80px;font-size: 18px;}
+.realname .realbox .name_two ul li a:hover{background: #2398ff;}
+.realname .realbox .name_two ul li p{font-size: 14px;color: #333;text-align: center;margin: 0 0 0 20px;}
+.realname .realbox .name_two ul li div.error{color: #ff5959;font-size: 13px;line-height: 30px;height: 30px;text-indent: 80px;}
+.realname .realbox .name_two ul li.verification input{width: 148px;color: #999;}
+.realname .realbox .name_two ul li .addform{width: 300px;margin: 20px 0 0px 80px;}
+.realname .realbox .name_two ul li .addform .add_lyu .layui-unselect.layui-form-select{width: 140px;float: left;}
+.realname .realbox .name_two ul li .addform .add_lyu .layui-unselect.layui-form-select:last-child{margin-left: 20px;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd{padding-left: 10px;font-size: 14px;}
+.layui-form-select dl dd.layui-this{background-color: #1187f1;}
+.layui-form-selected dl{width: 100%;}
+
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='BOC']{background: url(../../images/front/img/register/zgyh.png) 25% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='BOC']{background: url(../../images/front/img/register/zgyh.png) 25% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='ABC']{background: url(../../images/front/img/register/nyyh.png) 36% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='ABC']{background: url(../../images/front/img/register/nyyh.png) 36% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CCB']{background: url(../../images/front/img/register/jsyh.png) 36% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CCB']{background: url(../../images/front/img/register/jsyh.png) 36% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='ICBC']{background: url(../../images/front/img/register/gsyh.png) 36% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='ICBC']{background: url(../../images/front/img/register/gsyh.png) 36% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CMB']{background: url(../../images/front/img/register/zsyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CMB']{background: url(../../images/front/img/register/zsyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CITIC']{background: url(../../images/front/img/register/zxyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CITIC']{background: url(../../images/front/img/register/zxyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CIB']{background: url(../../images/front/img/register/xyyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CIB']{background: url(../../images/front/img/register/xyyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CEB']{background: url(../../images/front/img/register/gdyh.png) 30% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CEB']{background: url(../../images/front/img/register/gdyh.png) 30% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='BOS']{background: url(../../images/front/img/register/shyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='BOS']{background: url(../../images/front/img/register/shyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='PSBC']{background: url(../../images/front/img/register/yzyh-.png) 36% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='PSBC']{background: url(../../images/front/img/register/yzyh-.png) 36% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='SZPAB']{background: url(../../images/front/img/register/payh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='SZPAB']{background: url(../../images/front/img/register/payh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='SPDB']{background: url(../../images/front/img/register/pfyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='SPDB']{background: url(../../images/front/img/register/pfyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='COMM']{background: url(../../images/front/img/register/jtyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='COMM']{background: url(../../images/front/img/register/jtyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='GDB']{background: url(../../images/front/img/register/gfyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='GDB']{background: url(../../images/front/img/register/gfyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='HXB']{background: url(../../images/front/img/register/hxyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='HXB']{background: url(../../images/front/img/register/hxyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CMBC']{background: url(../../images/front/img/register/msyh.png) 26% center no-repeat;}
+.realname .realbox .name_two ul li .addform .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CMBC']{background: url(../../images/front/img/register/msyh.png) 26% center no-repeat #1187f1;}
+.realname .realbox .name_two ul li .addform form:first-child{margin-bottom: 15px;}
+.realname .realbox .name_two ul li.verification #btn3{display: inline-block;height: 40px;width: 130px;border-radius: 2px;background: #fff;color: #1187f1;border: 1px solid #1187f1;text-align: center;line-height: 38px;font-size: 14px;margin: 0 0 0 20px;transform: translateY(-1px);-webkit-transform: translateY(-1px);-mz-transform: translateY(-1px);-o-transform: translateY(-1px);-moz-transform: translateY(-1px);}
+.realname .realbox .name_two ul li.verification #btn3:hover{background: #1187f1;color: #fff;}
+.realname .realbox .name_two ul li.verification .noverbtn{color: #c3c3c3 !important;background:#ffffff !important;}
+.realname .realbox .name_two ul li .addform .add_lyu{clear: both;height: 45px;position: relative;}
+.realname .realbox .name_two ul li .addform .add_lyu form{display: inline-block;width: 46%;}
+.realname .realbox .name_two ul li .addform .add_lyu form:first-child{float: left;}
+.realname .realbox .name_two ul li .addform .add_lyu form:last-child{float: right;}
+.realname .realbox .name_two ul li .addform .bank_accounts{text-indent: 10px;height: 40px;line-height: 40px;width: 300px;border-radius: 2px;border: 1px solid #d7d7d7;margin: 0 0 10px;}
+.realname .realbox .name_two ul li .addform .add_lyu select{padding: 0 10px;display: inline-block;height: 40px;line-height: 40px;width: 147px;border-radius: 2px;border: 1px solid #d7d7d7;}
+.realname .realbox .name_two ul li .addform .add_lyu select:last-child{float: right;}
+
+
+.realname .realbox .name_three{width: 440px;margin: 0 auto;}
+.realname .realbox .name_three ul li{margin-top: 30px;line-height: 40px;display: flex;flex-direction: column;align-items: center;justify-content: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;}
+.realname .realbox .name_three ul li a{display: inline-block;height: 50px;width: 300px;border-radius: 2px;background: #1187f1;text-align: center;color: #ffffff;line-height: 50px;font-size: 18px;}
+.realname .realbox .name_three ul li a:hover{background: #2398ff;}
+.realname .realbox .name_three ul li p{font-size: 18px;color: #1187f1;text-align: center;padding: 80px 0;line-height: 30px;font-size: 18px;}
+.realname .realbox .name_three ul li p.next_threetxt{font-size: 14px;color: #333;padding: 0;text-align: center;margin: 7px 0;}
+
+/* 娉ㄥ唽鎴愬姛鎻愮ず */
+.success{width: 1200px;min-height: 500px;margin: 60px auto;}
+.success .su_box{width: 800px;min-height: 500px;background: #ffffff;margin: 0 auto;text-align: center;}
+.success .su_box h3{font-size: 23px;color: #333;padding: 100px 0 30px 0;line-height: 50px;height: 50px;}
+.success .su_box h3 i{color: #1187f1;font-size: 50px;vertical-align: middle;margin: 0 10px 0 0;}
+.success .su_box p a.subtn{display: inline-block;width: 250px;height: 40px;line-height: 40px;background: #1187f1;color: #ffffff;border-radius: 2px;font-size: 16px;margin: 0 0 20px 0;}
+.success .su_box p a.subtn:hover{background: #2398ff;}
+.success .su_box p a.go_index{font-size: 16px;color: #1187f1;}
+
+
+/* 鍗忚 */
+.agreebox{width: 1200px;background: #ffffff;margin: 20px auto 60px;}
+.agreebox h3{font-size: 30px;line-height: 55px;text-align: center;}
+.agreebox p{padding: 40px 35px 0;line-height: 30px;font-size: 16px;color: #646464;text-indent: 2em;}
+
+select#province,select#city{appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+.add_lyu .sanjiao{position: absolute;background: url(../../images/front/img/sanjiao..png) center no-repeat;transition: all .3s;-webkit-transition: all .3s;display: inline-block;width: 10px;height: 10px;top: 17px;background-size: auto;}
+.add_lyu .sanjiao.provincesj{right: 163px;}
+.add_lyu .sanjiao.citysj{right: 12px;}
+
+
+
+/* 鏂板疄鍚嶈璇� */
+.new_realname{
+	width: 1200px;
+	margin:60px auto;
+	min-height: 500px;
+}
+.new_realname .realbox{
+	overflow: hidden;
+	width: 800px;
+	min-height: 500px;
+	background: #ffffff;
+	margin:0 auto;
+	border-radius: 2px;
+}
+.new_realname .realbox h3 {
+    line-height: 60px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #f5f5f5;
+}
+.new_realname .realbox .name_one{
+    margin: 103px 0 103px 180px;
+}
+.new_realname .realbox .name_one ul{
+
+}
+.new_realname .realbox .name_one ul li {
+	height: 40px;
+    line-height: 40px;
+    margin-bottom: 15px;
+}
+.new_realname .realbox .name_one ul li.verification{
+	padding-top: 3px;
+}
+.new_realname .realbox .name_one ul li:last-child {
+	width: 450px;
+	height: auto;
+    line-height: 40px;
+    margin-bottom: 15px;
+}
+.new_realname .realbox .name_one ul li.bankBox {
+	height: 167px;
+	margin-bottom: 0;
+}
+.new_realname .realbox .name_one ul li.bankBox .layui-form-select {
+	position: initial !important;
+}
+.new_realname .realbox .name_one ul li span {
+    display: inline-block;
+    width: 70px;
+    font-size: 14px;
+    color: #333;
+	text-align: right;
+    margin-right: 10px;
+	float: left;
+}
+.new_realname .realbox .name_one ul li input {
+    height: 38px;
+    line-height: 38px;
+    width: 300px;
+    border-radius: 2px;
+    border: 1px solid #d7d7d7;
+    text-indent: 10px;
+    float: left;
+}
+.new_realname .realbox .name_one ul li div.error {
+    color: #ff5959;
+    font-size: 12px;
+    line-height: 30px;
+    height: 30px;
+    text-indent: 10px;
+    display: inline-block;
+}
+.new_realname .realbox .name_one ul li input.two_bank, .new_realname .realbox .name_one ul li input.two_bank, .new_realname .realbox .name_one ul li input.two_message {
+    text-indent: 10px;
+    height: 40px;
+    line-height: 40px;
+    width: 298px;
+    border-radius: 2px;
+    border: 1px solid #d7d7d7;
+}
+.new_realname .realbox .name_one ul li.verification input {
+    width: 148px;
+}
+.new_realname .realbox .name_one ul li.verification #btn3 {
+    display: inline-block;
+    height: 40px;
+    width: 130px;
+    border-radius: 2px;
+    background: #fff;
+    color: #1187f1;
+    border: 1px solid #1187f1;
+    text-align: center;
+    text-indent: 0;
+    line-height: 38px;
+    font-size: 14px;
+    margin: 0 0 0 20px;
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -mz-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+}
+.new_realname .realbox .name_one ul li.verification #btn3:hover{
+	background: #2398ff;
+	color: #fff;
+	border: 1px solid #2398ff;
+}
+.new_realname .realbox .name_one ul li button {
+    display: inline-block;
+    height: 50px;
+    width: 300px;
+    border-radius: 2px;
+    background: #1187f1;
+    text-align: center;
+    color: #ffffff;
+    line-height: 50px;
+    margin: 15px 0 0 82px;
+    font-size: 18px;
+}
+.new_realname .realbox .name_one ul li button:hover{
+	background: #2398ff;
+}
+.new_realname .realbox .name_one ul li p {
+    font-size: 14px;
+    color: #333;
+	margin: 15px 67px 0 84px;
+    line-height: 1.5;
+}
+.new_realname .realbox .name_one ul li .addform{
+	margin-top: 15px;
+}
+.new_realname .realbox .name_one ul li .addform .layui-input-inline{
+	width: 145px;
+}
+.new_realname .realbox .name_one ul li .addform .layui-input-inline:nth-of-type(2){
+	margin-right: 0;
+}
+.new_realname .realbox .name_one ul li .addform .layui-input-inline input{
+	width: 145px;
+}
+.new_realname .layui-form-label{
+	width: 70px;
+    font-weight: 400;
+    float: left;
+    display: block;
+	padding: 10px 0;
+    color: #333;
+	margin-right: 10px;
+}
+.new_realname .layui-form-item{
+	margin-top: 15px;
+	height: 40px;
+}
+.new_realname .layui-form-item .layui-inline{
+	margin-bottom: 0; 
+    margin-right: 0;
+    float: left;
+}
+.new_realname .layui-select-title input{
+	text-indent: 0 !important;
+	background: #F5F5F5;
+}
+.new_realname .layui-form-select dl{
+	max-height: 250px;
+}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='BOC']{background: url(../../images/front/img/register/zgyh.png) 25% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='BOC']{background: url(../../images/front/img/register/zgyh.png) 25% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='ABC']{background: url(../../images/front/img/register/nyyh.png) 36% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='ABC']{background: url(../../images/front/img/register/nyyh.png) 36% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CCB']{background: url(../../images/front/img/register/jsyh.png) 36% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CCB']{background: url(../../images/front/img/register/jsyh.png) 36% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='ICBC']{background: url(../../images/front/img/register/gsyh.png) 36% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='ICBC']{background: url(../../images/front/img/register/gsyh.png) 36% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CMB']{background: url(../../images/front/img/register/zsyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CMB']{background: url(../../images/front/img/register/zsyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CITIC']{background: url(../../images/front/img/register/zxyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CITIC']{background: url(../../images/front/img/register/zxyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CIB']{background: url(../../images/front/img/register/xyyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CIB']{background: url(../../images/front/img/register/xyyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CEB']{background: url(../../images/front/img/register/gdyh.png) 30% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CEB']{background: url(../../images/front/img/register/gdyh.png) 30% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='BOS']{background: url(../../images/front/img/register/shyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='BOS']{background: url(../../images/front/img/register/shyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='PSBC']{background: url(../../images/front/img/register/yzyh-.png) 36% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='PSBC']{background: url(../../images/front/img/register/yzyh-.png) 36% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='SZPAB']{background: url(../../images/front/img/register/payh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='SZPAB']{background: url(../../images/front/img/register/payh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='SPDB']{background: url(../../images/front/img/register/pfyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='SPDB']{background: url(../../images/front/img/register/pfyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='COMM']{background: url(../../images/front/img/register/jtyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='COMM']{background: url(../../images/front/img/register/jtyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='GDB']{background: url(../../images/front/img/register/gfyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='GDB']{background: url(../../images/front/img/register/gfyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='HXB']{background: url(../../images/front/img/register/hxyh.png) 26% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='HXB']{background: url(../../images/front/img/register/hxyh.png) 26% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd[lay-value='CMBC']{background: url(../../images/front/img/register/msyh.png) 36% center no-repeat;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd.layui-this[lay-value='CMBC']{background: url(../../images/front/img/register/msyh.png) 36% center no-repeat #1187f1;}
+.new_realname .realbox .name_one ul li .layui-form-item .layui-inline .layui-input-inline .layui-form-select .layui-select-group dd{padding-left: 10px;font-size: 14px;}
+
+
+

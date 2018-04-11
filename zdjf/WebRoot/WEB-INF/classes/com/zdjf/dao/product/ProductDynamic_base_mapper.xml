@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product.productDynamic">
+<sql id="columns">
+id,
+debt_code,
+product_code,
+product_id,
+trade_no,
+loan_id,
+lender_id,
+issure_time,
+num,
+pay_day,
+to_pay_amount,
+payed_amount,
+to_pay_income,
+payed_income,
+status,
+amount,
+lender_balance,
+now_to_pay_amount,
+now_payed_amount,
+now_to_pay_income,
+now_payed_income,
+day_to_pay_amount,
+day_payed_amount,
+day_to_pay_income,
+day_payed_income
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">   id,</if>
+<if test="debt_code != null and debt_code != ''">   debt_code,</if>
+<if test="product_code != null and product_code != ''">   product_code,</if>
+<if test="product_id != null and product_id != ''">   product_id,</if>
+<if test="trade_no != null and trade_no != ''">   trade_no,</if>
+<if test="loan_id != null and loan_id != ''">   loan_id,</if>
+<if test="lender_id != null and lender_id != ''">   lender_id,</if>
+<if test="issure_time != null ">   issure_time,</if>
+<if test="num != null and num != ''">   num,</if>
+<if test="pay_day != null ">   pay_day,</if>
+<if test="to_pay_amount != null and to_pay_amount != ''">   to_pay_amount,</if>
+<if test="payed_amount != null and payed_amount != ''">   payed_amount,</if>
+<if test="to_pay_income != null and to_pay_income != ''">   to_pay_income,</if>
+<if test="payed_income != null and payed_income != ''">   payed_income,</if>
+<if test="status != null and status != ''">   status,</if>
+<if test="amount != null and amount != ''">   amount,</if>
+<if test="lender_balance != null and lender_balance != ''">   lender_balance,</if>
+<if test="now_to_pay_amount != null and now_to_pay_amount != ''">   now_to_pay_amount,</if>
+<if test="now_payed_amount != null and now_payed_amount != ''">   now_payed_amount,</if>
+<if test="now_to_pay_income != null and now_to_pay_income != ''">   now_to_pay_income,</if>
+<if test="now_payed_income != null and now_payed_income != ''">   now_payed_income,</if>
+<if test="day_to_pay_amount != null and day_to_pay_amount != ''">   day_to_pay_amount,</if>
+<if test="day_payed_amount != null and day_payed_amount != ''">   day_payed_amount,</if>
+<if test="day_to_pay_income != null and day_to_pay_income != ''">   day_to_pay_income,</if>
+<if test="day_payed_income != null and day_payed_income != ''">   day_payed_income,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">   #{id},</if>
+<if test="debt_code != null and debt_code != ''">   #{debt_code},</if>
+<if test="product_code != null and product_code != ''">   #{product_code},</if>
+<if test="product_id != null and product_id != ''">   #{product_id},</if>
+<if test="trade_no != null and trade_no != ''">   #{trade_no},</if>
+<if test="loan_id != null and loan_id != ''">   #{loan_id},</if>
+<if test="lender_id != null and lender_id != ''">   #{lender_id},</if>
+<if test="issure_time != null ">   #{issure_time},</if>
+<if test="num != null and num != ''">   #{num},</if>
+<if test="pay_day != null ">   #{pay_day},</if>
+<if test="to_pay_amount != null and to_pay_amount != ''">   #{to_pay_amount},</if>
+<if test="payed_amount != null and payed_amount != ''">   #{payed_amount},</if>
+<if test="to_pay_income != null and to_pay_income != ''">   #{to_pay_income},</if>
+<if test="payed_income != null and payed_income != ''">   #{payed_income},</if>
+<if test="status != null and status != ''">   #{status},</if>
+<if test="amount != null and amount != ''">   #{amount},</if>
+<if test="lender_balance != null and lender_balance != ''">   #{lender_balance},</if>
+<if test="now_to_pay_amount != null and now_to_pay_amount != ''">   #{now_to_pay_amount},</if>
+<if test="now_payed_amount != null and now_payed_amount != ''">   #{now_payed_amount},</if>
+<if test="now_to_pay_income != null and now_to_pay_income != ''">   #{now_to_pay_income},</if>
+<if test="now_payed_income != null and now_payed_income != ''">   #{now_payed_income},</if>
+<if test="day_to_pay_amount != null and day_to_pay_amount != ''">   #{day_to_pay_amount},</if>
+<if test="day_payed_amount != null and day_payed_amount != ''">   #{day_payed_amount},</if>
+<if test="day_to_pay_income != null and day_to_pay_income != ''">   #{day_to_pay_income},</if>
+<if test="day_payed_income != null and day_payed_income != ''">   #{day_payed_income},</if>
+</sql>
+<sql id="conds">
+<if test="id != null and id != ''">   and id = #{id}</if>
+<if test="debt_code != null and debt_code != ''">   and debt_code = #{debt_code}</if>
+<if test="product_code != null and product_code != ''">   and product_code = #{product_code}</if>
+<if test="product_id != null and product_id != ''">   and product_id = #{product_id}</if>
+<if test="trade_no != null and trade_no != ''">   and trade_no = #{trade_no}</if>
+<if test="loan_id != null and loan_id != ''">   and loan_id = #{loan_id}</if>
+<if test="lender_id != null and lender_id != ''">   and lender_id = #{lender_id}</if>
+<if test="issure_time != null ">   and issure_time = #{issure_time}</if>
+<if test="num != null and num != ''">   and num = #{num}</if>
+<if test="pay_day != null ">   and pay_day = #{pay_day}</if>
+<if test="to_pay_amount != null and to_pay_amount != ''">   and to_pay_amount = #{to_pay_amount}</if>
+<if test="payed_amount != null and payed_amount != ''">   and payed_amount = #{payed_amount}</if>
+<if test="to_pay_income != null and to_pay_income != ''">   and to_pay_income = #{to_pay_income}</if>
+<if test="payed_income != null and payed_income != ''">   and payed_income = #{payed_income}</if>
+<if test="status != null and status != ''">   and status = #{status}</if>
+<if test="amount != null and amount != ''">   and amount = #{amount}</if>
+<if test="lender_balance != null and lender_balance != ''">   and lender_balance = #{lender_balance}</if>
+<if test="now_to_pay_amount != null and now_to_pay_amount != ''">   and now_to_pay_amount = #{now_to_pay_amount}</if>
+<if test="now_payed_amount != null and now_payed_amount != ''">   and now_payed_amount = #{now_payed_amount}</if>
+<if test="now_to_pay_income != null and now_to_pay_income != ''">   and now_to_pay_income = #{now_to_pay_income}</if>
+<if test="now_payed_income != null and now_payed_income != ''">   and now_payed_income = #{now_payed_income}</if>
+<if test="day_to_pay_amount != null and day_to_pay_amount != ''">   and day_to_pay_amount = #{day_to_pay_amount}</if>
+<if test="day_payed_amount != null and day_payed_amount != ''">   and day_payed_amount = #{day_payed_amount}</if>
+<if test="day_to_pay_income != null and day_to_pay_income != ''">   and day_to_pay_income = #{day_to_pay_income}</if>
+<if test="day_payed_income != null and day_payed_income != ''">   and day_payed_income = #{day_payed_income}</if>
+</sql>
+
+<insert id="saveProductDynamic" parameterType="com.zdjf.domain.product.ProductDynamic" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_product_dynamic (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectProductDynamic" resultType="com.zdjf.domain.product.ProductDynamicVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product_dynamic
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteProductDynamic">
+		delete from zd_product_dynamic
+		where id=#{id}
+	</delete>
+	
+	<update id="updateProductDynamic">
+		update zd_product_dynamic
+		<set>
+			is_debt = #{is_debt}
+		</set>
+		where id=#{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.coin">
+	<sql id="columns">
+		id,
+		coin_name,
+		coin_source,
+		coin_num,
+		coin_max,
+		coin_min,
+		coin_multiple,
+		invite_ratio,
+		deduction_ratio,
+		coin_type,
+		create_time,
+		status,
+		remark,
+		coin_id
+	</sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''"> id,</if>
+		<if test="coin_name != null and coin_name != ''"> coin_name,</if>
+		<if test="coin_source != null and coin_source != ''"> coin_source,</if>
+		<if test="coin_num != null and coin_num != ''"> coin_num,</if>
+		<if test="coin_max != null and coin_max != ''"> coin_max,</if>
+		<if test="coin_min != null and coin_min != ''"> coin_min,</if>
+		<if test="coin_multiple != null and coin_multiple != ''"> coin_multiple,</if>
+		<if test="invite_ratio != null and invite_ratio != ''"> invite_ratio,</if>
+		<if test="deduction_ratio != null and deduction_ratio != ''"> deduction_ratio,</if>
+		<if test="coin_type != null and coin_type != ''"> coin_type,</if>
+		<if test="create_time != null"> create_time,</if>
+		<if test="status != null and status != ''"> status,</if>
+		<if test="remark != null and remark != ''"> remark,</if>
+		<if test="coin_id != null and coin_id != ''"> coin_id,</if>
+	</sql>
+	<sql id="vals">
+		<if test="id != null and id != ''"> #{id},</if>
+		<if test="coin_name != null and coin_name != ''"> #{coin_name},</if>
+		<if test="coin_source != null and coin_source != ''"> #{coin_source},</if>
+		<if test="coin_num != null and coin_num != ''"> #{coin_num},</if>
+		<if test="coin_max != null and coin_max != ''"> #{coin_max},</if>
+		<if test="coin_min != null and coin_min != ''"> #{coin_min},</if>
+		<if test="coin_multiple != null and coin_multiple != ''"> #{coin_multiple},</if>
+		<if test="invite_ratio != null and invite_ratio != ''"> #{invite_ratio},</if>
+		<if test="deduction_ratio != null and deduction_ratio != ''"> #{deduction_ratio},</if>
+		<if test="coin_type != null and coin_type != ''"> #{coin_type},</if>
+		<if test="create_time != null"> #{create_time},</if>
+		<if test="status != null and status != ''"> #{status},</if>
+		<if test="remark != null and remark != ''"> #{remark},</if>
+		<if test="coin_id != null and coin_id != ''"> #{coin_id},</if>
+	</sql>
+	<sql id="conds">
+		<if test="id != null and id != ''"> and id = #{id}</if>
+		<if test="coin_name != null and coin_name != ''"> and coin_name = #{coin_name}</if>
+		<if test="coin_source != null and coin_source != ''"> and coin_source = #{coin_source}</if>
+		<if test="coin_num != null and coin_num != ''"> and coin_num = #{coin_num}</if>
+		<if test="coin_max != null and coin_max != ''"> and coin_max = #{coin_max}</if>
+		<if test="coin_min != null and coin_min != ''"> and coin_min = #{coin_min}</if>
+		<if test="coin_multiple != null and coin_multiple != ''"> and coin_multiple = #{coin_multiple}</if>
+		<if test="invite_ratio != null and invite_ratio != ''"> and invite_ratio = #{invite_ratio}</if>
+		<if test="deduction_ratio != null and deduction_ratio != ''"> and deduction_ratio = #{deduction_ratio}</if>
+		<if test="coin_type != null and coin_type != ''"> and coin_type = #{coin_type}</if>
+		<if test="create_time != null"> and create_time = #{create_time}</if>
+		<if test="status != null and status != ''"> and status = #{status}</if>
+		<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+		<if test="coin_id != null and coin_id != ''"> and coin_id = #{coin_id}</if>
+	</sql>
+	<insert id="saveCoin" parameterType="com.zdjf.domain.fund.Coin" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_coin (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	
+	<delete id="deleteCoin">
+		delete from zd_coin
+		where id=#{id}
+	</delete>
+
+	
+	<select id="loadCoin" resultType="com.zdjf.domain.fund.CoinVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coin
+		where id=#{id}
+	</select>
+	
+	<select id="selectCoin" resultType="com.zdjf.domain.fund.CoinVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coin
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

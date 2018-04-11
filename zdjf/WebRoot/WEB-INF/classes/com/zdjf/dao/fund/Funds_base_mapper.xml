@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.funds">
+	<sql id="columns">
+	id,
+	user_id,
+	relation_id,
+	amount,
+	balance,
+	action,
+	operate_type,
+	status,
+	remark,
+	create_time,
+	uid,
+	trade_no,
+	funds_id,
+	ticket,
+	summary
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''"> id,</if>
+	<if test="user_id != null and user_id != ''"> user_id,</if>
+	<if test="relation_id != null and relation_id != ''"> relation_id,</if>
+	<if test="amount != null and amount != ''"> amount,</if>
+	balance,
+	<if test="action != null and action != ''"> action,</if>
+	<if test="operate_type != null and operate_type != ''"> operate_type,</if>
+	<if test="status != null and status != ''"> status,</if>
+	<if test="remark != null and remark != ''"> remark,</if>
+	<if test="create_time != null"> create_time,</if>
+	<if test="uid != null and uid != ''"> uid,</if>
+	<if test="funds_id != null and funds_id != ''"> funds_id,</if>
+	<if test="trade_no != null and trade_no != ''"> trade_no,</if>
+	<if test="ticket != null and ticket != ''"> ticket,</if>
+	<if test="summary != null and summary != ''"> summary,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''"> #{id},</if>
+	<if test="user_id != null and user_id != ''"> #{user_id},</if>
+	<if test="relation_id != null and relation_id != ''"> #{relation_id},</if>
+	<if test="amount != null and amount != ''"> #{amount},</if>
+	#{balance},
+	<if test="action != null and action != ''"> #{action},</if>
+	<if test="operate_type != null and operate_type != ''"> #{operate_type},</if>
+	<if test="status != null and status != ''"> #{status},</if>
+	<if test="remark != null and remark != ''"> #{remark},</if>
+	<if test="create_time != null"> #{create_time},</if>
+	<if test="uid != null and uid != ''"> #{uid},</if>
+	<if test="funds_id != null and funds_id != ''"> #{funds_id},</if>
+	<if test="trade_no != null and trade_no != ''"> #{trade_no},</if>
+	<if test="ticket != null and ticket != ''"> #{ticket},</if>
+	<if test="summary != null and summary != ''"> #{summary},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''"> and id = #{id}</if>
+	<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+	<if test="relation_id != null and relation_id != ''"> and relation_id = #{relation_id}</if>
+	<if test="amount != null and amount != ''"> and amount = #{amount}</if>
+	<if test="balance != null and balance != ''"> and balance = #{balance}</if>
+	<if test="action != null and action != ''"> and action = #{action}</if>
+	<if test="operate_type != null and operate_type != ''"> and operate_type = #{operate_type}</if>
+	<if test="status != null and status != ''"> and status = #{status}</if>
+	<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+	<if test="create_time != null"> and create_time = #{create_time}</if>
+	<if test="uid != null and uid != ''"> and uid = #{uid}</if>
+	<if test="funds_id != null and funds_id != ''"> and funds_id = #{funds_id}</if>
+	<if test="trade_no != null and trade_no != ''"> and trade_no = #{trade_no}</if>
+	<if test="ticket != null and ticket != ''"> and ticket = #{ticket}</if>
+	<if test="summary != null and summary != ''"> and summary = #{summary}</if>
+	</sql>
+	<insert id="saveFunds" parameterType="com.zdjf.domain.fund.Funds" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_funds (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectFunds" resultType="com.zdjf.domain.fund.FundsVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_funds
+		where 1=1
+		<include refid="conds" />
+		order by create_time desc
+	</select>
+	<delete id="deleteFunds">
+		delete from zd_funds
+		where id=#{id}
+	</delete>
+</mapper>

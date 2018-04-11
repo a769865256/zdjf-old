@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product">
+<select id="selectProductPage" resultType="com.zdjf.domain.product.ProductVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_product
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectProductCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_product
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+<select id="selectProductListForMap" parameterType="java.util.Map" resultType="com.zdjf.domain.product.ProductVo">
+		select * 
+		from zd_product p
+		where 1=1 and status &gt;=4 and status &lt;=6 and online=1
+		<if test="beginDay != null and beginDay != ''">
+		 and (UNIX_TIMESTAMP(end_date)-UNIX_TIMESTAMP(start_date)) &gt;= #{beginDay}
+		
+		</if>
+		<if test="endDay != null and endDay != ''">
+		 and (UNIX_TIMESTAMP(end_date)-UNIX_TIMESTAMP(start_date)) &lt;= #{endDay}
+		
+		</if>
+		<if test="begin_income != null and begin_income != ''">
+		 and (income+platform_interest) &gt;= #{begin_income}
+		
+		</if>
+		<if test="end_income != null and end_income != ''">
+		 and (income+platform_interest) &lt;= #{end_income}
+		
+		</if>
+		<choose>
+        <when test="status !=null and status!=''">
+            and status = ${status}
+        </when>
+        <otherwise>
+            and (status = 4 or status = 5 or status = 6)
+        </otherwise>
+    	</choose>
+    	 order by field(status,1,2,21,3,31,4,5,6,7,8,9) asc,fill_time desc,order_no is null,order_no asc,is_fresh desc
+    	 limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectProductListCountForMap" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_product
+		where 1=1 
+		<if test="beginDay != null and beginDay != ''">
+		 and (UNIX_TIMESTAMP(end_date)-UNIX_TIMESTAMP(start_date)) &gt;= #{beginDay}
+		
+		</if>
+		<if test="endDay != null and endDay != ''">
+		 and (UNIX_TIMESTAMP(end_date)-UNIX_TIMESTAMP(start_date)) &lt;= #{endDay}
+		
+		</if>
+		<if test="begin_income != null and begin_income != ''">
+		 and (income+platform_interest) &gt;= #{begin_income}
+		
+		</if>
+		<if test="end_income != null and end_income != ''">
+		 and (income+platform_interest) &lt;= #{end_income}
+		
+		</if>
+		<choose>
+        <when test="status !=null and status!=''">
+            and status = ${status}
+        </when>
+        <otherwise>
+            and (status = 4 or status = 5 or status = 6)
+        </otherwise>
+    	</choose>
+	</select>
+	
+	<select id="selectProductPageList" parameterType="java.util.Map" resultType="com.zdjf.domain.product.ProductVo">
+		select * from zd_product
+			where 1 = 1
+			<if test="product_type != null and product_type != ''">
+			and product_type = #{product_type}
+			</if>
+			<if test="status != null and status != '' and status !=0">
+			and status = #{status}
+			</if>
+			<if test="income != null and income == 1">
+			and income BETWEEN 9 and 10
+			</if>
+			<if test="income != null and income == 2">
+			and income BETWEEN 10 and 11
+			</if>
+			<if test="income != null and income == 3">
+			and income BETWEEN 11 and 12
+			</if>
+			<if test="income != null and income == 4">
+			and income >=12 
+			</if>
+			and (status= 4 or status= 5 or status= 6 or status= 7)
+			<if test="datelimit ==1">
+			and DATEDIFF(NOW(),end_date) BETWEEN 0 and 40
+			</if>
+			<if test="datelimit ==2">
+			and DATEDIFF(NOW(),end_date) BETWEEN 45 and 65
+			</if>
+			<if test="datelimit ==3">
+			and DATEDIFF(NOW(),end_date) BETWEEN 70 and 95
+			</if>
+			<if test="datelimit ==6">
+			and DATEDIFF(NOW(),end_date) >=180
+			</if>
+			order by field(status,1,2,21,3,31,4,5,6,7,8,9) asc,fill_time desc ,order_no is null,order_no asc,is_fresh desc
+			limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectProductPageListCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_product
+		where 1 = 1
+			<if test="product_type != null and product_type != ''">
+			and product_type = #{product_type}
+			</if>
+			<if test="status != null and status != '' and status !=0">
+			and status = #{status}
+			</if>
+			<if test="income != null and income == 1">
+			and income BETWEEN 9 and 10
+			</if>
+			<if test="income != null and income == 2">
+			and income BETWEEN 10 and 11
+			</if>
+			<if test="income != null and income == 3">
+			and income BETWEEN 11 and 12
+			</if>
+			<if test="income != null and income == 4">
+			and income >=12 
+			</if>
+			and (status= 4 or status= 5 or status= 6 or status= 7)
+			<if test="datelimit ==1">
+			and DATEDIFF(NOW(),end_date) BETWEEN 0 and 40
+			</if>
+			<if test="datelimit ==2">
+			and DATEDIFF(NOW(),end_date) BETWEEN 45 and 65
+			</if>
+			<if test="datelimit ==3">
+			and DATEDIFF(NOW(),end_date) BETWEEN 70 and 95
+			</if>
+			<if test="datelimit ==6">
+			and DATEDIFF(NOW(),end_date) >=180
+			</if>
+	</select>
+	
+	<select id="selectProductById" resultType="com.zdjf.domain.product.Product">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product
+		where 1=1
+		and id=#{id}
+	</select>
+	
+	<select id="updateProductById" parameterType="com.zdjf.domain.product.Product">
+		update zd_product
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''"> id = #{id},</if>
+			<if test="product_code != null and product_code != ''"> product_code = #{product_code},</if>
+			<if test="product_name != null and product_name != ''"> product_name = #{product_name},</if>
+			<if test="status != null and status != ''"> status = #{status},</if>
+			<if test="debt_code != null and debt_code != ''"> debt_code = #{debt_code},</if>
+			<if test="is_serial != null and is_serial != ''"> is_serial = #{is_serial},</if>
+			<if test="serial_no != null and serial_no != ''"> serial_no = #{serial_no},</if>
+			<if test="is_fresh != null and is_fresh != ''"> is_fresh = #{is_fresh},</if>
+			<if test="ensure_type != null and ensure_type != ''"> ensure_type = #{ensure_type},</if>
+			<if test="mortgage_type != null and mortgage_type != ''"> mortgage_type = #{mortgage_type},</if>
+			<if test="start_date != null"> start_date = #{start_date},</if>
+			<if test="will_end_date != null"> will_end_date = #{will_end_date},</if>
+			<if test="end_date != null"> end_date = #{end_date},</if>
+			<if test="debt_money != null and debt_money != ''"> debt_money = #{debt_money},</if>
+			<if test="money != null and money != ''"> money = #{money},</if>
+			<if test="sale_money != null and sale_money != ''"> sale_money = #{sale_money},</if>
+			<if test="balance != null"> balance = #{balance},</if>
+			<if test="buyer_count != null and buyer_count != ''"> buyer_count = #{buyer_count},</if>
+			<if test="pay_min != null and pay_min != ''"> pay_min = #{pay_min},</if>
+			<if test="pay_add != null and pay_add != ''"> pay_add = #{pay_add},</if>
+			<if test="pay_max != null and pay_max != ''"> pay_max = #{pay_max},</if>
+			<if test="income != null and income != ''"> income = #{income},</if>
+			<if test="income_offline != null and income_offline != ''"> income_offline = #{income_offline},</if>
+			<if test="income_method != null and income_method != ''"> income_method = #{income_method},</if>
+			<if test="return_method != null and return_method != ''"> return_method = #{return_method},</if>
+			<if test="online != null and online != ''"> online = #{online},</if>
+			<if test="remark != null and remark != ''"> remark = #{remark},</if>
+			<if test="create_id != null and create_id != ''"> create_id = #{create_id},</if>
+			<if test="create_time != null"> create_time = #{create_time},</if>
+			<if test="audit_id != null and audit_id != ''"> audit_id = #{audit_id},</if>
+			<if test="audit_time != null"> audit_time = #{audit_time},</if>
+			<if test="issue_time != null"> issue_time = #{issue_time},</if>
+			<if test="full_time != null"> full_time = #{full_time},</if>
+			<if test="order_no != null and order_no != ''"> order_no = #{order_no},</if>
+			<if test="photo != null and photo != ''"> photo = #{photo},</if>
+			<if test="label != null and label != ''"> label = #{label},</if>
+			<if test="will_issue_time != null"> will_issue_time = #{will_issue_time},</if>
+			<if test="will_show_time != null"> will_show_time = #{will_show_time},</if>
+			<if test="act_show_time != null"> act_show_time = #{act_show_time},</if>
+			<if test="advance_status != null and advance_status != ''"> advance_status = #{advance_status},</if>
+			<if test="advance_date != null"> advance_date = #{advance_date},</if>
+			<if test="is_send_msg != null and is_send_msg != ''"> is_send_msg = #{is_send_msg},</if>
+			<if test="platform_interest != null and platform_interest != ''"> platform_interest = #{platform_interest},</if>
+			<if test="product_type != null and product_type != ''"> product_type = #{product_type},</if>
+			<if test="return_days != null and return_days != ''"> return_days = #{return_days},</if>
+			<if test="product_id != null and product_id != ''"> product_id = #{product_id},</if>
+			<if test="home_stats != null and home_stats != ''"> home_stats = #{home_stats},</if>
+			<if test="home_order != null and home_order != ''"> home_order = #{home_order},</if>
+			<if test="lender_id != null and lender_id != ''"> lender_id = #{lender_id},</if>
+			<if test="loan_id != null and loan_id != ''"> loan_id = #{loan_id},</if>
+			<if test="product_desc != null and product_desc != ''"> product_desc = #{product_desc},</if>
+			<if test="lend_use != null and lend_use != ''"> lend_use = #{lend_use},</if>
+			<if test="protect_msg != null and protect_msg != ''"> protect_msg = #{protect_msg},</if>
+			<if test="protect_mode != null and protect_mode != ''"> protect_mode = #{protect_mode},</if>
+			<if test="fill_time != null"> fill_time = #{fill_time},</if>
+			<if test="loan_time != null"> loan_time = #{loan_time},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteProductById" parameterType="long">
+			delete from zd_product where id=#{id}
+	</select>
+	<!-- 后台项目列表 -->
+	<select id="selectProductForPage" resultType="java.util.Map">
+		select debt_code,product_code,product_name,money,income,id,issue_time,start_date,end_date,advance_date,advance_status,status,lender_id,buyer_count,income_method from zd_product p
+		where 1=1
+		<if test="status != null and status != ''">
+			and p.status = ${status}
+		</if>
+		<if test="name != null and name != ''">
+			and p.product_name like concat('%', ${name}, '%') 
+		</if>
+		<if test="startDate != null  and startDate != '' and (endDate == null or endDate =='')"  >
+			<![CDATA[ and p.end_date >= ${startDate} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and (startDate == null or startDate =='')"  >
+			<![CDATA[ and p.end_date <= ${endDate} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and startDate != null and startDate !=''"  >
+			and  p.end_date between ${startDate} and ${endDate}
+		</if>
+		<if test="issueStartDate != null  and issueStartDate != '' and (issueEndDate == null or issueEndDate =='')"  >
+			<![CDATA[ and p.issue_time >= ${issueStartDate} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and (issueStartDate == null or issueStartDate =='')"  >
+			<![CDATA[ and p.issue_time <= ${issueEndDate} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and issueStartDate != null and issueStartDate !=''"  >
+			and p.issue_time between ${issueStartDate} and ${issueEndDate}
+		</if>
+		<if test="moneyMin != null  and moneyMin != '' and (moneyMax == null or moneyMax =='')"  >
+			<![CDATA[ and p.money >= ${moneyMin} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and (moneyMin == null or moneyMin =='')"  >
+			<![CDATA[ and p.money<= ${moneyMax} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and moneyMin != null and moneyMin !=''"  >
+			and p.money between ${moneyMin} and ${moneyMax}
+		</if>
+		<if test="incomeDaysMin != null  and incomeDaysMin != '' "  >
+			and ((if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(NOW())+1) >= ${incomeDaysMin}  and p.status =4)
+			or(if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(p.issue_time),TO_DAYS(p.end_date)- TO_DAYS(p.issue_time)+1) >= ${incomeDaysMin}  and p.status =31)
+			or(if(p.income_method =2,if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date)),if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date))+1) >= ${incomeDaysMin} and p.`status`in(3,11))
+			)
+		</if>
+		<if test="incomeDaysMax != null  and incomeDaysMax != '' "  >
+			and ((if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(NOW())+1) &lt;= ${incomeDaysMax}  and p.status =4)
+			or(if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(p.issue_time),TO_DAYS(p.end_date)- TO_DAYS(p.issue_time)+1)  &lt;= ${incomeDaysMax} and p.status =31)
+			or(if(p.income_method =2,if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date)),if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date))+1)  &lt;= ${incomeDaysMax} and p.`status`in(3,11))
+			)
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and p.debt_code like concat('%', ${searchParam}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and p.product_code like concat('%', ${searchParam}, '%' )
+			</if>
+			<if test="searchType == 4">
+				and concat(ud.data_field_name,'-',if(uc.loaner_type=1,uc.`name`,uc.comp_alias)) like concat('%', ${searchParam}, '%' )
+			</if>
+		</if>
+		<if test="online != null and online != ''">
+			and p.online = ${online}
+		</if>
+		AND  p.product_type='1'
+		order by p.issue_time is not null,p.issue_time desc, p.issue_time is  null,p.create_time desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<!-- 后台项目列表 -->
+	<select id="selectProductForPageCn" resultType="java.lang.Long">
+		select count(0) from zd_product p
+		where 1=1
+		<if test="status != null and status != ''">
+			and p.status = ${status}
+		</if>
+		<if test="name != null and name != ''">
+			and p.product_name like concat('%', ${name}, '%') 
+		</if>
+		<if test="startDate != null  and startDate != '' and (endDate == null or endDate =='')"  >
+			<![CDATA[ and p.end_date >= ${startDate} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and (startDate == null or startDate =='')"  >
+			<![CDATA[ and p.end_date <= ${endDate} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and startDate != null and startDate !=''"  >
+			and  p.end_date between ${startDate} and ${endDate}
+		</if>
+		<if test="issueStartDate != null  and issueStartDate != '' and (issueEndDate == null or issueEndDate =='')"  >
+			<![CDATA[ and p.issue_time >= ${issueStartDate} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and (issueStartDate == null or issueStartDate =='')"  >
+			<![CDATA[ and p.issue_time <= ${issueEndDate} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and issueStartDate != null and issueStartDate !=''"  >
+			and p.issue_time between ${issueStartDate} and ${issueEndDate}
+		</if>
+		<if test="moneyMin != null  and moneyMin != '' and (moneyMax == null or moneyMax =='')"  >
+			<![CDATA[ and p.money >= ${moneyMin} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and (moneyMin == null or moneyMin =='')"  >
+			<![CDATA[ and p.money<= ${moneyMax} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and moneyMin != null and moneyMin !=''"  >
+			and p.money between ${moneyMin} and ${moneyMax}
+		</if>
+		<if test="incomeDaysMin != null  and incomeDaysMin != '' "  >
+			and ((if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(NOW())+1) >= ${incomeDaysMin}  and p.status =4)
+			or(if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(p.issue_time),TO_DAYS(p.end_date)- TO_DAYS(p.issue_time)+1) >= ${incomeDaysMin}  and p.status =31)
+			or(if(p.income_method =2,if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date)),if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date))+1) >= ${incomeDaysMin} and p.`status`in(3,11))
+			)
+		</if>
+		<if test="incomeDaysMax != null  and incomeDaysMax != '' "  >
+			and ((if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(NOW())+1) &lt;= ${incomeDaysMax}  and p.status =4)
+			or(if(p.income_method =2,TO_DAYS(p.end_date)- TO_DAYS(p.issue_time),TO_DAYS(p.end_date)- TO_DAYS(p.issue_time)+1)  &lt;= ${incomeDaysMax} and p.status =31)
+			or(if(p.income_method =2,if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date)),if(TO_DAYS(p.start_date)- TO_DAYS(NOW()) &lt;0,TO_DAYS(p.end_date)- TO_DAYS(NOW()),TO_DAYS(p.end_date)- TO_DAYS(p.start_date))+1)  &lt;= ${incomeDaysMax} and p.`status`in(3,11))
+			)
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and p.debt_code like concat('%', ${searchParam}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and p.product_code like concat('%', ${searchParam}, '%' )
+			</if>
+			<if test="searchType == 4">
+				and concat(ud.data_field_name,'-',if(uc.loaner_type=1,uc.`name`,uc.comp_alias)) like concat('%', ${searchParam}, '%' )
+			</if>
+		</if>
+		<if test="online != null and online != ''">
+			and p.online = ${online}
+		</if>
+		AND  p.product_type='1'
+		order by p.issue_time is not null,p.issue_time desc, p.issue_time is  null,p.create_time desc
+	</select>
+	
+	<!-- 推荐位 -->
+	<select id="orderList" resultType="java.util.Map" >
+		select
+			*
+		from zd_product 
+		where 1 = 1
+		and status in (4,21,31)
+		order by field(status,1,2,21,3,31,4,5,6,7,8,9) asc,order_no is null,order_no asc,is_fresh desc,fill_time desc
+ 		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="orderListCn" resultType="java.lang.Long" >
+		select
+			count(0)
+		from zd_product p
+		where 1 = 1
+		and status in (4,21,31)
+	</select>
+	<!-- 首页 -->
+	<select id="selectProductForIndex" resultType="com.zdjf.domain.product.ProductVo" >
+		select
+				*
+			from zd_product 
+			where 
+				online=1 
+				and status in (31,4,5,6) 
+				order by field(status,1,2,21,3,31,4,5,6,7,8,9) asc,fill_time desc,order_no is null,order_no asc,is_fresh desc
+				limit 9
+	</select>
+	<select id="selectProductByWillEndDate" resultType="com.zdjf.domain.product.ProductVo">
+		select * from zd_product
+		where 1=1
+		<include refid="conds" />
+		<if test="start_date != null"  >
+			and UNIX_TIMESTAMP(will_end_date) &gt;= UNIX_TIMESTAMP(#{start_date,jdbcType=TIMESTAMP})
+		</if>
+		<if test="end_date != null"  >
+			and UNIX_TIMESTAMP(will_end_date) &lt;= UNIX_TIMESTAMP(#{end_date,jdbcType=TIMESTAMP})
+		</if>
+	</select>
+	<!-- statistic -->
+	<select id="statisticPage" resultType="java.util.Map">
+		select
+		p.*
+		from zd_product p
+		where 1=1
+		and p.`status` in (4,5,6)
+		<if test="status != null and status != ''">
+			and p.status = #{status, jdbcType=VARCHAR}
+		</if>
+		
+		<if test="startDate != null  and startDate != '' and (endDate == null or endDate =='')"  >
+			<![CDATA[ and p.end_date >= #{startDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and (startDate == null or startDate =='')"  >
+			<![CDATA[ and p.end_date <= #{endDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and startDate != null and startDate !=''"  >
+			and  p.end_date between #{startDate, jdbcType=VARCHAR} and #{endDate, jdbcType=VARCHAR}
+		</if>
+		<if test="issueStartDate != null  and issueStartDate != '' and (issueEndDate == null or issueEndDate =='')"  >
+			<![CDATA[ and p.issue_time >= #{issueStartDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and (issueStartDate == null or issueStartDate =='')"  >
+			<![CDATA[ and p.issue_time <= #{issueEndDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and issueStartDate != null and issueStartDate !=''"  >
+			and p.issue_time between #{issueStartDate, jdbcType=VARCHAR} and #{issueEndDate, jdbcType=VARCHAR}
+		</if>
+		<if test="moneyMin != null  and moneyMin != '' and (moneyMax == null or moneyMax =='')"  >
+			<![CDATA[ and p.money >= #{moneyMin, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and (moneyMin == null or moneyMin =='')"  >
+			<![CDATA[ and p.money<= #{moneyMax, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and moneyMin != null and moneyMin !=''"  >
+			and p.money between #{moneyMin, jdbcType=DECIMAL} and #{moneyMax, jdbcType=DECIMAL}
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and p.debt_code like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and p.product_code like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+		</if>
+			order by p.issue_time desc
+			limit #{firstrownum}, #{limit}
+	</select>
+	<select id="statisticCn" resultType="java.lang.Long">
+	select
+		count(0)
+		from zd_product p
+		where 1=1
+		and p.`status` in (4,5,6)
+		<if test="status != null and status != ''">
+			and p.status = #{status, jdbcType=VARCHAR}
+		</if>
+		
+		<if test="startDate != null  and startDate != '' and (endDate == null or endDate =='')"  >
+			<![CDATA[ and p.end_date >= #{startDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and (startDate == null or startDate =='')"  >
+			<![CDATA[ and p.end_date <= #{endDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and startDate != null and startDate !=''"  >
+			and  p.end_date between #{startDate, jdbcType=VARCHAR} and #{endDate, jdbcType=VARCHAR}
+		</if>
+		<if test="issueStartDate != null  and issueStartDate != '' and (issueEndDate == null or issueEndDate =='')"  >
+			<![CDATA[ and p.issue_time >= #{issueStartDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and (issueStartDate == null or issueStartDate =='')"  >
+			<![CDATA[ and p.issue_time <= #{issueEndDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="issueEndDate != null  and issueEndDate != '' and issueStartDate != null and issueStartDate !=''"  >
+			and p.issue_time between #{issueStartDate, jdbcType=VARCHAR} and #{issueEndDate, jdbcType=VARCHAR}
+		</if>
+		<if test="moneyMin != null  and moneyMin != '' and (moneyMax == null or moneyMax =='')"  >
+			<![CDATA[ and p.money >= #{moneyMin, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and (moneyMin == null or moneyMin =='')"  >
+			<![CDATA[ and p.money<= #{moneyMax, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' and moneyMin != null and moneyMin !=''"  >
+			and p.money between #{moneyMin, jdbcType=DECIMAL} and #{moneyMax, jdbcType=DECIMAL}
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and p.debt_code like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and p.product_code like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+		</if>
+			order by p.issue_time desc
+	</select>
+	
+	
+	
+	<select id="payed_total_incomed" resultType="java.lang.Double">
+		select sum(f.income)  
+		from  zd_product_buy_income f 
+		where
+		 f.product_id=#{id} and f.`status` =1
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and f.act_pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and f.act_pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="payed_total_income_offline" resultType="java.lang.Double">
+		select ROUND(sum(ROUND(((pb.amount)*(pb.days)/36000),2)),2)  
+		from zd_product_buy_income pb 
+		where pb.product_id=#{id} and pb.`status` =1
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and pb.act_pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and pb.act_pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="total_income_offline" resultType="java.lang.Double">
+		select ROUND(sum(ROUND(((pb.amount)*(pb.income_days)/36000),2)),2)  
+		from zd_product_buy pb 
+		where pb.product_id=#{id} and pb.`status` in (1,2)
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and pb.pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and pb.pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="total_incomed" resultType="java.lang.Double">
+		select sum(pb.incomed)  
+		from zd_product_buy pb 
+		where pb.product_id=#{id} and pb.`status` in (1,2)
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and pb.pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and pb.pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="total_coin" resultType="java.lang.Double">
+		select sum(ifnull(pb.coin,0))  
+		from zd_product_buy pb 
+		where pb.product_id=#{id} and pb.`status` in (1,2)
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and pb.pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and pb.pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="total_gift_amount" resultType="java.lang.Double">
+		select sum(ifnull(ug.amount,0))  
+		from zd_user_gift ug 
+		left join zd_product_buy pb on ug.id=pb.user_gift_id 
+		where pb.product_id=${id} and pb.`status` in (1,2)
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and pb.pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and pb.pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="total_coupon_amount" resultType="java.lang.Double">
+		select round(sum((pb.amount)*(ifnull(uc.interest,0))*(pb.income_days)/36000),2)  
+		from zd_product_buy pb  
+		left join  zd_user_coupon uc on uc.id=pb.user_coupon_id 
+		where pb.product_id=#{id} 
+		and  pb.`status` in(1,2)
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and pb.pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and pb.pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="payed_total_coupon_amount" resultType="java.lang.Double">
+		select round(sum((a.amount)*(ifnull(uc.interest,0))*(a.days)/36000),2) 
+		from zd_product_buy pb  
+		left join  zd_user_coupon uc on uc.id=pb.user_coupon_id	
+		left join  zd_product_buy_income a on a.buy_id = pb.buy_id 
+		where  a.`status` = 1 
+		and pb.product_id=#{id}
+			<if test="payStartDate != null  and payStartDate != ''"  >
+				<![CDATA[ and pb.pay_time >= #{payStartDate, jdbcType=VARCHAR} ]]>
+			</if>
+			<if test="payEndDate != null  and payEndDate != ''"  >
+				<![CDATA[ and pb.pay_time <= #{payEndDate, jdbcType=VARCHAR} ]]>
+			</if>
+	</select>
+	<select id="getMaxId" resultType="java.lang.Long">
+		select max(id)+1 from zd_product
+	</select>
+	
+	<select id="fuzzyProduct" resultType="com.zdjf.domain.product.ProductVo">
+		select * from zd_product 
+		where product_code like #{product_code}
+	</select>
+	
+	<select id="getProductList" parameterType="java.util.Map" resultType="com.zdjf.domain.product.ProductVo">
+		select * from zd_product where 1 = 1
+			and id in
+		<foreach item="item" index="index" collection="productIds" open="(" separator="," close=")">  
+			  #{item}  
+		</foreach>   
+	</select>
+</mapper>

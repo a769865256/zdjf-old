@@ -1,0 +1,292 @@
+.risk{
+	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	font-family: 'zjz_r_font';
+}
+.risk .riskBox{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.risk .riskBox .risk_top{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.risk .riskBox .risk_top .banner{
+	position: relative;
+	width: 100%;
+	height: 412px;
+	background: url(../../images/front/img/wealth/risk/banner_bj.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.risk .riskBox .risk_top .banner img{
+	display: block;
+	width: 812px;
+	height: 269px;
+	margin: 22px auto 0;
+}
+.risk .riskBox .centent{
+	overflow: hidden;
+}
+
+.risk .riskBox .risk_bottom{
+	margin-bottom: 24px;
+}
+.risk .riskBox .risk_bottom .swiper-container{
+	width: 940px !important;
+	height: 444px;
+	overflow: hidden;
+	margin-top: 210px;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper{
+	width: 940px !important;
+	height: 399px;
+	margin: 0 auto;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide{
+	overflow: hidden;
+	width: 445px !important;
+	height: 399px;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide:nth-of-type(2n){
+	margin-left: 50px;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj{
+	position: relative;
+	width: 444px;
+	height: 399px;
+	background: url(../../images/front/img/wealth/risk/sc_yuanjx.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj img{
+	margin-left: 9px;
+    margin-top: 3px;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj h3{
+	font-size: 16px;
+	padding: 0 34px;
+	margin: 10px 0 50px;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option{
+	height: 22px;
+	line-height: 22px;
+	padding-left: 34px;
+	margin-bottom: 53px;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .checkBox{
+	display: inline-block;
+    float: left;
+	width: 22px;
+	height: 22px;
+	margin-right: 8px;
+	background: url(../../images/front/img/wealth/risk/check1.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .checkBox.active{
+	display: inline-block;
+	float: left;
+	width: 22px;
+	height: 22px;
+	margin-right: 8px;
+	background: url(../../images/front/img/wealth/risk/check2.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .checkBox:hover,.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .checkBox.active:hover{
+	cursor: pointer;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .progress{
+	display: inline-block;
+	float: left;
+	height: 22px;
+	margin-right: 17px;
+	overflow: hidden;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .progress1{
+	width: 116px;
+	background: url(../../images/front/img/wealth/risk/jindu1.png) center no-repeat;
+	background-size: cover;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .progress2{
+	width: 184px;
+	background: url(../../images/front/img/wealth/risk/jindu2.png) center no-repeat;
+	background-size: cover;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .progress3{
+	width: 262px;
+	background: url(../../images/front/img/wealth/risk/jindu3.png) center no-repeat;
+	background-size: cover;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .progress img{
+	float: right;
+    margin: 4px 2px 0 0;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .option .tlt{
+	font-size: 14px;
+	color: #666666;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .yeshu{
+	position: absolute;
+    top: 4px;
+    left: 15px;
+	font-size: 20px;
+	color: #fff;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .yeshu .page{
+	display: inline-block;
+	font-family: 'sign_bold_font';
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .yeshu .slash{
+	display: inline-block;
+	transform: translate(-1px,10px);
+	-webkit-transform: translate(-1px,10px);
+	-moz-transform: translate(-1px,10px);
+	-ms-transform: translate(-1px,10px);
+	-o-transform: translate(-1px,10px);
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .yeshu .pageCount{
+	display: inline-block;
+	font-size: 16px;
+	transform: translate(-3px,18px);
+	-webkit-transform: translate(-3px,18px);
+	-moz-transform: translate(-3px,18px);
+	-ms-transform: translate(-3px,18px);
+	-o-transform: translate(-3px,18px);
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .yeshu.endyeshu{
+	left: 12px;
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .yeshu.endyeshu .slash{
+	transform: translate(-4px,9px);
+	-webkit-transform: translate(-4px,9px);
+	-moz-transform: translate(-4px,9px);
+	-ms-transform: translate(-4px,9px);
+	-o-transform: translate(-4px,9px);
+}
+.risk .riskBox .risk_bottom .swiper-container .swiper-wrapper .swiper-slide .swiper_bj .yeshu.endyeshu .pageCount{
+	transform: translate(-8px,16px);
+	-webkit-transform: translate(-8px,16px);
+	-moz-transform: translate(-8px,16px);
+	-ms-transform: translate(-8px,16px);
+	-o-transform: translate(-8px,16px);
+}
+
+.risk .riskBox .risk_middle{
+	position: absolute;
+	top: 290px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+	width: 1055px;
+	height: 335px;
+	background: url(../../images/front/img/wealth/risk/cs_juxing.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.risk .riskBox .risk_middle .prompt{
+	overflow: hidden;
+	line-height: 32px;
+	color: #666666;
+	padding: 0 60px;
+	margin: 62px 0px;
+	font-family: 'zjz_m_font';
+}
+.risk .riskBox .risk_middle .prompt h2{
+	margin-bottom: 16px;
+	font-size: 28px;
+}
+.risk .riskBox .risk_middle .prompt h3{
+	font-family: 'sign_bold_font';
+	font-size: 18px;
+
+}
+.risk .riskBox .risk_middle .prompt p{
+	display: inline;
+	font-family: 'zjz_r_font';
+	font-size: 18px;
+}
+
+
+
+/* 测试结果 */
+.risk .riskBox .result{
+
+}
+.risk .riskBox .result .risk_result{
+	position: absolute;
+	top: 290px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+	width: 1055px;
+	height: 335px;
+	background: url(../../images/front/img/wealth/risk/jg_juxing.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.risk .riskBox .result .risk_result .result_prompt{
+	text-align: center;
+	font-family: 'zjz_m_font';
+}
+.risk .riskBox .result .risk_result .result_prompt h2{
+	font-size: 28px;
+	margin-bottom: 49px;
+}
+.risk .riskBox .result .risk_result .result_prompt h3{
+	font-size: 24px;
+	margin-bottom: 28px;
+}
+.risk .riskBox .result .risk_result .result_prompt p{
+	font-size: 16px;
+}
+.risk .riskBox .result .btn{
+	margin: 270px 0 0;
+	overflow: hidden;
+	text-align: center;
+	font-size: 20px;
+	
+	line-height: 84px;
+}
+.risk .riskBox .result .btn .qlc{
+	color: #fff;
+	display: inline-block;
+	width: 309px;
+	height: 114px;
+	
+	background: url(../../images/front/img/wealth/risk/btn.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.risk .riskBox .result .btn .retest{
+	color: #fff;
+	display: inline-block;
+	width: 309px;
+	height: 114px;
+	background: url(../../images/front/img/wealth/risk/btn_hover.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

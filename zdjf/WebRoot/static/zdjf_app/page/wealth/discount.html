@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+	<link rel="stylesheet" href="../../static/css/wealth.css"/>
+</head>
+<body class="zoom">
+<div class="wealth">
+	<div class="header"><a class="back" href="wealth.html"></a>我的优惠</div>
+    <div class="discount">
+        <div class="tab">
+            <span class="active" id="gift">红包(0)</span>
+            <span id="coupon">加息券(0)</span>
+        </div>
+        <div class="tabbox" style="margin-bottom:135px;">
+            <div class="box">
+                <ul id="gift-box">
+                    <!-- <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_01.png" alt="">
+                            <div class="txt overdue">
+                                <h4>新手投资红包</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_02.png" alt="">
+                            <div class="txt alused">
+                                <h4>新手投资红包</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_03.png" alt="">
+                            <div class="txt alused">
+                                <h4>新手投资红包</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_04.png" alt="">
+                            <div class="txt">
+                                <h4>新手投资红包</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_02.png" alt="">
+                            <div class="txt alused">
+                                <h4>新手投资红包</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_03.png" alt="">
+                            <div class="txt alused">
+                                <h4>新手投资红包</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_04.png" alt="">
+                            <div class="txt">
+                                <h4>新手投资红包</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+                <div class="loading" style="line-height: 50px;text-align: center;color: #999;font-size: 16px;"></div>
+            </div>
+            <div class="box" style="display: none;">
+                <ul id="coupon-box">
+                    <!-- <li>
+                        <div class="count">
+                            <img src="../../static/img/mywealth/discount_01.png" alt="">
+                            <div class="txt">
+                                <h4>加息券</h4>
+                                <p>投资≥30000元，收益天数≥20天</p>
+                                <span>2017-07-23至2018-09-2</span>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+                <div class="loading_jx" style="line-height: 50px;text-align: center;color: #999;font-size: 16px;"></div>
+            </div>
+        </div>
+        <div class="balance_zj">正经值余额：<span id="coin">-</span>元</div>
+    </div>
+</div>
+<!-- 弹窗 -->
+<div class="no_pay" style="display: none;">
+    <div class="box">
+        <h3>未支付订单</h3>
+        <p>该笔订单未完成支付</p>
+        <div class="btn">
+            <a href="javascript:" class="cancelbtn">取消订单</a>
+            <a href="javascript:">立即支付</a>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+    //rem布局
+    (function(win) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var tid;
+
+        function refreshRem() {
+            var width = docEl.getBoundingClientRect().width;
+            if (width > 750) { // 最大宽度
+                width = 750;
+            }
+            var rem = width / 10;
+            docEl.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        refreshRem();
+
+    })(window);
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script type="text/javascript" src="../../static/js/wealth.js"></script>
+
+<script>
+    (function() {
+        if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+        var page = 0,
+            page_jx = 0,
+            isLoading = false,
+            isLoading_jx = false,
+            endDate = false,
+            endDate_jx = false;
+
+        var status;
+
+        var USED = ['', '全部', '新手标可用', '非新手标可用'];
+        
+        var HTML = {
+            DISCOUNT : ['<li class="{{cls}}"><div class="count">', //li类名：即将过期：jqgq；已使用：ysy；已过期：ygq；普通：pt；
+                        ' <div class="price fl">',
+                        '<div class="prices"><span class="{{len}}">{{amount}}</span>%</div>',
+                        '<div class="note">{{use_type}}</div>',
+                        '</div>',
+                        '<div class="txt fl">',
+                        '<h4>{{gift_name}}</h4>',
+                        '<p>收益天数≥{{max_days || min_days}}天</p>',
+                        '<span>{{start_date}}至{{end_date}}</span>',
+                        '</div></div>',
+                        '</li>'].join(''),
+            COUPON : ['<li class="{{cls}}"><div class="count">', //li类名：即将过期：jqgq；已使用：ysy；已过期：ygq；普通：pt；
+                        ' <div class="price fl">',
+                        '<div class="prices">¥<span class="{{len}}">{{amount}}</span></div>',
+                        '<div class="note">{{use_type}}</div>',
+                        '</div>',
+                        '<div class="txt fl">',
+                        '<h4>{{gift_name}}</h4>',
+                        '<p>投资≥{{max_amount || min_amount}}元，收益天数≥{{max_days || min_days}}天</p>',
+                        '<span>{{start_date}}至{{end_date}}</span>',
+                        '</div></div>',
+                        '</li>'].join('')
+        };
+
+        //红包
+        getDiscount();
+        function getDiscount(){
+            if (isLoading || endDate) return;
+            isLoading = true;
+            $(".loading").html('数据加载中...');
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                ip : $com.IP,
+                sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+                currentPage: ++page,
+                $TYPE : "get",
+                $URI : "/m/userGift/page.json"
+            }, [function(data) {
+                var ret = [];
+                $("#gift").text("红包(" + data.total + ")");
+                if (data.dataList.length > 0) {
+                    $(data.dataList).each(function(i, item) {
+                        ret.push({
+                            len : getLenClass(item.amount.length),
+                            amount : item.amount,
+                            use_type : USED[item.use_type],
+                            gift_name : item.gift_name,
+                            max_amount : item.max_amount,
+                            max_days : item.max_days,
+                            start_date : item.start_date,
+                            end_date : item.end_date,
+                            cls : item.status == '1' ? 'pt':(item.status == '2' ? 'ysy':'ygq')
+                        });
+                    });
+                    $("#gift-box").append($com.util.template(ret, HTML.COUPON));
+                    $(".loading").html('');
+                }else {
+                    $(".loading").html('没有更多红包');
+                    endDate = true;
+                }
+                isLoading = false;
+            }, function() {
+                isLoading = false;
+            }]);
+        }
+
+
+        //加息
+        getDiscount_jx();
+        function getDiscount_jx() {
+            if (isLoading_jx || endDate_jx) return;
+            isLoading_jx = true;
+            $(".loading_jx").html('数据加载中...');
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                ip : $com.IP,
+                sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+                currentPage: ++page_jx,
+                $TYPE : "get",
+                $URI : "/m/userCoupon/page.json"
+            }, [function(data) {
+                var ret = [];
+                $("#coupon").text("加息券(" + data.total + ")");
+                if (data.dataList.length > 0) {
+                    $(data.dataList).each(function(i, item) {
+                        ret.push({
+                            len : getLenClass(item.interest.length),
+                            amount : item.interest,
+                            use_type : USED[item.use_type],
+                            gift_name : item.coupon_name,
+                            min_amount : item.min_amount,
+                            min_days : item.min_days,
+                            start_date : item.start_date,
+                            end_date : item.end_date,
+                            cls : item.status == '1' ? 'pt':(item.status == '2' ? 'ysy':'ygq')
+                        });
+                    });
+
+                    $("#coupon-box").append($com.util.template(ret, HTML.DISCOUNT));
+                    $(".loading_jx").html('');
+                }else{
+                    $(".loading_jx").html('没有更多加息券');
+                    endDate_jx = true;
+                }
+                isLoading_jx = false;
+            }, function() {
+                isLoading_jx = false;
+            }]);
+        }
+
+
+        //正经值
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/coinStream/balance.json"
+        }, [function(data) {
+            $("#coin").text(data);
+        }, function() {
+            
+        }]);
+
+        function getLenClass(len) {
+            if (len >= 6) {
+                return "sss";
+            } else if (len >= 4) {
+                return "ss";
+            } else if (len >= 2) {
+                return "s"
+            } else {
+                return "";
+            }
+        }
+        $(window).scroll(function () {
+            var wst = $(window).scrollTop(),
+                wh = $(window).height(),
+                wsh = wst + wh,
+                dh = document.body.scrollHeight;
+            if (wsh >= dh) {
+                if($('#gift').hasClass('active')){
+                    getDiscount();
+                }else{
+                    getDiscount_jx();
+                }
+            }
+        });
+    }());
+</script>
+</html>
+

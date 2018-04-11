@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/mui.min.css"/>
+	<link rel="stylesheet" href="../../static/css/mui.picker.min.css"/>
+	<link rel="stylesheet" href="../../static/css/real_name.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom body_content">
+<div class="login">
+	<div class="header"><a class="back" href="javascript:history.go(-1);"></a>开通上海银行存管账户</div>
+	<div class="l_box">
+		<div class="regist_box">
+			<div class="li_note">身份证信息</div>
+			<ul id="nameIdCard">
+				<li><label for="">姓名</label><input type="text" id="name" class="idCard" placeholder="请输入真实姓名"></li>
+				<li><label for="">身份证</label><input type="number" id="idcard" class="ph_num" placeholder="请输入有效的证件号码"></li>
+			</ul>
+		</div>
+		<div class="l_btn">
+			<a href="javascript:;" class="active" id="next">下一步</a>
+			<div class="xieyi">
+				<div class="xieyi_tit">
+					<div class="tit_img fl">
+						<img src="../../static/img/real/xl.png" alt="">
+					</div>
+					<div class="tit_word fl">温馨提示：</div>
+				</div>
+				<p>请输入本人真实姓名及身份证信息，实名信息一旦确认，无法更改。</p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script src="../../static/js/mui.min.js"></script>
+<script src="../../static/js/mui.picker.min.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+	(function() {
+		if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+        function recovery() {
+			$("#next").addClass("active");
+		}
+        $("body").delegate("#next.active", "click", function() {
+        	$("#next").removeClass("active");
+        	var	name = $.trim($("#name").val());//姓名
+        	var idcard = $.trim($("#idcard").val()); //身份证号
+			if (!name) {
+				$com.app.tip("请输入真实姓名");
+				recovery();
+				return;
+			}
+			if (!idcard) {
+				$com.app.tip("请输入身份证号");
+				recovery();
+				return;
+			}
+			$com.app.ajax({
+				real_name : name,   //姓名
+				idcard_no : idcard, //身份证号
+				phone : $com.cookie.get("user_name"), //登录手机
+				reg_source : 4, //微信
+				ip : $com.IP,	
+				sign : $.md5($com.cookie.get("user_name")+ $com.IP + $com.KEY), //签证
+				$TYPE : "post",
+				$URI : "/m/userBank/bind.json"
+			}, [function(data) {
+				console.log(data);
+				window.location = data;
+			}, function() {
+				recovery();
+			}]);
+		});
+	}());
+</script>
+</html>
+

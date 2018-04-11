@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../css/front/index.css">
+	<!-- banner切换 -->
+	<link rel="stylesheet" href="../../../module/slides/flexslider.css">    
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="nav">
+			<div class="pack">
+				<span><i class="iconfont">&#xe656;</i>客服电话:400-690-9898</span>
+            	<div class="p_right">
+            		<!-- 登录后显示 -->
+            		<div class="login_ok hide">
+            			<span class="user_info">130****0251</span>
+            			<a href="javascript:" class="user_message">消息<i class="iconfont">&#xe602;</i></a>
+            			<a href="javascript:" class="sign_out">安全退出</a>
+            		</div>
+            		<span class=""><i class="iconfont"></i><a href="downloadAPP/downloadApp.html">下载APP</a></span>
+            		<span><a href="help/helpMain.html">帮助中心</a></span><span><a href="guide/guide.html">新手指引</a></span>
+            	</div>
+            </div>
+        </div>
+        <div class="bar">
+        	<div class="pack">
+	        	<div class="l_pk"></div>
+	            <div class="r_pk">
+		            <ul> 
+		            	<li><a href="javascript:">首页</a></li>
+		            	<li>
+		            		<a href="project/project_list.html">理财项目</a>
+				            <div class="nav">
+				            	<a href="project/project_list.html">债转专区</a>
+				            </div>
+		        		</li>
+		            	<li>
+				            <a href="javascript:">信息披露</a>
+				            <div class="nav">
+					            <a href="javascript:">平台数据</a>
+					            <a href="javascript:">安全保障</a>
+					            <a href="javascript:">公司简介</a>
+					            <a href="javascript:">平台事迹</a>
+					            <a href="javascript:">公司动态</a>
+					            <a href="javascript:">联系我们</a>
+				            </div>
+		        		</li>
+		            	<li>
+		            		<a href="mywealth/wealth.html">我的财富</a>
+				            <div class="nav">
+					            <a href="mywealth/capital.html">资金明细</a>
+					            <a href="mywealth/conduct.html">我的理财</a>
+					            <a href="javascript:">我的优惠</a>
+					            <a href="mywealth/account.html">账户设置</a>
+					            <a href="javascript:">邀请有礼</a>
+					            <a href="javascript:">消息中心</a>
+				            </div>
+		        		</li>
+		        	</ul>
+		            <div class="sign">
+		            	<a href="login.html">登录签到</a>
+		            	<a href="register.html">注册有礼</a>
+		            </div>
+		        </div>
+	    	</div>
+	    </div>
+	</div>
+	<!-- header end -->
+
+	<!-- content -->
+	<div class="banner">
+	  	<div class="layui-carousel" id="homebanner">
+			<div carousel-item="">
+				<div><img src="../../../images/front/img/banner/b1.png"></div>
+				<div><img src="../../../images/front/img/banner/b1.png"></div>
+				<div><img src="../../../images/front/img/banner/b1.png"></div>
+				<div><img src="../../../images/front/img/banner/b1.png"></div>
+				<div><img src="../../../images/front/img/banner/b1.png"></div>
+				<div><img src="../../../images/front/img/banner/b1.png"></div>
+				<div><img src="../../../images/front/img/banner/b1.png"></div>
+			</div>
+		</div>		
+	</div>
+	<div class="news">
+		<div class="new_tent">
+			<div class="box"></div>
+			<div class="tabbox">
+				<!-- 未登录 -->
+				<div class="tab tab1">
+					<p class="tlt">账户资金由银行全程存管</p>
+					<p class="txt">注册即送</p>
+					<p class="sum">688<span>元</span></p>
+					<p class="btn">
+						<a href="register.html">立即注册</a>
+					</p>
+					<p class="go_login">
+						已有账号？<a href="login.html" class="f_rt">登录</a>
+					</p>
+				</div>
+				<!-- 已登录 -->
+				<div class="tab tab2" style="display: none;">
+					<h3>130****0251</h3>
+					<p class="tlt">欢迎来到正道金服</p>
+					<p class="money hd1">总资产<i class="iconfont zy">&#xe629;</i></p>
+					<p class="money hd2" style="display: none;">总资产<i class="iconfont by">&#xe632;</i></p>
+					<p class="mon mon1">*****</p>
+					<p class="mon mon2" style="display: none;">66666666</p>
+					<p class="btn">
+						<a href="javascript:">我的账户</a>
+					</p>
+					<p class="montlt">账户资金由银行全程存管</p>
+				</div>
+				<!-- 已登录未实名 -->
+				<div class="tab tab3" style="display: none;">
+					<p class="name_tlt">新手指引</p>
+					<p class="name_txt">您尚未完成实名认证<br>完成实名认证可获得奖励</p>
+					<p class="btn">
+						<a href="javascript:">立即认证</a>
+					</p>
+					<p class="montlt">账户资金由银行全程存管</p>
+				</div>
+			</div>
+			<span class="msg"><i class="iconfont">&#xe64c;</i></span>
+			<div class="flexslider_news">
+				<ul class="slides"> 
+					<li>喜讯！关于国资企业战略入股正道金服的公告<span>2017-9-22</span></li>
+					<li>喜讯！关于国资企业战略入股正道金服的公告<span>2017-9-22</span></li>
+					<li>喜讯！关于国资企业战略入股正道金服的公告<span>2017-9-22</span></li>
+					<li>喜讯！关于国资企业战略入股正道金服的公告<span>2017-9-22</span></li>
+				</ul> 
+			</div>
+			<a href="javascript:" class="moremsg">查看更多<i class="iconfont">&#xe611;</i></a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="prompt">
+			<div class="pto_box">
+				<i class="iconfont bank"><img src="../../../images/front/img/bank.png"></i>
+				<div>
+					<p>银行存管 新浪支付</p>
+					<p>银行资金存管，新浪支付技术保障</p>
+				</div>
+			</div>
+			<div class="pto_box">
+				<i class="iconfont rz"><img src="../../../images/front/img/rz.png"></i>
+				<div>
+					<p>A轮融资 国企控股</p>
+					<p>千万A轮融资及国资控股实缴资本5千万</p>
+				</div>
+			</div>
+			<div class="pto_box">
+				<i class="iconfont xmhg"><img src="../../../images/front/img/xmhg.png"></i>
+				<div>
+					<p>项目合规 信息透明</p>
+					<p>多重风控严选项目，信息披露真实透明</p>
+				</div>
+			</div>
+		</div>
+		<!-- 新手专区 -->
+		<div class="novice">
+			<h3>新手专区<span>新手投资 专享通道</span></h3>
+			<div class="nobox">
+				<div class="no_l_img"><img src="../../../images/front/img/novice.png" alt=""></div>
+				<div class="no_r_txt">
+					<div class="tlt">
+						<p>车财到12554期<span>新手标</span><span class="hide">首投1000返20</span><span>100起投</span></p>
+					</div>
+					<div class="txt">
+						<div class="logo">
+							<img src="../../../images/front/img/novice_logo.png" alt="">
+						</div>
+						<div class="sum">
+							<div class="sumbox">
+								<div class="list">
+									<p>9.00<i>%</i></p>
+									<p>预期年化收益</p>
+								</div>
+								<div class="list">
+									<p>7<i>天</i></p>
+									<p>收益天数</p>
+								</div>
+								<div class="list">
+									<p>120,000,0<i>元</i></p>
+									<p>可投金额</p>
+								</div>
+							</div>
+							<div class="barline">
+								<p><span style="width: 83%;"><img src="../../../images/front/img/bar.png" alt=""></span></p><i>83%</i>
+							</div>
+						</div>
+						<div class="btn">
+							<a href="javascript:">立即投资</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 理财项目 -->
+		<div class="project">
+			<h3>精选理财项目</h3>
+			<div class="prolist">
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+			</div>
+			<div class="prolist move_clean">
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+				<div class="list">
+					<h4>车财道12554期</h4>
+					<div class="h_img"><img src="../../../images/front/img/list_himg.png" alt=""></div>
+					<p class="tlt"><span>13.80</span><span>+1.80%</span></p>
+					<p class="txt">预期年化收益</p>
+					<div class="listbar">
+						<p><span style="width: 80%"><img src="../../../images/front/img/bar.png" alt=""></span></p>
+						<i>80%</i>
+					</div>
+					<div class="sum">
+						<div class="sum_list">
+							<p>39天</p>
+							<p>收益天数</p>
+						</div>
+						<div class="sum_list">
+							<p>180,000元</p>
+							<p>可投金额</p>
+						</div>
+					</div>
+					<div class="probtn"><a href="javascript:">立即投资</a></div>
+				</div>
+			</div>
+		</div>
+		<!-- 活动 -->
+		<div class="activity">
+			<h3>平台活动</h3>
+			<div id="hezuo_id" class="cxscroll3">
+			  <div class="box">
+			    <ul class="list">
+			      	<li><a href="sign.html"><img src="../../../images/front/img/active/a1.png" /><span>每日一签 好运相伴</span></a></li>
+					<li><a href="activ/newHand.html"><img src="../../../images/front/img/active/a2.png" /><span>新手专享3重礼</span></a></li>
+					<li><a href="activ/playPositiveValue.html"><img src="../../../images/front/img/active/a3.png" /><span>玩赚正经值</span></a></li> 
+					<li><a href="javascript:"><img src="../../../images/front/img/active/a4.png" /><span>邀请好友投资</span></a></li>
+			    </ul>
+			  </div>
+			  <!-- 控制按钮会自动创建，可省略 -->
+			  <a class="iconfont prev">&#xe600;</a>
+			  <a class="iconfont next">&#xe697;</a>
+			</div>
+		</div>
+		<!-- 媒体报道 -->
+		<div class="report">
+			<div class="re_l">
+				<h3>媒体报道<a href="javascript:">查看更多<i class="iconfont">&#xe611;</i></a></h3>
+				<div class="re_lbox">
+					<div class="box_img"><img src="../../../images/front/img/report.png" alt=""></div>
+					<div class="txt">
+						<ul>
+							<li>P2P投资：看看你属于哪种类型的投资人？<span>2017.9.27</span></li>
+							<li>信披指引出台 投资人该如何选择靠谱平台？<span>2017.9.27</span></li>
+							<li>监管一周年，正道金服继续合规前行<span>2017.9.27</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="re_r">
+				<h3>常见问题<a href="javascript:">查看更多<i class="iconfont">&#xe611;</i></a></h3>
+				<div class="re_rbox">
+					<ul>
+						<li><i class="iconfont"></i>注册的时候收不到短信验证码？</li>
+						<li><i class="iconfont"></i>实名认证是什么？为什么注册完成后还需要开通托管账户？</li>
+						<li><i class="iconfont"></i>绑定快捷充值银行卡对用户提现有什么影响？</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 合作伙伴 -->
+	<div class="partner">
+		<div class="box">
+			<div class="boxx">
+				<h3>合作伙伴</h3>
+			</div>
+		</div>
+		<div class="parlist">
+			<!-- <div class="list"><img src="../../../images/front/img/partner/p1.png" alt=""></div> -->
+			<div class="list"><img src="../../../images/front/img/partner/p2.png" alt=""></div>
+			<div class="list"><img src="../../../images/front/img/partner/p3.png" alt=""></div>
+			<div class="list"><img src="../../../images/front/img/partner/p4.png" alt=""></div>
+			<div class="list"><img src="../../../images/front/img/partner/p5.png" alt=""></div>
+		</div>
+		<div class="tlt">理财有风险 投资需谨慎</div>
+	</div>
+	<!-- content end-->
+	
+	<!-- 侧导航栏-->
+	<div class="floating_ck">
+		<dl>
+	        <dd class="kf">
+	        	<div class="floating_left"><i></i><a href="javascript:;">在线客服</a></div>
+	        </dd>
+	        <dd class="jsq">
+	            <div class="floating_left"><a href="javascript:;">收益计算器</a></div>
+	        </dd>
+	        <dd class="wxin">
+	            <div class="floating_left floating_gf"><i></i><a href="javascript:;">官方微信</a></div>
+	        </dd>
+	        <dd class="phone">
+	            <div class="floating_left floating_yd">
+	            	<i></i>
+	            	<a href="javascript:;">移动客户端</a>
+	            </div>
+	        </dd>
+	        <dd class="return" onclick="returnTop();">
+	        	<i class="iconfont">&#xe600;</i>
+	        </dd>
+	    </dl>
+	</div>
+
+	<!-- footer -->
+	<!-- footer -->
+	<div id="footer">
+		<div class="f_top">
+			<div class="top_one">
+				<div class="topbox">
+					<span>信息披露</span>
+					<a href="javascript:">平台数据</a>
+					<a href="javascript:">安全保障</a>
+					<a href="javascript:">公司简介</a>
+					<a href="javascript:">公司事记</a>
+					<a href="javascript:">公司动态</a>
+					<a href="javascript:">联系我们</a>
+				</div>
+				<div class="topbox">
+					<span>帮助中心</span>
+					<a href="help/help.html">常见问题</a>
+					<a href="javascript:">投资指南</a>
+					<a href="javascript:">会员福利</a>
+					<a href="activ/depository.html">资金存管</a>
+					<a href="javascript:">其他问题</a>
+				</div>
+				<div class="topbox">
+					<span>新手指南</span>
+					<a href="javascript:">注册登录</a>
+					<a href="javascript:">充值提现</a>
+					<a href="javascript:">投资理财</a>
+				</div>
+			</div>
+			<div class="top_two">
+				<ul>
+					<li><p>官方微信</p></li><li><p>移动客户端</p></li>
+				</ul>
+			</div>
+			<div class="top_three">
+				<div class="tlt">全国服务热线</div>
+				<p class="txt">400-690-9898</p>
+				<p class="txt">0571-56929127</p>
+				<div class="tlt addtlt">
+					<p>工作日: 9:00-19:00</p>
+					<p>节假日: 10:00-17:30</p>
+				</div>
+				<div class="tlt">官方交流QQ群：463637911</div>
+				<div class="police"></div>
+			</div>
+		</div>
+		<div class="f_bot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有　ICP经营许可证：浙B2-20170101 浙ICP备1</div>
+	</div>
+	<!-- footer end -->
+
+	<!-- 弹窗 -->
+	<div class="addmove" style="display: none;">
+        <div class="move">
+            <h3>正道金服正式接入上海银行资金存管<span class="closeFun"></span></h3>
+            <p>您需要开通上海银行存管，才可以进行 投资、充值、提现。</p>
+            <a href="javascript:">查看详情</a>
+        </div>
+    </div>
+	
+	<!-- 签到 -->
+	<div class="qiandao">
+		<a href="javascript:" class="go_qiandao"><img src="../../../images/front/img/wealth/logo.png" alt=""/></a>
+		<a href="javascript:" class="qiandaoed" style="display: none;"><img src="../../../images/front/img/wealth/logoed.png" alt=""/></a>
+	</div>
+	
+
+	<script type="text/javascript" src="../../../module/jquery/jQuery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../../../module/layui/layui.js"></script>
+	<script type="text/javascript" src="../../../module/slides/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="../../../module/cxscroll/jquery.cxscroll.js"></script>
+    <script type="text/javascript" src="../../../module/sticky-header.js"></script>
+    <script type="text/javascript" src="../../../js/front/index.js"></script>
+    <script type="text/javascript">
+    	$('.header').stickMe({
+			topOffset:100
+		});
+    </script>
+</body>
+</html>

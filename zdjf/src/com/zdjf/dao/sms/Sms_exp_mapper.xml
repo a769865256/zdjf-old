@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.sms">
+	<sql id="columnsAs">
+		t1.id, t1.phone, t1.content, t1.code, t1.used,t1.sms_type,t1.source_ip,t1.create_time,
+		t1.status,t1.remark
+	</sql>
+
+	<select id="selectSmsPage" resultType="java.util.Map">
+		select
+		*
+		from
+		zd_sms 
+		where 1=1
+		<if test="sms_type==1">
+		and	sms_type&gt;3
+		</if>
+		<if test="sms_type!=1">
+		and	sms_type&lt;4
+		</if>
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectSmsCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_sms
+		where 1=1
+		<if test="sms_type==1">
+		and	sms_type&gt;3
+		</if>
+		<if test="sms_type!=1">
+		and	sms_type&lt;4
+		</if>
+	</select>
+	
+	<select id="selectSmsList" parameterType="java.util.Map" resultType="com.zdjf.domain.sms.Sms">
+		select * from zd_sms
+			where 1 = 1
+			and create_time > #{create_time} and phone= #{phone} order by create_time desc
+	</select>
+</mapper>

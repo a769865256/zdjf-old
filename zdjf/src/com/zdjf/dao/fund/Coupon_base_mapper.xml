@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.coupon">
+	<!-- 所有列名 -->
+	<sql id="columns">
+	id,
+	coupon_name,
+	coupon_source,
+	interest,
+	invalid_type,
+	invalid_days,
+	invalid_start_date,
+	invalid_end_date,
+	limit_count,
+	use_type,
+	create_time,
+	status,
+	min_amount,
+	min_days,
+	remark,
+	coupon_id
+	</sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''"> id,</if>
+		<if test="coupon_name != null and coupon_name != ''"> coupon_name,</if>
+		<if test="coupon_source != null and coupon_source != ''"> coupon_source,</if>
+		<if test="interest != null and interest != ''"> interest,</if>
+		<if test="invalid_type != null and invalid_type != ''"> invalid_type,</if>
+		<if test="invalid_days != null and invalid_days != ''"> invalid_days,</if>
+		<if test="invalid_start_date != null "> invalid_start_date,</if>
+		<if test="invalid_end_date != null "> invalid_end_date,</if>
+		<if test="limit_count != null and limit_count != ''"> limit_count,</if>
+		<if test="use_type != null and use_type != ''"> use_type,</if>
+		<if test="create_time != null"> create_time,</if>
+		<if test="status != null and status != ''"> status,</if>
+		<if test="min_amount != null and min_amount != ''"> min_amount,</if>
+		<if test="min_days != null and min_days != ''"> min_days,</if>
+		<if test="remark != null and remark != ''"> remark,</if>
+		<if test="coupon_id != null and coupon_id != ''"> coupon_id,</if>
+	</sql>
+	<!-- 列值 -->
+	<sql id="vals">
+		<if test="id != null and id != ''"> #{id},</if>
+		<if test="coupon_name != null and coupon_name != ''"> #{coupon_name},</if>
+		<if test="coupon_source != null and coupon_source != ''"> #{coupon_source},</if>
+		<if test="interest != null and interest != ''"> #{interest},</if>
+		<if test="invalid_type != null and invalid_type != ''"> #{invalid_type},</if>
+		<if test="invalid_days != null and invalid_days != ''"> #{invalid_days},</if>
+		<if test="invalid_start_date != null"> #{invalid_start_date},</if>
+		<if test="invalid_end_date != null"> #{invalid_end_date},</if>
+		<if test="limit_count != null and limit_count != ''"> #{limit_count},</if>
+		<if test="use_type != null and use_type != ''"> #{use_type},</if>
+		<if test="create_time != null"> #{create_time},</if>
+		<if test="status != null and status != ''"> #{status},</if>
+		<if test="min_amount != null and min_amount != ''"> #{min_amount},</if>
+		<if test="min_days != null and min_days != ''"> #{min_days},</if>
+		<if test="remark != null and remark != ''"> #{remark},</if>
+		<if test="coupon_id != null and coupon_id != ''"> #{coupon_id},</if>
+	</sql>
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''"> and id=#{id}</if>
+		<if test="coupon_name != null and coupon_name != ''"> and coupon_name=#{coupon_name}</if>
+		<if test="coupon_source != null and coupon_source != ''"> and coupon_source=#{coupon_source}</if>
+		<if test="interest != null and interest != ''"> and interest=#{interest}</if>
+		<if test="invalid_type != null and invalid_type != ''"> and invalid_type=#{invalid_type}</if>
+		<if test="invalid_days != null and invalid_days != ''"> and invalid_days=#{invalid_days}</if>
+		<if test="invalid_start_date != null "> and invalid_start_date=#{invalid_start_date}</if>
+		<if test="invalid_end_date != null"> and invalid_end_date=#{invalid_end_date}</if>
+		<if test="limit_count != null and limit_count != ''"> and limit_count=#{limit_count}</if>
+		<if test="use_type != null and use_type != ''"> and use_type=#{use_type}</if>
+		<if test="create_time != null"> and create_time=#{create_time}</if>
+		<if test="status != null and status != ''"> and status=#{status}</if>
+		<if test="min_amount != null and min_amount != ''"> and min_amount=#{min_amount}</if>
+		<if test="min_days != null and min_days != ''"> and min_days=#{min_days}</if>
+		<if test="remark != null and remark != ''"> and remark=#{remark}</if>
+		<if test="coupon_id != null and coupon_id != ''"> and coupon_id=#{coupon_id}</if>
+	</sql>
+	<insert id="saveCoupon" parameterType="com.zdjf.domain.fund.Coupon" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_Coupon (
+		<trim suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>
+		) 
+		values (
+		<trim suffixOverrides=",">
+		<include refid="vals" />
+		</trim>
+		)
+	</insert>
+	<select id="loadCoupon" resultType="com.zdjf.domain.fund.CouponVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coupon
+		where id=#{id}
+	</select>
+	<select id="selectCoupon" resultType="com.zdjf.domain.fund.CouponVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coupon
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+	</select>
+	<select id="selectCouponById" resultType="com.zdjf.domain.fund.Coupon">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim>
+		from zd_Coupon
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+</mapper>

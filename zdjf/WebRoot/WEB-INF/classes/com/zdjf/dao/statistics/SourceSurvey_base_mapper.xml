@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.statistics.sourceSurvey">
+<sql id="columns">
+id,
+create_time,
+new_effective_investment_times,
+new_effective_investment_people,
+new_first_investment,
+new_registrations,
+new_mobile_registrations,
+new_real_name_authentication,
+new_registrations_investments,
+new_registered_investment_rate,
+daily_investment,
+daily_investment_times,
+daily_investment_amount,
+daily_coupon_deduction_amoun,
+daily_coupon_deduction_rate,
+daily_per_capita_investment,
+withdrawals_times,
+withdrawals_people,
+withdrawals_amount,
+mobile_withdrawals_amount,
+recharge_times,
+recharge_people,
+recharge_amount,
+mobile_recharge_amount,
+net_inflow_funds,
+repeat_investment_people,
+repeat_investment_amount,
+repeat_investment_rate,
+platform_fee,
+participants_lottery_people,
+total_registration,
+total_real_name,
+total_investment_rate,
+total_effective_capital,
+total_investment,
+total_mobile_investment,
+total_per_capita_investment,
+sentry_funds,
+total_repeat_investment_people,
+total_repeat_investment_rate,
+total_debt_repayment,
+total_debt_service_interest,
+total_debt_service_rate,
+total_debt_service_people,
+total_debt_service_amount,
+total_debt_per_amount,
+debt_return_rate,
+subordinate_platform,
+source_name,
+date_while
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">  id,</if>
+<if test="create_time != null">  create_time,</if>
+<if test="new_effective_investment_times != null and new_effective_investment_times != ''">  new_effective_investment_times,</if>
+<if test="new_effective_investment_people != null and new_effective_investment_people != ''">  new_effective_investment_people,</if>
+<if test="new_first_investment != null and new_first_investment != ''">  new_first_investment,</if>
+<if test="new_registrations != null and new_registrations != ''">  new_registrations,</if>
+<if test="new_mobile_registrations != null and new_mobile_registrations != ''">  new_mobile_registrations,</if>
+<if test="new_real_name_authentication != null and new_real_name_authentication != ''">  new_real_name_authentication,</if>
+<if test="new_registrations_investments != null and new_registrations_investments != ''">  new_registrations_investments,</if>
+<if test="new_registered_investment_rate != null and new_registered_investment_rate != ''">  new_registered_investment_rate,</if>
+<if test="daily_investment != null and daily_investment != ''">  daily_investment,</if>
+<if test="daily_investment_times != null and daily_investment_times != ''">  daily_investment_times,</if>
+<if test="daily_investment_amount != null and daily_investment_amount != ''">  daily_investment_amount,</if>
+<if test="daily_coupon_deduction_amoun != null and daily_coupon_deduction_amoun != ''">  daily_coupon_deduction_amoun,</if>
+<if test="daily_coupon_deduction_rate != null and daily_coupon_deduction_rate != ''">  daily_coupon_deduction_rate,</if>
+<if test="daily_per_capita_investment != null and daily_per_capita_investment != ''">  daily_per_capita_investment,</if>
+<if test="withdrawals_times != null and withdrawals_times != ''">  withdrawals_times,</if>
+<if test="withdrawals_people != null and withdrawals_people != ''">  withdrawals_people,</if>
+<if test="withdrawals_amount != null and withdrawals_amount != ''">  withdrawals_amount,</if>
+<if test="mobile_withdrawals_amount != null and mobile_withdrawals_amount != ''">  mobile_withdrawals_amount,</if>
+<if test="recharge_times != null and recharge_times != ''">  recharge_times,</if>
+<if test="recharge_people != null and recharge_people != ''">  recharge_people,</if>
+<if test="recharge_amount != null and recharge_amount != ''">  recharge_amount,</if>
+<if test="mobile_recharge_amount != null and mobile_recharge_amount != ''">  mobile_recharge_amount,</if>
+<if test="net_inflow_funds != null and net_inflow_funds != ''">  net_inflow_funds,</if>
+<if test="repeat_investment_people != null and repeat_investment_people != ''">  repeat_investment_people,</if>
+<if test="repeat_investment_amount != null and repeat_investment_amount != ''">  repeat_investment_amount,</if>
+<if test="repeat_investment_rate != null and repeat_investment_rate != ''">  repeat_investment_rate,</if>
+<if test="platform_fee != null and platform_fee != ''">  platform_fee,</if>
+<if test="participants_lottery_people != null and participants_lottery_people != ''">  participants_lottery_people,</if>
+<if test="total_registration != null and total_registration != ''">  total_registration,</if>
+<if test="total_real_name != null and total_real_name != ''">  total_real_name,</if>
+<if test="total_investment_rate != null and total_investment_rate != ''">  total_investment_rate,</if>
+<if test="total_effective_capital != null and total_effective_capital != ''">  total_effective_capital,</if>
+<if test="total_investment != null and total_investment != ''">  total_investment,</if>
+<if test="total_mobile_investment != null and total_mobile_investment != ''">  total_mobile_investment,</if>
+<if test="total_per_capita_investment != null and total_per_capita_investment != ''">  total_per_capita_investment,</if>
+<if test="sentry_funds != null and sentry_funds != ''">  sentry_funds,</if>
+<if test="total_repeat_investment_people != null and total_repeat_investment_people != ''">  total_repeat_investment_people,</if>
+<if test="total_repeat_investment_rate != null and total_repeat_investment_rate != ''">  total_repeat_investment_rate,</if>
+<if test="total_debt_repayment != null and total_debt_repayment != ''">  total_debt_repayment,</if>
+<if test="total_debt_service_interest != null and total_debt_service_interest != ''">  total_debt_service_interest,</if>
+<if test="total_debt_service_rate != null and total_debt_service_rate != ''">  total_debt_service_rate,</if>
+<if test="total_debt_service_people != null and total_debt_service_people != ''">  total_debt_service_people,</if>
+<if test="total_debt_service_amount != null and total_debt_service_amount != ''">  total_debt_service_amount,</if>
+<if test="total_debt_per_amount != null and total_debt_per_amount != ''">  total_debt_per_amount,</if>
+<if test="debt_return_rate != null and debt_return_rate != ''">  debt_return_rate,</if>
+<if test="subordinate_platform != null and subordinate_platform != ''">  subordinate_platform,</if>
+<if test="source_name != null and source_name != ''">  source_name,</if>
+<if test="date_while != null and date_while != ''">  date_while,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">  #{id},</if>
+<if test="create_time != null">  #{create_time},</if>
+<if test="new_effective_investment_times != null and new_effective_investment_times != ''">  #{new_effective_investment_times},</if>
+<if test="new_effective_investment_people != null and new_effective_investment_people != ''">  #{new_effective_investment_people},</if>
+<if test="new_first_investment != null and new_first_investment != ''">  #{new_first_investment},</if>
+<if test="new_registrations != null and new_registrations != ''">  #{new_registrations},</if>
+<if test="new_mobile_registrations != null and new_mobile_registrations != ''">  #{new_mobile_registrations},</if>
+<if test="new_real_name_authentication != null and new_real_name_authentication != ''">  #{new_real_name_authentication},</if>
+<if test="new_registrations_investments != null and new_registrations_investments != ''">  #{new_registrations_investments},</if>
+<if test="new_registered_investment_rate != null and new_registered_investment_rate != ''">  #{new_registered_investment_rate},</if>
+<if test="daily_investment != null and daily_investment != ''">  #{daily_investment},</if>
+<if test="daily_investment_times != null and daily_investment_times != ''">  #{daily_investment_times},</if>
+<if test="daily_investment_amount != null and daily_investment_amount != ''">  #{daily_investment_amount},</if>
+<if test="daily_coupon_deduction_amoun != null and daily_coupon_deduction_amoun != ''">  #{daily_coupon_deduction_amoun},</if>
+<if test="daily_coupon_deduction_rate != null and daily_coupon_deduction_rate != ''">  #{daily_coupon_deduction_rate},</if>
+<if test="daily_per_capita_investment != null and daily_per_capita_investment != ''">  #{daily_per_capita_investment},</if>
+<if test="withdrawals_times != null and withdrawals_times != ''">  #{withdrawals_times},</if>
+<if test="withdrawals_people != null and withdrawals_people != ''">  #{withdrawals_people},</if>
+<if test="withdrawals_amount != null and withdrawals_amount != ''">  #{withdrawals_amount},</if>
+<if test="mobile_withdrawals_amount != null and mobile_withdrawals_amount != ''">  #{mobile_withdrawals_amount},</if>
+<if test="recharge_times != null and recharge_times != ''">  #{recharge_times},</if>
+<if test="recharge_people != null and recharge_people != ''">  #{recharge_people},</if>
+<if test="recharge_amount != null and recharge_amount != ''">  #{recharge_amount},</if>
+<if test="mobile_recharge_amount != null and mobile_recharge_amount != ''">  #{mobile_recharge_amount},</if>
+<if test="net_inflow_funds != null and net_inflow_funds != ''">  #{net_inflow_funds},</if>
+<if test="repeat_investment_people != null and repeat_investment_people != ''">  #{repeat_investment_people},</if>
+<if test="repeat_investment_amount != null and repeat_investment_amount != ''">  #{repeat_investment_amount},</if>
+<if test="repeat_investment_rate != null and repeat_investment_rate != ''">  #{repeat_investment_rate},</if>
+<if test="platform_fee != null and platform_fee != ''">  #{platform_fee},</if>
+<if test="participants_lottery_people != null and participants_lottery_people != ''">  #{participants_lottery_people},</if>
+<if test="total_registration != null and total_registration != ''">  #{total_registration},</if>
+<if test="total_real_name != null and total_real_name != ''">  #{total_real_name},</if>
+<if test="total_investment_rate != null and total_investment_rate != ''">  #{total_investment_rate},</if>
+<if test="total_effective_capital != null and total_effective_capital != ''">  #{total_effective_capital},</if>
+<if test="total_investment != null and total_investment != ''">  #{total_investment},</if>
+<if test="total_mobile_investment != null and total_mobile_investment != ''">  #{total_mobile_investment},</if>
+<if test="total_per_capita_investment != null and total_per_capita_investment != ''">  #{total_per_capita_investment},</if>
+<if test="sentry_funds != null and sentry_funds != ''">  #{sentry_funds},</if>
+<if test="total_repeat_investment_people != null and total_repeat_investment_people != ''">  #{total_repeat_investment_people},</if>
+<if test="total_repeat_investment_rate != null and total_repeat_investment_rate != ''">  #{total_repeat_investment_rate},</if>
+<if test="total_debt_repayment != null and total_debt_repayment != ''">  #{total_debt_repayment},</if>
+<if test="total_debt_service_interest != null and total_debt_service_interest != ''">  #{total_debt_service_interest},</if>
+<if test="total_debt_service_rate != null and total_debt_service_rate != ''">  #{total_debt_service_rate},</if>
+<if test="total_debt_service_people != null and total_debt_service_people != ''">  #{total_debt_service_people},</if>
+<if test="total_debt_service_amount != null and total_debt_service_amount != ''">  #{total_debt_service_amount},</if>
+<if test="total_debt_per_amount != null and total_debt_per_amount != ''">  #{total_debt_per_amount},</if>
+<if test="debt_return_rate != null and debt_return_rate != ''">  #{debt_return_rate},</if>
+<if test="subordinate_platform != null and subordinate_platform != ''">  #{subordinate_platform},</if>
+<if test="source_name != null and source_name != ''">  #{source_name},</if>
+<if test="date_while != null and date_while != ''">  #{date_while},</if>
+</sql>
+<sql id="conds">
+<if test="id != null and id != ''">  and id = #{id}</if>
+<if test="create_time != null">  and create_time = #{create_time}</if>
+<if test="new_effective_investment_times != null and new_effective_investment_times != ''">  and new_effective_investment_times = #{new_effective_investment_times}</if>
+<if test="new_effective_investment_people != null and new_effective_investment_people != ''">  and new_effective_investment_people = #{new_effective_investment_people}</if>
+<if test="new_first_investment != null and new_first_investment != ''">  and new_first_investment = #{new_first_investment}</if>
+<if test="new_registrations != null and new_registrations != ''">  and new_registrations = #{new_registrations}</if>
+<if test="new_mobile_registrations != null and new_mobile_registrations != ''">  and new_mobile_registrations = #{new_mobile_registrations}</if>
+<if test="new_real_name_authentication != null and new_real_name_authentication != ''">  and new_real_name_authentication = #{new_real_name_authentication}</if>
+<if test="new_registrations_investments != null and new_registrations_investments != ''">  and new_registrations_investments = #{new_registrations_investments}</if>
+<if test="new_registered_investment_rate != null and new_registered_investment_rate != ''">  and new_registered_investment_rate = #{new_registered_investment_rate}</if>
+<if test="daily_investment != null and daily_investment != ''">  and daily_investment = #{daily_investment}</if>
+<if test="daily_investment_times != null and daily_investment_times != ''">  and daily_investment_times = #{daily_investment_times}</if>
+<if test="daily_investment_amount != null and daily_investment_amount != ''">  and daily_investment_amount = #{daily_investment_amount}</if>
+<if test="daily_coupon_deduction_amoun != null and daily_coupon_deduction_amoun != ''">  and daily_coupon_deduction_amoun = #{daily_coupon_deduction_amoun}</if>
+<if test="daily_coupon_deduction_rate != null and daily_coupon_deduction_rate != ''">  and daily_coupon_deduction_rate = #{daily_coupon_deduction_rate}</if>
+<if test="daily_per_capita_investment != null and daily_per_capita_investment != ''">  and daily_per_capita_investment = #{daily_per_capita_investment}</if>
+<if test="withdrawals_times != null and withdrawals_times != ''">  and withdrawals_times = #{withdrawals_times}</if>
+<if test="withdrawals_people != null and withdrawals_people != ''">  and withdrawals_people = #{withdrawals_people}</if>
+<if test="withdrawals_amount != null and withdrawals_amount != ''">  and withdrawals_amount = #{withdrawals_amount}</if>
+<if test="mobile_withdrawals_amount != null and mobile_withdrawals_amount != ''">  and mobile_withdrawals_amount = #{mobile_withdrawals_amount}</if>
+<if test="recharge_times != null and recharge_times != ''">  and recharge_times = #{recharge_times}</if>
+<if test="recharge_people != null and recharge_people != ''">  and recharge_people = #{recharge_people}</if>
+<if test="recharge_amount != null and recharge_amount != ''">  and recharge_amount = #{recharge_amount}</if>
+<if test="mobile_recharge_amount != null and mobile_recharge_amount != ''">  and mobile_recharge_amount = #{mobile_recharge_amount}</if>
+<if test="net_inflow_funds != null and net_inflow_funds != ''">  and net_inflow_funds = #{net_inflow_funds}</if>
+<if test="repeat_investment_people != null and repeat_investment_people != ''">  and repeat_investment_people = #{repeat_investment_people}</if>
+<if test="repeat_investment_amount != null and repeat_investment_amount != ''">  and repeat_investment_amount = #{repeat_investment_amount}</if>
+<if test="repeat_investment_rate != null and repeat_investment_rate != ''">  and repeat_investment_rate = #{repeat_investment_rate}</if>
+<if test="platform_fee != null and platform_fee != ''">  and platform_fee = #{platform_fee}</if>
+<if test="participants_lottery_people != null and participants_lottery_people != ''">  and participants_lottery_people = #{participants_lottery_people}</if>
+<if test="total_registration != null and total_registration != ''">  and total_registration = #{total_registration}</if>
+<if test="total_real_name != null and total_real_name != ''">  and total_real_name = #{total_real_name}</if>
+<if test="total_investment_rate != null and total_investment_rate != ''">  and total_investment_rate = #{total_investment_rate}</if>
+<if test="total_effective_capital != null and total_effective_capital != ''">  and total_effective_capital = #{total_effective_capital}</if>
+<if test="total_investment != null and total_investment != ''">  and total_investment = #{total_investment}</if>
+<if test="total_mobile_investment != null and total_mobile_investment != ''">  and total_mobile_investment = #{total_mobile_investment}</if>
+<if test="total_per_capita_investment != null and total_per_capita_investment != ''">  and total_per_capita_investment = #{total_per_capita_investment}</if>
+<if test="sentry_funds != null and sentry_funds != ''">  and sentry_funds = #{sentry_funds}</if>
+<if test="total_repeat_investment_people != null and total_repeat_investment_people != ''">  and total_repeat_investment_people = #{total_repeat_investment_people}</if>
+<if test="total_repeat_investment_rate != null and total_repeat_investment_rate != ''">  and total_repeat_investment_rate = #{total_repeat_investment_rate}</if>
+<if test="total_debt_repayment != null and total_debt_repayment != ''">  and total_debt_repayment = #{total_debt_repayment}</if>
+<if test="total_debt_service_interest != null and total_debt_service_interest != ''">  and total_debt_service_interest = #{total_debt_service_interest}</if>
+<if test="total_debt_service_rate != null and total_debt_service_rate != ''">  and total_debt_service_rate = #{total_debt_service_rate}</if>
+<if test="total_debt_service_people != null and total_debt_service_people != ''">  and total_debt_service_people = #{total_debt_service_people}</if>
+<if test="total_debt_service_amount != null and total_debt_service_amount != ''">  and total_debt_service_amount = #{total_debt_service_amount}</if>
+<if test="total_debt_per_amount != null and total_debt_per_amount != ''">  and total_debt_per_amount = #{total_debt_per_amount}</if>
+<if test="debt_return_rate != null and debt_return_rate != ''">  and debt_return_rate = #{debt_return_rate}</if>
+<if test="subordinate_platform != null and subordinate_platform != ''">  and subordinate_platform = #{subordinate_platform}</if>
+<if test="source_name != null and source_name != ''">  and source_name = #{source_name}</if>
+<if test="date_while != null and date_while != ''">  and date_while = #{date_while}</if>
+</sql>
+<insert id="saveSourceSurvey" parameterType="com.zdjf.domain.statistics.SourceSurvey" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_statistics_source (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectSourceSurvey" resultType="com.zdjf.domain.statistics.SourceSurveyVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_statistics_source
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteSourceSurvey">
+		delete from zd_statistics_source
+		where id=#{id}
+	</delete>
+</mapper>

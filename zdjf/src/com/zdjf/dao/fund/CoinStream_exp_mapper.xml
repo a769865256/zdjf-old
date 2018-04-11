@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.coinStream">
+	<select id="selectCoinStreamPage" resultType="java.util.Map">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_coin_stream
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectCoinStreamCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_coin_stream
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectCoinStreamById" resultType="com.zdjf.domain.fund.CoinStream">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coin_stream
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="updateCoinStreamById" parameterType="com.zdjf.domain.fund.CoinStream">
+		update zd_coin_stream
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''"> id = #{id},</if>
+			<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+			<if test="relation_id != null and relation_id != ''"> relation_id = #{relation_id},</if>
+			<if test="action != null and action != ''"> action = #{action},</if>
+			<if test="type != null and type != ''"> type = #{type},</if>
+			<if test="amount != null and amount != ''"> amount = #{amount},</if>
+			<if test="balance != null and balance != ''"> balance = #{balance},</if>
+			<if test="status != null and status != ''"> status = #{status},</if>
+			<if test="remark != null and remark != ''"> remark = #{remark},</if>
+			<if test="create_time != null"> create_time = #{create_time},</if>
+			<if test="stream_id != null and stream_id != ''"> stream_id = #{stream_id},</if>
+			<if test="uid != null and uid != ''"> uid = #{uid},</if>
+			<if test="old_relation_id != null and old_relation_id != ''"> old_relation_id = #{old_relation_id},</if>
+			<if test="num != null and num != ''"> num = #{num},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="updateCoinStream" parameterType="com.zdjf.domain.fund.CoinStream">
+		update zd_coin_stream
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''"> id = #{id},</if>
+			<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+			<if test="relation_id != null and relation_id != ''"> relation_id = #{relation_id},</if>
+			<if test="action != null and action != ''"> action = #{action},</if>
+			<if test="type != null and type != ''"> type = #{type},</if>
+			<if test="amount != null and amount != ''"> amount = #{amount},</if>
+			<if test="balance != null and balance != ''"> balance = #{balance},</if>
+			<if test="status != null and status != ''"> status = #{status},</if>
+			<if test="remark != null and remark != ''"> remark = #{remark},</if>
+			<if test="create_time != null"> create_time = #{create_time},</if>
+			<if test="stream_id != null and stream_id != ''"> stream_id = #{stream_id},</if>
+			<if test="uid != null and uid != ''"> uid = #{uid},</if>
+			<if test="old_relation_id != null and old_relation_id != ''"> old_relation_id = #{old_relation_id},</if>
+			<if test="num != null and num != ''"> num = #{num},</if>
+		</trim>
+		where 1=1
+		and user_id=#{user_id}
+	</select>
+	<select id="deleteCoinStreamById" parameterType="long">
+			delete from zd_coin_stream where id=#{id}
+	</select>
+</mapper>

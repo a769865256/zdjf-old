@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.withdraw">
+	<sql id="columns">
+	id,
+	user_id,
+	money,
+	real_name,
+	bank_no,
+	status,
+	remark,
+	yeepay_batchno,
+	bank_serial_no,
+	pp_serial_no,
+	create_time,
+	update_time,
+	resp_desc,
+	resp_code,
+	fee_amt,
+	fee_cust_id,
+	fee_acct_id,
+	req_source,
+	fee_obj,
+	real_trans_amt,
+	delay_time,
+	is_use_coupon,
+	wd_id,
+	uid
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''"> id,</if>
+	<if test="user_id != null and user_id != ''"> user_id,</if>
+	<if test="money != null and money != ''"> money,</if>
+	<if test="real_name != null and real_name != ''"> real_name,</if>
+	<if test="bank_no != null and bank_no != ''"> bank_no,</if>
+	<if test="status != null and status != ''"> status,</if>
+	<if test="remark != null and remark != ''"> remark,</if>
+	<if test="yeepay_batchno != null and yeepay_batchno != ''"> yeepay_batchno,</if>
+	<if test="bank_serial_no != null and bank_serial_no != ''"> bank_serial_no,</if>
+	<if test="pp_serial_no != null and pp_serial_no != ''"> pp_serial_no,</if>
+	<if test="create_time != null"> create_time,</if>
+	<if test="update_time != null"> update_time,</if>
+	<if test="resp_desc != null and resp_desc != ''"> resp_desc,</if>
+	<if test="resp_code != null and resp_code != ''"> resp_code,</if>
+	<if test="fee_amt != null and fee_amt != ''"> fee_amt,</if>
+	<if test="fee_cust_id != null and fee_cust_id != ''"> fee_cust_id,</if>
+	<if test="fee_acct_id != null and fee_acct_id != ''"> fee_acct_id,</if>
+	<if test="req_source != null and req_source != ''"> req_source,</if>
+	<if test="fee_obj != null and fee_obj != ''"> fee_obj,</if>
+	<if test="real_trans_amt != null and real_trans_amt != ''"> real_trans_amt,</if>
+	<if test="delay_time != null"> delay_time,</if>
+	<if test="is_use_coupon != null and is_use_coupon != ''"> is_use_coupon,</if>
+	<if test="wd_id != null and wd_id != ''"> wd_id,</if>
+	<if test="uid != null and uid != ''"> uid,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''"> #{id},</if>
+	<if test="user_id != null and user_id != ''"> #{user_id},</if>
+	<if test="money != null and money != ''"> #{money},</if>
+	<if test="real_name != null and real_name != ''"> #{real_name},</if>
+	<if test="bank_no != null and bank_no != ''"> #{bank_no},</if>
+	<if test="status != null and status != ''"> #{status},</if>
+	<if test="remark != null and remark != ''"> #{remark},</if>
+	<if test="yeepay_batchno != null and yeepay_batchno != ''"> #{yeepay_batchno},</if>
+	<if test="bank_serial_no != null and bank_serial_no != ''"> #{bank_serial_no},</if>
+	<if test="pp_serial_no != null and pp_serial_no != ''"> #{pp_serial_no},</if>
+	<if test="create_time != null"> #{create_time},</if>
+	<if test="update_time != null"> #{update_time},</if>
+	<if test="resp_desc != null and resp_desc != ''"> #{resp_desc},</if>
+	<if test="resp_code != null and resp_code != ''"> #{resp_code},</if>
+	<if test="fee_amt != null and fee_amt != ''"> #{fee_amt},</if>
+	<if test="fee_cust_id != null and fee_cust_id != ''"> #{fee_cust_id},</if>
+	<if test="fee_acct_id != null and fee_acct_id != ''"> #{fee_acct_id},</if>
+	<if test="req_source != null and req_source != ''"> #{req_source},</if>
+	<if test="fee_obj != null and fee_obj != ''"> #{fee_obj},</if>
+	<if test="real_trans_amt != null and real_trans_amt != ''"> #{real_trans_amt},</if>
+	<if test="delay_time != null"> #{delay_time},</if>
+	<if test="is_use_coupon != null and is_use_coupon != ''"> #{is_use_coupon},</if>
+	<if test="wd_id != null and wd_id != ''"> #{wd_id},</if>
+	<if test="uid != null and uid != ''"> #{uid},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''"> and id = #{id}</if>
+	<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+	<if test="money != null and money != ''"> and money = #{money}</if>
+	<if test="real_name != null and real_name != ''"> and real_name = #{real_name}</if>
+	<if test="bank_no != null and bank_no != ''"> and bank_no = #{bank_no}</if>
+	<if test="status != null and status != ''"> and status = #{status}</if>
+	<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+	<if test="yeepay_batchno != null and yeepay_batchno != ''"> and yeepay_batchno = #{yeepay_batchno}</if>
+	<if test="bank_serial_no != null and bank_serial_no != ''"> and bank_serial_no = #{bank_serial_no}</if>
+	<if test="pp_serial_no != null and pp_serial_no != ''"> and pp_serial_no = #{pp_serial_no}</if>
+	<if test="create_time != null"> and create_time = #{create_time}</if>
+	<if test="update_time != null"> and update_time = #{update_time}</if>
+	<if test="resp_desc != null and resp_desc != ''"> and resp_desc = #{resp_desc}</if>
+	<if test="resp_code != null and resp_code != ''"> and resp_code = #{resp_code}</if>
+	<if test="fee_amt != null and fee_amt != ''"> and fee_amt = #{fee_amt}</if>
+	<if test="fee_cust_id != null and fee_cust_id != ''"> and fee_cust_id = #{fee_cust_id}</if>
+	<if test="fee_acct_id != null and fee_acct_id != ''"> and fee_acct_id = #{fee_acct_id}</if>
+	<if test="req_source != null and req_source != ''"> and req_source = #{req_source}</if>
+	<if test="fee_obj != null and fee_obj != ''"> and fee_obj = #{fee_obj}</if>
+	<if test="real_trans_amt != null and real_trans_amt != ''"> and real_trans_amt = #{real_trans_amt}</if>
+	<if test="delay_time != null"> and delay_time = #{delay_time}</if>
+	<if test="is_use_coupon != null and is_use_coupon != ''"> and is_use_coupon = #{is_use_coupon}</if>
+	<if test="wd_id != null and wd_id != ''"> and wd_id = #{wd_id}</if>
+	<if test="uid != null and uid != ''"> and uid = #{uid}</if>
+	</sql>
+	<insert id="saveWithdraw" parameterType="com.zdjf.domain.fund.Withdraw" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_withdraw (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectWithdraw" resultType="com.zdjf.domain.fund.WithdrawVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_withdraw
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteWithdraw">
+		delete from zd_withdraw
+		where id=#{id}
+	</delete>
+</mapper>

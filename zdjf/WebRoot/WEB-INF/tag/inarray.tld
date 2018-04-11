@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>1.0</tlib-version>
+	<short-name>in</short-name>
+	<function>
+		<!-- 对这个EL方法的描述 -->
+		<description>str in arrayStr</description>
+		<name>FunctionsIn</name><!-- 调用EL方法的名称 -->
+		<function-class>main.java.com.sxcf.common.tag.FunctionsIn</function-class>
+		<function-signature>java.lang.Boolean inArray(java.lang.String, java.lang.String)</function-signature>
+		<!-- 例如 -->
+		<example>${in:FunctionsIn(str, arrayStr)}</example>
+	</function>
+</taglib>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+    <link rel="stylesheet" href="static/css/mui.min.css"/>
+    <link rel="stylesheet" href="module/swiper/swiper-3.4.2.min.css"/>
+	<link rel="stylesheet" href="static/css/index1.css"/>
+</head>
+<body class="zoom">
+<div class="header_logo">
+    <div class="logo_box">
+        <img src="static/img/index/logo.png" alt="logo" class="logo">
+        <img src="static/img/index/logo_sy.png" alt="享受收益" class="logo_sy">
+    </div>
+    <div class="exit font28" id="logout">退出</div>
+</div>
+<div class="swiper-container banner">
+    <div class="swiper-wrapper"></div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="news_btn_box">
+    <div class="news_box">
+        <div class="horn_box flex">
+            <img src="static/img/index/horn.png" alt="">
+        </div>
+        <div class="news"></div>
+        <div class="row">
+            <a href="page/notice_list.html" class="flex">
+                <img src="static/img/index/row.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="btn_box">
+        <a class="wealth_href">我的财富</a>
+        <a class="app_upload_btn">
+            <img src="static/img/index/upload.png" alt="" id="download-btn">下载APP
+        </a>
+    </div>
+</div>
+<ul class="list_bid">
+    <li id="topic"></li>
+</ul>
+<div class="get_more">点击加载更多</div>
+<div class="note_list">
+    <img src="static/img/index/zz.png" alt="">
+</div>
+<a href="" class="download_app">下载正道金服APP随享优惠</a>
+<div class="benan">
+    <!--<img src="static/img/index/beian.png" alt="">-->
+    <div class="ba_itmes">Copyright © 2016 杭州云翳网络科技有限公司</div>
+    <div class="ba_itmes">备案号：浙ICP备16040310号</div>
+    <div class="ba_itmes">ICP经营许可证：浙B2-20170101</div>
+    <div class="ba_itmes"><img src="static/img/index/warning.png" alt="">理财有风险，投资需谨慎</div>
+    <div class="ba_itmes">客服热线：0571-56929127</div>
+</div>
+<!--<div class="index">-->
+    <!--<div class="modular">-->
+        <!--<div class="modu mo1">-->
+            <!--<a href="page/find/find.html">-->
+                <!--<h3>精彩活动</h3>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="modu mo2">-->
+            <!--<a href="page/sign.html">-->
+                <!--<h3>每日签到</h3>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="modu mo3">-->
+            <!--<a href="page/find/about.html">-->
+                <!--<h3>安全保障</h3>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="modu mo4">-->
+            <!--<a href="page/platform.html">-->
+                <!--<h3>平台数据</h3>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+</body>
+<script type="text/javascript" src="static/js/zoom1.js"></script>
+<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="static/js/public.js"></script>
+<script type="text/javascript" src="static/js/common.js"></script>
+<script>
+    (function() {
+        if(!$com.cookie.get("user_name")){
+            $('.header_logo .exit').hide();
+            $('.wealth_href').attr('href','page/login/login.html');
+        }else{
+            $('.header_logo .exit').show();
+            $('.wealth_href').attr('href','page/wealth/wealth.html');
+        }
+    	var HTML = {
+    		adv : '<div class="swiper-slide"><a href="{{href_url}}"><img src="{{image_url}}" alt=""></a></div>',
+    		news : '<a href="page/notice_details.html?id={{id}}" class="mui-ellipsis">{{title}}</a>',
+            topic : ['<div class="avatar_name">',
+                        '<a href="page/bid/bid_details.html?id={{id}}">',
+                        '<div class="bid_id_name">',
+                        '<div class="bid_id">{{product_code}}</div>',
+                        '<div class="bid_name mui-ellipsis">{{product_name}}</div></div>',
+                        '<div class="bid_line">',
+                        '<div class="line_item">',
+                        '<div class="num">{{income}}<span>%</span></div>',
+                        '<div class="line_word">年化收益率</div>',
+                        '</div>',
+                        '<div class="line_item">',
+                        '<div class="line_word">收益天数:{{incomeDays}}天</div>',
+                        '</div>',
+                        '<div class="line_item">',
+                        '<div class="line_word">可投金额：{{balance}}元</div>',
+                        '</div>',
+                        '</div>',
+                        '</a>',
+                        '</div>{{beginner}}',
+                        '<a href="page/bid/bid_details.html?id={{id}}" class="ljtz">',
+                        '<button type="button" class="mui-btn mui-btn-primary jm_kt_entrance">立即投资</button></a>'].join(""),
+            product : ['<li><div class="avatar_name">',
+                        '<a href="page/bid/bid_details.html?id={{id}}">',
+                        '<div class="avatar">',
+                        '<img src="{{label}}" alt="">',
+                        '</div>',
+                        '<div class="bid_id_name">',
+                        '<div class="bid_id">{{product_code}}</div>',
+                        '<div class="bid_name mui-ellipsis">{{product_name}}</div>',
+                        '</div>',
+                        '<div class="bid_line">',
+                        '<div class="line_item">',
+                        '<div class="num">{{income}}<span>%</span></div>',
+                        '<div class="line_word">年化收益</div>',
+                        '</div>',
+                        '<div class="line_item">',
+                        '<div class="num">{{incomeDays}}<span>天</span></div>',
+                        '<div class="line_word">收益天数</div>',
+                        '</div>',
+                        '<div class="line_item">',
+                        '<div class="num">{{balance}}<span>元</span></div>',
+                        '<div class="line_word">可投金额</div>',
+                        '</div>',
+                        '</div>',
+                        '<div class="bar_sold">',
+                        '<div class="bar_big_box">',
+                        '<div class="bar_box">',
+                        '<div class="bar_circle">',
+                        '<div class="bar fl" style="width:{{rem}}rem"></div>',
+                        '<div class="circle fl">',
+                        '<div class="circle1"></div>',
+                        '<div class="circle2"></div>',
+                        '</div>',
+                        '</div>',
+                        '</div>',
+                        '</div>',
+                        '<div class="sold">已售{{percent}}%</div>',
+                        '</div>',
+                        '</a>',
+                        '</div>{{beginner}}</li>'].join(""),
+            beginner : ['<div class="img_xs">',
+                        '<img src="static/img/index/xs2.png" alt="">',
+                        '</div>'].join(""),
+            beginner2 : ['<div class="img_xs">',
+                         '<img src="static/img/index/xs.png" alt="">',
+                         '</div>'].join("")
+    	};
+    	var mySwiper, current = 0, page = 1;
+    	
+    	$com.app.ajax({
+			$TYPE : "get",
+			$URI : "/index.json?source=h5"
+		}, [function(data) {
+			var adv = $com.util.template(data.advertiseList, HTML.adv), notice, product, product2 = "", p_obj = [];
+			current = data.productList.length;
+			if (data.noticeList.length >= 1) {
+				notice = $com.util.template(data.noticeList[0], HTML.news);
+			}
+
+            if (data.productList.length >= 1) {
+                var _data = data.productList.shift(),
+                    _ret = {
+                        id : _data.id,
+                        product_code : _data.product_code,
+                        product_name : _data.product_name,
+                        income : _data.income,
+                        incomeDays : _data.incomeDays,
+                        balance : _data.balance,
+                        beginner : _data.is_fresh > 0 ? HTML.beginner2 : ""
+                    };
+
+                product = $com.util.template(_ret, HTML.topic);
+            }
+
+            if (data.productList.length > 0) {
+                $(data.productList).each(function(i, item) {
+                    p_obj.push({
+                        id : item.id,
+                        label : item.photo,
+                        product_code : item.product_code,
+                        product_name : item.product_name,
+                        income : item.income,
+                        balance : item.balance,
+                        percent : (function() {
+                            var p = (item.sale_money / item.debt_money * 100).toFixed(2)
+                            return p > 100 ? "100.00" : p;
+                        }()),
+                        beginner : item.is_fresh > 0 ? HTML.beginner : "",
+                        incomeDays : item.incomeDays,
+                        rem : (function() {
+                            var p = (item.sale_money / item.debt_money * 6).toFixed(2);
+                            return p > 6 ? 6 : p;
+                        }())
+                    });
+                });
+
+                product2 = $com.util.template(p_obj, HTML.product);
+            }
+
+            if (current.length >= 10) {
+                showMore();
+            }
+
+			$(".banner .swiper-wrapper").html(adv);
+			$(".news").html(notice);
+            $("#topic").html(product);
+            $(".list_bid").append(product2);
+
+			mySwiper = new Swiper('.banner',{
+	            loop:true,
+	            pagination : '.swiper-pagination'
+	        });
+
+		}, function() {
+			
+		}]);
+    	
+    	$("#logout").click(function() {
+    		$com.app.ajax({
+				phone : $com.cookie.get("user_name"),
+				reg_source : 4,
+				ip : $com.IP,
+				sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+				$TYPE : "post",
+				$URI : "/m/user/loginout.json"
+			}, [function(data) {
+                $com.cookie.del("user_name");
+                $com.cookie.del("__DIS__");
+				window.location = "page/login/login.html";
+			}, function() {
+				
+			}]);
+    	});
+
+        $(".get_more").click(function() {
+            hideMore();
+            $com.app.ajax({
+                page : ++page,
+                type : "",
+                status : 4,
+                income : "",
+                $TYPE : "get",
+                $URI : "/product.json"
+            }, [function(data) {
+                if (data.dataList > 0) {
+                    var p_obj = [],
+                        product = "";
+
+                    current += data.dataList.length;
+                    $(data.dataList).each(function(i, item) {
+                        p_obj.push({
+                            id : item.id,
+                            label : item.photo,
+                            product_code : item.product_code,
+                            product_name : item.product_name,
+                            income : item.income,
+                            balance : item.balance,
+                            percent : (item.sale_money / item.debt_money).toFixed(2),
+                            beginner : item.is_fresh > 0 ? HTML.beginner : ""
+                        });
+                    });
+
+                    product = $com.util.template(p_obj, HTML.product);
+
+                    if (current >= page * 10) {
+                        showMore();
+                    }
+                }
+            }, function() {
+                
+            }]);
+        });
+
+        function showMore() {
+            $(".get_more").removeClass("hide");
+        }
+
+        function hideMore() {
+            $(".get_more").addClass("hide");
+        }
+        var percentage_bar = 0.8;
+        var width_bar = parseInt(percentage_bar*6)+'rem';
+    }());
+</script>
+</html>
+

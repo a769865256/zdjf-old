@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.advertise.advertise">
+	<sql id="columns">
+	id,
+	web_site,
+	position,
+	title,
+	alt,
+	image_url,
+	href_url,
+	order_number,
+	is_show,
+	create_time,
+	update_time,
+	view_count
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''">  id,</if>
+	<if test="web_site != null and web_site != ''">  web_site,</if>
+	<if test="position != null and position != ''">  position,</if>
+	<if test="title != null and title != ''">  title,</if>
+	<if test="alt != null and alt != ''">  alt,</if>
+	<if test="image_url != null and image_url != ''">  image_url,</if>
+	<if test="href_url != null and href_url != ''">  href_url,</if>
+	<if test="order_number != null and order_number != ''">  order_number,</if>
+	<if test="is_show != null and is_show != ''">  is_show,</if>
+	<if test="create_time != null">  create_time,</if>
+	<if test="update_time != null">  update_time,</if>
+	<if test="view_count != null and view_count != ''">  view_count,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''">  #{id},</if>
+	<if test="web_site != null and web_site != ''">  #{web_site},</if>
+	<if test="position != null and position != ''">  #{position},</if>
+	<if test="title != null and title != ''">  #{title},</if>
+	<if test="alt != null and alt != ''">  #{alt},</if>
+	<if test="image_url != null and image_url != ''">  #{image_url},</if>
+	<if test="href_url != null and href_url != ''">  #{href_url},</if>
+	<if test="order_number != null and order_number != ''">  #{order_number},</if>
+	<if test="is_show != null and is_show != ''">  #{is_show},</if>
+	<if test="create_time != null">  #{create_time},</if>
+	<if test="update_time != null">  #{update_time},</if>
+	<if test="view_count != null and view_count != ''">  #{view_count},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''">  and id = #{id}</if>
+	<if test="web_site != null and web_site != ''">  and web_site = #{web_site}</if>
+	<if test="position != null and position != ''">  and position = #{position}</if>
+	<if test="title != null and title != ''">  and title = #{title}</if>
+	<if test="alt != null and alt != ''">  and alt = #{alt}</if>
+	<if test="image_url != null and image_url != ''">  and image_url = #{image_url}</if>
+	<if test="href_url != null and href_url != ''">  and href_url = #{href_url}</if>
+	<if test="order_number != null and order_number != ''">  and order_number = #{order_number}</if>
+	<if test="is_show != null and is_show != ''">  and is_show = #{is_show}</if>
+	<if test="create_time != null">  and create_time = #{create_time}</if>
+	<if test="update_time != null">  and update_time = #{update_time}</if>
+	<if test="view_count != null and view_count != ''">  and view_count = #{view_count}</if>
+	</sql>
+	<insert id="saveAdvertise" parameterType="com.zdjf.domain.advertise.Advertise" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_advertise (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectAdvertise" resultType="com.zdjf.domain.advertise.AdvertiseVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_advertise
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectAdvertiseById" resultType="com.zdjf.domain.advertise.Advertise">
+		select * 
+		from zd_advertise
+		where 1=1
+		and
+		id=#{id}
+	</select>
+</mapper>

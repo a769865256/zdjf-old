@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.userBank">
+<select id="selectUserBankPage" resultType="com.zdjf.domain.user.UserBankVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_user_bank
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectUserBankCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_user_bank
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectUserBankById" resultType="com.zdjf.domain.user.UserBank">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_user_bank
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="updateUserBankById" parameterType="com.zdjf.domain.user.UserBank">
+		update zd_user_bank
+		<trim prefix="set" suffixOverrides=",">
+			<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+			<if test="bank_no != null and bank_no != ''"> bank_no = #{bank_no},</if>
+			<if test="bank_alias != null and bank_alias != ''"> bank_alias = #{bank_alias},</if>
+			<if test="card_user_name != null and card_user_name != ''"> card_user_name = #{card_user_name},</if>
+			<if test="phone != null and phone != ''"> phone = #{phone},</if>
+			<if test="status != null and status != ''"> status = #{status},</if>
+			<if test="remark != null and remark != ''"> remark = #{remark},</if>
+			<if test="create_time != null"> create_time = #{create_time},</if>
+			<if test="type != null and type != ''"> type = #{type},</if>
+			<if test="uid != null and uid != ''"> uid = #{uid},</if>
+			<if test="bank_open != null and bank_open != ''"> bank_open = #{bank_open},</if>
+			<if test="province != null and province != ''"> province = #{province},</if>
+			<if test="city != null and city != ''"> city = #{city},</if>
+			<if test="request_no != null and request_no != ''"> request_no = #{request_no},</if>
+			<if test="update_time != null"> update_time = #{update_time},</if>
+			<if test="card_id != null and card_id != ''"> card_id = #{card_id},</if>
+			<if test="ticket != null and ticket != ''"> ticket = #{ticket},</if>
+			<if test="unbind_ticket != null and unbind_ticket != ''"> unbind_ticket = #{unbind_ticket},</if>
+			<if test="card_attribute != null and card_attribute != ''"> card_attribute = #{card_attribute},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteUserBankById" parameterType="long">
+			delete from zd_user_bank where id=#{id}
+	</select>
+	<select id="selectBankCountByUid" resultType="java.lang.Integer">
+		select count(0) from zd_user_bank where status=1 and uid=#{user_id}
+	</select>
+</mapper>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>提现</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+	<link rel="stylesheet" href="../../static/css/find.css"/>
+    <script type="text/javascript" src="../../static/js/zoom.js"></script>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="../wealth/wealth.html"></a>提现</div>
+<div class="find body_content">
+	<!--<div class="re_title">充值金额将进入您的上海银行个人存管账户</div>-->
+    <div class="re_bank" id="my-bank"></div>
+    <div class="bank_mon">账户余额(元)：<span id="balance">-</span></div>
+    <div class="re_add">
+        <div class="add fl">提现金额:</div>
+        <div class="add fr"><input type="number" id="amount" class="money" placeholder="请输入提现金额"></div>
+    </div>
+    <!--<div class="re_cost">-->
+        <!--<div class="cost">提现费用:</div>-->
+        <!--<div class="co_box"><span class="cost_mon">0.00</span><a href="javascript:" class="cost_btn">使用优惠券</a></div>-->
+    <!--</div>-->
+    <!--<div class="re_cost">-->
+        <!--<div class="cost">实际扣除:</div>-->
+        <!--<div class="co_box"><span class="dedu">0.00</span></div>-->
+    <!--</div>-->
+    <!--<div class="recost_tlt">-->
+        <!--<p><em></em>充值未投资的资金提现将收取其提现金额2‰的手续费+1元/笔</p>-->
+        <!--<p><em></em>当前提现金额超出单笔限额，请分笔提交</p>-->
+    <!--</div>-->
+    <div class="re_addbtn">
+        <a href="javascript:;" class="costsub active" id="next">提交</a>
+        <!--<p>账户余额≤1元，需一次性提完</p>-->
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script src="../../module/layer_mobile/layer.js"></script>
+<script src="../../static/js/public.js"></script>
+<script>
+    (function() {
+        if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+        var cbcount = 2, entity_bank, entity_list, global_entity;
+        var HTML = {
+            BANK : ['<div class="banklogo flex">',
+                    '<img src="../../static/img/LOGO_BANK/{{code}}.png" alt=""></div>',
+                    '<div class="bank_name"><h4>{{name}}(尾号{{num}})</h4>',
+                    '<p>单笔限额{{single}}w元，单日限额{{day}}w元</p></div>'].join("")
+        }
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/userBank/page.json"
+        }, function(data) {
+            entity_bank = data.dataList[0];
+            if (--cbcount == 0) {
+                cbfn(entity_bank, entity_list);
+            }
+        }); 
+
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "get",
+            $URI : "/m/userBank/bank/list.json"
+        }, function(data) {
+            entity_list = data.dataList;
+            if (--cbcount == 0) {
+                cbfn(entity_bank, entity_list);
+            }
+        }); 
+
+        function cbfn(eb, el) {
+            var eb2 = null,
+                data = null,
+                len = eb.bank_no.length;
+
+            $(el).each(function(i, item) {
+                if (item.num == eb.bank_alias) {
+                    eb2 = item;
+                }
+            });
+
+            data = {
+                img : "",
+                name : eb2.name,
+                num : eb.bank_no.slice(len - 4, len),
+                single : eb2.single_max / 10000,
+                day : eb2.day_max / 10000,
+                code : eb.bank_alias
+            };
+
+            $("#my-bank").html($com.util.template(data, HTML.BANK));
+        } 
+
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "post",
+            $URI : "/m/userFundStat/balance/query.json"
+        }, [function(data) {
+            global_entity = data.dataList;
+            $("#balance").html("¥" + data.dataList.balance);
+        }, function() {
+            
+        }]);
+        
+        // 提交金额获取验证码
+        $("body").delegate("#next.active", "click", function() {
+            var amount = $("#amount").val();
+            
+            $(this).removeClass("active");
+            
+            if (!amount || Number(amount) <= 0) {
+                $com.app.tip("请输入提现金额");
+                recovery()
+                return;
+            } else if (Number(amount) > Number(global_entity.balance)) {
+                $com.app.tip("余额不足，无法提现");
+                recovery()
+                return;
+            }
+
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                amount : amount,
+                summary : "微信提现",
+                pay_type : 1,
+                sign : $.md5($com.cookie.get("user_name") + 4 + amount + $com.KEY),
+                payto_type : "FAST",
+                $TYPE : "post",
+                $URI : "/m/userFundStat/withdraw.json"
+            }, [function(url) {
+                recovery();
+                window.location = url;
+            }, function() {
+                recovery();
+            }]);
+
+            function recovery() {
+                $("#next").addClass("active");
+            }
+        });
+    }());
+</script>
+</html>
+

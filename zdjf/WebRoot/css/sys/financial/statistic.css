@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.admin-main {
+	background: #FFFFFF;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.lable-middle {
+	padding: .5em;
+}

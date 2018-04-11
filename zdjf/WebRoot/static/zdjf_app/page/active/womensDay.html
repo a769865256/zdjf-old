@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../../../module/layui/css/layui.mobile.css"/>
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/womensDay.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="womensDay">
+	<div class="womens_btn_box">
+		<div class="womens_btn_sbox fl">
+			<div class="womens_btn btn_ljlq" id="btn_hb"></div>
+		</div>
+		<div class="womens_btn_sbox fr">
+			<div class="womens_btn btn_ljlq" id="btn_jx"></div>
+		</div>
+	</div>
+	<div class="ranking">
+		<ul>
+		</ul>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../../../module/layui/layui.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+	(function() {
+        var reg_source = $com.uri.getUrlQuery().reg_source ? $com.uri.getUrlQuery().reg_source : 4;
+		var phone = $com.uri.getUrlQuery().phone || $com.cookie.get("user_name") || '';
+		if(reg_source == 4){
+			var toLogin = '../login/login.html?page_source=womensDay.html';
+		}else{
+			var toLogin = 'toLogin';
+		}
+		var flag = 00; //领取标示: 两位字符串组成，第一位数字标示红包领取情况（1未领取，2已领取），第二位加息券领取情况（a满足条件，未领取；b满足条件已领取;c不满足条件）；"00"表示未登录。若用户红包未领取，加息券不满足领取条件，则flag取值为"1c"
+		if(phone){
+			$com.app.ajax({
+				phone : phone,
+	            $TYPE : "post",
+	            $URI : "/goddessActivity/getUserFlag.action"
+        	}, function(data) {
+        		console.log(data.flag);
+	            flag = data.flag;
+	            if(data.flag[0] == 2){
+					$('#btn_hb').removeClass('btn_ljlq').addClass('ylq');
+				}
+				if(data.flag[1] == 'b'){
+					$('#btn_jx').removeClass('btn_ljlq').addClass('ylq');
+				}else if(data.flag[1] == 'c'){
+					$('#btn_jx').removeClass('btn_ljlq').addClass('bmz');
+				}
+	        });
+		}
+		
+		var flag_door = true;
+		$('.womens_btn').click(function() {
+			if(!phone){
+				window.location = toLogin;
+			}else if($(this).hasClass('btn_ljlq')){
+				flag_door = false;
+				if($(this).attr('id') == 'btn_hb'){
+					$com.app.ajax({
+						phone : phone,
+			            reg_source : reg_source,
+			            type : 1,
+			            $TYPE : "post",
+			            $URI : "/activity/getGoddessActivityGift.action"
+			        }, [function(data) {
+			        	console.log(data);
+			            $com.app.tip(data);
+			            $('#btn_hb').removeClass('btn_ljlq').addClass('ylq');
+			            flag_door = true;
+			        },function(data){
+			        	console.log(data);
+			        	$com.app.tip(data);
+			        	flag_door = true;
+			        }]);
+				}else{
+					$com.app.ajax({
+						phone : phone,
+			            reg_source : reg_source,
+			            type : 2,
+			            $TYPE : "post",
+			            $URI : "/activity/getGoddessActivityGift.action"
+			        }, [function(data) {
+			        	console.log(data);
+			            $com.app.tip(data);
+			            $('#btn_jx').removeClass('btn_ljlq').addClass('ylq');
+			            flag_door = true;
+			        },function(data){
+			        	console.log(data);
+			        	$com.app.tip(data);
+			        	flag_door = true;
+			        }]);
+				}
+				
+			}
+		})
+		//查询女神季活动投资排行
+		$com.app.ajax({
+            $TYPE : "post",
+            $URI : "/activity/queryGoddessInvt.action"
+        }, function(data) {
+            var str = '';
+            $.each(data,function(index,ele){
+            	if(index>4){
+            		str+= '<li class="bmz"><div class="user_name fl">'+ele.phone+'</div><div class="amount_invest fr">¥'+ele.amt+'</div></li>';
+            	}else{
+            		str+= '<li><div class="user_name fl">'+ele.phone+'</div><div class="amount_invest fr">¥'+ele.amt+'</div></li>';
+            	}
+            })
+            $('.ranking ul').append(str);
+        });
+    }());
+</script>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.source.source">
+<select id="selectSourcePage" resultType="java.util.Map">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_source
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectSourceCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_source
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectSourceById" resultType="com.zdjf.domain.source.Source">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_source
+		where 1=1
+		and id=#{id}
+	</select>
+	
+	<select id="updateSourceById" parameterType="com.zdjf.domain.source.Source">
+		update zd_source
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''">  id = #{id},</if>
+		<if test="source_platform != null and source_platform != ''">  source_platform = #{source_platform},</if>
+		<if test="source_code != null and source_code != ''">  source_code = #{source_code},</if>
+		<if test="source_name != null and source_name != ''">  source_name = #{source_name},</if>
+		<if test="source_url != null and source_url != ''">  source_url = #{source_url},</if>
+		<if test="create_time != null">  create_time = #{create_time},</if>
+		<if test="remark != null and remark != ''">  remark = #{remark},</if>
+		<if test="source_id != null and source_id != ''">  source_id = #{source_id},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteSourceById" parameterType="long">
+			delete from zd_source where id=#{id}
+	</select>
+</mapper>

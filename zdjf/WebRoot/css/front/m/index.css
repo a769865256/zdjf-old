@@ -1,0 +1,120 @@
+.header{
+	height: 88px;
+    line-height: 88px;
+    background: linear-gradient(top,#1195fe,#008eff);
+    background: -webkit-linear-gradient(top,#1195fe,#008eff);
+    background: -moz-linear-gradient(top,#1195fe,#008eff);
+    text-align: center;
+    color: #ffffff;
+    font-size: 34px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+.header a.back{
+	display: inline-block;
+	position: absolute;
+	width: 88px;
+	height: 88px;
+	left: 0;
+	top: 0px;
+	background: url(../../../images/front/m/backoff.png) center center no-repeat;
+}
+.header a.register{
+    display: inline-block;
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    right: 0;
+    top: 0px;
+    text-align: center;
+    line-height: 88px;
+    font-size: 28px;
+}
+.footer{
+    position: fixed;
+    height:100px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+}
+.footer a{
+    display: block;
+    flex:1;
+    height: 100%;
+    text-align: center;
+}
+.footer a.state1{background: url(../../static/img/findbtn_01.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.state2{background: url(../../static/img/findbtn_02.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.state3{background: url(../../static/img/findbtn_03.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.state4{background: url(../../static/img/findbtn_04.jpg) center 15px no-repeat;background-size: 50px;}
+.footer a.active p{color: #008eff;}
+.footer a img{
+    width: 50px;
+    padding: 10px 0;
+}
+.footer a p{
+    font-size: 20px;
+    color: #a0a0a0;
+    margin-top: 70px;
+}
+
+/* 首页banner切换 */
+.swiper-container {
+    width: 100%;
+}
+.banner{
+    width: 100%;
+}
+.banner img{
+    width: 100%;
+}
+.modular{
+    display: flex;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+.modular .modu{
+    flex:1;
+    height: 166px;
+}
+.modular .modu a{
+    display: block;
+    height: 100%;
+    text-align: center;
+}
+.modular .modu a h3{
+    font-size: 26px;
+    color: #3b3b3b;
+    padding: 110px 0 0;
+}
+.modular .mo1{background: url(../img/index/index01.png) center 40px no-repeat;background-size: 68px;}
+.modular .mo2{background: url(../img/index/index02.png) center 40px no-repeat;background-size: 68px;}
+.modular .mo3{background: url(../img/index/index03.png) center 40px no-repeat;background-size: 68px;}
+.modular .mo4{background: url(../img/index/index04.png) center 40px no-repeat;background-size: 68px;}
+
+.hide{display: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

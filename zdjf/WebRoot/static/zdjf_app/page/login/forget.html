@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/login.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="login">
+	<div class="header"><a class="back" href="login.html"></a>忘记密码</div>
+	<div class="l_box">
+		<div class="zdlogo">
+			<img src="../../static/img/login/login.png" alt="">
+		</div>
+		<div class="regist_box">
+			<ul>
+				<li class="phone"><input type="number" class="ph_num" id="acc" placeholder="输入手机号码"></li>
+				<li class="img"><input type="number" class="ph_num" id="code" placeholder="输入验证码">
+					<input type="button" class="verbtn" id="btn" value="获取验证码">
+				</li>
+				<li class="pass"><input type="password" class="ph_num" id="pwd" placeholder="设置6-16位数字+英文组合的登录密码"></li>
+			</ul>
+		</div>
+		<div class="l_btn">
+			<a href="javascript:" class="active" id="forget">确定</a>
+			<p><img src="../../static/img/login/btntxt.png" alt="">上海银行资金监管</p>
+		</div>
+	</div> 
+</div>
+<script type="text/javascript" src="../../static/js/zoom.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+	(function() {
+		$('.regist_box input').focus(function () {
+		    $(this).parent().addClass('active');
+		}).blur(function () {
+		    $(this).parent().removeClass('active');
+		})
+	    //ios readonly失效问题解决；
+        $('.in_open input').on('focus', function() {
+            $(this).trigger('blur');
+        });
+		var countdown=60; 
+		function settime(obj) { //发送验证码倒计时
+		    if (countdown == 0) { 
+		        obj.removeAttr('disabled');
+		        obj.addClass('verbtn');
+		        obj.val("获取验证码");
+		        countdown = 60; 
+		        return;
+		    } else { 
+		        obj.attr('disabled',true);
+		        obj.val(countdown + "秒后重发");
+		        countdown--; 
+		    } 
+		    setTimeout(function() { 
+		        settime(obj) 
+		    },1000) 
+		}
+		
+		$("body").delegate("#btn:not([disabled])", "click", function() {
+			
+			var acc = $("#acc").val();
+
+			if (!acc) {
+				$com.app.tip("请输入手机号");
+				return;
+			}
+
+			$(this).removeClass("verbtn");
+			settime($(this));
+			
+			$com.app.ajax({
+				phone : acc,
+				type : 2,
+				ip : $com.IP,
+				sign : $.md5(acc + "2" + $com.IP + $com.KEY),
+				$TYPE : "post",
+				$URI : "/m/sms/send.json"
+			}, function(data) {
+				//console.log(data);
+			});
+		});
+		
+		$("body").delegate("#forget.active", "click", function() {
+			var acc = $("#acc").val(),
+				code = $("#code").val(),
+				pwd = $("#pwd").val(),
+				invite = $("#invite").val();
+			$(this).removeClass("active");
+			if (!acc) {
+				$com.app.tip("请输入手机号");
+				recovery()
+				return;
+			}
+			
+			if (!code) {
+				$com.app.tip("请输入验证码");
+				recovery()
+				return;
+			}
+			
+			if (!pwd) {
+				$com.app.tip("请输入密码");
+				recovery()
+				return;
+			} else if (pwd.length < 6 || pwd.length > 16 || pwd.match(/^\w+$/g) == null) {
+				$com.app.tip("登录密码格式不正确必须为6-16个字符，数字和英文的组合");
+				recovery()
+				return;
+			}
+
+			$com.app.ajax({
+				phone : acc,
+				passwd : pwd,
+				ip : $com.IP,
+				verif : code,
+				reg_source : 4,
+				sign : $.md5(acc + pwd + $com.IP + $com.KEY),
+				$TYPE : "post",
+				$URI : "/m/user/passwd.json"
+				////m/sms/send.json
+			}, [function(data) {
+				window.location = "login.html"
+			}, function() {
+				recovery();
+			}]);
+			
+			function recovery() {
+				$("#forget").addClass("active");
+			}
+		});
+	}());
+</script>
+</body>
+</html>
+

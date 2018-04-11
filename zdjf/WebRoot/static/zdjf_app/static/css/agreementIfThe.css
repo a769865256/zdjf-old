@@ -1,0 +1,32 @@
+.body_content{
+    padding: 30px;
+    padding-top: 88px;
+}
+.ifTheBox{
+}
+.ifTheTitle{
+    font-size: 30px;
+    line-height: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.ifTheLine{
+	overflow:hidden;
+	padding: 10px 0;
+	height:50px;
+	line-height:50px;
+}
+.ifTheLineLeft{
+    font-size: 26px;
+    float:left;
+    height:50px;
+    line-height:50px;
+}
+.ifTheLineRight{
+    font-size: 26px;
+    width: 480px;
+    border-bottom:1px solid #ccc;
+    float:right;
+    height:50px;
+    line-height:50px;
+}

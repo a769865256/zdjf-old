@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.gift">
+
+	<!-- 所有列名 -->
+	<sql id="columns">
+	id,
+	gift_name,
+	gift_source,
+	money,
+	status,
+	create_time,
+	max_count,
+	date_type,
+	start_date,
+	end_date,
+	gift_days,
+	max_amount,
+	max_days,
+	use_type,
+	remark,
+	old_gift_id
+   </sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''">  id,</if>
+		<if test="gift_name != null and gift_name != ''">  gift_name,</if>
+		<if test="gift_source != null and gift_source != ''">  gift_source,</if>
+		<if test="money != null and money != ''">  money,</if>
+		<if test="status != null and status != ''">  status,</if>
+		<if test="create_time != null">  create_time,</if>
+		<if test="max_count != null and max_count != ''">  max_count,</if>
+		<if test="date_type != null and date_type != ''">  date_type,</if>
+		<if test="start_date != null">  start_date,</if>
+		<if test="end_date != null">  end_date,</if>
+		<if test="gift_days != null and gift_days != ''">  gift_days,</if>
+		<if test="max_amount != null and max_amount != ''">  max_amount,</if>
+		<if test="max_days != null and max_days != ''">  max_days,</if>
+		<if test="use_type != null and use_type != ''">  use_type,</if>
+		<if test="remark != null and remark != ''">  remark,</if>
+		<if test="old_gift_id != null and old_gift_id != ''">  old_gift_id,</if>
+	</sql>
+	<!-- 列值 -->
+	<sql id="vals">
+	<if test="id != null and id != ''">  #{id},</if>
+	<if test="gift_name != null and gift_name != ''">  #{gift_name},</if>
+	<if test="gift_source != null and gift_source != ''">  #{gift_source},</if>
+	<if test="money != null and money != ''">  #{money},</if>
+	<if test="status != null and status != ''">  #{status},</if>
+	<if test="create_time != null">  #{create_time},</if>
+	<if test="max_count != null and max_count != ''">  #{max_count},</if>
+	<if test="date_type != null and date_type != ''">  #{date_type},</if>
+	<if test="start_date != null">  #{start_date},</if>
+	<if test="end_date != null">  #{end_date},</if>
+	<if test="gift_days != null and gift_days != ''">  #{gift_days},</if>
+	<if test="max_amount != null and max_amount != ''">  #{max_amount},</if>
+	<if test="max_days != null and max_days != ''">  #{max_days},</if>
+	<if test="use_type != null and use_type != ''">  #{use_type},</if>
+	<if test="remark != null and remark != ''">  #{remark},</if>
+	<if test="old_gift_id != null and old_gift_id != ''">  #{old_gift_id},</if>
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''"> and id = #{id}</if>
+		<if test="gift_name != null and gift_name != ''"> and gift_name = #{gift_name}</if>
+		<if test="gift_source != null and gift_source != ''"> and gift_source = #{gift_source}</if>
+		<if test="money != null and money != ''"> and money = #{money}</if>
+		<if test="status != null and status != ''"> and status = #{status}</if>
+		<if test="create_time != null"> and create_time = #{create_time}</if>
+		<if test="max_count != null and max_count != ''"> and max_count = #{max_count}</if>
+		<if test="date_type != null and date_type != ''"> and date_type = #{date_type}</if>
+		<if test="start_date != null"> and start_date = #{start_date}</if>
+		<if test="end_date != null"> and end_date = #{end_date}</if>
+		<if test="gift_days != null and gift_days != ''"> and gift_days = #{gift_days}</if>
+		<if test="max_amount != null and max_amount != ''"> and max_amount = #{max_amount}</if>
+		<if test="max_days != null and max_days != ''"> and max_days = #{max_days}</if>
+		<if test="use_type != null and use_type != ''"> and use_type = #{use_type}</if>
+		<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+		<if test="old_gift_id != null and old_gift_id != ''"> and old_gift_id = #{old_gift_id}</if>
+	</sql>
+	
+	
+	<insert id="saveGift" parameterType="com.zdjf.domain.fund.Gift" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_gift (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="loadGift" resultType="com.zdjf.domain.fund.GiftVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_gift
+		where id=#{id}
+	</select>
+	
+	<select id="selectGift" resultType="com.zdjf.domain.fund.GiftVo">
+		select
+		<include refid="columns"/>
+		from zd_gift
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+	</select>
+	<select id="selectGiftById" resultType="com.zdjf.domain.fund.Gift">
+		select
+		<include refid="columns"/>
+		from zd_gift
+		where 1=1
+		<include refid="conds" />
+	</select>
+
+</mapper>

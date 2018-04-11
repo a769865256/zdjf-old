@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>充值失败</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+	<link rel="stylesheet" href="../../static/css/find.css"/>
+    <link rel="stylesheet" href="../../static/css/recharge.css"/>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="../wealth/wealth.html"></a>充值</div>
+<div class="find body_content">
+    <div class="depo_ok">
+        <img src="../../static/img/recharge/r_fail.png" alt="" width="445" height="411">
+        <div class="mybtn">
+            <a href="../wealth/wealth.html">充值</a>
+            <a href="../../index.html">取消</a>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../static/js/zoom750.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script src="../../module/layer_mobile/layer.js"></script>
+<script src="../../static/js/public.js"></script>
+<script>
+    (function() {
+        $("#amount").html("充值成功！到账金额¥" + $com.uri.getUrlQuery().amount + "元");
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "post",
+            $URI : "/m/userFundStat/balance/query.json"
+        }, [function(data) {
+            $("#balance").html("¥" + data.dataList.balance);
+        }, function() {
+            
+        }]);
+    }());
+</script>
+</html>

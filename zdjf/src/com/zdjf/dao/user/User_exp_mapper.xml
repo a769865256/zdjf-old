@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.user">
+	<sql id="columnsAs">
+		t1.id, t1.user_name, t1.passwd,t1.pay_passwd, t1.invite_code, t1.phone, t1.real_name, t1.idcard_no, t1.real_name_auth, t1.idcard_auth_time,
+		t1.pay_account, t1.sex, t1.update_time, t1.create_time, t1.inviter_phone, t1.birthday, t1.new_hand, t1.return_status,
+		t1.remark, t1.user_type, t1.invite_source, t1.status, t1.reg_source, t1.last_login_time, t1.login_ip, t1.reg_ip
+	</sql>
+<!-- 注册会员列表结果集 -->
+	<resultMap id="UserListResultMap" type="com.zdjf.domain.user.UserListBean">
+		<id column="user_id" property="uid" jdbcType="BIGINT"/>
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="real_name" property="realName" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="inviter_phone" property="inviterPhone" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+		<result column="status_name" property="statusName" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="balance" property="balance" jdbcType="DECIMAL" />
+		<result column="recharged" property="recharged" jdbcType="DECIMAL" />
+		<result column="total_recharged" property="totalRecharged" jdbcType="DECIMAL" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="inviters" property="inviters" jdbcType="INTEGER" />
+		<result column="spread_channel_name" property="spreadChannelName" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="selectUserPage" resultType="com.zdjf.domain.user.UserVo">
+		select
+		<include refid="columnsAs"/>
+		from
+		zd_user t1
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectUserCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_user
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	
+	<select id="login" resultType="com.zdjf.domain.user.User"  parameterType="com.zdjf.domain.user.User">
+		select 
+		<include refid="columns"/>
+		from zd_user a
+		where a.user_login=#{user_login}
+	</select>
+	<select id="selectUserByPhone" resultType="com.zdjf.domain.user.User">
+		select
+		<include refid="columns"/>
+		from zd_user t1
+		where 1=1
+		and t1.user_name=#{user_name}
+	</select>
+	<select id="selectForUser" resultType="com.zdjf.domain.user.User">
+		select
+		<include refid="columnsAs"/>
+		from zd_user t1
+		where 1=1
+		<if test="id != null and id != ''">
+		and t1.id=#{id}
+		</if>
+		<if test="real_name != null and real_name != ''">
+		and t1.real_name=#{real_name}
+		</if>
+		<if test="user_name != null and user_name != ''">
+		and t1.user_name=#{user_name}
+		</if>
+	</select>
+	<select id="updateForObjectByPhone" parameterType="com.zdjf.domain.user.User">
+		update zd_user
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''">
+			id=#{id},
+			</if>
+			<if test="user_name != null and user_name != ''">
+			user_name=#{user_name},
+			</if>
+			<if test="passwd != null and passwd != ''">
+			passwd=#{passwd},
+			</if>
+			<if test="pay_passwd != null and pay_passwd != ''">
+			pay_passwd=#{pay_passwd},
+			</if>
+			<if test="invite_code != null and invite_code != ''">
+			invite_code=#{invite_code},
+			</if>
+			<if test="phone != null and phone != ''">
+			phone=#{phone},
+			</if>
+			<if test="real_name != null and real_name != ''">
+			real_name=#{real_name},
+			</if>
+			<if test="idcard_no != null and idcard_no != ''">
+			idcard_no=#{idcard_no},
+			</if>
+			<if test="real_name_auth != null and real_name_auth != ''">
+			real_name_auth=#{real_name_auth},
+			</if>
+			<if test="idcard_auth_time != null">
+			idcard_auth_time=#{idcard_auth_time},
+			</if>
+			<if test="pay_account != null and pay_account != ''">
+			pay_account=#{pay_account},
+			</if>
+			<if test="sex != null and sex != ''">
+			sex=#{sex},
+			</if>
+			<if test="update_time != null ">
+			update_time=#{update_time},
+			</if>
+			<if test="create_time != null ">
+			create_time=#{create_time},
+			</if>
+			<if test="inviter_phone != null and inviter_phone != ''">
+			inviter_phone=#{inviter_phone},
+			</if>
+			<if test="birthday != null and birthday != ''">
+			birthday=#{birthday},
+			</if>
+			<if test="new_hand != null and new_hand != ''">
+			new_hand=#{new_hand},
+			</if>
+			<if test="return_status != null and return_status != ''">
+			return_status=#{return_status},
+			</if>
+			<if test="remark != null and remark != ''">
+			remark=#{remark},
+			</if>
+			<if test="user_type != null and user_type != ''">
+			user_type=#{user_type},
+			</if>
+			<if test="invite_source != null and invite_source != ''">
+			invite_source=#{invite_source},
+			</if>
+			<if test="status != null and status != ''">
+			status=#{status},
+			</if>
+			<if test="reg_source != null and reg_source != ''">
+			reg_source=#{reg_source},
+			</if>
+			<if test="last_login_time != null ">
+			last_login_time=#{last_login_time},
+			</if>
+			<if test="login_ip != null and login_ip != ''">
+			login_ip=#{login_ip},
+			</if>
+			<if test="open_account != null and open_account != ''">
+			open_account=#{open_account},
+			</if>
+			<if test="open_account_time != null">
+			open_account_time=#{open_account_time},
+			</if>
+			<if test="reg_ip != null and reg_ip != ''">
+			reg_ip=#{reg_ip},
+			</if>
+			<if test="sign_num != null ">
+			sign_num=#{sign_num},
+			</if>
+			<if test="sign_data != null">
+			sign_data=#{sign_data},
+			</if>
+		</trim>
+		where 1=1
+		and user_name=#{user_name}
+	</select>
+	<!-- 会员投资信息列表SQL -->
+	<select id="selectInvestPage" resultMap="UserListResultMap"  parameterType="java.util.HashMap">
+		select
+		a.id,
+		a.real_name,
+		a.phone,
+		t.grand_total_invested,
+		(select MAX(f.create_time) from zd_funds f where f.user_id = a.user_id and f.`status` = 1 and  f.operate_type = 22) as pay_time,
+		(select pp.amount from zd_product_buy pp where pp.user_id=a.user_id and pp.first_buy_flag=1) as first_invested
+		from zd_user a
+		left join (
+		select
+		p.user_id,
+		sum(p.amount) as grand_total_invested
+		from zd_product_buy p
+		where
+		p.`status` in (1,2)
+		<if test="startDate != null  and startDate != '' "  >
+			<![CDATA[ and p.pay_time >= #{startDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' "  >
+			<![CDATA[ and p.pay_time <= #{endDate, jdbcType=VARCHAR} ]]>
+		</if>
+		group by
+		p.user_id
+		) t on a.id = t.user_id
+		where 1=1
+		<if test="moneyMin != null  and moneyMin != '' "  >
+			<![CDATA[ and (select pp.amount from zd_product_buy pp where pp.user_id=a.user_id and pp.first_buy_flag=1) >= #{moneyMin, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != '' "  >
+			<![CDATA[ and (select pp.amount from zd_product_buy pp where pp.user_id=a.user_id and pp.first_buy_flag=1)<= #{moneyMax, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="investTotalMin != null  and investTotalMin != '' "  >
+			<![CDATA[ and t.grand_total_invested >= #{investTotalMin, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="investTotalMax != null  and investTotalMax != '' "  >
+			<![CDATA[ and t.grand_total_invested<= #{investTotalMax, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and a.phone like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and a.real_name like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+		</if>
+		order by a.create_time desc
+		limit #{limitFrom, jdbcType=BIGINT} , #{limitTo, jdbcType=BIGINT}
+	</select>
+	<!-- 会员投资信息记录数SQL -->
+	<select id="selectInvestCount" resultType="java.lang.Long" parameterType="java.util.HashMap">
+		select
+		count(0)
+		from zd_user a
+		left join (
+		select
+		p.user_id,
+		sum(p.amount) as grand_total_invested
+		from zd_product_buy p
+		where
+		p.`status` in (1,2)
+		<if test="startDate != null  and startDate != ''"  >
+			<![CDATA[ and p.pay_time >= #{startDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' "  >
+			<![CDATA[ and p.pay_time <= #{endDate, jdbcType=VARCHAR} ]]>
+		</if>
+		group by
+		p.user_id
+		) t on a.id = t.user_id
+		where 1=1
+		<if test="moneyMin != null  and moneyMin != '' "  >
+			<![CDATA[ and (select pp.amount from zd_product_buy pp where pp.user_id=a.id and pp.first_buy_flag=1) >= #{moneyMin, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="moneyMax != null  and moneyMax != ''"  >
+			<![CDATA[ and (select pp.amount from zd_product_buy pp where pp.user_id=a.id and pp.first_buy_flag=1)<= #{moneyMax, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="investTotalMin != null  and investTotalMin != ''"  >
+			<![CDATA[ and t.grand_total_invested >= #{investTotalMin, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="investTotalMax != null  and investTotalMax != ''"  >
+			<![CDATA[ and t.grand_total_invested<= #{investTotalMax, jdbcType=DECIMAL} ]]>
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and a.phone like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and a.real_name like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+		</if>
+	</select>
+	<select id="selectUserByIdList" resultType="com.zdjf.domain.user.UserVo">
+	 select
+	 <include refid="columns"/>
+	 from zd_user 
+	 where 1=1
+	 and id in
+	 <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+	  #{item}  
+	 </foreach>
+	</select>
+	<select id="UserListResul" resultType="java.util.Map">
+		select
+		id,user_name,phone,real_name,idcard_no,sex,create_time,reg_source,invite_source,remark,real_name_auth,status
+		from zd_user
+		where 1=1
+		<if test="sourceType != null and sourceType != ''"  >
+			and invite_source = #{sourceType, jdbcType=VARCHAR}
+		</if>
+		<if test="regSource != null and regSource != '' and regSource != 0"  >
+			and reg_source = #{regSource, jdbcType=TINYINT}
+		</if>
+		<if test="userStatus != null and userStatus != '' and userStatus != 0"  >
+			and status = #{userStatus, jdbcType=TINYINT}
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and phone like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and real_name like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 4">
+				and inviter_phone like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 5">
+				and idcard_no like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+		</if>
+		<if test="isRealName!= null and isRealName != '' ">
+			<if test="isRealName == 1">
+				and real_name_auth is not null and real_name_auth = 1
+			</if>
+			<if test="isRealName == 0">
+				and (real_name_auth is null or real_name_auth not in (1))
+			</if>
+		</if>
+		<if test="startDate != null  and startDate != '' and (endDate == null or endDate =='')"  >
+			<![CDATA[ and create_time >= #{startDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and (startDate == null or startDate =='')"  >
+			<![CDATA[ and create_time <= #{endDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and startDate != null and startDate !=''"  >
+			and create_time between #{startDate, jdbcType=VARCHAR} and #{endDate, jdbcType=VARCHAR}
+		</if>
+		<if test="authStartDate != null  and authStartDate != '' and (authEndDate == null or authEndDate =='')"  >
+			<![CDATA[ and idcard_auth_time >= #{authStartDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="authEndDate != null  and authEndDate != '' and (authStartDate == null or authStartDate =='')"  >
+			<![CDATA[ and idcard_auth_time <= #{authEndDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="authEndDate != null  and authEndDate != '' and authStartDate != null and authStartDate !=''"  >
+			and idcard_auth_time between #{authStartDate, jdbcType=VARCHAR} and #{authEndDate, jdbcType=VARCHAR}
+		</if>
+		<if test="isPayed!= null and isPayed != ''and isPayed !=0 ">
+			and new_hand =#{isPayed,jdbcType=TINYINT}
+		</if>
+		<if test="userType != null and userType != '' and userType != 0"  >
+			and user_type = #{userType, jdbcType=VARCHAR}
+		</if>
+		<if test="type ==1">
+			order by create_time desc
+		</if>
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="UserListResulCn" resultType="java.lang.Long">
+		select
+		count(0)
+		from zd_user
+		where 1=1
+		<if test="sourceType != null and sourceType != ''"  >
+			and invite_source = #{sourceType, jdbcType=VARCHAR}
+		</if>
+		<if test="regSource != null and regSource != '' and regSource != 0"  >
+			and reg_source = #{regSource, jdbcType=TINYINT}
+		</if>
+		<if test="userStatus != null and userStatus != '' and userStatus != 0"  >
+			and status = #{userStatus, jdbcType=TINYINT}
+		</if>
+		<if test="searchParam != null  and searchParam != '' "  >
+			<if test="searchType == 1">
+				and phone like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 2">
+				and real_name like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 4">
+				and inviter_phone like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+			<if test="searchType == 5">
+				and idcard_no like concat('%', #{searchParam, jdbcType=VARCHAR}, '%' )
+			</if>
+		</if>
+		<if test="isRealName!= null and isRealName != '' ">
+			<if test="isRealName == 1">
+				and real_name_auth is not null and real_name_auth = 1
+			</if>
+			<if test="isRealName == 0">
+				and (real_name_auth is null or real_name_auth not in (1))
+			</if>
+		</if>
+		<if test="startDate != null  and startDate != '' and (endDate == null or endDate =='')"  >
+			<![CDATA[ and create_time >= #{startDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and (startDate == null or startDate =='')"  >
+			<![CDATA[ and create_time <= #{endDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="endDate != null  and endDate != '' and startDate != null and startDate !=''"  >
+			and create_time between #{startDate, jdbcType=VARCHAR} and #{endDate, jdbcType=VARCHAR}
+		</if>
+		<if test="authStartDate != null  and authStartDate != '' and (authEndDate == null or authEndDate =='')"  >
+			<![CDATA[ and idcard_auth_time >= #{authStartDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="authEndDate != null  and authEndDate != '' and (authStartDate == null or authStartDate =='')"  >
+			<![CDATA[ and idcard_auth_time <= #{authEndDate, jdbcType=VARCHAR} ]]>
+		</if>
+		<if test="authEndDate != null  and authEndDate != '' and authStartDate != null and authStartDate !=''"  >
+			and idcard_auth_time between #{authStartDate, jdbcType=VARCHAR} and #{authEndDate, jdbcType=VARCHAR}
+		</if>
+		<if test="isPayed!= null and isPayed != ''and isPayed !=0 ">
+			and new_hand =#{isPayed,jdbcType=TINYINT}
+		</if>
+		<if test="userType != null and userType != '' and userType != 0"  >
+			and user_type = #{userType, jdbcType=VARCHAR}
+		</if>
+		<if test="type ==1">
+			order by create_time desc
+		</if>
+	</select>
+	<select id="selectUserByDay" resultType="com.zdjf.domain.user.User" parameterType="java.util.Map">
+		select * 
+		from zd_user
+		where 1=1
+		<include refid="conds" />
+		<if test="start_date != null"  >
+			and UNIX_TIMESTAMP(create_time) &gt;= UNIX_TIMESTAMP(#{start_date,jdbcType=TIMESTAMP})
+		</if>
+		<if test="end_date != null"  >
+			and UNIX_TIMESTAMP(create_time) &lt;= UNIX_TIMESTAMP(#{end_date,jdbcType=TIMESTAMP})
+		</if>
+	</select>
+	
+	<select id="selectUserTransferList" resultType="com.zdjf.domain.user.User" >
+		select * 
+		from zd_user
+		where real_name_auth =0
+	</select>
+	<update id="cleanSignTimesByShare">
+		UPDATE zd_user SET sign_data = NULL,sign_num = if(sign_num -1 &lt; 0,0,sign_num -1) WHERE sign_data is not NULL
+	</update>
+	<update id="cleanSignTimes">
+		UPDATE zd_user SET sign_data = NULL,sign_num = 0 WHERE sign_num > 0 or sign_data is not NULL
+	</update>
+	<select id="userCount" resultType="java.lang.Long">
+		select COUNT(1) from zd_user
+	</select>
+	<select id="staUserTotalIncomed" resultType="java.lang.Double">
+		SELECT SUM(amount) - SUM(act_pay_money) + SUM(incomed) from zd_product_buy where status BETWEEN 1 and 2
+	</select>
+
+	<select id="selectUserAwardRecByCurrDay" resultType="java.lang.Integer">
+		select COUNT(1)
+		from zd_award_rec
+		where activity_type = 1
+		AND DATE_FORMAT(create_time,'%Y-%m-%d') = DATE_FORMAT(NOW(),'%Y-%m-%d')
+		AND user_id = #{userId,jdbcType=INTEGER}
+	</select>
+
+	<insert id="saveUserAwardRec" parameterType="com.zdjf.domain.activity.AwardRec" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Integer" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_award_rec (
+		<if test="id != null">id,</if>
+		<if test="user_id != null">
+			user_id,
+		</if>
+		<if test="reg_source != 0">
+			reg_source,
+		</if>
+		<if test="activity_type != 0">
+			activity_type,
+		</if>
+		<if test="award_type != 0">
+			award_type
+		</if>
+		)
+		values (
+			<if test="id != null">
+			#{id},
+			</if>
+			<if test="user_id != null">
+				#{user_id},
+			</if>
+			<if test="reg_source != 0">
+				#{reg_source},
+			</if>
+			<if test="activity_type != 0">
+				#{activity_type},
+			</if>
+			<if test="award_type != 0">
+				#{award_type}
+			</if>
+		)
+	</insert>
+</mapper>

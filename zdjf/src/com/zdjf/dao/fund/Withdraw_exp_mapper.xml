@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.withdraw">
+	<select id="selectWithdrawPage" resultType="com.zdjf.domain.fund.WithdrawVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_withdraw
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectWithdrawCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_withdraw
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectWithdrawList" resultType="java.util.Map">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_withdraw
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectWithdrawListCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_withdraw
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectWithdrawById" resultType="com.zdjf.domain.fund.Withdraw">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_withdraw
+		where 1=1
+		and id=#{id}
+	</select>
+	
+	<select id="updateWithdrawById" parameterType="com.zdjf.domain.fund.Withdraw">
+		update zd_withdraw
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''"> id = #{id},</if>
+		<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+		<if test="money != null and money != ''"> money = #{money},</if>
+		<if test="real_name != null and real_name != ''"> real_name = #{real_name},</if>
+		<if test="bank_no != null and bank_no != ''"> bank_no = #{bank_no},</if>
+		<if test="status != null and status != ''"> status = #{status},</if>
+		<if test="remark != null and remark != ''"> remark = #{remark},</if>
+		<if test="yeepay_batchno != null and yeepay_batchno != ''"> yeepay_batchno = #{yeepay_batchno},</if>
+		<if test="bank_serial_no != null and bank_serial_no != ''"> bank_serial_no = #{bank_serial_no},</if>
+		<if test="pp_serial_no != null and pp_serial_no != ''"> pp_serial_no = #{pp_serial_no},</if>
+		<if test="create_time != null"> create_time = #{create_time},</if>
+		<if test="update_time != null"> update_time = #{update_time},</if>
+		<if test="resp_desc != null and resp_desc != ''"> resp_desc = #{resp_desc},</if>
+		<if test="resp_code != null and resp_code != ''"> resp_code = #{resp_code},</if>
+		<if test="fee_amt != null and fee_amt != ''"> fee_amt = #{fee_amt},</if>
+		<if test="fee_cust_id != null and fee_cust_id != ''"> fee_cust_id = #{fee_cust_id},</if>
+		<if test="fee_acct_id != null and fee_acct_id != ''"> fee_acct_id = #{fee_acct_id},</if>
+		<if test="req_source != null and req_source != ''"> req_source = #{req_source},</if>
+		<if test="fee_obj != null and fee_obj != ''"> fee_obj = #{fee_obj},</if>
+		<if test="real_trans_amt != null and real_trans_amt != ''"> real_trans_amt = #{real_trans_amt},</if>
+		<if test="delay_time != null"> delay_time = #{delay_time},</if>
+		<if test="is_use_coupon != null and is_use_coupon != ''"> is_use_coupon = #{is_use_coupon},</if>
+		<if test="wd_id != null and wd_id != ''"> wd_id = #{wd_id},</if>
+		<if test="uid != null and uid != ''"> uid = #{uid},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteWithdrawById" parameterType="long">
+			delete from zd_withdraw where id=#{id}
+	</select>
+</mapper>

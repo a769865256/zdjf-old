@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+	<link rel="stylesheet" href="../../static/css/wealth.css"/>
+    <script type="text/javascript" src="../../static/js/zoom.js"></script>
+</head>
+<body class="zoom">
+<div class="wealth">
+	<div class="header"><a class="back" href="wealth.html"></a>我的投资</div>
+    <div class="invest">
+        <div class="tab">
+            <span class="active">履约中</span>
+            <span>已还款</span>
+        </div>
+        <div class="tabbox">
+            <div class="box">
+                <ul id="content1"></ul>
+                <div class="loading" style="line-height: 50px;text-align: center;color: #999;font-size: 16px;"></div>
+            </div>
+            <div class="box" style="display: none;">
+                <ul id="content2"></ul>
+                <div class="loading_jx" style="line-height: 50px;text-align: center;color: #999;font-size: 16px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 弹窗 -->
+<div class="no_pay" style="display: none;">
+    <div class="box">
+        <h3>未支付订单</h3>
+        <p>该笔订单未完成支付</p>
+        <div class="btn">
+            <a href="javascript:" class="cancelbtn">取消订单</a>
+            <a href="javascript:">立即支付</a>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+    //rem布局
+    (function(win) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var tid;
+
+        function refreshRem() {
+            var width = docEl.getBoundingClientRect().width;
+            if (width > 750) { // 最大宽度
+                width = 750;
+            }
+            var rem = width / 10;
+            docEl.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        refreshRem();
+
+    })(window);
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/wealth.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+    (function() {
+        if(!$com.cookie.get("user_name")){
+            window.location = "../login/login.html";
+        }
+        var page = 0,
+            page_jx = 0,
+            isLoading = false,
+            isLoading_jx = false,
+            endDate = false,
+            endDate_jx = false;
+
+        var HTML = {
+            // t_col1增加 t_col2减少 t_col3失败
+            LIST : ['<li><a href="invest_details.html?id={{product_id}}&buy_id={{id}}" class="detail">{{product_name}}</a>',
+                    '<div class="txt"><div class="tent">',
+                    '<h4>{{will_income}}</h4><p>预期收益</p></div>',
+                    '<div class="tent">',
+                    '<h4>{{amount}}</h4>',
+                    '<p>投资本金</p></div><div class="tent">',
+                    '<h4>{{return_date}}</h4><p>下一回款日</p></div></div></li>'].join("")
+        };
+        var HTML_hk = {
+            // t_col1增加 t_col2减少 t_col3失败
+            LIST : ['<li><a href="invest_details.html?id={{product_id}}&buy_id={{id}}" class="detail">{{product_name}}</a>',
+                    '<div class="txt"><div class="tent">',
+                    '<h4>{{will_income}}</h4><p>预期收益</p></div>',
+                    '<div class="tent">',
+                    '<h4>{{amount}}</h4>',
+                    '<p>投资本金</p></div><div class="tent">',
+                    '<h4>{{return_date}}</h4><p>回款日</p></div></div></li>'].join("")
+        };
+
+        //明细请求 - 履约中
+        getLyz();
+        function getLyz(){
+            if (isLoading || endDate) return;
+            isLoading = true;
+            $(".loading").html('数据加载中...');
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                ip : $com.IP,
+                sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+                status : 1,
+                currentPage: ++page,
+                $TYPE : "get",
+                $URI : "/m/product/mybuy.json"
+            }, [function(data) {
+                $("#content1").html($com.util.template(data.dataList.dataList, HTML.LIST));
+                if(page > data.dataList.pageCount){
+                    $(".loading").html('您还没有履约中投资订单');
+                    endDate = true;
+                }else if(page == data.dataList.pageCount){
+                    $(".loading").html('所有履约中订单加载完成');
+                    endDate = true;
+                }else{
+                    $(".loading").html('上拉加载更多数据');
+                    isLoading = false;
+                }
+            }, function() {
+                isLoading = false;
+                $(".loading").html('数据加载失败');
+            }]);
+        }
+
+
+        //明细请求 - 已回款
+        getYhk();
+        function getYhk() {
+            if (isLoading_jx || endDate_jx) return;
+            isLoading_jx = true;
+            $(".loading_jx").html('数据加载中...');
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                ip : $com.IP,
+                sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+                status : 2,
+                currentPage: ++page_jx,
+                $TYPE : "get",
+                $URI : "/m/product/mybuy.json"
+            }, [function(data) {
+                $("#content2").html($com.util.template(data.dataList.dataList, HTML_hk.LIST));
+                if(page_jx > data.dataList.pageCount){
+                    $(".loading_jx").html('您还没有已还款投资订单');
+                    endDate_jx = true;
+                }else if(page_jx == data.dataList.pageCount){
+                    $(".loading_jx").html('所有已还款订单加载完成');
+                    endDate_jx = true;
+                }else{
+                    $(".loading_jx").html('上拉加载更多数据');
+                    isLoading_jx = false;
+                }
+            }, function() {
+                isLoading_jx = false;
+                $(".loading_jx").html('数据加载失败');
+            }]);
+        }
+        $(window).scroll(function () {
+            var wst = $(window).scrollTop(),
+                wh = $(window).height(),
+                wsh = wst + wh,
+                dh = document.body.scrollHeight;
+            if (wsh >= dh) {
+                if(!$('.tab span.active').index()){
+                    getLyz();
+                }else{
+                    getYhk();
+                }
+            }
+        });
+
+    }());
+</script>
+</html>

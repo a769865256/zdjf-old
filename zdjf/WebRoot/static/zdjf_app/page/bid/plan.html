@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+    <style id="_zoom"></style>
+    <!-- 公共样式end -->
+    <link rel="stylesheet" href="../../static/css/plan.css"/>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="javascript:history.go(-1);"></a>还款计划</div>
+<div class="body_content">
+    <div class="table">
+        <table>
+            <thead>
+            <th>期数</th>
+            <th>还款日</th>
+            </thead>
+            <tbody id="content">
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+    //rem布局
+    (function(win) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var tid;
+
+        function refreshRem() {
+            var width = docEl.getBoundingClientRect().width;
+            if (width > 750) { // 最大宽度
+                width = 750;
+            }
+            var rem = width / 10;
+            docEl.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        refreshRem();
+
+    })(window);
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+
+<script>
+    (function() {
+
+        var HTML = {
+            TR : '<tr><td>{{__INDEX}}</td><td>{{time}}利息+本金</td></tr>'
+        };
+        var UN = $com.cookie.get("user_name");
+        
+        // 获取项目详情
+        $com.app.ajax({
+            phone : UN,
+            ip : $com.IP,
+            reg_source : 4,
+            sign : (UN + 4 + $com.IP + $com.KEY),
+            product_id : $com.uri.getUrlQuery().id,
+            $TYPE : "get",
+            $URI : "/m/product/details.json"
+        }, [function(data) {
+            var d = data.list_income,
+                ret = [];
+
+            $(d).each(function(i, item) {
+                ret.push({
+                    time : $com.util.format("yyyy-MM-dd", item.pay_date)
+                });
+            });
+
+            $("#content").html($com.util.template(ret, HTML.TR));
+        }, function() {
+            
+        }]);
+    }());
+</script>
+</html>

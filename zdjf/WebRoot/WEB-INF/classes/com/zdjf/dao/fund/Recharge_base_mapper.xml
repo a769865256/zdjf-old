@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.recharge">
+<sql id="columns">
+id,
+user_id,
+real_name,
+money,
+pay_type,
+status,
+bank_no,
+bank_alias,
+bank_serial_no,
+source,
+pp_serial_no,
+create_time,
+update_time,
+fee_amt,
+req_source,
+recharge_id,
+uid,
+return_content
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">  id,</if>
+<if test="user_id != null and user_id != ''">  user_id,</if>
+<if test="real_name != null and real_name != ''">  real_name,</if>
+<if test="money != null and money != ''">  money,</if>
+<if test="pay_type != null and pay_type != ''">  pay_type,</if>
+<if test="status != null and status != ''">  status,</if>
+<if test="bank_no != null and bank_no != ''">  bank_no,</if>
+<if test="bank_alias != null and bank_alias != ''">  bank_alias,</if>
+<if test="bank_serial_no != null and bank_serial_no != ''">  bank_serial_no,</if>
+<if test="source != null and source != ''">  source,</if>
+<if test="pp_serial_no != null and pp_serial_no != ''">  pp_serial_no,</if>
+<if test="create_time != null and create_time != ''">  create_time,</if>
+<if test="update_time != null and update_time != ''">  update_time,</if>
+<if test="fee_amt != null and fee_amt != ''">  fee_amt,</if>
+<if test="req_source != null and req_source != ''">  req_source,</if>
+<if test="recharge_id != null and recharge_id != ''">  recharge_id,</if>
+<if test="uid != null and uid != ''">  uid,</if>
+<if test="return_content != null and return_content != ''">  return_content,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">  #{id},</if>
+<if test="user_id != null and user_id != ''">  #{user_id},</if>
+<if test="real_name != null and real_name != ''">  #{real_name},</if>
+<if test="money != null and money != ''">  #{money},</if>
+<if test="pay_type != null and pay_type != ''">  #{pay_type},</if>
+<if test="status != null and status != ''">  #{status},</if>
+<if test="bank_no != null and bank_no != ''">  #{bank_no},</if>
+<if test="bank_alias != null and bank_alias != ''">  #{bank_alias},</if>
+<if test="bank_serial_no != null and bank_serial_no != ''">  #{bank_serial_no},</if>
+<if test="source != null and source != ''">  #{source},</if>
+<if test="pp_serial_no != null and pp_serial_no != ''">  #{pp_serial_no},</if>
+<if test="create_time != null and create_time != ''">  #{create_time},</if>
+<if test="update_time != null and update_time != ''">  #{update_time},</if>
+<if test="fee_amt != null and fee_amt != ''">  #{fee_amt},</if>
+<if test="req_source != null and req_source != ''">  #{req_source},</if>
+<if test="recharge_id != null and recharge_id != ''">  #{recharge_id},</if>
+<if test="uid != null and uid != ''">  #{uid},</if>
+<if test="return_content != null and return_content != ''">  #{return_content},</if>
+</sql>
+<sql id="conds">
+<if test="	id	 != null and 	id	 != ''">  and 	id	 = #{	id	}</if>
+<if test="	user_id	 != null and 	user_id	 != ''">  and 	user_id	 = #{	user_id	}</if>
+<if test="	real_name	 != null and 	real_name	 != ''">  and 	real_name	 = #{	real_name	}</if>
+<if test="	money	 != null and 	money	 != ''">  and 	money	 = #{	money	}</if>
+<if test="	pay_type	 != null and 	pay_type	 != ''">  and 	pay_type	 = #{	pay_type	}</if>
+<if test="	status	 != null and 	status	 != ''">  and 	status	 = #{	status	}</if>
+<if test="	bank_no	 != null and 	bank_no	 != ''">  and 	bank_no	 = #{	bank_no	}</if>
+<if test="	bank_alias	 != null and 	bank_alias	 != ''">  and 	bank_alias	 = #{	bank_alias	}</if>
+<if test="	bank_serial_no	 != null and 	bank_serial_no	 != ''">  and 	bank_serial_no	 = #{	bank_serial_no	}</if>
+<if test="	source	 != null and 	source	 != ''">  and 	source	 = #{	source	}</if>
+<if test="	pp_serial_no	 != null and 	pp_serial_no	 != ''">  and 	pp_serial_no	 = #{	pp_serial_no	}</if>
+<if test="	create_time	 != null and 	create_time	 != ''">  and 	create_time	 = #{	create_time	}</if>
+<if test="	update_time	 != null and 	update_time	 != ''">  and 	update_time	 = #{	update_time	}</if>
+<if test="	fee_amt	 != null and 	fee_amt	 != ''">  and 	fee_amt	 = #{	fee_amt	}</if>
+<if test="	req_source	 != null and 	req_source	 != ''">  and 	req_source	 = #{	req_source	}</if>
+<if test="	recharge_id	 != null and 	recharge_id	 != ''">  and 	recharge_id	 = #{	recharge_id	}</if>
+<if test="	uid	 != null and 	uid	 != ''">  and 	uid	 = #{	uid	}</if>
+<if test="	return_content	 != null and 	return_content	 != ''">  and 	return_content	 = #{	return_content	}</if>
+</sql>
+
+<insert id="saveRecharge" parameterType="com.zdjf.domain.fund.Recharge" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_recharge (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="loadRecharge" resultType="com.zdjf.domain.fund.RechargeVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_recharge
+		where id=#{id}
+	</select>
+	
+	<select id="selectRecharge" resultType="com.zdjf.domain.fund.RechargeVo">
+		select
+		<include refid="columns"/>
+		from zd_recharge
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectRechargeById" resultType="com.zdjf.domain.fund.Recharge">
+		select
+		<include refid="columns"/>
+		from zd_recharge
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

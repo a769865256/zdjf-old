@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.bank">
+<select id="selectBankPage" resultType="com.zdjf.domain.fund.BankVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_bank
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectBankCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_bank
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectBankById" resultType="com.zdjf.domain.fund.Bank">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_bank
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="updateBankById" parameterType="com.zdjf.domain.fund.Bank">
+		update zd_bank
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''"> id = #{id},</if>
+		<if test="num != null and num != ''"> num = #{num},</if>
+		<if test="name != null and name != ''"> name = #{name},</if>
+		<if test="create_time != null"> create_time = #{create_time},</if>
+		<if test="remark != null and remark != ''"> remark = #{remark},</if>
+		<if test="day_max != null and day_max != ''"> day_max = #{day_max},</if>
+		<if test="single_max != null and single_max != ''"> single_max = #{single_max},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteBankById" parameterType="long">
+			delete from zd_bank where id=#{id}
+	</select>
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.commom.dataField">
+	<sql id="columns">
+	data_field_id,
+	data_field_value,
+	data_field_name,
+	data_field_desc,
+	table_name,
+	field_name,
+	num,
+	status
+	</sql>
+	<sql id="columnsA">
+	<if test="data_field_id != null and data_field_id != ''">  data_field_id,</if>
+	<if test="data_field_value != null and data_field_value != ''">  data_field_value,</if>
+	<if test="data_field_name != null and data_field_name != ''">  data_field_name,</if>
+	<if test="data_field_desc != null and data_field_desc != ''">  data_field_desc,</if>
+	<if test="table_name != null and table_name != ''">  table_name,</if>
+	<if test="field_name != null and field_name != ''">  field_name,</if>
+	<if test="num != null and num != ''">  num,</if>
+	<if test="status != null and status != ''">  status,</if>
+	</sql>
+	<sql id="vals">
+	<if test="data_field_id != null and data_field_id != ''">  #{data_field_id},</if>
+	<if test="data_field_value != null and data_field_value != ''">  #{data_field_value},</if>
+	<if test="data_field_name != null and data_field_name != ''">  #{data_field_name},</if>
+	<if test="data_field_desc != null and data_field_desc != ''">  #{data_field_desc},</if>
+	<if test="table_name != null and table_name != ''">  #{table_name},</if>
+	<if test="field_name != null and field_name != ''">  #{field_name},</if>
+	<if test="num != null and num != ''">  #{num},</if>
+	<if test="status != null and status != ''">  #{status},</if>
+	</sql>
+	<sql id="conds">
+	<if test="data_field_id != null and data_field_id != ''">  and data_field_id = #{data_field_id}</if>
+	<if test="data_field_value != null and data_field_value != ''">  and data_field_value = #{data_field_value}</if>
+	<if test="data_field_name != null and data_field_name != ''">  and data_field_name = #{data_field_name}</if>
+	<if test="data_field_desc != null and data_field_desc != ''">  and data_field_desc = #{data_field_desc}</if>
+	<if test="table_name != null and table_name != ''">  and table_name = #{table_name}</if>
+	<if test="field_name != null and field_name != ''">  and field_name = #{field_name}</if>
+	<if test="num != null and num != ''">  and num = #{num}</if>
+	<if test="status != null and status != ''">  and status = #{status}</if>
+	</sql>
+	<insert id="saveDataField" parameterType="com.zdjf.domain.common.DataField" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_data_field (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectDataField" resultType="com.zdjf.domain.common.DataFieldVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_data_field
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

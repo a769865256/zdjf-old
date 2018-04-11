@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.coin">
+	<select id="selectCoinPage" resultType="com.zdjf.domain.fund.CoinVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_coin
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectCoinCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_coin
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectCoinById" resultType="com.zdjf.domain.fund.Coin">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_coin
+		where 1=1
+		and id=#{id}
+	</select>
+	
+	<select id="updateCoinById" parameterType="com.zdjf.domain.fund.Coin">
+		update zd_coin
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''"> id = #{id},</if>
+		<if test="coin_name != null and coin_name != ''"> coin_name = #{coin_name},</if>
+		<if test="coin_source != null and coin_source != ''"> coin_source = #{coin_source},</if>
+		<if test="coin_num != null and coin_num != ''"> coin_num = #{coin_num},</if>
+		<if test="coin_max != null and coin_max != ''"> coin_max = #{coin_max},</if>
+		<if test="coin_min != null and coin_min != ''"> coin_min = #{coin_min},</if>
+		<if test="coin_multiple != null and coin_multiple != ''"> coin_multiple = #{coin_multiple},</if>
+		<if test="invite_ratio != null and invite_ratio != ''"> invite_ratio = #{invite_ratio},</if>
+		<if test="deduction_ratio != null and deduction_ratio != ''"> deduction_ratio = #{deduction_ratio},</if>
+		<if test="coin_type != null and coin_type != ''"> coin_type = #{coin_type},</if>
+		<if test="create_time != null"> create_time = #{create_time},</if>
+		<if test="status != null and status != ''"> status = #{status},</if>
+		<if test="remark != null and remark != ''"> remark = #{remark},</if>
+		<if test="coin_id != null and coin_id != ''"> coin_id = #{coin_id},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteCoinById" parameterType="long">
+			delete from zd_coin where id=#{id}
+	</select>
+</mapper>

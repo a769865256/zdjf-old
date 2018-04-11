@@ -1,0 +1,108 @@
+@CHARSET "UTF-8";
+.admin-main {
+	background: #FFFFFF;
+}
+
+.finance_label {
+    font-size: 1.3rem;
+}
+
+.center_div {
+	text-align: center;
+}
+
+.user_info_label {
+    font-size: 1.3rem;
+}
+
+.hide {
+	display: none;
+}
+
+.td_date{
+	width: auto !important;
+}
+
+.td_date .da {
+	width: 100px;
+	height: 30px;
+}
+
+.td_date .bu {
+	margin-left: -4px;
+	height: 30px;
+}
+
+.table_content {
+	width: 83%;
+}
+
+.table_content tr{
+	width: 100%;
+}
+.table_content td{
+	width: auto !important;
+}
+
+.am-u-sm-3-1 {
+	width: 13.5%;
+}
+
+.am-u-sm-9-1 {
+	width: 86.5%
+}
+
+.am-u-sm-5-1 {
+    width: 34.666667%;
+}
+
+.am-u-sm-4-1 {
+    width: 40.333333%;
+}
+
+.am-u-sm-push-3-1 {
+    left: 13.5%;
+}
+
+.am-g-minwidth {
+	min-width: 960px;
+}
+
+.am-u-sm-75 {
+	width: 75%;
+}
+
+.colspan-tr {
+	background: rgba(14,144,210,.115);
+}
+
+.table-income {
+
+}
+
+.table-income tr td {
+	padding: 10px 10px 10px 10px;
+	border: 1px solid #ccc;
+}
+
+.upload-pic li{
+	position: relative;
+}
+.upload-pic .close-icon{
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	position: absolute;
+	right: 9px;
+	top: 9px;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 20px;
+	border-radius: 3px;
+	font-size: 20px;
+	cursor: pointer;
+
+}
+.upload-pic .close-icon:hover{
+	background-color: rgba(0,0,0,0.7);
+}

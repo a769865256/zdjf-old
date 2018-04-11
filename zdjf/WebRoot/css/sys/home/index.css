@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+.admin-content [class*=am-icon-]:before{
+	padding-top : 10px;
+}
+
+.admin-main {
+	background: #FFFFFF;
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.recharge">
+<select id="updateRechargeById" parameterType="com.zdjf.domain.fund.Recharge">
+			update zd_recharge
+			<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''">  id = #{id},</if>
+			<if test="recharge_name != null and recharge_name != ''">  recharge_name = #{recharge_name},</if>
+			<if test="recharge_source != null and recharge_source != ''">  recharge_source = #{recharge_source},</if>
+			<if test="money != null and money != ''">  money = #{money},</if>
+			<if test="status != null and status != ''">  status = #{status},</if>
+			<if test="create_time != null">  create_time = #{create_time},</if>
+			<if test="max_count != null and max_count != ''">  max_count = #{max_count},</if>
+			<if test="date_type != null and date_type != ''">  date_type = #{date_type},</if>
+			<if test="start_date != null">  start_date = #{start_date},</if>
+			<if test="end_date != null">  end_date = #{end_date},</if>
+			<if test="recharge_days != null and recharge_days != ''">  recharge_days = #{recharge_days},</if>
+			<if test="max_amount != null and max_amount != ''">  max_amount = #{max_amount},</if>
+			<if test="max_days != null and max_days != ''">  max_days = #{max_days},</if>
+			<if test="use_type != null and use_type != ''">  use_type = #{use_type},</if>
+			<if test="remark != null and remark != ''">  remark = #{remark},</if>
+			<if test="old_recharge_id != null and old_recharge_id != ''">  old_recharge_id = #{old_recharge_id},</if>
+			</trim>
+			where 1=1
+			and id=#{id}
+		</select>
+		<select id="deleteRechargeById" parameterType="long">
+			delete from zd_recharge where id=#{id}
+		</select>
+	<select id="selectRechargePage" resultType="java.util.Map">
+		select
+		<include refid="columns"/>
+		from
+		zd_recharge 
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectRechargeCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_recharge
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

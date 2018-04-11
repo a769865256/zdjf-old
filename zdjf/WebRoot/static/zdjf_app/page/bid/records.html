@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共文件 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/> <!-- 样式reset -->
+    <link rel="stylesheet" href="../../static/css/index.css"/>  <!-- 公用样式 -->
+    <style id="_zoom"></style>
+    <!-- 公共文件end -->
+    <link rel="stylesheet" href="../../static/css/records.css"/>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="javascript:history.go(-1);"></a>投资记录</div>
+<div class="body_content">
+    <div class="mc_box">
+        <div class="tz_title">
+            <div class="title_items fl">名次</div>
+            <div class="title_items fl">用户名</div>
+            <div class="title_items fl">正经值奖励</div>
+        </div>
+        <div class="con">
+            <div class="con_items">
+                <div class="item_list">
+                    <div class="list_mc fl">
+                        <img src="../../static/img/bid/mc1.png" alt="">
+                    </div>
+                    <div class="list_user fl fast-1">虚伪以待</div>
+                    <div class="list_num fl fast-1-p">+5</div>
+                </div>
+                <div class="item_list">
+                    <div class="list_mc fl">
+                        <img src="../../static/img/bid/mc2.png" alt="">
+                    </div>
+                    <div class="list_user fl fast-2">虚伪以待</div>
+                    <div class="list_num fl fast-2-p">+3</div>
+                </div>
+                <div class="item_list">
+                    <div class="list_mc fl">
+                        <img src="../../static/img/bid/mc3.png" alt="">
+                    </div>
+                    <div class="list_user fl fast-3">虚位待抢</div>
+                    <div class="list_num fl fast-3-p">+1</div>
+                </div>
+            </div>
+            <div class="con_items">
+                <div class="item_list">
+                    <div class="list_mc fl">
+                        <img src="../../static/img/bid/mc1.png" alt="">
+                    </div>
+                    <div class="list_user fl heavy-1">虚伪以待</div>
+                    <div class="list_num fl heavy-1-p">+投资额x0.07%</div>
+                </div>
+                <div class="item_list">
+                    <div class="list_mc fl">
+                        <img src="../../static/img/bid/mc2.png" alt="">
+                    </div>
+                    <div class="list_user fl heavy-2">虚位待抢</div>
+                    <div class="list_num fl heavy-2-p">+投资额×0.03%</div>
+                </div>
+            </div>
+            <div class="con_items">
+                <div class="item_list">
+                    <div class="list_mc fl">
+                        <img src="../../static/img/bid/mc1.png" alt="">
+                    </div>
+                    <div class="list_user fl last-1">虚位待抢</div>
+                    <div class="list_num fl last-1-p">+8</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="records_tit">
+        <div class="records_tit_left fl">
+            <div class="user fl flex">
+                <img src="../../static/img/bid/user.png" alt="">
+            </div>
+            <div class="word fl flex">用户名</div>
+        </div>
+        <div class="records_tit_right fr">
+            <div class="word fr flex">投资金额</div>
+            <div class="user fr flex">
+                <img src="../../static/img/bid/money.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="records_big_box">
+        <div class="records_list" style="padding-bottom: 150px;">
+            <ul id="content">
+                <!-- <li>
+                    <div class="records_left fl">
+                        <div class="user_name">189****9008</div>
+                        <div class="user_time">2017-07-21 11:23:22</div>
+                    </div>
+                    <div class="records_right fr">
+                        <div class="money">20000.00元</div>
+                    </div>
+                </li> -->
+            </ul>
+            <div class="loading hide" style="line-height: 50px;text-align: center;color: #999;font-size: 16px;">数据加载中...</div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    (function(){
+        var _w,_zoom,_hd, _orientationChange,_doc = document,__style = _doc.getElementById("_zoom");
+        __style || (_hd = _doc.getElementsByTagName("head")[0],__style=_doc.createElement("style"),_hd.appendChild(_style));
+        _orientationChange = function(){
+            _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+            _zoom = _w / 750;
+            __style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto !important;text-size-adjust:auto !important;}";
+            // var rem = _w / 10;
+            // window.document.documentElement.style.fontSize = rem + 'px';
+        };
+        __style.setAttribute("zoom",_zoom);
+        _orientationChange();
+        window.addEventListener("resize",_orientationChange,false);
+    })();
+    //rem布局
+    (function(win) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var tid;
+
+        function refreshRem() {
+            var width = docEl.getBoundingClientRect().width;
+            if (width > 750) { // 最大宽度
+                width = 750;
+            }
+            var rem = width / 10;
+            docEl.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        refreshRem();
+
+    })(window);
+</script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script>
+    ;(function() {
+
+        var page = 0,
+            isLoading = false,
+            endDate = false;
+
+        var HTML = {
+            LIST : ['<li><div class="records_left fl">',
+                    '<div class="user_name">{{phone}}</div>',
+                    '<div class="user_time">{{create_time}}</div></div>',
+                    '<div class="records_right fr">',
+                    '<div class="money">{{amount}}元</div></div></li>'].join("")
+        };
+        var UN = $com.cookie.get("user_name");
+        
+        // 获取投资排名
+        $com.app.ajax({
+            product_id : $com.uri.getUrlQuery().id,
+            $TYPE : "post",
+            $URI : "/m/product/investment/rank.json"
+        }, [function(data) {
+            $(phoneFilterAll(data.dataList.fast)).each(function(i, item) {
+                var index = i + 1;
+                $(".fast-" + index ).text(item.phone);
+                $(".fast-" + index + "-p" ).text("+" + item.propervalue);
+            })
+            $(phoneFilterAll(data.dataList.heavyweight)).each(function(i, item) {
+                var index = i + 1;
+                $(".heavy-" + index ).text(item.phone);
+                $(".heavy-" + index + "-p" ).text(item.propervalue);
+            })
+
+            if (data.dataList.tail.id) {
+                $(".last-1" ).text(phoneFilter(ata.dataList.tail.phone));
+                $(".last-1-p" ).text(ata.dataList.tail.propervalue);
+            }
+        }, function() {
+            
+        }]);
+        
+        // 获取投资记录
+        getRecords();
+        
+        function getRecords() {
+            if (isLoading || endDate) return;
+            $(".loading").show();
+            isLoading = true;
+            $com.app.ajax({
+                product_id : $com.uri.getUrlQuery().id,
+                currentPage : ++page,
+                $TYPE : "post",
+                $URI : "/m/product/investment/records.json"
+            }, [function(data) {
+                if (data.dataList.length > 0) {
+                    dataFilter(data.dataList);
+                } else {
+                    endDate = true;
+                }
+                $("#content").append($com.util.template(data.dataList, HTML.LIST));
+                $(".loading").hide();
+                isLoading = false;
+            }, function() {
+                $(".loading").hide();
+                isLoading = false;
+            }]);
+        }
+
+        function dataFilter(data) {
+            $(data).each(function(i, item) {
+                item.phone = phoneFilter(item.phone);
+                item.create_time = $com.util.format("yyyy-MM-dd", item.create_time);
+            });
+
+            return data;
+        }
+
+        function phoneFilterAll(data) {
+            $(data).each(function(i, item) {
+                item.phone = phoneFilter(item.phone);
+            });
+
+            return data;
+        }
+
+        function phoneFilter(phone) {
+            if (!phone) return phone;
+            return phone.replace(/^[0-9]{3}([0-9]*)[0-9]{4}$/g, function($1,$2){
+                return $1.replace($2, "****");
+            });
+        }
+
+        $(window).scroll(function () {
+            var wst = $(window).scrollTop(),
+                wh = $(window).height(),
+                wsh = wst + wh,
+                dh = document.body.scrollHeight;
+            if(wst >= 360){
+                $('.records_tit').addClass('records_tit_fix');
+            }else{
+                $('.records_tit').removeClass('records_tit_fix');
+            }
+            //console.log(wsh, dh);
+            if (wsh >= dh) {
+                getRecords();
+            }
+        });
+    }());
+</script>
+</html>

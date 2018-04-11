@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.activity.sign">
+
+<!-- 所有列名 -->
+	<sql id="columns">
+		id, user_id, phone, coin, remark,create_date,create_time,reg_source,status,nums,used_nums
+	</sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id}, #{user_id}, #{phone}, #{coin}, #{remark}, #{create_date}, #{create_time}, #{reg_source},#{status},#{nums},#{used_nums}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="user_id != null and user_id != ''">
+			and user_id = #{user_id}
+		</if>
+		<if test="phone != null and phone != ''">
+			and phone = #{phone}
+		</if>
+		<if test="coin != null and coin != ''">
+			and coin = #{coin}
+		</if>
+		<if test="remark != null and remark != ''">
+			and remark = #{remark}
+		</if>
+		<if test="create_date != null and create_date != ''">
+			and create_date = #{create_date}
+		</if>
+		<if test="create_time != null and create_time != ''">
+			and create_time = #{create_time}
+		</if>
+		<if test="reg_source != null and reg_source != ''">
+			and reg_source = #{reg_source}
+		</if>
+		<if test="status != null and status != ''">
+			and status = #{status}
+		</if>
+		<if test="nums != null and nums != ''">
+			and nums = #{nums}
+		</if>
+		<if test="used_nums != null and used_nums != ''">
+			and used_nums = #{used_nums}
+		</if>
+	</sql>
+	
+	<insert id="saveSign" parameterType="com.zdjf.domain.activity.Sign" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_sign (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+
+	<delete id="deleteSign">
+		delete from zd_sign
+		where id=#{id}
+	</delete>
+
+	<delete id="deleteByExampleSign">
+		delete from zd_sign
+		where 1=1
+		<include refid="conds" />
+	</delete>
+	
+	<select id="loadSign" resultType="com.zdjf.domain.activity.Sign">
+		select 
+		<include refid="columns"/>
+		from zd_sign
+		where id=#{id}
+	</select>
+	
+	<select id="selectSign" resultType="com.zdjf.domain.activity.Sign">
+		select 
+		<include refid="columns"/>
+		from zd_sign
+		where 1=1
+		<include refid="conds" />
+		order by create_time desc
+	</select>
+
+	<update id="updateSign">
+		update zd_sign
+		<set>
+			id=#{id}, 
+			user_id=#{user_id}, 
+			phone=#{phone}, 
+			create_date=#{create_date}, 
+			coin=#{coin},
+			remark=#{remark}, 
+			create_time=#{create_time}, 
+			reg_source=#{reg_source}, 
+			status=#{status}
+		</set>
+		where id=#{id}
+	</update>
+
+</mapper>

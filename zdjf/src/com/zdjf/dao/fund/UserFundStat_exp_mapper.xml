@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.userFundStat">
+	<select id="updateUserFundStatById" parameterType="com.zdjf.domain.fund.UserFundStat">
+		update zd_user_fund_stat
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''">  id = #{id},</if>
+		<if test="user_id != null and user_id != ''">  user_id = #{user_id},</if>
+		<if test="invest_sum != null ">  invest_sum = #{invest_sum},</if>
+		<if test="balance != null ">  balance = #{balance},</if>
+		<if test="recharged != null ">  recharged = #{recharged},</if>
+		<if test="withdrawed != null ">  withdrawed = #{withdrawed},</if>
+		<if test="pend_withdraw != null">  pend_withdraw = #{pend_withdraw},</if>
+		<if test="incomed != null ">  incomed = #{incomed},</if>
+		<if test="pend_income != null ">  pend_income = #{pend_income},</if>
+		<if test="returned != null ">  returned = #{returned},</if>
+		<if test="pend_return != null ">  pend_return = #{pend_return},</if>
+		<if test="coin_total != null ">  coin_total = #{coin_total},</if>
+		<if test="coin_cost != null">  coin_cost = #{coin_cost},</if>
+		<if test="coin_balance != null ">  coin_balance = #{coin_balance},</if>
+		<if test="locked_money != null">  locked_money = #{locked_money},</if>
+		<if test="coin_invest != null ">  coin_invest = #{coin_invest},</if>
+		<if test="withdraw_coupons != null ">  withdraw_coupons = #{withdraw_coupons},</if>
+		<if test="update_time != null ">  update_time = #{update_time},</if>
+		<if test="uid != null and uid != ''">  uid = #{uid},</if>
+		<if test="invest_frequency != null ">  invest_frequency = #{invest_frequency},</if>
+		<if test="hf_balance != null ">  hf_balance = #{hf_balance},</if>
+		</trim>
+		where 1=1
+		and user_id=#{user_id}
+	</select>
+	<select id="deleteUserFundStatById" parameterType="long">
+			delete from zd_user_fund_stat where user_id=#{user_id}
+	</select>
+	<select id="selectUserFundStatPage" resultType="com.zdjf.domain.fund.UserFundStat">
+		select
+		<include refid="columns"/>
+		from
+		zd_user_fund_stat
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectUserFundStatCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_user_fund_stat
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectUserFundStatForList" resultType="java.util.Map">
+		select
+		e.user_id, 
+		e.withdrawed,
+		e.balance,
+		e.recharged as total_recharged,
+		e.returned+e.pend_return as grandTotalInvested
+		from zd_user_fund_stat e
+	</select>
+	
+	<update id="updateUserBalance">
+		update zd_user_fund_stat
+		<set>
+			balance = #{balance}
+		</set>
+		where user_id=#{user_id}
+	</update>
+</mapper>

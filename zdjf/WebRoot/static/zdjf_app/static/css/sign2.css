@@ -1,0 +1,10 @@
+.layui-m-layercont {
+    padding: 80px 30px !important;
+}
+.layui-m-layerbtn {
+    height: 80px !important;
+    line-height: 80px !important;
+}
+.layui-m-layerbtn span{
+    font-size: 24px !important;
+}

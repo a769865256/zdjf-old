@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+.admin-main {
+	background: #FFFFFF;
+}
+.user_info_label {
+	font-size: 1.3rem;
+}
+.modal-label {
+	text-align: left;
+	font-size: 1.3rem;
+}
+
+.modal-textarea {
+	width: 94%;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.lable-middle {
+	padding: .5em;
+}
+
+.am-checkbox {
+	margin-top: -10px;
+	margin-bottom: 0px;
+}
+.word-break-all{
+	word-break:break-all;
+	width: 300px;
+}
+

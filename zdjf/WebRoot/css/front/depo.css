@@ -1,0 +1,20 @@
+.depository{width: 100%;position: relative;min-width: 1200px;max-width: 1920px;margin: 0 auto;overflow: hidden;}
+.depository span.depo_bg{display: block;width: 100%;height: 3773px;background: url(../../images/front/img/depo/depo_01.png) center no-repeat;background-size: cover;}
+.depository .moer{display: inline-block;width: 11%;height: 20px;font-size: 16px;color: #ffffff;position: absolute;bottom: 205px;margin: 0 auto;left: 50%;transform: translateX(-50%);}
+.depository .debtn{width: 100%;height: 100px;background: url(../../images/front/img/depo/depo_02.png) center no-repeat;background-size: cover;position: absolute;bottom: 0;left: 0;}
+.depository .debtn .debox{width: 1000px;margin: 0 auto;height: 100%;position: relative;}
+.depository .debtn .debox a{display: inline-block;width: 240px;height: 55px;float: right;font-size: 22px;line-height: 50px;position: absolute;right: 0;text-align: center;top: 22px;}
+.depository .debtn .debox a.go_kt{background: url(../../images/front/img/depo/btn_go_kt.png) center no-repeat;background-size: cover;color: #333333;}
+.depository .debtn .debox a.yi_kt{background: url(../../images/front/img/depo/btn_yi_kt.png) center no-repeat;background-size: cover;color: #999999;}
+
+
+
+
+
+
+
+
+
+
+
+

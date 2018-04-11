@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../../css/front/wealth.css">
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="nav">
+			<div class="pack">
+				<span><i class="iconfont">&#xe656;</i>客服电话:400-690-9898</span>
+				<div class="p_right">
+					<!-- 登录后显示 -->
+					<div class="login_ok hide">
+						<span class="user_info">130****0251</span>
+						<a href="javascript:" class="user_message">消息<i class="iconfont">&#xe602;</i></a>
+						<a href="javascript:" class="sign_out">安全退出</a>
+					</div>
+					<span><i class="iconfont"></i><a href="../downloadAPP/downloadApp.html">下载APP</a></span>
+            		<span><a href="../help/helpMain.html">帮助中心</a></span><span><a href="../guide/guide.html">新手指引</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="bar">
+			<div class="pack">
+				<div class="l_pk"></div>
+				<div class="r_pk">
+					<ul> 
+						<li><a href="../index.html">首页</a></li>
+						<li>
+							<a href="../project/project_list.html">理财项目</a>
+							<div class="nav">
+								<a href="../project/project_list.html">债转专区</a>
+							</div>
+						</li>
+						<li>
+							<a href="javascript:">信息披露</a>
+							<div class="nav">
+								<a href="javascript:">平台数据</a>
+								<a href="javascript:">安全保障</a>
+								<a href="javascript:">公司简介</a>
+								<a href="javascript:">平台事迹</a>
+								<a href="javascript:">公司动态</a>
+								<a href="javascript:">联系我们</a>
+							</div>
+						</li>
+						<li>
+							<a href="mywealth/wealth.html">我的财富</a>
+							<div class="nav">
+								<a href="javascript:">我的财富</a>
+								<a href="javascript:">资金明细</a>
+								<a href="javascript:">我的理财</a>
+								<a href="javascript:">我的优惠</a>
+								<a href="javascript:">账户设置</a>
+								<a href="javascript:">邀请有礼</a>
+								<a href="javascript:">消息中心</a>
+							</div>
+						</li>
+					</ul>
+					<div class="sign">
+						<a href="../login.html">登录签到</a>
+						<a href="../register.html">注册有礼</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header end -->
+
+	<!-- content -->
+	<div class="open hide">
+		<div class="tlt">
+			<p>为了确保您的正常投资和资金安全，请开通上海银行存管账户。<a href="javascript:">立即开通</a></p>
+		</div>
+	</div>
+	<div class="wealth">
+		<div class="we_lf">
+			<ul>
+				<li><i class="iconfont mycf"></i><a data-html="wealthbox" href="wealth.html">我的财富</a></li>
+				<li><i class="iconfont zjmx"></i><a data-html="capitalbox" href="mycapital.html">资金明细</a></li>
+				<li><i class="iconfont mylc"></i><a data-html="duct" href="myconduct.html">我的理财</a></li>
+				<li><i class="iconfont myyh"></i><a data-html="discount" href="mydiscount.html">我的优惠</a></li>
+				<li class="active"><i class="iconfont zhsz"></i><a data-html="account" href="myaccount.html">账户设置</a></li>
+				<li><i class="iconfont yqyl"></i><a data-html="invitation" href="myinvitation.html">邀请有礼</a></li>
+				<li><i class="iconfont msg"></i><a data-html="message_center" href="mynews.html">消息中心</a></li>
+			</ul>
+			<div class="service">
+				<i class="iconfont">&#xe730;</i>
+				<p>电话：400-690-9898<br>我们将诚挚为您服务</p>
+			</div>
+		</div>
+		<div class="we_rt">
+			<!-- 账户设置-添加银行卡 -->
+			<div class="add_bank">
+				<div class="add_bank_head">
+					<h3><a href="set_bank.html" class="set_bank_back">银行卡设置</a><i class="iconfont">&#xe697;</i><a href="javascript:" class="active">添加银行卡</a></h3>
+				</div>
+				<div class="go_add_bank_box">
+					<ul>
+						<li>*该绑定卡将默认为充值提现唯一银行卡</li>
+						<li><h3>实名信息</h3></li>
+						<li>
+							<span>姓名：<i class="name">王的国</i></span>
+							<span>身份证号：<i class="IDcard">36242719920405081X</i></span>
+						</li>
+					</ul>
+					<ul class="addBankBox">
+						<li><h3>添加银行卡</h3></li>
+						<li>
+							<div class="layui-form">
+								<div class="layui-form-item">
+									<label class="layui-form-label">所属银行：</label>
+							    	<div class="layui-inline">
+							      		<div class="layui-input-inline" style="width: 336px;">
+									        <select name="bank_accounts" id="bank_accounts" class="bank_accounts">
+									          	<option value="">请选择银行</option>
+									          	<option value="CCB">中国建设银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+												<option value="CMB">招商银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+									          	<option value="CITIC">中信银行</option>
+												<optgroup label="单笔限额5千元，单卡单日限额2万元，每月限额5万"></optgroup>
+									          	<option value="CIB">兴业银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>
+									          	<option value="BOS">上海银行</option>
+												<optgroup label="单笔限额5千元，单卡单日限额1万元，每月限额2万元"></optgroup>
+									          	<option value="PSBC">邮政储蓄银行</option>
+									          	<optgroup label="单笔限额5千元，单卡单日限额5千元"></optgroup>
+									          	<option value="SZPAB">平安银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>
+									          	<option value="SPDB">浦发银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>
+									          	<option value="COMM">交通银行</option>
+									          	<optgroup label="单笔限额9999元，单卡单日限额50万元"></optgroup>
+									          	<option value="GDB">广发银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+									          	<option value="HXB">华夏银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额30万元"></optgroup>
+									          	<option value="BOC">中国银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额50万元"></optgroup>
+									          	<option value="ABC">中国农业银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额20万元"></optgroup>
+									          	<option value="ICBC">中国工商银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额10万元"></optgroup>
+									          	<option value="CEB">光大银行</option>
+									          	<optgroup label="单笔限额5万元，单卡单日限额5万元"></optgroup>	
+									        </select>
+								    	</div>
+									</div>
+								</div>
+								<div class="layui-form-item">
+								    <label class="layui-form-label">银行卡号：</label>
+								    <div class="layui-input-block">
+								      	<input type="text" name="title" required  lay-verify="required" placeholder="请输入银行卡号" autocomplete="off" class="layui-input" style="width: 336px;float: left;" onchange="bank(this.value)">
+								      	<div class="error bank" style="display: none;float: left;margin-left: 10px;height: 40px;line-height: 40px;">银行卡号有误，请重新输入</div>
+								    </div>
+								</div>
+								<div class="layui-form-item">
+								    <label class="layui-form-label">开 户 地：</label>
+								    <div class="layui-input-inline">
+								      	<select name="quiz1">
+									        <option value="">请选择省</option>
+									        <option value="浙江省">浙江省</option>
+									        <option value="江西省">江西省</option>
+									        <option value="福建省">福建省</option>
+									        <option value="浙江省">浙江省</option>
+									        <option value="江西省">江西省</option>
+									        <option value="福建省">福建省</option>
+									        <option value="浙江省">浙江省</option>
+									        <option value="江西省">江西省</option>
+									        <option value="福建省">福建省</option>
+									        <option value="浙江省">浙江省</option>
+									        <option value="江西省">江西省</option>
+									        <option value="福建省">福建省</option>
+								      	</select>
+								    </div>
+								    <div class="layui-input-inline">
+								      	<select name="quiz2">
+									        <option value="">请选择市</option>
+									        <option value="杭州">杭州</option>
+									        <option value="宁波">宁波</option>
+									        <option value="温州">温州</option>
+									        <option value="温州">台州</option>
+									        <option value="温州">绍兴</option>
+								      	</select>
+								    </div>
+								</div>
+								<div class="layui-form-item">
+								    <label class="layui-form-label">手机号码：</label>
+								    <div class="layui-input-block">
+								      	<input type="text" name="title" required  lay-verify="required" placeholder="此手机号需为银行卡预留手机号" autocomplete="off" class="layui-input" style="width: 336px;float: left;" onchange="phone(this.value)">
+								      	<div class="error mphone" style="display: none;float: left;margin-left: 10px;height: 40px;line-height: 40px;">手机号有误，请重新输入</div>
+								    </div>
+
+								</div>
+								<div class="layui-form-item">
+								    <label class="layui-form-label">验 证 码：</label>
+								    <div class="layui-input-block">
+								      	<input type="text" name="title" required  lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" style="width: 220px;float: left;">
+								      	<input type="button" class="phoneCd" id="" value="获取验证码" onclick="sendemail()" onchange="code(this.value)">
+								      	<div class="layui-form-mid layui-word-aux" style="margin: 0 10px;">验证码60S内有效，请注意查收</div>
+								    </div>
+								    <div class="error valid_code" style="display: none;">请输入有效验证码</div>
+									<div class="error" style="display: none;">验证码无效，重新发送</div>
+								</div>
+								<div class="layui-form-item">
+								    <div class="layui-input-block">
+								      	<a href="javascript:" class="layui-btn ljtj">立即添加</a>
+								      	<a href="set_bank.html" class="layui-btn layui-btn-primary">暂不添加</a>
+								    </div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+
+	<!-- footer -->
+	<div id="footer">
+		<div class="f_top">
+			<div class="top_one">
+				<div class="topbox">
+					<span>信息披露</span>
+					<a href="javascript:">平台数据</a>
+					<a href="javascript:">安全保障</a>
+					<a href="javascript:">公司简介</a>
+					<a href="javascript:">公司事记</a>
+					<a href="javascript:">公司动态</a>
+					<a href="javascript:">联系我们</a>
+				</div>
+				<div class="topbox">
+					<span>帮助中心</span>
+					<a href="javascript:">常见问题</a>
+					<a href="javascript:">投资指南</a>
+					<a href="javascript:">会员福利</a>
+					<a href="javascript:">资金存管</a>
+					<a href="javascript:">其他问题</a>
+				</div>
+				<div class="topbox">
+					<span>新手指南</span>
+					<a href="javascript:">注册登录</a>
+					<a href="javascript:">充值提现</a>
+					<a href="javascript:">投资理财</a>
+				</div>
+			</div>
+			<div class="top_two">
+				<ul>
+					<li><p>官方微信</p></li><li><p>移动客户端</p></li>
+				</ul>
+			</div>
+			<div class="top_three">
+				<div class="tlt">全国服务热线</div>
+				<p class="txt">400-690-9898</p>
+				<p class="txt">0571-56929127</p>
+				<div class="tlt addtlt">
+					<p>工作日: 9:00-19:00</p>
+					<p>节假日: 10:00-17:30</p>
+				</div>
+				<div class="tlt">官方交流QQ群：463637911</div>
+				<div class="police"></div>
+			</div>
+		</div>
+		<div class="f_bot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有　ICP经营许可证：浙B2-20170101 浙ICP备1</div>
+	</div>
+	<!-- footer end -->
+    <script src="../../../../module/jquery/jquery.min.js"></script>
+    <script src="../../../../module/sticky-header.js"></script>
+    <script src="../../../../module/layui/layui.js"></script>
+	<script src="../../../../js/front/wealth.js"></script>
+	<script type="text/javascript">
+		/*实名认证的名字显示后一，其他换成星星*/
+		var newName = $(".name").html().replace(/.(?=.)/g, '*');
+		$(".name").html(newName);
+		/*实名认证的身份证显示前三后四，其他换成星星*/
+		var newIDcard = $(".IDcard").html().replace(/^(\d{3})\d+(\w{4})$/, '$1 **** $2');
+		$(".IDcard").html(newIDcard);
+		/*获取验证码倒计时*/
+		var countdown=60;
+		function sendemail(){
+		    var obj = $(".phoneCd");
+		    obj.addClass('noverbtn');
+		    settime(obj);
+		}
+		function settime(obj) { //发送验证码倒计时
+		    if (countdown == 0) { 
+		    	obj.removeClass('noverbtn');
+		        obj.attr('disabled',false);
+		        obj.removeAttr('style');
+		        obj.val("获取验证码");
+		        countdown =60; 
+		        return;
+		    } else {
+		        obj.attr('disabled',true);
+		        obj.val("重新发送(" + countdown + ")");
+		        obj.attr('style','background: #d7d7d7 !important;color: #fff !important;border: none !important;')
+		        countdown--; 
+		    } 
+			setTimeout(function() {
+		    	settime(obj) 
+			},1000) 
+		}
+		/*匹配银行卡号只能输入数字*/
+		function bank(value){
+			var pattern = /[^\d]/g;
+	        if(pattern.test(value) ){
+	        	$(".bank").show();
+	        } else {
+	        	$(".bank").hide();
+	        }
+		}
+		/*匹配手机号码只能输入11位数字*/
+		function phone(value){
+			var pattern = /^1[34578]\d{9}$/;
+	        if(!pattern.test(value) ){
+	        	$(".mphone").show();
+	        } else {
+	        	$(".mphone").hide();
+	        }
+		}
+		/*匹配验证码只能输入数字*/
+		function code(value){
+			var pattern = /[^\d]/g;
+	        if(pattern.test(value) ){
+	        	$(".valid_code").show();
+	        } else {
+	        	$(".valid_code").hide();
+	        }
+		}
+	</script>
+</body>
+</html>

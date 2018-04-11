@@ -1,0 +1,337 @@
+.bid_title_money{
+    background: #008EFF;
+    padding-bottom: 30px;
+}
+.bid_title_box{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.bid_title_sbox{
+    width:auto;
+    display:inline-block;
+    position: relative;
+}
+.bid_title{
+    color: #fff;
+    font-size: 30px;
+}
+.bid_xs{
+    width: 64px;
+    height: 27px;
+    line-height: 27px;
+    position: absolute;
+    top: 24px;
+    left: -80px;
+}
+.bid_xs img{
+    width: 64px;
+    height: 27px;
+}
+.circle_big{
+    width: 328px;
+    height: 328px;
+    background: #B9D5FF;
+    border-radius: 50%;
+}
+.circle_small{
+    width: 303px;
+    height: 304px;
+    position: relative;
+}
+.circle_small img{
+    width: 303px;
+    height: 304px;
+}
+.bid_money_box{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.bid_money{
+    font-size: 72px;
+    color: #fff;
+    height: 74px;
+    line-height: 74px;
+    text-align: center;
+    margin-top: 97px;
+}
+.bid_word{
+    font-size: 24px;
+    color: #82C0FF;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+}
+.bid_line_box{
+    margin: 30px;
+    margin-bottom: 0;
+}
+.bid_line{
+    justify-content:space-around;
+    text-align: center;
+    color: #fff;
+}
+.profit{
+    font-size: 36px;
+    height: 50px;
+    line-height: 50px;
+}
+.line_word{
+    font-size: 24px;
+    color: #B6DAFF;
+    height: 40px;
+    line-height: 40px;
+}
+.investment_number{
+    color: #008EFF;
+    font-size: 26px;
+    height: 60px;
+    line-height: 60px;
+    background: #DBEDFF;
+    text-align: center;
+}
+.progress_box{
+    height: 185px;
+    background: #fff;
+}
+.progress_img img{
+    width: 10rem;
+}
+.progress_start,.time_start,.time_end{
+    width: 2rem;
+    text-align: center;
+    color: #8F8F8F;
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+}
+.progress_start{
+    margin-right: 0.5rem;
+}
+.time_end{
+    margin-right: 0.3rem;
+}
+.time_line{
+    width: 1rem;
+    height: 1px;
+    background: #FA6453;
+    margin-top: 20px;
+}
+.investor{
+    width: 1.2rem;
+    text-align: center;
+    color: #8F8F8F;
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+}
+ul.hkxz{
+    padding: 0 0.4rem;
+    background: #fff;
+}
+ul.hkxz li{height: 120px;line-height: 120px;position: relative;background: #ffffff;margin-bottom: 15px;}
+ul.hkxz li label{
+    display: inline-block;
+    width: 24%;
+    font-size: 28px;
+    color: #3F3F3F;
+}
+.choose_row {
+    display: inline-block;
+    width: 76%;
+}
+.choose {
+    color: #8F8F8F;
+    font-size: 24px;
+    margin-right: 12px;
+}
+.row {
+    margin-right: 10px;
+    height: 120px;
+}
+.aqbz{
+    margin-right: 10px;
+}
+.drag_up{
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+}
+.bid_details_big_box{
+    background: #fff;
+    padding-bottom: 110px;
+}
+ul.xqfkht_title{
+    height: 90px;
+    padding: 0 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ul.xqfkht_title li{
+    width: 174px;
+    text-align: center;
+}
+ul.xqfkht_title li .word{
+    height: 70px;
+    line-height: 70px;
+    color: #3B3B3B;
+    font-size: 32px;
+}
+ul.xqfkht_title li.active{
+    border-bottom: 3px solid #008EFF;
+}
+ul.xqfkht_title li.active .word{
+    color: #008EFF;
+}
+.bid_details_items{
+    padding: 0 0.4rem;
+}
+.bid_details_item{
+    display: none;
+}
+.bid_details_item:first-child{
+    display: block;
+}
+.bid_details_item:last-child{
+    text-align: center;
+}
+.bid_details_item:last-child img{
+    max-width: 100%;
+}
+.content_box{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+.content_box:first-child{
+    margin-top: 20px;
+}
+.content_title_box{
+    height: 77px;
+    display: flex;
+    align-items: center;
+}
+.title_zs{
+    width: 10px;
+    height: 27px;
+    background: #59BAD0;
+    margin-right: 30px;
+}
+.content_title{
+    height: 77px;
+    line-height: 81px;
+    font-size: 30px;
+    color: #3B3B3B;
+}
+.bd_content{
+    font-size: 28px;
+    color: #3B3B3B;
+    line-height: 44px;
+    padding-left: 40px;
+}
+ul.info_list li{
+    line-height: 60px;
+    font-size: 28px;
+    color: #3B3B3B;
+}
+ul.info_list li span{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    font-size: 28px;
+    color: #8F8F8F;
+    width: 150px;
+}
+.id_card_box{
+	width: 6.89rem;
+    height: 3.89rem;
+    margin-bottom: 20px;
+}
+.id_card{
+   	width: 6.89rem;
+    height: 3.89rem;
+    background: #D7E7FF;
+}
+.id_card img{
+    width: 6.89rem;
+    height: 3.89rem;
+}
+.bid_details_item_fk .bd_content2{
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+.bd_content .car{
+    width: 4.42rem;
+    height: 2.88rem;
+    background: #D7E7FF;
+}
+.bd_content .car_box{
+    width: 4.42rem;
+    height: 3.54rem;
+    margin-bottom: 0.1rem;
+}
+.bd_content .car img{
+    width: 4.42rem;
+    height: 2.88rem;
+}
+.car_name{
+    font-size: 28px;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    color: #3B3B3B;
+    text-align: center;
+}
+ul.bzcs_list li{
+    border-bottom: 1px solid #E3E3E3;
+    overflow: hidden;
+    padding-top: 0.3rem;
+}
+.icon{
+    width: 0.33rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    margin-right: 0.3rem;
+}
+.icon img{
+    width: 0.33rem;
+    height: 0.33rem;
+}
+.bzcs_content{
+    width: 8.57rem;
+}
+.bzcs_tit{
+    font-size: 28px;
+    color: #3B3B3B;
+    height: 0.66rem;
+    line-height: 0.66rem;
+}
+.bzcs_con{
+    font-size: 26px;
+    color: #8F8F8F;
+    line-height: 0.66rem;
+    padding: 0.1rem 0 0.3rem;
+}
+.btn_qt{
+    display: block;
+    width: 100%;
+    height: 110px;
+    background: #bababa;
+    text-align: center;
+    line-height: 110px;
+    font-size: 32px;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.btn_qt.active{
+    background: #008EFF;
+}

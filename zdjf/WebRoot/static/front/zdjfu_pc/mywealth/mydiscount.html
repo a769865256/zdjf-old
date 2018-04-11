@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../../css/front/wealth.css">
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="nav">
+			<div class="pack">
+				<span><i class="iconfont">&#xe656;</i>客服电话:400-690-9898</span>
+				<div class="p_right">
+					<!-- 登录后显示 -->
+					<div class="login_ok hide">
+						<span class="user_info">130****0251</span>
+						<a href="javascript:" class="user_message">消息<i class="iconfont">&#xe602;</i></a>
+						<a href="javascript:" class="sign_out">安全退出</a>
+					</div>
+					<span><i class="iconfont"></i><a href="../downloadAPP/downloadApp.html">下载APP</a></span>
+            		<span><a href="../help/helpMain.html">帮助中心</a></span><span><a href="../guide/guide.html">新手指引</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="bar">
+			<div class="pack">
+				<div class="l_pk"></div>
+				<div class="r_pk">
+					<ul> 
+						<li><a href="../index.html">首页</a></li>
+						<li>
+							<a href="../project/project_list.html">理财项目</a>
+							<div class="nav">
+								<a href="../project/project_list.html">债转专区</a>
+							</div>
+						</li>
+						<li>
+							<a href="javascript:">信息披露</a>
+							<div class="nav">
+								<a href="javascript:">平台数据</a>
+								<a href="javascript:">安全保障</a>
+								<a href="javascript:">公司简介</a>
+								<a href="javascript:">平台事迹</a>
+								<a href="javascript:">公司动态</a>
+								<a href="javascript:">联系我们</a>
+							</div>
+						</li>
+						<li>
+							<a href="mywealth/wealth.html">我的财富</a>
+							<div class="nav">
+								<a href="javascript:">我的财富</a>
+								<a href="javascript:">资金明细</a>
+								<a href="javascript:">我的理财</a>
+								<a href="javascript:">我的优惠</a>
+								<a href="javascript:">账户设置</a>
+								<a href="javascript:">邀请有礼</a>
+								<a href="javascript:">消息中心</a>
+							</div>
+						</li>
+					</ul>
+					<div class="sign">
+						<a href="../login.html">登录签到</a>
+						<a href="../register.html">注册有礼</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header end -->
+
+	<!-- content -->
+	<div class="open hide">
+		<div class="tlt">
+			<p>为了确保您的正常投资和资金安全，请开通上海银行存管账户。<a href="javascript:">立即开通</a></p>
+		</div>
+	</div>
+	<div class="wealth">
+		<div class="we_lf">
+			<ul>
+				<li><i class="iconfont mycf"></i><a data-html="wealthbox" href="wealth.html">我的财富</a></li>
+				<li><i class="iconfont zjmx"></i><a data-html="capitalbox" href="mycapital.html">资金明细</a></li>
+				<li><i class="iconfont mylc"></i><a data-html="duct" href="myconduct.html">我的理财</a></li>
+				<li class="active"><i class="iconfont myyh"></i><a data-html="discount" href="mydiscount.html">我的优惠</a></li>
+				<li><i class="iconfont zhsz"></i><a data-html="account" href="myaccount.html">账户设置</a></li>
+				<li><i class="iconfont yqyl"></i><a data-html="invitation" href="myinvitation.html">邀请有礼</a></li>
+				<li><i class="iconfont msg"></i><a data-html="message_center" href="mynews.html">消息中心</a></li>
+			</ul>
+			<div class="service">
+				<i class="iconfont">&#xe730;</i>
+				<p>电话：400-690-9898<br>我们将诚挚为您服务</p>
+			</div>
+		</div>
+		<div class="we_rt">
+			<!-- 我的优惠 -->
+			<div class="discount we_rtbox">
+				<div class="dis_tav">
+					<p>
+						<span class="dis_active">优惠券管理</span>
+						<span>兑换中心</span>
+					</p>
+					<div class="dis_tav_txt">
+						<span>正经值余额: <i>0.00</i></span>
+						<a href="javascript:">查看</a>
+					</div>					
+				</div>
+				<div class="dis_tab">
+					<div class="dis_tab_box">
+						<div class="dis_cher_ticket">
+							<a href="javascript:" class="active">红包券(<i>7</i>)</a>
+							<a href="javascript:">加息券(<i>2</i>)</a>
+							<a href="javascript:">提现券(<i>3</i>)</a>
+						</div>
+						<div class="dis_cher_box1">
+							<div class="dis_cher_list">
+								<div class="dis_cher_overdue">
+									<a href="javascript:" class="active">未使用</a>
+									<a href="javascript:">已使用</a>
+									<a href="javascript:">已过期</a>
+									<a href="javascript:">即将过期</a>
+								</div>
+								<ul>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>存款签约红包</p>
+												<p><small>￥</small><span>5000</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>								
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state2">
+												<p>存款签约红包</p>
+												<p><small>￥</small><span>5000</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state3">
+												<p>存款签约红包</p>
+												<p><small>￥</small><span>5000</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state4">
+												<p>存款签约红包</p>
+												<p><small>￥</small><span>5000</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>存款签约红包</p>
+												<p><small>￥</small><span>5000</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>存款签约红包</p>
+												<p><small>￥</small><span>5000</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+								</ul>
+								<div class="no_listbox hide"><!-- 无红包时显示 --></div>
+								<!-- 分页 -->
+								<div id="dis_page"></div>
+							</div>
+							<div class="dis_cher_list" style="display: none">
+								<div class="dis_cher_overdue">
+									<a href="javascript:" class="active">未使用</a>
+									<a href="javascript:">已使用</a>
+									<a href="javascript:">已过期</a>
+									<a href="javascript:">即将过期</a>
+								</div>
+								<ul>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>存款签约红包</p>
+												<p><small>+</small><span>1.80%</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>								
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state2">
+												<p>存款签约红包</p>
+												<p><small>+</small><span>1.80%</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state3">
+												<p>存款签约红包</p>
+												<p><small>+</small><span>1.80%</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state4">
+												<p>存款签约红包</p>
+												<p><small>+</small><span>1.80%</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>存款签约红包</p>
+												<p><small>+</small><span>1.80%</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>存款签约红包</p>
+												<p><small>+</small><span>1.80%</span></p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+								</ul>
+								<div class="no_listbox jxq hide"><!-- 无加息券时显示 --></div>
+								<!-- 分页 -->
+								<div id="dis_page_1"></div>
+							</div>
+							<div class="dis_cher_list" style="display: none;">
+								<div class="dis_cher_overdue">
+									<a href="javascript:" class="active">未使用</a>
+									<a href="javascript:">已使用</a>
+									<a href="javascript:">已过期</a>
+									<a href="javascript:">即将过期</a>
+								</div>
+								<ul>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>提现券</p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>								
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state2">
+												<p>提现券</p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state3">
+												<p>提现券</p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state4">
+												<p>提现券</p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>提现券</p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+									<li>
+										<div class="listbox">
+											<div class="list_state state1">
+												<p>提现券</p>
+											</div>
+											<div class="list_stlt">
+												<p>投资≥100元 收益天数≥5天</p>
+												<p>限非新手标</p>
+												<p>有效时间：2017.07.03-2017.08.02</p>
+											</div>									
+										</div>
+									</li>
+								</ul>
+								<div class="no_listbox jxq hide"><!-- 无提现券时显示 --></div>
+								<!-- 分页 -->
+								<div id="dis_page_11"></div>
+							</div>
+						</div>
+					</div>
+					<div class="dis_tab_box" style="display: none;">
+						<div class="dis_cher_ticket _ticket">
+							<a href="javascript:" class="active">红包券</a>
+							<a href="javascript:">加息券</a>
+							<a href="javascript:">提现券</a>
+						</div>
+						<div class="dis_cher_box2">
+							<div class="dis_cher_list">
+								<ul>
+									<li>
+										<div class="listtent tent1">
+											<h3>13元红包</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent2">
+											<h3>13元红包</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent3">
+											<h3>13元红包</h3>
+											<p>投资≥100元 收益天数≥5天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>13元红包</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>13元红包</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>13元红包</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+								</ul>
+								<!-- 分页 -->
+								<div id="dis_page2"></div>
+							</div>
+							<div class="dis_cher_list" style="display: none;">
+								<ul>
+									<li>
+										<div class="listtent tent1">
+											<h3>0.50%加息券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent2">
+											<h3>0.50%加息券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent3">
+											<h3>提现券</h3>
+											<p>投资≥100元 收益天数≥5天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>0.50%加息券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>0.50%加息券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>0.50%加息券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+								</ul>
+								<!-- 分页 -->
+								<div id="dis_page_2"></div>
+							</div>
+							<div class="dis_cher_list" style="display: none;">
+								<ul>
+									<li>
+										<div class="listtent tent1">
+											<h3>提现券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent2">
+											<h3>提现券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent3">
+											<h3>提现券</h3>
+											<p>投资≥100元 收益天数≥5天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>提现券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>提现券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+									<li>
+										<div class="listtent tent1">
+											<h3>提现券</h3>
+											<p>投资≥1000元 收益天数≥20天<br>限非新手标<br>领取后15天有效</p>
+											<a class="exchange" href="javascript:">15.00正经值兑换</a>
+										</div>
+									</li>
+								</ul>
+								<!-- 分页 -->
+								<div id="dis_page_22"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+	<!-- 正经值兑换弹窗 -->
+	<div id="zjzdh">
+		<div id="with_box">
+			<h3>正经值兑换确定<a href="javascript:" class="with_close iconfont">&#xe64e;</a></h3>
+			<div class="with_con">
+				<p>你确定要使用15正经值兑换13元红包券？</p>
+			</div>
+			<div class="with_btn">
+				<a href="javascript:" class="with_see">确定兑换</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 正经值明细弹窗通过js实现方法为zjzmx() -->
+
+	<!-- footer -->
+	<!-- footer -->
+	<div id="footer">
+		<div class="f_top">
+			<div class="top_one">
+				<div class="topbox">
+					<span>信息披露</span>
+					<a href="javascript:">平台数据</a>
+					<a href="javascript:">安全保障</a>
+					<a href="javascript:">公司简介</a>
+					<a href="javascript:">公司事记</a>
+					<a href="javascript:">公司动态</a>
+					<a href="javascript:">联系我们</a>
+				</div>
+				<div class="topbox">
+					<span>帮助中心</span>
+					<a href="javascript:">常见问题</a>
+					<a href="javascript:">投资指南</a>
+					<a href="javascript:">会员福利</a>
+					<a href="javascript:">资金存管</a>
+					<a href="javascript:">其他问题</a>
+				</div>
+				<div class="topbox">
+					<span>新手指南</span>
+					<a href="javascript:">注册登录</a>
+					<a href="javascript:">充值提现</a>
+					<a href="javascript:">投资理财</a>
+				</div>
+			</div>
+			<div class="top_two">
+				<ul>
+					<li><p>官方微信</p></li><li><p>移动客户端</p></li>
+				</ul>
+			</div>
+			<div class="top_three">
+				<div class="tlt">全国服务热线</div>
+				<p class="txt">400-690-9898</p>
+				<p class="txt">0571-56929127</p>
+				<div class="tlt addtlt">
+					<p>工作日: 9:00-19:00</p>
+					<p>节假日: 10:00-17:30</p>
+				</div>
+				<div class="tlt">官方交流QQ群：463637911</div>
+				<div class="police"></div>
+			</div>
+		</div>
+		<div class="f_bot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有　ICP经营许可证：浙B2-20170101 浙ICP备1</div>
+	</div>
+	<!-- footer end -->
+    <script src="../../../../module/jquery/jquery.min.js"></script>
+    <script src="../../../../module/sticky-header.js"></script>
+    <script src="../../../../module/layui/layui.js"></script>
+	<script src="../../../../js/front/wealth.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.notify">
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id, service_name, return_content, status, notify_time
+	</sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id}, #{service_name}, #{return_content}, #{status}, #{notify_time}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="service_name != null and service_name != ''">
+			and service_name = #{service_name}
+		</if>
+		<if test="return_content != null and return_content !=''">
+			and return_content = #{return_content}
+		</if>
+		<if test="status != null and status!=''">
+			and status = #{status}
+		</if>
+		<if test="notify_time != null and notify_time != ''">
+			and notify_time = #{notify_time}
+		</if>
+	</sql>
+
+	<insert id="saveNotifyLog" parameterType="com.zdjf.domain.notify.NotifyLog" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_notify_log (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+
+	<delete id="deleteNotifyLog">
+		delete from zd_notify_log
+		where id=#{id}
+	</delete>
+
+	<delete id="deleteByExampleNotifyLog">
+		delete from zd_notify_log
+		where 1=1
+		<include refid="conds" />
+	</delete>
+	
+	<select id="loadNotifyLog" resultType="com.zdjf.domain.notify.NotifyLog">
+		select 
+		<include refid="columns"/>
+		from zd_notify_log
+		where id=#{id}
+	</select>
+	
+	<select id="selectNotifyLog" resultType="com.zdjf.domain.notify.NotifyLog">
+		select 
+		<include refid="columns"/>
+		from zd_notify_log
+		where 1=1
+		<include refid="conds" />
+	</select>
+
+	<update id="updateNotifyLog">
+		update zd_notify_log
+		<set>
+			id=#{id}, 
+			area_id=#{area_id}, 
+			service_name=#{service_name}, 
+			return_content=#{return_content}, 
+			status=#{status}, 
+			notify_time=#{notify_time}
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="updateIgnoreNullNotifyLog">
+		update zd_notify_log
+		<set>
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="service_name != null and service_name != ''">
+			and service_name = #{service_name}
+		</if>
+		<if test="return_content != null and return_content !=''">
+			and return_content = #{return_content}
+		</if>
+		<if test="status != null and status!=''">
+			and status = #{status}
+		</if>
+		<if test="notify_time != null and notify_time != ''">
+			and notify_time = #{notify_time}
+		</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="updateByExampleNotifyLog">
+		update zd_notify_log
+		<set>
+			<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="service_name != null and service_name != ''">
+			and service_name = #{service_name}
+		</if>
+		<if test="return_content != null and return_content !=''">
+			and return_content = #{return_content}
+		</if>
+		<if test="status != null and status!=''">
+			and status = #{status}
+		</if>
+		<if test="notify_time != null and notify_time != ''">
+			and notify_time = #{notify_time}
+		</if>
+		</set>
+		where 1=1
+		<include refid="conds" />
+	</update>
+
+</mapper>

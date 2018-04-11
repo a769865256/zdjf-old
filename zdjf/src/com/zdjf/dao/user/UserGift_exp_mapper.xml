@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.userGift">
+	<select id="selectUserGiftPage" resultType="java.util.Map">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_user_gift
+		where 1=1
+		<include refid="conds" />
+		order by status 
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectUserGiftPageNew" resultType="java.util.Map">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_user_gift
+		where 1=1
+		<include refid="conds" />
+		order by id desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	
+	<select id="selectUserGiftCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_user_gift
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="selectUserGiftByGiftId" resultType="com.zdjf.domain.user.UserGift">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_user_gift 
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="updateUserGiftByGiftId" parameterType="com.zdjf.domain.user.UserGift">
+		update zd_user_gift
+		<trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''"> id = #{id},</if>
+			<if test="gift_id != null and gift_id != ''"> gift_id = #{gift_id},</if>
+			<if test="user_id != null and user_id != ''"> user_id = #{user_id},</if>
+			<if test="amount != null and amount != ''"> amount = #{amount},</if>
+			<if test="create_time != null"> create_time = #{create_time},</if>
+			<if test="used_time != null"> used_time = #{used_time},</if>
+			<if test="start_date != null"> start_date = #{start_date},</if>
+			<if test="end_date != null"> end_date = #{end_date},</if>
+			<if test="status != null and status != ''"> status = #{status},</if>
+			<if test="remark != null and remark != ''"> remark = #{remark},</if>
+			<if test="relation_id != null and relation_id != ''"> relation_id = #{relation_id},</if>
+			<if test="gift_name != null and gift_name != ''"> gift_name = #{gift_name},</if>
+			<if test="max_amount != null and max_amount != ''"> max_amount = #{max_amount},</if>
+			<if test="use_type != null and use_type != ''"> use_type = #{use_type},</if>
+			<if test="max_days != null and max_days != ''"> max_days = #{max_days},</if>
+			<if test="old_id != null and old_id != ''"> old_id = #{old_id},</if>
+			<if test="old_gift_id != null and old_gift_id != ''"> old_gift_id = #{old_gift_id},</if>
+			<if test="uid != null and uid != ''"> uid = #{uid},</if>
+			<if test="old_relation_id != null and old_relation_id != ''"> old_relation_id = #{old_relation_id},</if>
+		</trim>
+		where 1=1
+		and id=#{id}
+	</select>
+	<select id="deleteUserGiftByGiftId" parameterType="long">
+			delete from zd_user_gift where gift_id=#{gift_id}
+	</select>
+	<select id="selectUserGiftGroupByGiftId" resultType="java.util.Map">
+			select count(gift_id) amount,gift_id from zd_user_gift group by gift_id;
+	</select>
+	<select id="selectGiftListByMap" resultType="com.zdjf.domain.user.UserGiftVo">
+		select
+		<include refid="columns"/>
+		from
+		zd_user_gift
+		where 1=1
+		<if test="user_id != null and user_id !=''">and user_id=${user_id}</if>
+		<if test="status != null and status !=''">and status in (${status})</if>
+		<if test="max_amount != null and max_amount !=''">and max_amount &lt;${max_amount}</if>
+		<if test="max_days != null and max_days !=''">and max_days &lt;${max_days}</if>
+		order by status,create_time desc,amount desc
+	</select>
+	<select id="selectGiftCountByUid" resultType="java.lang.Integer">
+		select count(0) from zd_user_gift where (status=1 or status=0) and user_id=#{user_id}
+	</select>
+	
+	<select id="getgiftUsedNum" resultType="java.lang.Double">
+		select sum(amount) from zd_user_gift where status=2 and user_id=#{user_id}
+	</select>
+	<select id="selectGiftPageByMap" resultType="com.zdjf.domain.user.UserGiftVo">
+		select
+		*
+		from
+		zd_user_gift
+		where 1=1
+		<if test="user_id != null and user_id !=''">and user_id=${user_id}</if>
+		<if test="status != null and status !=''">and status = ${status}</if>
+		order by status,create_time desc,amount desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectGiftPageCnByMap" resultType="java.lang.Long">
+		select
+		count(0)
+		from
+		zd_user_gift
+		where 1=1
+		<if test="user_id != null and user_id !=''">and user_id=${user_id}</if>
+		<if test="status != null and status !=''">and status = ${status}</if>
+	</select>
+	
+	<select id="selectUserGiftList" parameterType="java.util.Map" resultType="com.zdjf.domain.user.UserGiftVo">
+		select * from zd_user_gift where 1 = 1
+			and max_days &lt;= #{min_days} and user_id=#{user_id} and status=${status} and end_date &gt;= #{end_date}
+			 and max_amount &lt;= #{amount} order by amount desc,end_date asc
+	</select>
+	<insert id="batchInsertUserGift" parameterType="java.util.Map">
+		INSERT INTO zd_user_gift(gift_id,gift_name,user_id,amount,create_time,remark,start_date,end_date,STATUS,relation_id,max_days,max_amount,use_type)
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			SELECT id,gift_name,#{item},money,NOW(),gift_name,CURDATE(),CURDATE(),1,gift_source,max_days,max_amount,use_type from zd_gift where gift_name = #{giftName}
+		</foreach>
+	</insert>
+	<update id="updateOutOfDateUserGift">
+		update zd_user_gift
+		<set>
+			status = 3
+		</set>
+		where  DATE_FORMAT(end_date,'%Y-%m-%d 23:59:59') &lt; DATE_FORMAT(NOW(),'%Y-%m-%d 00:00:00') and status = 1
+	</update>
+</mapper>

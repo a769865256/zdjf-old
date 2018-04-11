@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../../module/slides/flexslider.css"> 
+	<link rel="stylesheet" href="../../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../../css/front/project.css">
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="nav">
+			<div class="pack">
+				<span><i class="iconfont">&#xe656;</i>客服电话:400-690-9898</span>
+				<div class="p_right">
+					<!-- 登录后显示 -->
+					<div class="login_ok hide">
+						<span class="user_info">130****0251</span>
+						<a href="javascript:" class="user_message">消息<i class="iconfont">&#xe602;</i></a>
+						<a href="javascript:" class="sign_out">安全退出</a>
+					</div>
+					<span><i class="iconfont"></i><a href="../downloadAPP/downloadApp.html">下载APP</a></span>
+            		<span><a href="../help/helpMain.html">帮助中心</a></span><span><a href="../guide/guide.html">新手指引</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="bar">
+			<div class="pack">
+				<div class="l_pk"></div>
+				<div class="r_pk">
+					<ul> 
+						<li><a href="../index.html">首页</a></li>
+						<li>
+							<a href="project_list.html">理财项目</a>
+							<div class="nav">
+								<a href="pro_detail.html">债转专区</a>
+							</div>
+						</li>
+						<li>
+							<a href="javascript:">信息披露</a>
+							<div class="nav">
+								<a href="javascript:">平台数据</a>
+								<a href="javascript:">安全保障</a>
+								<a href="javascript:">公司简介</a>
+								<a href="javascript:">平台事迹</a>
+								<a href="javascript:">公司动态</a>
+								<a href="javascript:">联系我们</a>
+							</div>
+						</li>
+						<li>
+							<a href="../mywealth/wealth.html">我的财富</a>
+							<div class="nav">
+								<a href="javascript:">我的财富</a>
+								<a href="javascript:">资金明细</a>
+								<a href="javascript:">我的理财</a>
+								<a href="javascript:">我的优惠</a>
+								<a href="javascript:">账户设置</a>
+								<a href="javascript:">邀请有礼</a>
+								<a href="javascript:">消息中心</a>
+							</div>
+						</li>
+					</ul>
+					<div class="sign">
+						<a href="../login.html">登录签到</a>
+						<a href="../register.html">注册有礼</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header end -->
+
+	<!-- content -->
+	<div class="pro_detail">
+		<!-- 债转详情 -->
+		<div class="catalog">
+			<div class="ca_lf">
+				<h3>车财道12142期<span>保时捷迈凯（2.0T）汽车质押</span></h3>
+				<div class="statistics">
+					<div class="sta1">
+						<p>9.00+1.5<i>%</i></p>
+						<p>预期年化收益</p>
+					</div>
+					<div class="sta2">
+						<p>7<i>天</i></p>
+						<p>收益天数</p>
+					</div>
+					<div class="sta3">
+						<p>100,000,000</p>
+						<p>项目总额</p>
+					</div>
+
+				</div>
+				<div class="detail_bar">
+					<div class="layui-progress detail_bar">
+						<div class="layui-progress-bar layui-progress-detailbar layui-bg-zdjforange" lay-percent="83%"></div>
+					</div>
+					<span class="bar_sum">83%</span>
+				</div>
+				<div class="de_amount">
+					<div class="amount1">
+						<p>起投金额：<span>100元</span></p>
+						<p>起息时间：<span>T+1 投资成功后次日起息</span></p>
+					</div>
+					<div class="amount2">
+						<p>剩余可投：<span>1200000元</span></p>
+						<p>还款方式：<span>按日计息，按月付息，到期还本</span></p>
+					</div>
+				</div>
+				<div class="de_date">
+					<div class="state sta1">起<span>起息日期：2017.9.18</span></div>
+					<div class="de_line"></div>
+					<div class="state sta2">还款计划<i class="iconfont">&#xe697;</i>
+						<div class="tlt">
+							<table>
+								<thead>
+									<tr>
+										<th>期数</th>
+										<th>还款日期</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>2017-10-10<br>利息+本金</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="de_line"></div>
+					<div class="state sta3">还<span>还款日期：2017.10.18</span></div>
+				</div>
+			</div>
+			<!-- 已登录 -->
+			<div class="ca_rt">
+				<h3>账户可用余额：<span>0.00</span><a href="javascript:">去充值</a></h3>
+				<div class="error">错误提示</div>
+				<ul>
+					<li class="rt_one"><input onkeyup="this.value=this.value.replace(/\D/g,'')" type="text" class="investor" placeholder="100元起投"><a href="javascript:" class="allmon">全投</a></li>
+					<li class="interest"><input type="text" placeholder="请选择加息券" class="jiaxi" readonly="readonly"><span class="tlt"></span><a href="javascript:"><i class="iconfont">&#xe697;</i></a>
+						<div class="interbox hide">
+							<div class="interlist" style="display: none;">
+								<div class="zhezhao"></div>
+								<div class="num">请选择加息券
+									<span></span>
+								</div>
+								<div class="numtxt">
+									<p></p>
+								</div>
+							</div>
+							<div class="interlist no_jxq">
+								<div class="zhezhao"></div>
+								<div class="num">暂无可使用加息券
+									<span></span>
+								</div>
+								<div class="numtxt">
+									<p></p>
+								</div>
+							</div>
+							<div class="interlist">
+								<div class="zhezhao"></div>
+								<div class="num">+0.05%
+									<span>投资≥100元</span>
+								</div>
+								<div class="numtxt">
+									<p>限非新手标</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input class="userid" type="hidden" value="">
+								<input class="mon" type="hidden" value="100">
+							</div>
+							<div class="interlist">
+								<div class="zhezhao"></div>
+								<div class="num">+0.15%
+									<span>投资≥100元</span>
+								</div>
+								<div class="numtxt">
+									<p>新手标</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input class="userid" type="hidden" value="">
+								<input class="mon" type="hidden" value="200">
+							</div>
+							<div class="interlist">
+								<div class="zhezhao"></div>
+								<div class="num">+0.25%
+									<span>投资≥100元</span>
+								</div>
+								<div class="numtxt">
+									<p>全部</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input class="userid" type="hidden" value="">
+								<input class="mon" type="hidden" value="300">
+							</div>
+							<div class="interlist">
+								<div class="zhezhao"></div>
+								<div class="num">+0.25%</div>
+								<div class="numtxt">
+									<p>投资≥100元</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input class="userid" type="hidden" value="">
+								<input class="mon" type="hidden" value="300">
+							</div>
+						</div>
+					</li>
+					<li class="redbag"><input class="hongbao" type="text" placeholder="请选择红包券" readonly="readonly"><span class="tlt"></span><a href="javascript:"><i class="iconfont">&#xe697;</i></a>
+						<div class="zhengjing layui-form">
+							<p><input type="text" placeholder="开启正经值使用抵扣优惠" readonly="readonly" class="zjzinput">
+								<input type="checkbox" name="switch" lay-skin="switch">   
+							</p>
+						</div>
+						<div class="ovderlist">
+							<p>
+								<i class="iconfont">&#xe602;</i>
+								<span>正经值余额：<i>44.00元</i>,</span>
+								<span>本次可用：<i>10.00元</i></span>
+							</p>
+							<p style="display: none;">
+								<i class="iconfont">&#xe602;</i>
+								<span>单次最大抵用金额为投资本金的1.0%</span>
+							</p>
+						</div>
+						<p>预计收益：<span>0.00元</span></p>
+						<div class="redbox hide">
+							<div class="redlist first_hb">
+								<div class="zhezhao"></div>
+								<div class="num">请选择红包券
+									<span></span>
+								</div>
+								<div class="numtxt">
+									<p></p>
+								</div>
+							</div>
+							<div class="redlist no_hb" style="display: none;">
+								<div class="zhezhao"></div>
+								<div class="num">暂无可使用红包券
+									<span></span>
+								</div>
+								<div class="numtxt">
+									<p></p>
+								</div>
+							</div>
+							<div class="redlist">
+								<div class="zhezhao"></div>
+								<div class="num">￥10.00
+									<span>投资≥100元</span>
+								</div>
+								<div class="numtxt">
+									<p>限非新手标</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input type="hidden" class="useridtwo">
+								<input type="hidden" class="montwo" value="100">
+							</div>
+							<div class="redlist">
+								<div class="zhezhao"></div>
+								<div class="num">￥10.00</div>
+								<div class="numtxt">
+									<p>全部</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input type="hidden" class="useridtwo">
+								<input type="hidden" class="montwo" value="200">
+							</div>
+							<div class="redlist">
+								<div class="zhezhao"></div>
+								<div class="num">￥20.00
+									<span>投资≥100元</span>
+								</div>
+								<div class="numtxt">
+									<p>新手标</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input type="hidden" class="useridtwo">
+								<input type="hidden" class="montwo" value="300">
+							</div>
+							<div class="redlist">
+								<div class="zhezhao"></div>
+								<div class="num">￥30.00</div>
+								<div class="numtxt">
+									<p>投资≥100元</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input type="hidden" class="useridtwo">
+								<input type="hidden" class="montwo" value="400">
+							</div>
+							<div class="redlist">
+								<div class="zhezhao"></div>
+								<div class="num">￥30.00</div>
+								<div class="numtxt">
+									<p>投资≥100元</p>
+									<p>收益天数≥5天</p>
+									<p>有效时间 2017.08.02</p>
+								</div>
+								<input type="hidden" class="useridtwo">
+								<input type="hidden" class="montwo" value="500">
+							</div>
+						</div>
+					</li>
+					<li class="rt_four"><a href="order.html" class="investbtn no_sta">立即投资</a></li>
+				</ul>
+				<div class="agreement layui-form">
+					<p><input type="radio" title="我已阅读并同意" name="radio" lay-skin="radio" checked="checked"><a href="javascript:">《正道金服服务协议》</a></p>
+					<p>理财有风险，投资需谨慎</p>
+				</div>
+			</div>
+			<!-- 未登录 -->
+			<div class="ca_rt hide">
+				<div class="nologin">
+					<p class="no_lg1">账户可用余额：请<a href="../login.html">登录</a>或<a href="../register.html">注册</a>后查看</p>
+					<p class="no_lg2"><input type="text" placeholder="100元起投"><a href="javascript:">全投</a></p>
+					<p class="no_lg3">
+						<span>预计收益：<i>0.00元</i></span>
+						<span>某宝收益：<i>0.00元</i></span>
+					</p>
+					<p class="no_lg4"><a href="javascript:">立即投资</a></p>
+					<p class="no_lg5">理财有风险，投资需谨慎</p>
+				</div>
+			</div>
+		</div>
+		<div class="catatab">
+			<div class="tab">
+				<a href="javascript:" class="active">项目详情</a>
+				<a href="javascript:">风控审核</a>
+				<a href="javascript:">合同资料</a>
+				<a href="javascript:">投资记录</a>
+			</div>
+			<div class="tabbox">				
+				<div class="tabtent">
+					<div class="tabhead">
+						<h4>项目概述</h4>
+						<div class="logo"><img src="../../../../images/front/img/project/logo.png" alt=""></div>
+						<div class="logotxt">
+							<p>本项目为正道金服12549期的续借项目，该项目借款主要用于借款人二手车收购。项目总额为人民币65万元整，项目分三期，第二期为人该项目借款主要用于借款人二手车收购。项目总额为人民币65万元整，项目分三期，第二期为人第二期为人该项目借款主要用于借款人二手车收购。项目总额为人民币65万元整，项目分三期，第二期为人</p>
+						</div>
+					</div>
+					<div class="tabfoot">
+						<div class="tentbox">
+							<div class="people">
+								<h4>出借人信息（原始债权人）</h4>
+								<p><span>姓名：金**</span><span>年龄：28</span></p>
+								<p><span>性别：男</span><span>婚姻状况：已婚</span></p>
+								<p>现居地址：浙江省富阳市**********</p>
+							</div>
+							<div class="peobanner">
+								<div class="layui-carousel" id="idbanner">
+								  	<div carousel-item>
+									    <div><img src="../../../../images/front/img/project/people1.png" alt=""></div>
+									    <div><img src="../../../../images/front/img/project/people1.png" alt=""></div>
+								  	</div>
+								</div>
+							</div>
+						</div>
+						<div class="tentbox">
+							<div class="people">
+								<h4>出借人信息（原始债权人）</h4>
+								<p><span>姓名：金**</span><span>年龄：28</span></p>
+								<p><span>性别：男</span><span>婚姻状况：已婚</span></p>
+								<p>现居地址：浙江省富阳市**********</p>
+							</div>
+							<div class="peobanner">
+								<div class="layui-carousel" id="idbanner2">
+								  	<div carousel-item>
+									    <div><img src="../../../../images/front/img/project/people1.png" alt=""></div>
+									    <div><img src="../../../../images/front/img/project/people1.png" alt=""></div>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="source">
+						<h4>还款来源</h4>
+						<p>借款人为湖北省郧西县户口，专业收购二手车，还款来源为二手车销售收入等经营性收入，收入稳定，家庭条件良好，有充足的偿还能力。为保借款人为湖北省郧西县户口，专业收购二手车，还款来源为二手车销售收入等经营性收入，收入稳定，家庭条件良好，有充足的偿还能力。为保借款人为湖北省郧西县户口，专业收购二手车</p>
+					</div>
+				</div>
+				<div class="tabtent" style="display: none;">
+					<div class="risk">
+						<h4>财产保障信息</h4>
+						<p>抵押车辆为奔驰AMG GT S汽车，机动车型号：WDDYJ7JA，车身颜色为白色，内饰为红黑色，首次注册时间为2016年08月车身颜色为白色，内饰为红黑色，首次注册时间为2016年08月</p>
+					</div>
+					<div class="riskbanner">
+						<div id="fengkong_id" class="cxscroll2">
+						  <div class="box">
+						    <ul class="list">
+						      	<li><img src="../../../../images/front/img/project/fengkong.png" /></li>
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li> 
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li> 
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li>
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li> 
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li> 
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li>
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li> 
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li> 
+								<li><img src="../../../../images/front/img/project/fengkong.png" /></li>
+						    </ul>
+						  </div>
+						  <!-- 控制按钮会自动创建，可省略 -->
+						  <a class="iconfont prev">&#xe600;</a>
+						  <a class="iconfont next">&#xe751;</a>
+						</div>
+					</div>
+					<div class="guarantee">
+						<h4>保障措施</h4>
+						<table>
+							<tr>
+								<td>业务来源</td>
+								<td>该借款项目由平台合作方推荐至平台，并由平台业务人员进行现场核实，以保证债权真实性。</td>
+							</tr>
+							<tr>
+								<td>风控审核</td>
+								<td>抵押车辆经推荐机构专业二手车评估人员估值人民币135万元整，借款人民币100万元整，严格控制了借款金额，风控师审核适批。</td>
+							</tr>
+							<tr>
+								<td>抵押管理</td>
+								<td>项目借款人提供的抵押车辆已经过户至指定人名下，指定人员已经出具相关承诺，公司定期或不定期指派人员查看抵押车辆保管状态。</td>
+							</tr>
+							<tr>
+								<td>法律监管</td>
+								<td>专业律师对平台模式及债权形成流程进行严格法律风险把控，并提供法律支持和保障。</td>
+							</tr>
+							<tr>
+								<td>资金监管</td>
+								<td>投资资金由汇付天下进行资金托管，实行专人专户、专款专用，实现实时监管、资金零挪用。</td>
+							</tr>
+							<tr>
+								<td>项目赎回</td>
+								<td>项目出借人为某公司负责人，杭州市户口，信誉良好，并在杭州有固定资产，项目出借人承诺逾期赎回债权。</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="tabtent" style="display: none;">
+					<div class="hetongbtn">
+						<a href="javascript:" class="active">合同协议</a>
+						<a href="javascript:">其他文件</a>
+					</div>
+					<div class="hetongtab">
+						<div class="hetong">
+							<div id="hetong_id" class="cxscroll">
+							  <div class="box">
+							    <ul class="list">
+							      	<li><img src="../../../../images/front/img/project/contract.png" /></li>
+									<li><img src="../../../../images/front/img/project/contract.png" /></li> 
+									<li><img src="../../../../images/front/img/project/contract.png" /></li> 
+									<li><img src="../../../../images/front/img/project/contract.png" /></li>
+									<li><img src="../../../../images/front/img/project/contract.png" /></li> 
+									<li><img src="../../../../images/front/img/project/contract.png" /></li> 
+									<li><img src="../../../../images/front/img/project/contract.png" /></li>
+									<li><img src="../../../../images/front/img/project/contract.png" /></li> 
+									<li><img src="../../../../images/front/img/project/contract.png" /></li> 
+									<li><img src="../../../../images/front/img/project/contract.png" /></li>
+							    </ul>
+							  </div>
+							  <!-- 控制按钮会自动创建，可省略 -->
+							  <a class="iconfont prev">&#xe600;</a>
+							  <a class="iconfont next">&#xe751;</a>
+							</div>
+						</div>
+						<div class="hetong" style="display: none;">
+							<ul class="qita">
+								<li><img src="../../../../images/front/img/project/contract.png" alt=""></li>
+								<li><img src="../../../../images/front/img/project/contract.png" alt=""></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="tabtent" style="display: none;">
+					<div class="record">
+						<div class="record_lf">
+							<table>
+								<thead>
+									<tr>
+										<th>投资用户</th>
+										<th>投资金额</th>
+										<th>年化收益</th>
+										<th>预期收益</th>
+										<th>投资时间</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><i class="iconfont">&#xe618;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00%</td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+									<tr>
+										<td><i class="iconfont">&#xe64b;</i>130****0251</td>
+										<td><span class="money">5,000元</span></td>
+										<td>9.00% + <span class="money">0.50%券</span></td>
+										<td>35.00元</td>
+										<td>2017-10-27 08:24</td>
+									</tr>
+								</tbody>
+							</table>
+							<div id="recrdpage"></div>
+						</div>
+						<div class="record_rt">
+							<div class="record_details">
+								<a href="javascript:;">详情<i class="iconfont">&#xe697;</i></a>
+							</div>
+							<div class="recordBox record_1">
+								<ul>
+									<li><i class="gold"></i><div>133****3436</div>奖励<span>5.00</span>元</li>
+									<li><i class="silverMedal"></i><div>133****3436</div>奖励<span>5.00</span>元</li>
+									<li><i class="copperMedal"></i><div>133****3436</div>奖励<span>5.00</span>元</li>
+								</ul>
+							</div>
+							<div class="recordBox record_2">
+								<ul>
+									<li><i class="gold"></i><span class="xydw">虚以待位</span>奖励<span>--</span>元</li>
+									<li><i class="silverMedal"></i><span class="xydw">虚以待位</span>奖励<span>--</span>元</li>
+								</ul>
+							</div>
+							<div class="recordBox record_3">
+								<ul>
+									<li><i class="gold"></i><span class="xydw">虚以待位</span>奖励<span>--</span>元</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+
+
+	<!-- footer -->
+	<!-- footer -->
+	<div id="footer">
+		<div class="f_top">
+			<div class="top_one">
+				<div class="topbox">
+					<span>信息披露</span>
+					<a href="javascript:">平台数据</a>
+					<a href="javascript:">安全保障</a>
+					<a href="javascript:">公司简介</a>
+					<a href="javascript:">公司事记</a>
+					<a href="javascript:">公司动态</a>
+					<a href="javascript:">联系我们</a>
+				</div>
+				<div class="topbox">
+					<span>帮助中心</span>
+					<a href="javascript:">常见问题</a>
+					<a href="javascript:">投资指南</a>
+					<a href="javascript:">会员福利</a>
+					<a href="javascript:">资金存管</a>
+					<a href="javascript:">其他问题</a>
+				</div>
+				<div class="topbox">
+					<span>新手指南</span>
+					<a href="javascript:">注册登录</a>
+					<a href="javascript:">充值提现</a>
+					<a href="javascript:">投资理财</a>
+				</div>
+			</div>
+			<div class="top_two">
+				<ul>
+					<li><p>官方微信</p></li><li><p>移动客户端</p></li>
+				</ul>
+			</div>
+			<div class="top_three">
+				<div class="tlt">全国服务热线</div>
+				<p class="txt">400-690-9898</p>
+				<p class="txt">0571-56929127</p>
+				<div class="tlt addtlt">
+					<p>工作日: 9:00-19:00</p>
+					<p>节假日: 10:00-17:30</p>
+				</div>
+				<div class="tlt">官方交流QQ群：463637911</div>
+				<div class="police"></div>
+			</div>
+		</div>
+		<div class="f_bot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有　ICP经营许可证：浙B2-20170101 浙ICP备1</div>
+	</div>
+	<!-- footer end -->
+
+	<!-- 前往开通上海银行存管弹窗 -->
+	<div class="addmove bank_open" style="display: none;">
+        <div class="move">
+            <h3>正道金服正式接入上海银行资金存管<span class="closeFun"></span></h3>
+            <p>您需要开通上海银行存管，才可以进行投资、充值、提现等操作。</p>
+            <a href="javascript:">立即开通</a>
+        </div>
+    </div>
+
+	<!-- 点击立即投资弹窗 -->
+	<div class="addmove bank_bind_wad" style="display: none;">
+        <div class="move">
+            <h3>正道金服正式接入上海银行资金存管<span class="closeFun"></span></h3>
+            <p>您尚未绑定银行卡和设置密码，绑定银行卡和设置支付密码后方可进行操作。</p>
+            <a href="javascript:">前往设置</a>
+            <a href="javascript:">稍后设置</a>
+        </div>
+    </div>
+
+    <!-- 用户未绑定银行卡弹窗 -->
+	<div class="addmove bank_bind" style="display: none;">
+        <div class="move">
+            <h3>正道金服正式接入上海银行资金存管<span class="closeFun"></span></h3>
+            <p>您尚未绑定银行卡，绑定银行卡后方可进行操作</p>
+            <a href="javascript:">立即绑定</a>
+            <a href="javascript:">稍后绑定</a>
+        </div>
+    </div>
+
+	<!-- 用户未设置支付密码弹窗 -->
+	<div class="addmove pay_wad" style="display: none;">
+        <div class="move">
+            <h3>正道金服正式接入上海银行资金存管<span class="closeFun"></span></h3>
+            <p>您尚未设置支付密码，设置支付密码后方可进行操作</p>
+            <a href="javascript:">前往设置</a>
+            <a href="javascript:">稍后设置</a>
+        </div>
+    </div>
+
+    <script src="../../../../module/jquery/jquery.min.js"></script>
+    <script src="../../../../module/cxscroll/jquery.cxscroll.js"></script>
+    <script src="../../../../module/sticky-header.js"></script>
+    <script src="../../../../module/layui/layui.js"></script>
+	<script src="../../../../js/front/project.js"></script>
+	<script type="text/javascript">
+    	$('.header').stickMe({
+			topOffset:100
+		});
+    </script>
+</body>
+</html>

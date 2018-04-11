@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+	<!-- 公共样式end -->
+	<link rel="stylesheet" href="../../static/css/wealth.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="wealth">
+	<div class="header"><a class="back" href="wealth.html"></a>总资产</div>
+    <!-- 有资产 -->
+    <div class="total">
+        <p id="amount">¥0<span>元</span></p>
+        <div id="charts" style="width:100%;height:380px"></div>
+    </div>
+    <!-- 无资产 -->
+    <!-- <div class="no_total"></div> -->
+
+    <div class="tolist">
+        <p>
+            <img src="../../static/img/mywealth/total_icon_01.png" alt="">
+            <span>账户可用金额(元)</span>
+            <span id="rest">0.00</span>
+        </p>
+        <p>
+            <img src="../../static/img/mywealth/total_icon_02.png" alt="">
+            <span>冻结金额(元)</span>
+            <span id="locked">0.00</span>
+        </p>
+        <p>
+            <img src="../../static/img/mywealth/total_icon_03.png" alt="">
+            <span>待收金额(元)</span>
+            <span id="return">0.00</span>
+        </p>
+    </div>
+</div>
+<script type="text/javascript" src="../../static/js/zoom.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/wealth.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+<script type="text/javascript" src="../../../../module/echarts/echarts.min.js"></script>
+<script>
+    $(function () {
+        if (!$com.cookie.get("user_name")) {
+            window.location = "../login/login.html";
+        }
+        //test
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            reg_source : 4,
+            ip : $com.IP,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            $TYPE : "post",
+            $URI : "/m/userFundStat/balance/query.json"
+        }, [function(data) {
+            $("#amount").html("¥" + data.dataList.total_assets + "<span>元</span>");
+            $("#rest").html(data.dataList.balance);
+            $("#locked").html(data.dataList.locked_money);
+            $("#return").html(data.dataList.pend_amount);
+            render([
+                {value:data.dataList.balance, name:'账户可用余额'},
+                {value:data.dataList.locked_money, name:'冻结金额'},
+                {value:data.dataList.pend_amount, name:'待收金额'}
+            ]);
+        }, function() {
+            
+        }]);
+
+        function render(data) {
+            var myChart = echarts.init($("#charts").get(0));
+
+            option = {
+                series: [
+                    {
+                        name:'金额统计',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: false,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        data:data || [
+                            {value:0, name:'账户可用余额'},
+                            {value:0, name:'冻结金额'},
+                            {value:0, name:'待收金额'}
+                        ]
+                    }
+                ],
+                color : ["#5f7be2", "#1a95fc", "#fd6792"]
+            };
+
+            myChart.setOption(option);
+        }
+    })
+</script>
+</body>
+</html>
+

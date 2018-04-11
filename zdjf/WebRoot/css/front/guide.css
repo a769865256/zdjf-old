@@ -1,0 +1,15 @@
+.wrap{margin: 0 auto;width: 100%;max-width: 1920px;min-width: 1200px;height: 1080px;background: url(../../images/front/img/guide/dbj.png) center no-repeat;overflow: hidden;position: relative;}
+.wrap .layui-carousel{transform: translate(-50%,-60%);position: absolute;top: 50%;left: 50%;}
+.wrap .layui-carousel div{background: #22272f;}
+.wrap .layui-carousel img{width: 100%;height: 100%;}
+.wrap button.layui-btn-normal{z-index: 999;font-size: 24px;border-radius: 60px;padding: 10px 57px;height: auto;position: absolute;bottom: 140px;left: 50%;transform: translateX(-50%);-moz-transform: translateX(-50%);-o-transform: translateX(-50%);-ms-transform: translateX(-50%);-webkit-transform: translateX(-50%);}
+.wrap a{z-index: 999;font-size: 26px;font-weight: 600;color: #fff;border-radius: 60px;padding: 10px 57px;height: auto;position: absolute;bottom: 30px;left: 50%;transform: translateX(-50%);-moz-transform: translateX(-50%);-o-transform: translateX(-50%);-ms-transform: translateX(-50%);-webkit-transform: translateX(-50%);background-color: #1088f1;}
+.wrap a:hover{background-color: #1E9FFF}
+.layui-carousel[lay-arrow=always] .layui-carousel-arrow {left: -16px;}
+.layui-carousel:hover .layui-carousel-arrow[lay-type=add], .layui-carousel[lay-arrow=always] .layui-carousel-arrow[lay-type=add] {right: -16px;}
+.wrap .guide{ color: #1088f1;display: flex;display: -webkit-flex;flex-direction: row;align-items: center;justify-content: center;-webkit-flex-direction: row;-webkit-align-items: center;-webkit-justify-content: center;margin-top: 200px;}
+.wrap .guide span{border-radius: 20px;padding: 10px 35px;border: 1px solid #1088f1;font-size: 16px;}
+.wrap .guide span.active{color: #fff;background: #1088f1;}
+.wrap .guide i{width: 100px;height: 1px;background: #1088f1;}
+.no-drop{cursor: no-drop;}
+/*.bai{position: absolute;width: 100%;height: 100px;background: transparent;bottom: 95px;}*/

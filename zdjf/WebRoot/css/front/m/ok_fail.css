@@ -1,0 +1,28 @@
+.ok_img_box{
+	padding-top: 60px;
+	text-align: center;
+}
+.ok_img{
+	width: 100%;
+	height: 306px;
+	text-align: center;
+}
+a.toUserCenter {
+    width: 440px;
+    height: 84px;
+    line-height: 84px;
+    text-align: center;
+    display: inline-block;
+    background: #ffffff;
+    font-size: 32px;
+    color: #008eff;
+    margin: 100px 0 0;
+}
+.ok_word{
+	height: 50px;
+	line-height: 50px;
+	font-size: 32px;
+	color: #fa6453;
+	text-align: center;
+	margin-top: 40px;
+}

@@ -1,0 +1,206 @@
+img{display: block}
+.jm_kt_alerts_sign{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+.jm_kt_box{
+    height: 532px;
+    left: 50%;
+    top: 50%;
+    margin-top: -266px;
+    margin-left: -228px;
+}
+.jm_kt{
+    width: 457px;
+    height: 402px;
+}
+.jm_kt_img img{
+    width: 457px;
+    height: 402px;
+}
+.jm_kt_word{
+    width: 457px;
+    height: 90px;
+    position: absolute;
+    left: 0;
+    top: 246px;
+}
+.jm_kt_word .zjz{
+    font-size: 36px;
+    color: #ff8400;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+.jm_kt_word .success{
+    height: 36px;
+    line-height: 36px;
+    font-size: 28px;
+    color: #696969;
+    text-align: center;
+}
+.jm_kt_close_sign{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+.jm_kt_close_sign img{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.sign{width: 100%;}
+.s_one{background: #fdae2a;}
+.s_one_one{background: #fdae2a;position: relative}
+.s_one_con{width:9.2rem;height: 0.78rem;line-height: 0.78rem;position: absolute;left: 0;top: 0.1rem;padding: 0 0.4rem;}
+.s_one_help{width: 0.8rem;height: 0.78rem;line-height: 0.78rem;float: right;}
+.s_one_help img{width: 0.48rem;height: 0.48rem;}
+.s_one_tit{font-size: 24px;height: 0.78rem;line-height: 0.78rem;color: #763016;float: right;}
+.s_one_tit span{font-size: 24px;}
+.s_one_con2{position: absolute;left: 0;top:0.88rem;width: 100%;}
+.s_one_dbx{width: 2.578rem;height: 1.687rem;float: right;margin-right: 0.4rem;background: url("../img/sign/dbx.png") 100% 100% no-repeat;}
+.s_one_dbx img{width: 2.578rem;height: 1.687rem;}
+.s_one_qd_box{height: 1.58rem;width: 100%;padding-top: 0.28rem;}
+.s_one_qd{width:100%;height: 0.46rem;line-height: 0.46rem;color: #fff;font-size: 18px;text-align: center;}
+.s_two{background: #fdae2a;position: relative;}
+.s_three{background-color: #fea721;position: relative;background: url(../img/sign/sign_03.jpg) 100% 100% no-repeat;width: 100%;height: 268px;overflow: hidden;}
+.s_four{position: relative;}
+.s_five{position: relative;}
+.s_six{position: relative;}
+.s_seven{position: relative;}
+
+.s_two .twobox{position: absolute;width: 100%;height: 100%;top: 0;left: 0;text-align: center}
+.s_two .twobox span{display: inline-block;width:65px;height: 72px;}
+.s_two .twobox span.code_entrance{margin-left: 70px;float: left;}
+.s_two .twobox span img{display: block;width:65px;height: 72px;}
+.s_two .twobox span.date_entrance{background: url("../img/sign/date.png") 100% 100% no-repeat;overflow: hidden;color: #ff800c;font-size: 16px;line-height: 81px;float: right;margin-right: 70px;}
+.s_two_datebox{text-align: center;margin-top: 24px;}
+.layui-laydate{width: 608px;height: 726px;background: url("../img/sign/date_back.png") 100% 100% no-repeat;border: none !important;border-radius: 10px !important;}
+.layui-laydate-main{width:100% !important;height: 100%;}
+.layui-laydate-header{height: 94px !important;line-height: 84px !important;padding: 6px 0 0!important;border: none !important;}
+.layui-laydate td.layui-this{
+    background-color: transparent !important;
+    background: url("../img/active/circle.png") 12px 18px no-repeat;
+}
+.layui-laydate td.layui-this .laydate-day-mark{
+	line-height: 30px;
+	color: #666;
+}
+.layui-laydate-header{
+    pointer-events: none;
+}
+.layui-laydate-header i{
+    display: none;
+}
+.laydate-set-ym span{font-size: 28px;color: #fff;}
+.layui-laydate-header i{color: #fff !important;}
+.layui-laydate-content{height: 632px !important;}
+.layui-laydate-content table{width: 100%;height: 100%;pointer-events: none;}
+.layui-laydate-content table th,.layui-laydate-content table td{font-size: 24px;}
+.layui-laydate-content table td{
+    /*width: 42px;*/
+    /*height: 30px;*/
+    /*border-radius: 50%;*/
+}
+.layui-laydate-content table th:first-child,.layui-laydate-content table th:last-child{color: #fd8300;}
+.laydate-day-mark{text-align: left;font-size: 24px !important;line-height: 95px;}
+.laydate-day-mark::after{display: none;}
+.laydate-day-mark .markDiv{
+    position: absolute;
+    right: 2px;
+    border-radius: 50%;
+    text-align:center;
+    content: '+30' !important;
+    font-size:30px;
+    color: #ff970a !important;
+    background: url(../img/sign/jb.png) center no-repeat !important;
+    background-size: contain !important;
+    width: 70px !important;
+    height: 72px !important;
+    top: 12px !important;
+    line-height: 68px;
+}
+.layui-laydate-footer{display: none;}
+.s_two .twobox a{width: 269px;height: 65px;display: inline-block;vertical-align: bottom;line-height: 69px;font-size: 30px;color: #ff6c00;text-align: center;}
+
+.s_three .threebox{width: 100%;margin-top: 100px;height: 140px;overflow: hidden;}
+.s_three .threebox p{width: 470px;margin: 0 auto;font-size: 20px;color: #763016;line-height: 50px;}
+.s_three .threebox p span{font-size: 20px;color: #ff6c00;float: right;text-align: right;}
+
+.s_four .fourbox{position:absolute;width: 100%;left: 0;top: 267px;text-align: center;color: #ffffff;line-height: 47px;}
+.s_four .fourbox span{color: #ffffff;font-size: 20px;}
+.s_four .fourbox a{position: absolute;right: 43px;font-size: 20px;}
+
+.s_five .fivebox{position: absolute;display: flex;width: 100%;top: 250px;left: 0;}
+.s_five .box{flex:1;text-align: center;}
+.s_five .box h3{font-size: 22px;color: #fe8f07;text-align: center;margin: 0 0 15px;}
+.s_five .box p{font-size: 22px;color: #fe8f07;}
+.s_five .box p img{vertical-align: sub;margin: 0 10px 0 0;display: inline-block;}
+.s_five .box:first-child{text-indent: 70px;} 
+.s_five .box:first-child h3{font-size: 20px;}
+.s_five .box:first-child p{font-size: 20px;}
+.s_five .box:last-child h3{color: #fde142;font-size: 20px;text-align: left;text-indent: 11px;}
+.s_five .box:last-child p{color: #fde142;font-size: 20px;text-align: left;text-indent: 11px;}
+
+.s_six .sixbox{position: absolute;top: 22px;width: 100%;text-align: center;}
+.s_six .sixbox p{font-size: 20px;color: #f28c37;margin: 0 0 27px;}
+.s_six .sixbox p span{float: right;font-size: 22px;color: #f28c37;margin: 0 37px 0 0;}
+
+.s_seven .sevenbox{position: absolute;width: 100%;top: 112px;text-align: center;}
+.s_seven .sevenbox a{display: inline-block;width: 51px;height: 43px;}
+.s_seven_02{display: none;}
+
+/* 存管宣传 */
+.depo{background: #6551a5;}
+.depo img{width: 100%;}
+.debox{width: 100%;height: 181px;text-align: center;position: fixed;left: 0;bottom: 0;}
+.de_img{
+    width: 100%;
+    height: 181px;
+}
+.de_img img{
+    width: 100%;
+    height: 181px;
+}
+.depo_box{
+    position: relative;
+}
+.problem_more{
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 60px;
+}
+.btn_box{
+    width: 100%;
+    height: 65px;
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+}
+.btn_box .btn{
+    width: 240px;
+    height: 65px;
+    background: url("../img/active/mskt.png") 100% 100% no-repeat;
+    margin: 0 auto;
+}
+.btn_box .btn.active{
+    background: url("../img/active/ykt.png") 100% 100% no-repeat;
+}

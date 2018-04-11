@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+    <title>正道金服</title>
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../../static/css/style.css"/>
+    <link rel="stylesheet" href="../../static/css/index.css"/>
+    <!-- 公共样式end -->
+    <link rel="stylesheet" href="../../static/css/bid_details.css"/>
+    <style id="_zoom"></style>
+</head>
+<body class="zoom">
+<div class="header"><a class="back" href="../../index.html"></a><span style="font-size:34px" id="product_code">-</span></div>
+<div class="bid_title_money body_content">
+    <div class="bid_title_box">
+        <div class="bid_title_sbox">
+            <div class="bid_title" id="product_name">-</div>
+            <div class="bid_xs hide">
+                <img src="../../static/img/bid/xs.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="circle_big_box flex">
+        <div class="circle_big flex">
+            <div class="circle_small flex">
+                <img src="../../static/img/bid/circle.png" alt="">
+                <div class="bid_money_box">
+                    <div class="bid_money" id="balance">-</div>
+                    <div class="bid_word">剩余可投金额</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bid_line_box">
+        <div class="bid_line flex">
+            <div class="line_item">
+                <div class="profit" id="income">-</div>
+                <div class="line_word">年化收益</div>
+            </div>
+            <div class="line_item">
+                <div class="profit" id="days"></div>
+                <div class="line_word">收益天数</div>
+            </div>
+            <div class="line_item">
+                <div class="profit" id="count"></div>
+                <div class="line_word">项目金额</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="investment_number"><a href="javascript:;" id="records"><span id="buyer" style="font-size:26px">-</span>人投资></a></div>
+<div class="progress_box">
+    <div class="progress_img">
+        <img src="../../static/img/bid/progress.png" alt="">
+    </div>
+    <div class="progress_word">
+        <div class="progress_start fl">开始投资</div>
+        <div class="time_start fl" id="start"></div>
+        <div class="time_line fl"></div>
+        <div class="investor fl" id="days2"></div>
+        <div class="time_line fl"></div>
+        <div class="time_end fr" id="end"></div>
+    </div>
+</div>
+<ul class="hkxz">
+    <li>
+        <label for="" class="fl">还款方式</label>
+        <div class="choose_row fl">
+            <a href="javascript:;" id="plan">
+                <div class="row fr flex">
+                    <img src="../../static/img/index/row.png" alt="">
+                </div>
+                <div class="choose fr" id="return-method">-</div>
+            </a>
+        </div>
+    </li>
+    <!--<li>-->
+        <!--<label for="" class="fl">安全保障</label>-->
+        <!--<div class="choose_row fl">-->
+            <!--<div class="row fr flex">-->
+                <!--<img src="../../static/img/bid/aqbz.png" alt="" class="aqbz">-->
+                <!--<img src="../../static/img/index/row.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="choose fr">上海银行资金存管</div>-->
+        <!--</div>-->
+    <!--</li>-->
+</ul>
+<!-- <div class="drag_up">
+    <img src="../../static/img/bid/drag_up.png" alt="">
+</div> -->
+<div class="bid_details_big_box">
+    <ul class="xqfkht_title">
+        <li class="active">
+            <div class="word">项目详情</div>
+        </li>
+        <li>
+            <div class="word">风控审核</div>
+        </li>
+        <li>
+            <div class="word">合同材料</div>
+        </li>
+    </ul>
+    <div class="bid_details_items">
+        <div class="bid_details_item">
+            <div class="content_box">
+                <div class="content_title_box">
+                    <div class="title_zs"></div>
+                    <div class="content_title">项目概述</div>
+                </div>
+                <div class="bd_content" id="product-desc"></div>
+            </div>
+            <div class="content_box">
+                <div class="content_title_box">
+                    <div class="title_zs"></div>
+                    <div class="content_title">出借人信息</div>
+                </div>
+                <div class="bd_content">
+                    <ul class="info_list">
+                        <li id="lender-name"><span>姓名：</span></li>
+                        <li id="lender-age"><span>年龄：</span></li>
+                        <li id="lender-sex"><span>性别：</span></li>
+                        <li id="lender-marry"><span>婚姻状况：</span></li>
+                        <li id="lender-addr"><span>地址：</span></li>
+                        <li>
+                            <span>证件信息：</span>
+                            <div class="id_card_box">
+                                <div class="id_card" id="lender-c1">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="id_card_box">
+                                <div class="id_card" id="lender-c2">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="content_title_box">
+                    <div class="title_zs"></div>
+                    <div class="content_title">借款人信息</div>
+                </div>
+                <div class="bd_content">
+                    <ul class="info_list">
+                        <li id="loaner-name"><span>姓名：</span></li>
+                        <li id="loaner-age"><span>年龄：</span></li>
+                        <li id="loaner-sex"><span>性别：</span></li>
+                        <li id="loaner-marry"><span>婚姻状况：</span></li>
+                        <li id="loaner-addr"><span>地址：</span></li>
+                        <li>
+                            <span>证件信息：</span>
+                            <div class="id_card_box">
+                                <div class="id_card" id="loaner-c1">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="id_card_box">
+                                <div class="id_card" id="loaner-c2">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_box">
+                <div class="content_title_box">
+                    <div class="title_zs"></div>
+                    <div class="content_title">借款用途及还款保障</div>
+                </div>
+                <div class="bd_content" id="lend-use"></div>
+            </div>
+        </div>
+        <div class="bid_details_item bid_details_item_fk">
+            <div class="content_box">
+                <div class="content_title_box">
+                    <div class="title_zs"></div>
+                    <div class="content_title">财产保障信息</div>
+                </div>
+                <div class="bd_content" id="protect-msg"></div>
+            </div>
+            <div class="content_box">
+                <div class="content_title_box">
+                    <div class="title_zs"></div>
+                    <div class="content_title">抵押实拍</div>
+                </div>
+                <div class="bd_content bd_content2" id="cars"></div>
+            </div>
+            <div class="content_box">
+                <div class="content_title_box">
+                    <div class="title_zs"></div>
+                    <div class="content_title">保障措施</div>
+                </div>
+                <div class="bd_content bd_content2" id="mode">
+                    <ul class="bzcs_list">
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon fl flex">
+                                <img src="../../static/img/bid/icon1.png" alt="">
+                            </div>
+                            <div class="bzcs_content fl">
+                                <div class="bzcs_tit">业务来源</div>
+                                <div class="bzcs_con">借款项目由宁波**投资管理有限公司推荐，该公司保证债权真实有效。</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bid_details_item bid_details_item_ht" id="stuff"></div>
+    </div>
+</div>
+<a href="javascript:;" class="btn_qt" id="invest">100元起投</a>
+<script type="text/javascript" src="../../static/js/zoom.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.md5.js"></script>
+<script type="text/javascript" src="../../module/swiper/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="../../module/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../../static/js/public.js"></script>
+<script type="text/javascript" src="../../static/js/common.js"></script>
+
+<script>
+    (function() {
+
+        var status = 0, real_status = 0, real_name = -1;
+        var UQY = $com.uri.getUrlQuery();
+
+        $('.xqfkht_title li').click(function () {
+            var index = $(this).index();
+            $('.xqfkht_title li').removeClass('active');
+            $(this).addClass('active');
+            $('.bid_details_item').hide().eq(index).show();
+        });
+
+        if (UQY.history) {
+            $(".back").attr("href", "javascript:history.go(-1);");
+        }
+
+        $("#plan").attr("href", "plan.html?id=" + $com.uri.getUrlQuery().id);
+        $("#records").attr("href", "records.html?id=" + $com.uri.getUrlQuery().id);
+        
+        var HTML = {
+            CAR : ['<div class="car_box"><div class="car">',
+                    '<a href="{{file_url}}" target="_blank"><img src="{{file_url}}" alt=""></a></div>',
+                    '<div class="car_name">{{file_name}}</div></div>'].join(""),
+            IMG : '<img src="{{file_url}}" />'
+        };
+
+        var MType = ["","按日计息，到期一次性还本付息", "按日计息，按月付息，到期还本"];
+
+        var UQ = $com.cookie.get("user_name");
+
+        if (UQ) {
+
+            //银行存管检测
+            $com.app.ajax({
+                phone : $com.cookie.get("user_name"),
+                reg_source : 4,
+                ip : $com.IP,
+                sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+                $TYPE : "get",
+                $URI : "/m/user/details.json"
+            }, [function(data) {
+                real_status = data.status; // 
+                console.log(data.status);
+                real_name = data.real_name_auth;
+                if (data.status == 4){
+                    $("#invest").attr('href','../../check.html').html("绑定银行卡").addClass("active");
+                } else if (data.status == 3) {
+                    $("#invest").attr('href','invest.html?id='+ $com.uri.getUrlQuery().id).addClass("active");
+                } else if (real_status == 2) {
+                    $("#invest").attr('href','../../check.html').html("开通银行存管").addClass("active");
+                } else {
+                    $("#invest").attr('href','../real/real_name.html').html("开通银行存管").addClass("active"); 
+                }
+                // if(data.status == 4){
+                //     $("#invest").addClass("active").html("绑定银行卡");
+                // }else if(){
+
+                // }
+                // if (data.status != 3) {
+                //     $("#invest").addClass("active").html("开通银行存管");
+                //     status = 0;
+                // } else {
+                //     status = 1;
+                // }
+            }, function() {
+                
+            }]);
+        } else {
+            $("#invest").attr('href','../login/login.html').addClass("active");
+        }
+
+        function mustBinding() {
+
+        }
+        
+        // 获取项目详情
+        $com.app.ajax({
+            phone : $com.cookie.get("user_name"),
+            ip : $com.IP,
+            reg_source : 4,
+            sign : $.md5($com.cookie.get("user_name") + 4 + $com.IP + $com.KEY),
+            product_id : $com.uri.getUrlQuery().id,
+            $TYPE : "get",
+            $URI : "/m/product/details.json"
+        }, [function(data) {
+            var carList = [], stuffList = [];
+            // 数据填充
+            if (data.product) {
+                $("#product_code").html(data.product.product_code);
+                $("#product_name").html(data.product.product_name);
+                $("#balance").html(data.product.balance);
+                $("#income").html(data.product.income + "%");
+                $("#days,#days2").html(data.product.income_days + "天");
+                $("#count").html(data.product.money + "元");
+                $("#buyer").html(data.product.buyer_count);
+                //$com.util.format("yyyy-MM-dd", data.product.start_date)
+                $("#start").html(data.product.start_dates);
+                //$com.util.format("yyyy-MM-dd", data.product.will_end_date)
+                $("#end").html(data.product.will_end_date);
+                $("#return-method").html(MType[data.product.return_method]);
+
+                $("#product-desc").html(data.product.product_desc);
+                $("#protect-msg").html(data.product.protect_msg);
+                $("#lend-use").html(data.product.lend_use);
+                $("#mode").html(data.product.protect_mode);
+
+                if (data.product.balance >= 100) {
+                    $("#invest").addClass("active");
+                }
+
+                if (data.product.is_fresh > 0) {
+                    $(".bid_xs").removeClass("hide");
+                }
+            }
+
+            if (data.lender) {
+                $("#lender-name").append(data.lender.name);
+                $("#lender-age").append(data.lender.age);
+                $("#lender-sex").append(data.lender.sex);
+                $("#lender-marry").append(data.lender.user_type);
+                $("#lender-addr").append(data.lender.address);
+            }
+
+            if (data.lenderImgList.length > 0) {
+                if (data.lenderImgList[0]) {
+                    $("#lender-c1").html("<img src='"+ data.lenderImgList[0].file_url +"'/>" );
+                }
+                if (data.lenderImgList[1]) {
+                    $("#lender-c2").html("<img src='"+ data.lenderImgList[1].file_url +"'/>" );
+                }
+            }
+
+            if (data.loan) {
+                $("#loaner-name").append(data.loan.name);
+                $("#loaner-age").append(data.loan.age);
+                $("#loaner-sex").append(data.loan.sex);
+                $("#loaner-marry").append(data.loan.user_type);
+                $("#loaner-addr").append(data.lender.address);
+            }
+
+            if (data.loanerImgList.length > 0) {
+                if (data.loanerImgList[0]) {
+                    $("#loaner-c1").html("<img src='"+ data.loanerImgList[0].file_url +"'/>" );
+                }
+                if (data.loanerImgList[1]) {
+                    $("#loaner-c2").html("<img src='"+ data.loanerImgList[1].file_url +"'/>" );
+                }
+            }
+
+            if (data.productImgList.length > 0) {
+                $(data.productImgList).each(function(i, item) {
+
+                    if (item.file_type == 1) {
+                        carList.push(item);
+                    } else {
+                        stuffList.push(item);
+                    }
+                });
+
+                $("#cars").html($com.util.template(carList, HTML.CAR));
+                $("#stuff").html($com.util.template(stuffList, HTML.IMG));
+            }
+        }, function() {
+            
+        }]);
+        
+        // $("body").delegate("#invest.active", "click", function() {            
+        //     var isLogin = $com.cookie.get("user_name");
+        //     if (!isLogin) {
+        //         window.location = "../login/login.html";
+        //     } else if (status == 1){
+        //         window.location = "invest.html?id=" + $com.uri.getUrlQuery().id;
+        //     } else if (real_name != 1 || (real_name == 1 && real_status <= 1)) {
+        //         window.location = "../real/real_name.html?id=" + $com.uri.getUrlQuery().id;
+        //     } else if (real_status == 2) {
+        //         window.location = "../../check.html?id=" + $com.uri.getUrlQuery().id;
+        //     }
+        // });
+        
+        $("#logout").click(function() {
+            $com.app.ajax({
+                phone : acc,
+                reg_source : 4,
+                ip : $com.IP,
+                sign : $.md5(acc + 4 + $com.IP + $com.KEY),
+                $TYPE : "post",
+                $URI : "/m/user/loginout.json"
+            }, [function(data) {
+                window.location = "page/login/login.html";
+            }, function() {
+                
+            }]);
+        });
+
+        $(".get_more").click(function() {
+            hideMore();
+            $com.app.ajax({
+                page : ++page,
+                type : "",
+                status : 4,
+                income : "",
+                $TYPE : "get",
+                $URI : "/product.json"
+            }, [function(data) {
+                if (data.dataList > 0) {
+                    var p_obj = [],
+                        product = "";
+
+                    current += data.dataList.length;
+                    $(data.dataList).each(function(i, item) {
+                        p_obj.push({
+                            id : item.id,
+                            label : item.photo,
+                            product_code : item.product_code,
+                            product_name : item.product_name,
+                            income : item.income,
+                            balance : item.balance,
+                            percent : (item.sale_money / item.debt_money).toFixed(2),
+                            beginner : item.is_fresh > 0 ? HTML.beginner : ""
+                        });
+                    });
+
+                    product = $com.util.template(p_obj, HTML.product);
+
+                    if (current >= page * 10) {
+                        showMore();
+                    }
+                }
+            }, function() {
+                
+            }]);
+        });
+    }());
+</script>
+</body>
+</html>
+

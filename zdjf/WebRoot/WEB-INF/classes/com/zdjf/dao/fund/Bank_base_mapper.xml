@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.bank">
+	<sql id="columns">
+	id,
+	num,
+	name,
+	create_time,
+	remark,
+	day_max,
+	single_max
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''"> id,</if>
+	<if test="num != null and num != ''"> num,</if>
+	<if test="name != null and name != ''"> name,</if>
+	<if test="create_time != null"> create_time,</if>
+	<if test="remark != null and remark != ''"> remark,</if>
+	<if test="single_max != null and single_max != ''"> single_max,</if>
+	<if test="day_max != null and day_max != ''"> day_max,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''"> #{id},</if>
+	<if test="num != null and num != ''"> #{num},</if>
+	<if test="name != null and name != ''"> #{name},</if>
+	<if test="create_time != null"> #{create_time},</if>
+	<if test="remark != null and remark != ''"> #{remark},</if>
+	<if test="single_max != null and single_max != ''"> #{single_max},</if>
+	<if test="day_max != null and day_max != ''"> #{day_max},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''"> and id = #{id}</if>
+	<if test="num != null and num != ''"> and num = #{num}</if>
+	<if test="name != null and name != ''"> and name = #{name}</if>
+	<if test="create_time != null"> and create_time = #{create_time}</if>
+	<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+	<if test="single_max != null and single_max != ''"> and single_max = #{single_max}</if>
+	<if test="day_max != null and day_max != ''"> and day_max = #{day_max}</if>
+	</sql>
+	<insert id="saveBank" parameterType="com.zdjf.domain.fund.Bank" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_bank (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectBank" resultType="com.zdjf.domain.fund.BankVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_bank
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteBank">
+		delete from zd_bank
+		where id=#{id}
+	</delete>
+</mapper>

@@ -1,0 +1,135 @@
+/* annualBonus 年终奖*/
+.annualBonus{width: 100%;max-width: 1920px;margin: 0 auto; height: 100%;overflow: hidden;font-family: 'sign_lg_font';}
+.annualBonus .annualBonus_banner{overflow: hidden;position: relative;width: 100%;height: 526px;background: url(../../images/front/img/active/annualBonus/nz_banner.png) center no-repeat;background-size: cover;}
+.annualBonus .annualBonus_middle{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .baiyin{overflow: hidden;position: relative;width: 100%;height: 831px;background: url(../../images/front/img/active/annualBonus/nz_baiyin.png) center no-repeat;background-size: cover;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod{overflow: hidden;position: relative;width: 100%;height: 637px;background: url(../../images/front/img/active/annualBonus/nz_glod.png) center no-repeat;background-size: cover;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox{width: 826px;height: 104px;margin: 362px auto 0;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb{float: left;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent{position: relative;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent img{}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent .left{position: absolute;top: 50%; color: #fff;font-size: 16px;width: 130px;text-align: center;transform: translateY(-50%);-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .centent .rmb{position: absolute;top: 50%;right: 0; color: #e34a54;font-size: 30px;width: 100px;text-align: center;transform: translateY(-50%);-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .btn{float: left;color: #e34a54;font-size: 16px;margin: 15px 10px 0;text-align: center; width: 56px;height: 27px;line-height: 26px;background: url(../../images/front/img/active/annualBonus/btn.png) center no-repeat;background-size: cover;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .btn.active{color: #a4161e;background: url(../../images/front/img/active/annualBonus/btn_checked.png) center no-repeat;background-size: cover;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb .btn:hover{cursor: pointer;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .glod .hbBox .hb.second_hb{margin: 0 66px;}
+.annualBonus .annualBonus_middle .annualBonus_middle_box .zuanshi{overflow: hidden;position: relative;width: 100%;height: 933px;background: url(../../images/front/img/active/annualBonus/nz_zs.png) center no-repeat;background-size: cover;}
+.annualBonus .annualBonus_bottom{overflow: hidden;}
+.annualBonus .annualBonus_bottom .annualBonus_bottom_box{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.annualBonus .annualBonus_bottom .annualBonus_bottom_box .bottom{overflow: hidden;position: relative;width: 100%;height: 530px;background: url(../../images/front/img/active/annualBonus/nz_gz.png) center no-repeat;background-size: cover;}
+
+
+
+/* newYearFestival 新年换新机*/
+.newYearFestival{width: 100%;max-width: 1920px;margin: 0 auto; height: 100%;overflow: hidden;}
+.newYearFestival .newYearFestival_banner{overflow: hidden;position: relative;width: 100%;height: 489px;background: url(../../images/front/img/active/newYear/newYear_top.png) center no-repeat;background-size: cover;}
+.newYearFestival .newYearFestival_middle{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.newYearFestival .newYearFestival_middle .newYearFestival_middle_box{overflow: hidden;position: relative;width: 100%;height: 1806px;background: url(../../images/front/img/active/newYear/newYear_bj.png) center no-repeat;background-size: cover;}
+.newYearFestival .newYearFestival_middle .newYearFestival_middle_box .newYear_tlt{overflow: hidden;position: relative;margin: 0 auto 0;width: 1116px;height: 121px;background: url(../../images/front/img/active/newYear/newYear_tlt.png) center no-repeat;background-size: cover;}
+.newYearFestival .newYearFestival_middle .newYearFestival_middle_box .tzdy30{overflow: hidden;position: relative;margin: 30px auto 0;width: 1116px;height: 489px;background: url(../../images/front/img/active/newYear/newYear_tzdy30.png) center no-repeat;background-size: cover;}
+.newYearFestival .newYearFestival_middle .newYearFestival_middle_box .tzdy50{overflow: hidden;position: relative;margin: 30px auto 0;width: 1116px;height: 490px;background: url(../../images/front/img/active/newYear/newYear_tzdy50.png) center no-repeat;background-size: cover;}
+.newYearFestival .newYearFestival_middle .newYearFestival_middle_box .tzdy80{overflow: hidden;position: relative;margin: 30px auto 0;width: 1116px;height: 617px;background: url(../../images/front/img/active/newYear/newYear_tzdy80.png) center no-repeat;background-size: cover;}
+.newYearFestival .newYearFestival_bottom{overflow: hidden;}
+.newYearFestival .newYearFestival_bottom .newYearFestival_bottom_box{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.newYearFestival .newYearFestival_bottom .newYearFestival_bottom_box .bottom{overflow: hidden;position: relative;width: 100%;height: 387px;background: url(../../images/front/img/active/newYear/newYear_bottom.png) center no-repeat;background-size: cover;}
+
+
+
+
+/* springFestival 春节不打烊*/
+.springFestival{width: 100%;min-width: 1200px;max-width: 1920px;margin: 0 auto; height: 100%;overflow: hidden;font-family: 'zjz_r_font';}
+.springFestival .springFestival_banner{overflow: hidden;position: relative;width: 100%;height: 872px;background: url(../../images/front/img/active/springFestival/springFestival_top.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.springFestival .springFestival_middle .springFestival_middle_box{overflow: hidden;position: relative;width: 100%;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent1{overflow: hidden;position: relative;height: 638px;background: url(../../images/front/img/active/springFestival/springFestival_centent1.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2{overflow: hidden;position: relative;height: 557px;background: url(../../images/front/img/active/springFestival/springFestival_centent2.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn{overflow: hidden;width: 424px;height: 73px;margin: 460px auto 0;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn.lijidenglu{background: url(../../images/front/img/active/springFestival/lijidenglu.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn.lijilingqu{background: url(../../images/front/img/active/springFestival/lijilingqu.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn.lijitouzi{background: url(../../images/front/img/active/springFestival/lijitouzi.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn.yilingqu{background: url(../../images/front/img/active/springFestival/yilingqu.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn.lijidenglu:hover,.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn.lijilingqu:hover,.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent2 .btn.lijitouzi:hover{cursor: pointer;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3{overflow: hidden;position: relative;height: 1729px;background: url(../../images/front/img/active/springFestival/springFestival_centent3.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul{width: 1177px;margin: 1005px auto 0;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li{width: 100%; line-height: 63px;height: 63px;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li.li1{background: #fef592;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li.li2{background: #fffbdd;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li div{float: left;text-align: center; width: 33.33%; line-height: 63px;height: 63px;color: #b97536;font-size: 24px;font-weight: 600;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li div.first i{display: inline-block;margin-top: 10px; width: 37px;height: 46px;background: url(../../images/front/img/active/springFestival/1.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li div.sce i{display: inline-block;margin-top: 10px; width: 37px;height: 46px;background: url(../../images/front/img/active/springFestival/2.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li div.three i{display: inline-block;margin-top: 10px; width: 37px;height: 46px;background: url(../../images/front/img/active/springFestival/3.png) center no-repeat;background-size: cover;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li div.phoneNub{color: #b97536;}
+.springFestival .springFestival_middle .springFestival_middle_box .springFestival_centent3 ul li div.money{color: #ff4f00;}
+.springFestival .springFestival_bottom{overflow: hidden;}
+.springFestival .springFestival_bottom .springFestival_bottom_box{overflow: hidden;position: relative;width: 100%;height: 100%;}
+.springFestival .springFestival_bottom .springFestival_bottom_box .bottom{overflow: hidden;position: relative;width: 100%;height: 373px;background: url(../../images/front/img/active/springFestival/bottom.png) center no-repeat;background-size: cover;}
+
+/* lanternFestival 元宵节*/
+.lanternFestival{width: 100%;min-width: 1200px;max-width: 1920px;margin: 0 auto; height: 100%;overflow: hidden;font-family: 'zjz_r_font';}
+.lanternFestival .lanternFestival_bg{overflow: hidden;position: relative;width: 100%;height: 1515px;background: url(../../images/front/img/active/lanternFestival/lanternFestival.png) center no-repeat;background-size: cover;}
+.lanternFestival .lanternFestival_bg .lanternFestival_bottom{overflow: hidden;position: absolute;bottom: 10px;color: #fff;width: 100%;}
+.lanternFestival .lanternFestival_bg .lanternFestival_bottom div{width: 627px;margin: 0 auto;}
+.lanternFestival .lanternFestival_bg .lanternFestival_bottom div p{font-size: 18px;height: 40px;line-height: 40px;}
+.lanternFestival .lanternFestival_bg .lanternFestival_bottom div p a{color: #ffc033;}
+
+/* goddessFestival 女神节*/
+.goddessFestival{width: 100%;min-width: 1200px;max-width: 1920px;margin: 0 auto; height: 100%;overflow: hidden;}
+.goddessFestival .goddessFestival_banner{overflow: hidden;position: relative;width: 100%;height: 566px;background: url(../../images/front/img/active/goddessFestival/goddess_banner.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_centent1{overflow: hidden;position: relative;width: 100%;height: 709px;background: url(../../images/front/img/active/goddessFestival/goddess_jx.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_centent2{overflow: hidden;position: relative;width: 100%;height: 510px;background: url(../../images/front/img/active/goddessFestival/goddess_youhui.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_centent3{overflow: hidden;position: relative;width: 100%;height: 1983px;background: url(../../images/front/img/active/goddessFestival/goddess_paihangpang.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_bottom{overflow: hidden;position: relative;width: 100%;height: 531px;background: url(../../images/front/img/active/goddessFestival/goddess_bottom.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_centent1 .btnsBox{width: 1200px;height: 70px;margin: 555px auto 0;}
+.goddessFestival .goddessFestival_centent1 .btns{text-align: center;width: 49%;height: 70px;float: left;margin-right: 10px;}
+.goddessFestival .goddessFestival_centent1 .btns a{display: inline-block;height: 70px;line-height: 70px;color: #fff;font-size: 40px;text-align: center;}
+.goddessFestival .goddessFestival_centent1 .btns a.ljlq{width: 280px;background: url(../../images/front/img/active/goddessFestival/ljlq.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_centent1 .btns a.no_mztj{width: 349px;background: url(../../images/front/img/active/goddessFestival/no_mztj.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_centent1 .btns a.ylq{width: 280px;background: url(../../images/front/img/active/goddessFestival/ylq.png) center no-repeat;background-size: cover;}
+.goddessFestival .goddessFestival_centent3 ul{overflow: hidden;width: 1169px;margin: 1306px auto 0;}
+.goddessFestival .goddessFestival_centent3 ul li{height: 63px;line-height: 63px;}
+.goddessFestival .goddessFestival_centent3 ul li div{width: 33.33%;height: 63px;line-height: 63px;float: left;font-size: 24px;font-weight: 600;text-align: center;}
+.goddessFestival .goddessFestival_centent3 ul li .ranking{font-family: 'zjz_m_font';}
+.goddessFestival .goddessFestival_centent3 ul li .phoneNumber{font-family: 'zjz_r_font';}
+.goddessFestival .goddessFestival_centent3 ul li .money{font-family: 'zjz_r_font';}
+.goddessFestival .goddessFestival_centent3 ul li .pink{color: #ff6c9f;}
+.goddessFestival .goddessFestival_centent3 ul li .sred{color: #cb5544;}
+.goddessFestival .goddessFestival_centent3 ul li .gay{color: #b4b4b4;}
+
+/* aprilFoolsDay 愚人节 */
+.aprilFoolsDay{width: 100%;min-width: 1200px;max-width: 1920px;margin: 0 auto; height: 100%;overflow: hidden;}
+.aprilFoolsDay .aprilFoolsDay_bg{overflow: hidden;position: relative;width: 100%;height: 5000px;background: url(../../images/front/img/active/aprilFoolsDay/aprilFoolsDay_bg.png) center top no-repeat;background-size: cover;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active1{margin: 604px auto 33px;overflow: hidden;position: relative;width: 1051px;height: 547px;background: url(../../images/front/img/active/aprilFoolsDay/active1.png) -20px top no-repeat;background-size: cover;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active2{margin: 0 auto;overflow: hidden;position: relative;width: 100%;height: 948px;background: url(../../images/front/img/active/aprilFoolsDay/active2.png) center top no-repeat;background-size: cover;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3{margin: 0 auto;overflow: hidden;position: relative;width: 1380px;height: 1049px;background: url(../../images/front/img/active/aprilFoolsDay/active3.png) -270px top no-repeat;background-size: cover;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 p{text-align: center;margin-top: 285px;font-size: 20px;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 p a{color: #406ad9;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 p span{color: #f44d1e;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 #lottery,.aprilFoolsDay .aprilFoolsDay_bg div.active3 #lottery1{width:606px;height:426px;margin: 125px auto 85px;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td{text-align:center;vertical-align:middle;font-size:24px;color:#333;position: relative;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td a{display:block;height: 128px;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td a .img{display:block;position: relative;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td .img img{z-index: 1;position: relative;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td .img img.dark{display: none;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td.active .img img.light{display: block !important;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td.active .img img.dark{display: none !important;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td .img.no_login{display: block;position: relative;height: 128px;cursor:pointer;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td .img.no_login p{display: block;z-index: 2;margin: 0;position: absolute;width: 100%;bottom: 20px;color: #fff;letter-spacing: 6px;font-weight: 600;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td .img.no_login img{z-index: 1;position: relative;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td a .img p{display:block;z-index: 2;margin: 0;position: absolute;width: 100%;bottom: 20px;color: #fff;letter-spacing: 6px;font-weight: 600;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td a .img p span{color:#fff;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td .img.no_login p span{color:#fff;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td.gap{width: 5px;height: 142px;display: inline-block; }
+.aprilFoolsDay .aprilFoolsDay_bg div.active3 table td.gap-2{height: 5px;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 {margin: 14px auto 0;overflow: hidden;position: relative;width: 1342px;height: 1262px;background: url(../../images/front/img/active/aprilFoolsDay/active4.png) -12px top no-repeat;background-size: cover;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul{overflow: hidden;width: 520px;margin: 408px auto 0;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li{overflow: hidden;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li div{height: 53px;line-height: 53px;float: left;font-size: 20px;text-align: center;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li div.ranking{width: 26.33%;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li div.phoneNumber{width: 41.33%;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li div.money{width: 26.33%;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li .sred{color: #ff7f00;padding-bottom: 21px;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li .gay{color: #fff;}
+.aprilFoolsDay .aprilFoolsDay_bg div.active4 ul li .three{padding-bottom: 0;}
+

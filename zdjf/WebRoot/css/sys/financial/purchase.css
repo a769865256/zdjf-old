@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+.admin-main {
+	background: #FFFFFF;
+}
+
+.user_info_label {
+	font-size: 1.3rem;
+}

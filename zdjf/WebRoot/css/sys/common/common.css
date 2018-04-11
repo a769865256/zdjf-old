@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+.admin-main {
+	background: #FFFFFF;
+}
+
+[class*=am-icon-].am-fr {
+	padding: 0.3rem;
+}
+
+.admin-icon-red {
+	color: #dd514c;
+}
+
+.am-ucheck-icons {
+	margin-top: 0.82rem;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+.admin-icon-primary {
+	color: #0e90d2;
+}
+
+.lable-middle {
+	padding: .5em;
+}
+
+.admin-menu [class*=am-icon-]:before {
+	padding-top: 10px;
+}
+
+.am-topbar-brand [class*=am-icon-]:before {
+	padding-top: 10px;
+}
+
+.am-offcanvas-bar {
+	background: white;
+}
+
+.admin-content {
+	min-height: 900px;
+}
+
+.admin-menu {
+	z-index: 999;
+	width: 48px;
+	height: 48px;
+	/* display: none; */
+}
+
+.am-tabs-bd {
+	-moz-user-select: text !important;
+	-webkit-user-select: text !important;
+	-ms-user-select: text !important;
+	user-select: text !important;
+}
+
+.am-popover-default {
+	border-color: #DDDDDD;
+}
+
+.am-popover-default .am-popover-inner {
+	background: #FFFFFF;
+}
+
+.am-popover-default .am-popover-caret {
+	border-bottom-color: #DDDDDD;
+}
+
+.am-popover {
+	color: #555;
+	font-size: 1.3rem;
+}

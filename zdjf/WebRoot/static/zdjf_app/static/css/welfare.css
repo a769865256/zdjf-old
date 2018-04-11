@@ -1,0 +1,85 @@
+img{
+    display: block;
+    width: 100%;
+}
+body{
+	background: #9978f7;
+}
+.walfare{
+    text-align: center;
+}
+.cnxf{
+    width: 100%;
+    height: 140px;
+    background: url("../img/active/xr2.jpg") 100% 100% no-repeat;
+}
+.cnxf.active{
+    width: 100%;
+    height: 140px;
+    background: url("../img/active/xr2_active.jpg") 100% 100% no-repeat;
+}
+.ymjr{
+    width: 100%;
+    height: 173px;
+    background: url("../img/active/xr4.jpg") 100% 100% no-repeat;
+    position: relative;
+}
+.ymjr.active{
+    width: 100%;
+    height: 173px;
+    background: url("../img/active/xr4_active.jpg") 100% 100% no-repeat;
+}
+.ymjr.invest{
+    width: 100%;
+    height: 173px;
+    background: url("../img/active/xr4_invest.jpg") 100% 100% no-repeat;
+}
+.pcwl{
+    width: 100%;
+    height: 187px;
+    background: url("../img/active/xr6.jpg") 100% 100% no-repeat;
+    position: relative;
+    margin-top:-1px;
+}
+.pcwl.active{
+    width: 100%;
+    height: 187px;
+    background: url("../img/active/xr6_active.jpg") 100% 100% no-repeat;
+}
+.pcwl.invest{
+    width: 100%;
+    height: 187px;
+    background: url("../img/active/xr6_invest.jpg") 100% 100% no-repeat;
+}
+.cnxf a,.ymjr a,.pcwl a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.invest_need{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.invest_need span{
+    font-size: 28px;
+    color: #fbb83d;
+}
+.ymjr.active .invest_need,.pcwl.active .invest_need{
+    display: none;
+}
+.rule_active{
+    width: 100%;
+    height: 190px;
+    background: url("../img/active/xr8.jpg") 100% 100% no-repeat;
+}
+.rule_active.show{
+    height: 509px;
+    background: url("../img/active/xr9.jpg") 100% 100% no-repeat;
+}

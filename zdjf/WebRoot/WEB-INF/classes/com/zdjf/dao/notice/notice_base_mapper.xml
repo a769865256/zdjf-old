@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.notice.notice">
+	<sql id="columns">
+	id,
+	title,
+	keywords,
+	content,
+	type,
+	create_time,
+	update_time,
+	link,
+	is_show,
+	order_number,
+	web_desc,
+	description,
+	source,
+	image_url,
+	view_count,
+	web_site,
+	view_initial
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''">  id,</if>
+	<if test="title != null and title != ''">  title,</if>
+	<if test="keywords != null and keywords != ''">  keywords,</if>
+	<if test="content != null and content != ''">  content,</if>
+	<if test="type != null and type != ''">  type,</if>
+	<if test="create_time != null">  create_time,</if>
+	<if test="update_time != null">  update_time,</if>
+	<if test="link != null and link != ''">  link,</if>
+	<if test="is_show != null and is_show != ''">  is_show,</if>
+	<if test="order_number != null and order_number != ''">  order_number,</if>
+	<if test="web_desc != null and web_desc != ''">  web_desc,</if>
+	<if test="description != null and description != ''">  description,</if>
+	<if test="source != null and source != ''">  source,</if>
+	<if test="image_url != null and image_url != ''">  image_url,</if>
+	<if test="view_count != null and view_count != ''">  view_count,</if>
+	<if test="web_site != null and web_site != ''">  web_site,</if>
+	<if test="view_initial != null and view_initial != ''">  view_initial,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''"> #{ id},</if>
+	<if test="title != null and title != ''"> #{ title},</if>
+	<if test="keywords != null and keywords != ''"> #{ keywords},</if>
+	<if test="content != null and content != ''"> #{ content},</if>
+	<if test="type != null and type != ''"> #{ type},</if>
+	<if test="create_time != null"> #{ create_time},</if>
+	<if test="update_time != null"> #{ update_time},</if>
+	<if test="link != null and link != ''"> #{ link},</if>
+	<if test="is_show != null and is_show != ''"> #{ is_show},</if>
+	<if test="order_number != null and order_number != ''"> #{ order_number},</if>
+	<if test="web_desc != null and web_desc != ''"> #{ web_desc},</if>
+	<if test="description != null and description != ''"> #{ description},</if>
+	<if test="source != null and source != ''"> #{ source},</if>
+	<if test="image_url != null and image_url != ''"> #{ image_url},</if>
+	<if test="view_count != null and view_count != ''"> #{ view_count},</if>
+	<if test="web_site != null and web_site != ''"> #{ web_site},</if>
+	<if test="view_initial != null and view_initial != ''"> #{ view_initial},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''"> and  id = #{id}</if>
+	<if test="title != null and title != ''"> and  title = #{title}</if>
+	<if test="keywords != null and keywords != ''"> and  keywords = #{keywords}</if>
+	<if test="content != null and content != ''"> and  content = #{content}</if>
+	<if test="type != null and type != ''"> and  type = #{type}</if>
+	<if test="create_time != null"> and  create_time = #{create_time}</if>
+	<if test="update_time != null"> and  update_time = #{update_time}</if>
+	<if test="link != null and link != ''"> and  link = #{link}</if>
+	<if test="is_show != null and is_show != ''"> and  is_show = #{is_show}</if>
+	<if test="order_number != null and order_number != ''"> and  order_number = #{order_number}</if>
+	<if test="web_desc != null and web_desc != ''"> and  web_desc = #{web_desc}</if>
+	<if test="description != null and description != ''"> and  description = #{description}</if>
+	<if test="source != null and source != ''"> and  source = #{source}</if>
+	<if test="image_url != null and image_url != ''"> and  image_url = #{image_url}</if>
+	<if test="view_count != null and view_count != ''"> and  view_count = #{view_count}</if>
+	<if test="web_site != null and web_site != ''"> and  web_site = #{web_site}</if>
+	<if test="view_initial != null and view_initial != ''"> and  view_initial = #{view_initial}</if>
+	</sql>
+	<insert id="saveNotice" parameterType="com.zdjf.domain.notice.Notice" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_notice (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectNotice" resultType="com.zdjf.domain.notice.NoticeVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_notice
+		where 1=1
+		<include refid="conds" />
+		order by create_time desc
+	</select>
+</mapper>

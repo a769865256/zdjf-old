@@ -1,0 +1,137 @@
+.wea_head{height: 400px;padding: 88px 0 0;background: #008eff;}
+.wea_head .main{height: 300px;text-align: center;}
+.wea_head .main h3{color: #ffffff;font-size: 55px;padding: 80px 0 10px;}
+.wea_head .main p{color: #bde2ff;font-size: 20px;}
+.wea_head .main p img{width: 34px;vertical-align: bottom;margin: 0 0 0 15px;}
+.wea_head .secon{display: flex;height: 100px;text-align: center;}
+.wea_head .secon .sebox{flex:1;}
+.wea_head .secon h4{color: #ffffff;font-size: 32px;padding: 0 0 10px;}
+.wea_head .secon p{color: #bde2ff;font-size: 20px;}
+.wea_head .secon p img{width: 34px;vertical-align: bottom;margin: 0 0 0 15px;}
+.wea_head .mybox{height: 325px;}
+.wea_head .mybox .box{height: 162px;display: flex;}
+.wea_head .mybox .box:first-child{border-bottom: 1px solid #eaeaea;}
+.wea_head .mybox .box .boxsta{flex:1;background: #ffffff;}
+.wea_head .mybox .box .sta1{background: url(../img/mywealth/my01.jpg) left 68px center no-repeat;background-size: 36px;}
+.wea_head .mybox .box .sta2{background: url(../img/mywealth/my02.jpg) left 68px center no-repeat;background-size: 36px;}
+.wea_head .mybox .box .sta3{background: url(../img/mywealth/my03.jpg) left 68px center no-repeat;background-size: 36px;}
+.wea_head .mybox .box .sta4{background: url(../img/mywealth/my04.jpg) left 68px center no-repeat;background-size: 36px;}
+.wea_head .mybox .box .boxsta a{display: block;height: 100%;}
+.wea_head .mybox .box .boxsta h4{font-size: 28px;color: #3b3b3b;text-indent: 125px;padding: 50px 0 15px;}
+.wea_head .mybox .box .boxsta p{font-size: 24px;color: #9f9f9f;text-indent: 125px;}
+
+.wea_head .mybtn{height: 115px;text-align: center;background: #ffffff;}
+.wea_head .mybtn a{display: inline-block;width: 253px;height: 74px;text-align: center;line-height: 74px;border-radius: 10px;font-size: 30px;margin: 20px 0 0;}
+.wea_head .mybtn a:first-child{border:2px solid #2ca1fe;color: #2ca1fe;margin: 0 42px 0 0;}
+.wea_head .mybtn a:last-child{border:2px solid #2ca1fe;background: #2ca1fe;color: #ffffff;}
+.wea_head .my_tlt{text-align: center;font-size: 24px;color: #c3c3c3;margin: 20px 0 0;}
+.wea_head .my_tlt img{width: 20px;vertical-align: sub;}
+
+.invest{}
+.invest .tab{height: 90px;padding: 88px 0 0;text-align: center;background: #ffffff;display: flex;}
+.invest .tab span{display: inline-block;width: 227px;color: #008eff;text-align: center;line-height: 82px;margin: 0 50px;flex:1;font-size: 32px;color:#3b3b3b;}
+.invest .tab span.active{color:#008eff;border-bottom: 3px solid #008eff;}
+.invest .tabbox{margin: 15px 0 0;}
+.invest .tabbox .box{}
+.invest .tabbox .box ul{}
+.invest .tabbox .box ul li{background: #ffffff;margin: 0 30px 15px;}
+.invest .tabbox .box ul li>a{font-size: 28px;line-height: 77px;color: #3b3b3b;border-bottom: 1px solid #e3e3e3;display: block;margin: 0 20px;background: url(../../static/img/mywealth/right.png) right center no-repeat;background-size: 14px;}
+.invest .tabbox .box ul li .txt{display: flex;height: 122px;}
+.invest .tabbox .box ul li .txt div{flex:1;height: 100%;text-align: center;}
+.invest .tabbox .box ul li .txt .tent h4{font-size: 32px;padding: 27px 0 13px;}
+.invest .tabbox .box ul li .txt .tent p{font-size: 24px;color: #9f9f9f;}
+.invest .tabbox .box ul li .txt .tent a{font-size: 24px;color: #008eff;line-height: 122px;}
+.invest .tabbox .box ul li .txt .tent:first-child h4{color: #fa6453;}
+
+.no_pay{position: fixed;top: 0px;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.5);z-index: 9999;}
+.no_pay .box{width: 530px;height: 300px;position: absolute;left: 50%;top: 50%;margin-left: -250px;margin-top: -150px;background: #ffffff;border-radius: 10px;text-align: center;}
+.no_pay .box h3{font-size: 32px;color: #3b3b3b;margin: 35px 0 50px;}
+.no_pay .box p{font-size: 28px;color: #808080;margin: 0 0 50px;}
+.no_pay .box .btn a{display: inline-block;width: 198px;height: 64px;border: 2px solid #2ca1fe;border-radius: 10px;font-size: 28px;text-align: center;line-height: 64px;margin: 0 24px;}
+.no_pay .box .btn a:first-child{background: #ffffff;color: #2ca1fe;}
+.no_pay .box .btn a:last-child{background: #2ca1fe;color: #ffffff;}
+
+.discount{}
+.discount .tab{height: 90px;padding: 88px 0 0;text-align: center;background: #ffffff;display: flex;}
+.discount .tab span{display: inline-block;width: 227px;color: #008eff;text-align: center;line-height: 82px;margin: 0 50px;flex:1;font-size: 32px;color:#3b3b3b;}
+.discount .tab span.active{color:#008eff;border-bottom: 3px solid #008eff;}
+.discount .tabbox{margin: 15px 0 0;}
+.discount .tabbox .box{}
+.discount .tabbox .box ul{}
+.discount .tabbox .box ul li{background: #ffffff;margin: 0 30px 15px;}
+.discount .tabbox .box ul li .count{height: 180px;position: relative;}
+.discount .tabbox .box ul li .count img{width: 177px;position: absolute;left: 0;top: 0;}
+.discount .tabbox .box ul li .count .txt{margin-left: 205px;height: 100%;}
+.discount .tabbox .box ul li .count .txt h4{font-size: 26px;color: #3b3b3b;padding: 30px 0 20px;}
+.discount .tabbox .box ul li .count .txt p{font-size: 20px;color: #9f9f9f;padding: 0 0 20px;border-bottom: 1px dashed #e5e5e5;margin:0 53px 22px 0;}
+.discount .tabbox .box ul li .count .txt span{font-size: 18px;color: #9f9f9f;}
+
+.discount .tabbox .box ul li .count .overdue{background: url(../img/mywealth/di_sta_01.png)right top no-repeat;background-size: 103px;}
+.discount .tabbox .box ul li .count .alused{background: url(../img/mywealth/di_sta_02.png)right 16px top 19px no-repeat;background-size: 87px;}
+
+/* 资金明细 */
+.capital{padding: 88px 0 0;}
+.capital .tab{display: flex;height: 90px;background: #ffffff;padding: 0 30px;}
+.capital .tab span{flex:1;width: 110px;line-height: 82px;display: inline-block;text-align: center;height: 82px;font-size: 32px;color: #3b3b3b;}
+.capital .tab span.active{border-bottom: 2px solid #008eff;color: #008eff;}
+.capital .tabbox{}
+.capital .tabbox p.time{line-height: 74px;font-size: 28px;color: #6c6c6c;margin: 0 30px;}
+.capital .tabbox ul{background: #ffffff;}
+.capital .tabbox ul li{}
+.capital .tabbox ul li .catab{display: flex;height: 159px;margin: 0 30px;border-bottom: 1px solid #e3e3e3;}
+.capital .tabbox ul li .sta1{background: url(../img/mywealth/capital_01.png) left center no-repeat;background-size: 45px;}
+.capital .tabbox ul li .sta2{background: url(../img/mywealth/capital_02.png) left center no-repeat;background-size: 45px;}
+.capital .tabbox ul li .sta3{background: url(../img/mywealth/capital_03.png) left center no-repeat;background-size: 45px;}
+.capital .tabbox ul li .sta4{background: url(../img/mywealth/capital_04.png) left center no-repeat;background-size: 45px;}
+.capital .tabbox ul li .sta5{background: url(../img/mywealth/capital_05.png) left center no-repeat;background-size: 45px;}
+.capital .tabbox ul li .sta6{background: url(../img/mywealth/capital_06.png) left center no-repeat;background-size: 45px;}
+.capital .tabbox ul li .sta7{background: url(../img/mywealth/capital_07.png) left center no-repeat;background-size: 45px;}
+
+.capital .tabbox ul li .catab .tab_box{}
+.capital .tabbox ul li .catab .tab_box:first-child{text-indent: 65px;width: 70%;float: left;}
+.capital .tabbox ul li .catab .tab_box:first-child h3:first-child{font-size: 28px;color: #3b3b3b;margin: 29px 0 15px;}
+.capital .tabbox ul li .catab .tab_box .tlt{font-size: 24px;color: #9f9f9f;margin:0 0 17px;}
+.capital .tabbox ul li .catab .tab_box:first-child p{font-size: 20px;color: #9f9f9f;}
+.capital .tabbox ul li .catab .tab_box:last-child{font-size: 30px;text-align: right;line-height: 159px;width: 30%;float: left;}
+.capital .tabbox ul li .catab .t_col1{color: #3cbc54;}
+.capital .tabbox ul li .catab .t_col2{color: #fa6453;}
+.capital .tabbox ul li .catab .t_col3{color: #9f9f9f;}
+
+.total{height: 410px;padding: 88px 0 0;background: url(../img/mywealth/total.png) center top 220px no-repeat #ffffff;background-size: 225px;}
+.total p{text-align: center;font-size: 50px;color: #fa6453;margin: 57px 0 0;}
+.total p span{font-size: 24px;color: #808080;}
+.tolist{background: #ffffff;margin: 15px 0 0;}
+.tolist p{line-height: 99px;border-bottom: 1px solid #e3e3e3;padding: 0 30px;}
+.tolist p img{width: 24px;margin: 0 23px 0 0;}
+.tolist p span{font-size: 30px;color:#3b3b3b;}
+.tolist p span:last-child{font-size: 30px;color:#fa6453;float: right;}
+
+.no_total{height: 410px;padding: 88px 0 0;background: url(../img/mywealth/no_total.png) center center no-repeat #ffffff;background-size: 225px;}
+
+.in_ok{}
+.in_ok img{width: 100%;}
+.in_ok .in_ok_box{background: url(../img/mywealth/in_ok_02.png) left 80px center no-repeat #ffffff;background-size: 44px;height: 376px;margin: 15px 0 100px;text-indent: 150px;}
+.in_ok .in_ok_box h3{font-size: 30px;color: #008eff;margin: 0 0 13px;}
+.in_ok .in_ok_box p{font-size: 24px;color: #008eff;margin-bottom: 55px;}
+.in_ok .in_ok_box h3:first-child{padding: 34px 0 0;}
+.in_ok .in_ok_box h3:last-child{color: #3b3b3b;}
+.in_ok .in_ok_box p:last-child{color: #9f9f9f;}
+.in_ok a{display: block;background:#ffffff;font-size: 32px;color: #008eff;height: 84px;line-height: 84px;text-align: center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

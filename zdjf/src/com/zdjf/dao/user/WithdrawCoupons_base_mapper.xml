@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.withdrawCoupons">
+	<sql id="columns">
+	id,
+	user_id,
+	action,
+	type,
+	num,
+	balance,
+	relation_id,
+	remark,
+	create_time,
+	old_id,
+	uid,
+	old_relation_id
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''">  id,</if>
+	<if test="user_id != null and user_id != ''">  user_id,</if>
+	<if test="action != null and action != ''">  action,</if>
+	<if test="type != null and type != ''">  type,</if>
+	<if test="num != null and num != ''">  num,</if>
+	<if test="balance != null and balance != ''">  balance,</if>
+	<if test="relation_id != null and relation_id != ''">  relation_id,</if>
+	<if test="remark != null and remark != ''">  remark,</if>
+	<if test="create_time != null">  create_time,</if>
+	<if test="old_id != null and old_id != ''">  old_id,</if>
+	<if test="uid != null and uid != ''">  uid,</if>
+	<if test="old_relation_id != null and old_relation_id != ''">  old_relation_id,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''">  #{id},</if>
+	<if test="user_id != null and user_id != ''">  #{user_id},</if>
+	<if test="action != null and action != ''">  #{action},</if>
+	<if test="type != null and type != ''">  #{type},</if>
+	<if test="num != null and num != ''">  #{num},</if>
+	<if test="balance != null and balance != ''">  #{balance},</if>
+	<if test="relation_id != null and relation_id != ''">  #{relation_id},</if>
+	<if test="remark != null and remark != ''">  #{remark},</if>
+	<if test="create_time != null">  #{create_time},</if>
+	<if test="old_id != null and old_id != ''">  #{old_id},</if>
+	<if test="uid != null and uid != ''">  #{uid},</if>
+	<if test="old_relation_id != null and old_relation_id != ''">  #{old_relation_id},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''"> and id = #{id}</if>
+	<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+	<if test="action != null and action != ''"> and action = #{action}</if>
+	<if test="type != null and type != ''"> and type = #{type}</if>
+	<if test="num != null and num != ''"> and num = #{num}</if>
+	<if test="balance != null and balance != ''"> and balance = #{balance}</if>
+	<if test="relation_id != null and relation_id != ''"> and relation_id = #{relation_id}</if>
+	<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+	<if test="create_time != null"> and create_time = #{create_time}</if>
+	<if test="old_id != null and old_id != ''"> and old_id = #{old_id}</if>
+	<if test="uid != null and uid != ''"> and uid = #{uid}</if>
+	<if test="old_relation_id != null and old_relation_id != ''"> and old_relation_id = #{old_relation_id}</if>
+	</sql>
+	<insert id="saveWithdrawCoupons" parameterType="com.zdjf.domain.user.WithdrawCoupons" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_withdraw_coupons (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectWithdrawCoupons" resultType="com.zdjf.domain.user.WithdrawCouponsVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_withdraw_coupons
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteWithdrawCoupons">
+		delete from zd_withdraw_coupons
+		where id=#{id}
+	</delete>
+</mapper>

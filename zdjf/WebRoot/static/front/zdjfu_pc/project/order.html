@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../../module/slides/flexslider.css"> 
+	<link rel="stylesheet" href="../../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../../css/front/project.css">
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="nav">
+			<div class="pack">
+				<span><i class="iconfont">&#xe605;</i>客服电话:400-690-9898</span>
+				<div class="p_right">
+					<!-- 登录后显示 -->
+					<div class="login_ok hide">
+						<span class="user_info">130****0251</span>
+						<a href="javascript:" class="user_message">消息<i class="iconfont">&#xe602;</i></a>
+						<a href="javascript:" class="sign_out">安全退出</a>
+					</div>
+					<span><i class="iconfont"></i><a href="../downloadAPP/downloadApp.html">下载APP</a></span>
+            		<span><a href="../help/helpMain.html">帮助中心</a></span><span><a href="../guide/guide.html">新手指引</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="bar">
+			<div class="pack">
+				<div class="l_pk"></div>
+				<div class="r_pk">
+					<ul>
+						<li><a href="../index.html">首页</a></li>
+						<li>
+							<a href="project_list.html">理财项目</a>
+							<div class="nav">
+								<a href="pro_detail.html">债转专区</a>
+							</div>
+						</li>
+						<li>
+							<a href="javascript:">信息披露</a>
+							<div class="nav">
+								<a href="javascript:">平台数据</a>
+								<a href="javascript:">安全保障</a>
+								<a href="javascript:">公司简介</a>
+								<a href="javascript:">平台事迹</a>
+								<a href="javascript:">公司动态</a>
+								<a href="javascript:">联系我们</a>
+							</div>
+						</li>
+						<li>
+							<a href="../mywealth/wealth.html">我的财富</a>
+							<div class="nav">
+								<a href="javascript:">我的财富</a>
+								<a href="javascript:">资金明细</a>
+								<a href="javascript:">我的理财</a>
+								<a href="javascript:">我的优惠</a>
+								<a href="javascript:">账户设置</a>
+								<a href="javascript:">邀请有礼</a>
+								<a href="javascript:">消息中心</a>
+							</div>
+						</li>
+					</ul>
+					<div class="sign">
+						<a href="../login.html">登录签到</a>
+						<a href="../register.html">注册有礼</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header end -->
+
+	<!-- content -->
+	<div class="pro_detail">
+		<!-- 债转详情 -->
+		<div class="ovderconfirm">
+			<div class="ca_lf">
+				<h3 class="ddqd">订单确认</h3>
+				<div class="confirm">
+					<p><span>项目名称：<i>车财道20170630-1期</i></span><span>年化收益：<i>9.00+1.5%</i></span></p>
+					<p class="firm"><span>收益天数：<i>7天</i></span><span>还款方式：<i>按日计息，按月付息，到期还本</i></span></p>
+					<p><span>投资本金：<i>100元</i></span><span>预计收益：<i>100,000元</i></span></p>
+				</div>
+				<h3>还款计划</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>期数</th>
+							<th>还款日期</th>
+							<th>本金(元)</th>
+							<th>利息(元)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2017-10-10</td>
+							<td>1000.00</td>
+							<td>0.52</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- 已登录 -->
+			<div class="ca_rt layui-form">
+				<h3>账户可用余额：<span>0.00</span><a href="javascript:">优惠抵现：1000元</a></h3>
+				<div class="voucher">
+					<p>加息券：<span>暂无可用</span></p>
+					<p>红包券：<span>￥20.00</span></p>
+					<p>正经值：<span>￥1000</span></p>
+					<p>支付金额：<span>￥1000</span></p>
+				</div>
+				<div class="zhengjing hide">
+					<p>正经值：<input type="text" placeholder="请输入正经值">
+						<input type="checkbox" name="switch" lay-skin="switch">   
+					</p>
+				</div>
+				<div class="ovderlist hide">
+					<p>
+						<i class="iconfont">&#xe602;</i>
+						<span>正经值余额：<i>44.00元</i>,</span>
+						<span>本次可用：<i>10.00元</i></span>
+					</p>
+					<p>
+						<i class="iconfont">&#xe602;</i>
+						<span>单次最大抵用金额为投资本金的1.0%</span>
+					</p>
+				</div>
+				<div class="error hide">
+					错误提示
+				</div>
+				<div class="ovderbtn">
+					<a href="payok.html" id="sf_str">立即支付</a>
+				</div>
+				<div class="agreement">
+					<p><input type="radio" title="我已阅读并同意" name="radio" lay-skin="radio" checked="checked"><a href="javascript:">《正道金服服务协议》</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+
+
+	<!-- footer -->
+	<!-- footer -->
+	<div id="footer">
+		<div class="f_top">
+			<div class="top_one">
+				<div class="topbox">
+					<span>信息披露</span>
+					<a href="javascript:">平台数据</a>
+					<a href="javascript:">安全保障</a>
+					<a href="javascript:">公司简介</a>
+					<a href="javascript:">公司事记</a>
+					<a href="javascript:">公司动态</a>
+					<a href="javascript:">联系我们</a>
+				</div>
+				<div class="topbox">
+					<span>帮助中心</span>
+					<a href="javascript:">常见问题</a>
+					<a href="javascript:">投资指南</a>
+					<a href="javascript:">会员福利</a>
+					<a href="javascript:">资金存管</a>
+					<a href="javascript:">其他问题</a>
+				</div>
+				<div class="topbox">
+					<span>新手指南</span>
+					<a href="javascript:">注册登录</a>
+					<a href="javascript:">充值提现</a>
+					<a href="javascript:">投资理财</a>
+				</div>
+			</div>
+			<div class="top_two">
+				<ul>
+					<li><p>官方微信</p></li><li><p>移动客户端</p></li>
+				</ul>
+			</div>
+			<div class="top_three">
+				<div class="tlt">全国服务热线</div>
+				<p class="txt">400-690-9898</p>
+				<p class="txt">0571-56929127</p>
+				<div class="tlt addtlt">
+					<p>工作日: 9:00-19:00</p>
+					<p>节假日: 10:00-17:30</p>
+				</div>
+				<div class="tlt">官方交流QQ群：463637911</div>
+				<div class="police"></div>
+			</div>
+		</div>
+		<div class="f_bot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有　ICP经营许可证：浙B2-20170101 浙ICP备1</div>
+	</div>
+	<!-- footer end -->
+    <script src="../../../../module/jquery/jquery.min.js"></script>
+    <script src="../../../../module/cxscroll/jquery.cxscroll.js"></script>
+    <script src="../../../../module/sticky-header.js"></script>
+    <script src="../../../../module/layui/layui.js"></script>
+	<script src="../../../../js/front/project.js"></script>
+	<script type="text/javascript">
+    	$('.header').stickMe({
+			topOffset:100
+		});
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../css/front/sign.css">
+</head>
+<body>
+	<div class="sign_s">
+		<div class="sign_top"></div>
+		<div class="sign_centent1">
+			<p class="huodong1">活动一：签到享好礼</p>
+			<div class="qiandaomsg">
+				<p>每日签到送<span>1-6点</span>正经值随机奖励；投资签到、周末签到再享<span>翻倍奖励</span></p>
+				<p>签到后成功分享致朋友圈，签到机会<span>+1</span></p>
+				<p>通过分享签到链接邀请用户成功注册则签到机会<span>+1</span></p>
+			</div>
+			<div class="jihui">
+				<span>签到机会：999 </span><i>?</i>
+				<div class="jihui_msg">
+					<div>
+						<p>今日签到：999次</p>
+						<p>分享签到：999次</p>
+						<p>邀请好友：999次</p>
+					</div>
+				</div>
+			</div>
+			<div class="sign_centent1_btn">
+				<a href="javascript:;" class="login_qiandao">登入签到</a>
+				<a href="javascript:;" class="click_qiandao" style="display: none;">点击签到</a>
+				<a href="javascript:;" class="qiandaoDe" style="display: none;">今日已签到</a>
+			</div>
+			<div class="rili_btn"><a href="javascript:;" class="yue">12月</a></div>
+			<div class="rili">
+				<div class="sign_rili">
+					<div id="sign_date"></div>
+				</div>
+			</div>
+			<div class="zuijinqiandao">
+				<p>最近签到</p>
+				<div id="scrollBox">
+					<ul id="con1">
+						<li>183******65签到成功，领取了<span>10点正经值</span></li>
+						<li>183******65签到成功，领取了<span>10点正经值</span></li>
+						<li>183******65签到成功，领取了<span>10点正经值</span></li>
+						<li>183******65签到成功，领取了<span>10点正经值</span></li>
+						<li>183******65签到成功，领取了<span>10点正经值</span></li>
+					</ul>
+					 <ul id="con2"></ul>
+				</div>
+			</div>
+			<img src="../../../images/front/m/sign/qiandao_down.png" alt="">
+			<div class="gua">
+				<div class="guajian"></div>
+				<div class="guajian"></div>
+			</div>
+		</div>
+		<div class="sign_centent2">
+			<p class="huodong2">活动二：签到勤奋榜</p>
+			<p class="ti">每日签到所获正经值<span>累计前三名</span>的用户将分别获得对应的奖励。</p>
+			<p class="bang">
+				<span class="noLogin">你当前暂未登录</span>
+				<span class="noBang" style="display: none;">你当前暂未上榜</span>
+				<span class="signed1" style="display: none;">您已签到<i class="dco">600</i>点，占据风云榜第<i class="mingci">3</i>名!</span>
+				<span class="signed2" style="display: none;">您已签到<i class="dco">400</i>点，加油哦！</span>
+				<a href="javascript:;" class="login_btn1">点击登入<i class="iconfont">&#xe611;</i></a>
+				<a href="javascript:;" class="login_btn2" style="display: none;">投资抵现<i class="iconfont">&#xe611;</i></a>
+			</p>
+			<div class="ljt">
+				<div class="tow">
+					<div class="gold2"></div>
+					<div class="getMsg">
+						<div class="phoneNmb">183*******65</div>
+						<div class="beis"><span class="jinbi"></span>X<span class="point">800点</span></div>
+					</div>
+				</div>
+				<div class="one">
+					<div class="gold1"></div>
+					<div class="getMsg">
+						<div class="phoneNmb">183*******65</div>
+						<div class="beis"><span class="jinbi"></span>X<span class="point">1000点</span></div>
+					</div>
+				</div>
+				<div class="three">
+					<div class="gold3"></div>
+					<div class="getMsg">
+						<div class="phoneNmb">183*******65</div>
+						<div class="beis"><span class="jinbi"></span>X<span class="point">500点</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="huojiang_4_8">
+				<ul>
+					<li><span class="rank4"></span><span class="phonenber">183*******65</span><span class="jinbi"></span>X<span class="point">500点</span></li>
+					<li><span class="rank5"></span><span class="phonenber">183*******65</span><span class="jinbi"></span>X<span class="point">500点</span></li>
+					<li><span class="rank6"></span><span class="phonenber">183*******65</span><span class="jinbi"></span>X<span class="point">500点</span></li>
+					<li><span class="rank7"></span><span class="phonenber">183*******65</span><span class="jinbi"></span>X<span class="point">500点</span></li>
+					<li><span class="rank8"></span><span class="phonenber">183*******65</span><span class="jinbi"></span>X<span class="point">500点</span></li>
+				</ul>
+			</div>
+			<div class="ahook">
+				<p>活动规则</p>
+				<i class="iconfont">&#xe611;</i>
+			</div>
+			<div class="guize">
+				<ul>
+					<li><span>1、活动时间：</span>2017年7月1日-长期</li>
+					<li><span>2、活动对象：</span>所有正道金服注册用户均可参与签到领奖励</li>
+					<li><span>3、签到享好礼：</span>
+						<p>a.用户每日登录签到即可领取随机奖励，每日仅有一次签到机会；</p>
+						<p>b.周末签到最高可获得2倍随机奖励；当日投资额≥1000的用户，次日签到最高可获得3倍随机翻倍奖励；若周五周六投资，则次日签到按较高的倍数奖励；</p>
+						<p>c.签到后成功分享至朋友圈，签到机会+1；通过分享签到链接邀请用户成功注册则签到机会再+1；</p>
+						<p>d.分享仅限移动端，通过分享朋友圈和邀请好友成功注册所额外获得的签到机会均不享受翻倍奖励，好友注册奖励签到机会上不封顶；</p>
+						<p>e.通过成功分享朋友圈所获得的签到机会当日有效，次日失效；分享签到链接邀请用户成功注册所获得的签到机会当月有效，次月无效；</p>
+					</li>
+					<li><span>4、签到勤奋榜：</span>
+						<p>a.签到勤奋榜排名每月统计一次，排名结果以平台系统统计为准，次月1日发放上月奖励；</p>
+						<p>b.宝箱奖励使用规则见券面，请前往我的财富-我的优惠查看；</p>
+						<p>5、本次活动的所有数据均以正道金服官方统计为准，如有违反活动公平性的问题平台将取消活动资格和已发放奖励。</p>
+						<p>正道金服对本次活动规则享有最终解释权，如有其他疑问请致电客服400-690-9898。</p>
+					</li>
+				</ul>
+			</div>
+			<img src="../../../images//front/m/sign/yun1.png" alt="">
+			<img src="../../../images//front/m/sign/yun2.png" alt="">
+		</div>
+	</div>
+
+	<!-- 弹窗 -->
+	<div class="qd_success">
+		<div class="success">
+			<span class="close"></span>
+			<p>正经值+10，已X2倍</p>
+			<p>今日签到成功</p>
+		</div>
+	</div>
+	<!-- 二维码 -->
+	<div class="ewm_box">
+		<div class="ewm">
+			<div class="centent">
+				<div class="top"><span class="close"></span><span class="xian"></span></div>
+				<img src="../../../images/front/img/footer/code2.png" alt="">
+				<p>扫码分享，赢更多签到机会！</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../../module/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../module/layui/layui.js"></script>
+	<script type="text/javascript" src="../../../js/front/sign.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.sms">
+
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id, phone, content, code, used,sms_type,source_ip,create_time,
+		status,remark
+   </sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id}, #{phone}, #{content}, #{code}, #{used}, #{sms_type}, #{source_ip},
+		 #{create_time},#{status},#{remark}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="phone != null and phone != ''">
+			and phone = #{phone}
+		</if>
+		
+	</sql>
+	
+	
+	<insert id="saveSms" parameterType="com.zdjf.domain.sms.Sms" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_sms (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+	
+	<select id="selectSms" resultType="com.zdjf.domain.sms.Sms">
+		select 
+		<include refid="columns"/>
+		from zd_sms
+		where 1=1
+		<include refid="conds" />
+	</select>
+	
+	<select id="loadLoaner" resultType="com.zdjf.domain.sms.Sms">
+		select 
+		<include refid="columns"/>
+		from zd_sms
+		where id=#{id}
+	</select>
+
+
+</mapper>

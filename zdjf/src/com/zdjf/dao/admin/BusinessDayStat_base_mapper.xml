@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.admin.businessDayStat">
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id,stat_date, web_register, android_register, ios_register, wap_register,first_invest_count,web_recharge,android_recharge,ios_recharge,
+		wap_recharge,web_invest_amount,android_invest_amount,ios_invest_amount,wap_invest_amount,web_withdrawals_amount,android_withdrawals_amount,
+		ios_withdrawals_amount,wap_withdrawals_amount,invest_service_charge,withdrawals_service_charge,pending_withdrawals_count,user_count,
+		real_user_count,invest_user_count,invest_amount,pending_principal,interest,all_invest_amount,all_behind_amout,rest_amout,
+		all_service_charge,today_pending_amout,tomorrow_pending_amout,third_pending_amout,fourth_pending_amout,fifth_pending_amout,sixth_pending_amout,
+		seventh_pending_amout
+	</sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id},#{stat_date}, #{web_register}, #{android_register}, #{ios_register}, #{wap_register}, #{first_invest_count}, #{web_recharge},
+		#{android_recharge}, #{ios_recharge},#{wap_recharge}, #{web_invest_amount}, #{android_invest_amount}, #{ios_invest_amount},
+		#{wap_invest_amount}, #{web_withdrawals_amount}, #{android_withdrawals_amount},#{ios_withdrawals_amount}, #{wap_withdrawals_amount},
+		#{invest_service_charge}, #{withdrawals_service_charge}, #{pending_withdrawals_count}, #{user_count}, #{real_user_count}, 
+		#{invest_user_count}, #{invest_amount}, #{pending_principal}, #{interest}, #{all_invest_amount}, #{all_behind_amout},
+		#{rest_amout}, #{all_service_charge}, #{today_pending_amout}, #{tomorrow_pending_amout}, #{third_pending_amout}, #{fourth_pending_amout},
+		#{fifth_pending_amout}, #{sixth_pending_amout}, #{seventh_pending_amout}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="stat_date != null and stat_date != ''">
+			and stat_date = #{stat_date}
+		</if>
+	</sql>
+
+	<insert id="saveBusinessDayStat" parameterType="com.zdjf.domain.admin.BusinessDayStat" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_business_day_stat (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+
+	<delete id="deleteBusinessDayStat">
+		delete from zd_business_day_stat
+		where stat_date=#{stat_date}
+	</delete>
+
+	<delete id="deleteByExampleBusinessDayStat">
+		delete from zd_business_day_stat
+		where 1=1
+		<include refid="conds" />
+	</delete>
+	
+	<select id="loadBusinessDayStat" resultType="com.zdjf.domain.admin.BusinessDayStat">
+		select 
+		<include refid="columns"/>
+		from zd_business_day_stat
+		where stat_date=#{stat_date}
+	</select>
+	
+	<select id="selectBusinessDayStat" resultType="com.zdjf.domain.admin.BusinessDayStat">
+		select 
+		<include refid="columns"/>
+		from zd_business_day_stat
+		where 1=1
+		<include refid="conds" />
+	</select>
+
+	<update id="updateBusinessDayStat">
+		update zd_business_day_stat
+		<set>
+			stat_date=#{stat_date}, 
+			web_register=#{web_register}, 
+			android_register=#{android_register}, 
+			ios_register=#{ios_register}, 
+			wap_register=#{wap_register},
+			first_invest_count=#{first_invest_count}, 
+			web_recharge=#{web_recharge}, 
+			android_recharge=#{android_recharge}, 
+			ios_recharge=#{ios_recharge}, 
+			wap_recharge=#{wap_recharge}, 
+			web_invest_amount=#{web_invest_amount}, 
+			android_invest_amount=#{android_invest_amount},
+			ios_invest_amount=#{ios_invest_amount}, 
+			wap_invest_amount=#{wap_invest_amount}, 
+			web_withdrawals_amount=#{web_withdrawals_amount}, 
+			android_withdrawals_amount=#{android_withdrawals_amount},
+			ios_withdrawals_amount=#{ios_withdrawals_amount}, 
+			wap_withdrawals_amount=#{wap_withdrawals_amount}, 
+			invest_service_charge=#{invest_service_charge}, 
+			withdrawals_service_charge=#{withdrawals_service_charge}, 
+			pending_withdrawals_count=#{pending_withdrawals_count}, 
+			user_count=#{user_count}, 
+			real_user_count=#{real_user_count},
+			invest_user_count=#{invest_user_count}, 
+			invest_amount=#{invest_amount}, 
+			pending_principal=#{pending_principal}, 
+			interest=#{interest},
+			all_invest_amount=#{all_invest_amount}, 
+			all_behind_amout=#{all_behind_amout}, 
+			rest_amout=#{rest_amout}, 
+			all_service_charge=#{all_service_charge}, 
+			today_pending_amout=#{today_pending_amout}
+		</set>
+		where stat_date=#{stat_date}
+	</update>
+
+	<update id="updateIgnoreNullBusinessDayStat">
+		update zd_business_day_stat
+		<set>
+		<if test="stat_date != null and stat_date != ''">
+			stat_date=#{stat_date}, 
+		</if>
+		
+		</set>
+		where stat_date=#{stat_date}
+	</update>
+
+	<update id="updateByExampleBusinessDayStat">
+		update zd_business_day_stat
+		<set>
+			<if test="stat_date != null and stat_date != ''">
+				stat_date=#{stat_date}, 
+			</if>
+			
+		</set>
+		where 1=1
+		<include refid="conds" />
+	</update>
+
+</mapper>

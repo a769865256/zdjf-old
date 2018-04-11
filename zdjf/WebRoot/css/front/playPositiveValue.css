@@ -1,0 +1,181 @@
+.playPositiveValue{width: 100%;height: 100%;max-width: 1920px;margin: 0 auto;overflow: hidden;}
+.playPositiveValue .playPositiveValue_top{position: relative;width: 100%;height: 594px;background: url(../../images/front/img/active/playPositiveValue/top.png) center no-repeat;background-size: cover;}
+
+
+.playPositiveValue .playPositiveValue_middle{position: relative;width: 100%;height: 1369px;background: url(../../images/front/img/active/playPositiveValue/middle.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box{display: flex;display: -webkit-flex;flex-direction: column;align-items: center;justify-content: center;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;-ms-flex-direction: column;-ms-align-items: center;-ms-justify-content: center;-moz-flex-direction: column;-moz-align-items: center;-moz-justify-content: center;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .tlt_bj{position: relative;width: 780px;height: 65px;line-height: 55px;text-align: center;margin-top: 60px;color: #ff7924;font-size: 30px;font-weight: 600;font-family:"zjz_tlt_font"; background: url(../../images/front/img/active/playPositiveValue/tlt.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .tlt_bj span.get6{position: absolute;right: -100px;bottom: -28px;width: 34px;height: 34px;background: url(../../images/front/img/active/playPositiveValue/get6.png) center no-repeat;background-size: cover;}
+
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task{margin-top: 39px;width: 1120px;font-family: 'zjz_m_font';}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li{position: relative;margin-bottom: 25px;padding: 25px 30px;background: #ffffff;border-radius: 4px;display: flex;display: -webkit-flex;flex-direction: row;align-items: center;display: -webkit-flex;-webkit-flex-direction: row;-webkit-align-items: center;-ms-flex-direction: row;-ms-align-items: center;-moz-flex-direction: row;-moz-align-items: center;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li:last-child{margin-bottom: 0;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li i{display: inline-block;position: relative;margin-right: 18px;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li i.zhuce_ico{width: 26px;height: 23px;background: url(../../images/front/img/active/playPositiveValue/newHand.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li i.smrz_ico{width: 31px;height: 24px;background: url(../../images/front/img/active/playPositiveValue/realNameAutcation.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li i.bBank_ico{width: 30px;height: 23px;background: url(../../images/front/img/active/playPositiveValue/bangBank.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li i.download_ico{width: 29px;height: 25px;background: url(../../images/front/img/active/playPositiveValue/download.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li i.firstTZ_ico{width: 24px;height: 24px;background: url(../../images/front/img/active/playPositiveValue/firstTouZi.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li i.firstFT_ico{width: 25px;height: 27px;background: url(../../images/front/img/active/playPositiveValue/firstFuTou.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li span.zheng_tlt{font-size: 30px;color: #3b3b3b;margin-right: 20px;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li span.fu_tlt{font-size: 24px;color: #ffa800;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li a{position: absolute;right: 42px;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-moz-transform: translateY(-50%);}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li span.yidacheng{position: absolute;right: 42px;padding: 8px 25px;border-radius: 4px;font-size: 26px;color: #808080;background: #eeeeee;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box ul.task li a span.nodacheng{padding: 8px 25px;border-radius: 4px;font-size: 26px;color: #ffffff;background: #ffa800;}
+
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .what_zjz{position: relative;width: 1091px;height: 149px;margin-top: 70px; background: url(../../images/front/img/active/playPositiveValue/whatZJZ.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .what_zjz .what_zjztlt{text-indent: 0.5em;font-size: 28px;color: #fff;font-family:"zjz_tlt_font";text-align: center;font-weight: 600;margin-top: 14px;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .what_zjz .centent{font-size: 24px;color: #ffa800;font-weight: 600;margin-top: 30px;padding: 0 26px;font-family: 'zjz_tlt_font';}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .what_zjz .get5{position: absolute;right: 325px;bottom: -15px;width: 34px;height: 34px;background: url(../../images/front/img/active/playPositiveValue/get5.png) center no-repeat;background-size: cover;}
+
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .zjz_purpose{position: relative;display: flex;display: -webkit-flex;flex-direction: column;align-items: center;justify-content: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;-ms-flex-direction: column;-ms-align-items: center;-ms-justify-content: center;-moz-flex-direction: column;-moz-align-items: center;-moz-justify-content: center;margin-top: 37px;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .zjz_purpose .purpose_tlt{text-align: center;width: 217px;height: 44px;line-height: 44px;font-weight: 600;font-family:"zjz_tlt_font";}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .zjz_purpose .purpose_tlt span{text-align: center;margin-left: -6px;position: relative;display: inline-block;width: 44px;height: 44px;color: #fff;font-size: 28px; background: url(../../images/front/img/active/playPositiveValue/yuan.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .zjz_purpose ul.purpose_centent{z-index: 9;margin-top: -5px;background: #fffae3;border: 8px solid #febb40;border-radius: 8px;box-shadow: 0 6px 10px #febb40;padding: 15px 25px;font-family: 'zjz_r_font';}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .zjz_purpose ul.purpose_centent li{font-size: 20px;color: #ffb20d;margin-bottom: 10px;font-weight: 600;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .zjz_purpose ul.purpose_centent li.prompt{font-size: 16px;color: #ff756b;text-align: center;margin-bottom: 0;margin-top: 32px;font-weight: 600;}
+.playPositiveValue .playPositiveValue_middle .playPositiveValue_middle_box .zjz_purpose .get4{z-index: 9; position: absolute;left: 12px;top: 40px;width: 28px;height: 26px;background: url(../../images/front/img/active/playPositiveValue/get4.png) center no-repeat;background-size: cover;}
+
+
+.playPositiveValue .playPositiveValue_bottom{overflow: hidden;position: relative;width: 100%;height: auto;background: url(../../images/front/img/active/playPositiveValue/bottom.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box{display: flex;display: -webkit-flex;flex-direction: column;align-items: center;justify-content: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;-ms-flex-direction: column;-ms-align-items: center;-ms-justify-content: center;-moz-flex-direction: column;-moz-align-items: center;-moz-justify-content: center;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom{position: relative;display: flex;display: -webkit-flex;flex-direction: column;align-items: center;justify-content: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;-ms-flex-direction: column;-ms-align-items: center;-ms-justify-content: center;-moz-flex-direction: column;-moz-align-items: center;-moz-justify-content: center;margin-top: 47px;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom .bottom_tlt{width: 401px;height: 72px;background: url(../../images/front/img/active/playPositiveValue/tlt2.png) center no-repeat;background-size: cover;color: #ff7924;font-size: 28px;font-family:"zjz_tlt_font";font-weight: 600;text-align: center;line-height: 54px;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom .bottom_dai{width: 814px;height: 45px;background: url(../../images/front/img/active/playPositiveValue/bottom_dai.png) center no-repeat;background-size: cover;margin-top: -4px;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom ul.bottom_centent{width: 726px;padding: 25px 24px;background: #fdf4cd;border-radius: 4px;box-shadow: 0 10px 32px #febb40;margin-top: -10px;font-family: 'zjz_r_font';}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom ul li{font-size: 22px;color: #ff7924;margin-bottom: 10px;font-weight: 600;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom ul li:last-child{margin-bottom: 0;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom .get1{z-index: 9; position: absolute;right: -65px;top: 30px;width: 91px;height: 72px;background: url(../../images/front/img/active/playPositiveValue/get1.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom .get2{z-index: 9; position: absolute;left: 10px;top: 40px;width: 37px;height: 35px;background: url(../../images/front/img/active/playPositiveValue/get2.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom .get3{z-index: 9; position: absolute;right: 275px;top: 22px;width: 27px;height: 25px;background: url(../../images/front/img/active/playPositiveValue/get3.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .bottom .get7{z-index: 9; position: absolute;left: -330px;bottom: -50px;width: 45px;height: 49px;background: url(../../images/front/img/active/playPositiveValue/get_left.png) center no-repeat;background-size: cover;}
+
+
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .guize{position: relative;display: flex;display: -webkit-flex;flex-direction: column;align-items: center;justify-content: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;-ms-flex-direction: column;-ms-align-items: center;-ms-justify-content: center;-moz-flex-direction: column;-moz-align-items: center;-moz-justify-content: center;margin-top: 35px;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .guize .guize_tlt{z-index: 9;width: 117px;height: 117px;text-align: center; border-radius: 50%;font-size: 22px;color: #ff7924;font-family: 'zjz_r_font';font-weight: 600; background: #ffeaaa; border: 6px solid #ff7924;box-shadow: 0 0 32px #fee68d;display: flex;flex-direction: column;align-items: center;justify-content: center;display: -webkit-flex;-webkit-flex-direction: column;-webkit-align-items: center;-webkit-justify-content: center;-ms-flex-direction: column;-ms-align-items: center;-ms-justify-content: center;-moz-flex-direction: column;-moz-align-items: center;-moz-justify-content: center;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .guize ul.guize_centent{background: #fdf4cd;border: 6px solid #febb40;border-radius: 0 0 36px 36px;box-shadow: 0 10px 32px #fea844;padding: 38px 42px 10px 42px;margin-top: -27px;font-family: 'zjz_r_font';}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .guize ul li{font-size: 22px;color: #ff7924;margin-bottom: 20px;font-weight: 600;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .guize .get2{z-index: 9; position: absolute;right: -100px;top: 20px;width: 34px;height: 34px;background: url(../../images/front/img/active/playPositiveValue/get6.png) center no-repeat;background-size: cover;}
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .guize .get3{z-index: 9; position: absolute;right: 36px;bottom: 35px;width: 27px;height: 25px;background: url(../../images/front/img/active/playPositiveValue/get3.png) center no-repeat;background-size: cover;}
+
+.playPositiveValue .playPositiveValue_bottom .playPositiveValue_bottom_box .end_tlt{text-align: center;font-size: 20px;color: #ff7924;font-weight: 600;margin: 85px 0 34px;font-family: 'zjz_r_font';}
+
+
+
+
+
+
+/* 夺标三重礼 */
+.threeCeremony{width: 100%;height: 100%;max-width: 1920px;margin: 0 auto;overflow: hidden;}
+.threeCeremony .threeCeremony_banner{position: relative;width: 100%;height: 621px;background: url(../../images/front/img/active/threeCeremony/threeCeremony_banner.png) center no-repeat;background-size: cover;}
+
+.threeCeremony .playPositiveValue_middle{background: #faefc5;overflow: hidden;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box{margin: 0 auto;width: 1047px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed{height: 367px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .tlt{z-index: 9;position: relative;width: 268px;height: 74px;margin: 0 auto;background: url(../../images/front/img/active/threeCeremony/threeCeremony_tlt.png)  left top no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent{display: flex;display: -webkit-flex; z-index: 1;position: relative;width: 1047px;height: 293px;background: url(../../images/front/img/active/threeCeremony/kuang.png) center no-repeat;background-size: cover;margin-top: -18px;padding: 18px 0 0 0;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .left{float: left;padding: 24px 22px 40px;-webkit-flex: 1;-moz-flex: 1;-ms-flex: 1;-o-flex: 1;flex: 1;width: 492px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .left p{text-align: center;color: #7e5c21;font-size: 18px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .left ul{overflow: hidden;margin-top: 34px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: space-between;-webkit-flex-direction: row;-webkit-justify-content: space-between;-moz-flex-direction: row;-moz-justify-content: space-between;-ms-flex-direction: row;-ms-justify-content: space-between;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .left ul li{float: left;width: 164px;height: 138px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .left ul li.cnxf{position: relative;background: url(../../images/front/img/active/threeCeremony/cnxf.png) center no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .left ul li.rxql{position: relative;background: url(../../images/front/img/active/threeCeremony/rxql.png) center no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .left ul li.fcdc{position: relative;background: url(../../images/front/img/active/threeCeremony/fcdc.png) center no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right{float: left;-webkit-flex: 1;-moz-flex: 1;-ms-flex: 1;-o-flex: 1;flex: 1;padding: 0 32px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right p{text-align: center;color: #e2002b;font-size: 29px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul{height: 205px;margin-top: 8px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul li{color: #7e5c21;line-height: 40px;font-size: 15px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul li .name{margin-right: 18px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul li .title{}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul li .title i{margin: 0 16px 0 10px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul li .jli{margin-right: 14px;width: 120px;display: inline-block;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul li .jli i{color: #e2002b;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .handSpeed .centent .right ul li a{color: #7e5c21;border-bottom: 1px solid;}
+
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .jiexianBox{display: flex;display: -webkit-flex;justify-content: space-around;flex-direction: row;align-items: center;-moz-justify-content: space-around;-moz-flex-direction: row;-moz-align-items: center;-ms-justify-content: space-around;-ms-flex-direction: row;-ms-align-items: center;display: -webkit-flex;-webkit-justify-content: space-around;-webkit-flex-direction: row;-webkit-align-items: center;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .jiexianBox span{display: inline-block;position: relative;width: 14px;height: 99px;background: url(../../images/front/img/active/threeCeremony/jiexian.png) center no-repeat;background-size: cover;}
+
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed{margin-top: -56px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .tlt{z-index: 9;position: relative;width: 268px;height: 74px;margin: 0 auto;background: url(../../images/front/img/active/threeCeremony/threeCeremony_tlt.png)  left -410px no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent{display: flex;display: -webkit-flex; z-index: 1;position: relative;width: 1047px;height: 293px;background: url(../../images/front/img/active/threeCeremony/kuang1.png) center no-repeat;background-size: cover;margin-top: -18px;padding: 18px 0 0 0;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .left{float: left;text-align: center;padding: 16px 43px 0;-webkit-flex: 1;-moz-flex: 1;-ms-flex: 1;-o-flex: 1;flex: 1;width: 450px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .left p{text-align: center;color: #7e5c21;font-size: 18px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .left h3{display: inline-table;text-align: center;color: #7e5c21;font-size: 16px;margin-top: 15px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .left ul{overflow: hidden; margin-top: 10px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: space-around;-webkit-flex-direction: row;-webkit-justify-content: space-around;-moz-flex-direction: row;-moz-justify-content: space-around;-ms-flex-direction: row;-ms-justify-content: space-around;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .left ul li{width: 164px;height: 138px;float: left;margin: 0 30px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .left ul li.yzqj{position: relative;background: url(../../images/front/img/active/threeCeremony/yzqj.png) center no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .left ul li.jbtm{position: relative;background: url(../../images/front/img/active/threeCeremony/jbtm.png) center no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right{float: left;-webkit-flex: 1;-moz-flex: 1;-ms-flex: 1;-o-flex: 1;flex: 1;padding: 0 32px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right p{text-align: center;color: #e2002b;font-size: 29px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul{height: 205px;margin-top: 8px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul li{color: #7e5c21;line-height: 40px;font-size: 15px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul li .name{margin-right: 18px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul li .title{}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul li .title i{margin: 0 16px 0 10px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul li .jli{margin-right: 14px;width: 120px;display: inline-block;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul li .jli i{color: #e2002b;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .strengthSpeed .centent .right ul li a{color: #7e5c21;border-bottom: 1px solid;}
+
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .jiexianBox{display: flex;display: -webkit-flex;justify-content: space-around;flex-direction: row;align-items: center;-moz-justify-content: space-around;-moz-flex-direction: row;-moz-align-items: center;-ms-justify-content: space-around;-ms-flex-direction: row;-ms-align-items: center;display: -webkit-flex;-webkit-justify-content: space-around;-webkit-flex-direction: row;-webkit-align-items: center;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .jiexianBox span{display: inline-block;position: relative;width: 14px;height: 99px;background: url(../../images/front/img/active/threeCeremony/jiexian.png) center no-repeat;background-size: cover;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed{margin-top: -56px;margin-bottom: 58px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .tlt{z-index: 9;position: relative;width: 268px;height: 74px;margin: 0 auto;background: url(../../images/front/img/active/threeCeremony/threeCeremony_tlt.png)  left -820px no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent{display: flex;display: -webkit-flex;z-index: 1;position: relative;width: 1047px;height: 293px;background: url(../../images/front/img/active/threeCeremony/kuang1.png) center no-repeat;background-size: cover;margin-top: -18px;padding: 18px 0 0 0;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .left{float: left; padding: 24px 44px 40px;-webkit-flex: 1;-moz-flex: 1;-ms-flex: 1;-o-flex: 1;flex: 1;width: 448px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .left p{text-align: center;color: #7e5c21;font-size: 18px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .left h3{text-align: center;color: #7e5c21;font-size: 16px;margin-top: 15px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .left ul{overflow: hidden; margin-top: 24px;display: flex;display: -webkit-flex;flex-direction: row;justify-content: space-around;-webkit-flex-direction: row;-webkit-justify-content: space-around;-moz-flex-direction: row;-moz-justify-content: space-around;-ms-flex-direction: row;-ms-justify-content: space-around;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .left ul li{width: 164px;height: 138px;margin: 0 auto;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .left ul li.mdcg{position: relative;background: url(../../images/front/img/active/threeCeremony/mdcg.png) center no-repeat;background-size: cover;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right{float: left;-webkit-flex: 1;-moz-flex: 1;-ms-flex: 1;-o-flex: 1;flex: 1;padding: 0 32px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right p{text-align: center;color: #e2002b;font-size: 29px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul{height: 205px;margin-top: 8px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul li{color: #7e5c21;line-height: 40px;font-size: 15px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul li .name{margin-right: 18px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul li .title{}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul li .title i{margin: 0 16px 0 10px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul li .jli{margin-right: 14px;width: 120px;display: inline-block;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul li .jli i{color: #e2002b;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .opportunitySpeed .centent .right ul li a{color: #7e5c21;border-bottom: 1px solid;}
+
+
+
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .btnBox{text-align: center;margin-bottom: 25px;}
+.threeCeremony .playPositiveValue_middle .playPositiveValue_middle_box .btnBox a{display: inline-block;position: relative;width: 320px;height: 75px;background: url(../../images/front/img/active/threeCeremony/btn1.png) center no-repeat;background-size: cover;}
+
+
+
+.threeCeremony .threeCeremony_bottom{z-index: 9;overflow: hidden;position: relative;width: 100%;height: 475px;background: url(../../images/front/img/active/threeCeremony/bottom.png)  center top no-repeat;background-size: cover;}
+.threeCeremony .threeCeremony_bottom .threeCeremony_bottom_box{width: 720px;margin: 52px auto 0;color: #794300;font-size: 18px;}
+.threeCeremony .threeCeremony_bottom .threeCeremony_bottom_box .bottom{}
+.threeCeremony .threeCeremony_bottom .threeCeremony_bottom_box .bottom .bottom_tlt{text-align: center;font-size: 28px;margin-bottom: 25px;}
+.threeCeremony .threeCeremony_bottom .threeCeremony_bottom_box .bottom .bottom_centent{}
+.threeCeremony .threeCeremony_bottom .threeCeremony_bottom_box .bottom .bottom_centent li{margin-bottom: 18px;}
+.threeCeremony .threeCeremony_bottom .threeCeremony_bottom_box .end_tlt{text-align: center;color: #956831;margin-top: 46px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

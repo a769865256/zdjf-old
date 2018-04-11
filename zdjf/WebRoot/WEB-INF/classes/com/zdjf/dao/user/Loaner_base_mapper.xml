@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.user.loaner">
+	<sql id="columns">
+	id,
+	loaner_type,
+	name,
+	phone,
+	idcard,
+	marital,
+	address,
+	comp_alias,
+	comp_name,
+	comp_code,
+	reg_date,
+	reg_money,
+	comp_address,
+	status,
+	create_time,
+	remark,
+	user_id
+	</sql>
+	<sql id="columnsA">
+	<if test="id != null and id != ''"> id,</if>
+	<if test="loaner_type != null and loaner_type != ''"> loaner_type,</if>
+	<if test="name != null and name != ''"> name,</if>
+	<if test="phone != null and phone != ''"> phone,</if>
+	<if test="idcard != null and idcard != ''"> idcard,</if>
+	<if test="marital != null and marital != ''"> marital,</if>
+	<if test="address != null and address != ''"> address,</if>
+	<if test="comp_alias != null and comp_alias != ''"> comp_alias,</if>
+	<if test="comp_name != null and comp_name != ''"> comp_name,</if>
+	<if test="comp_code != null and comp_code != ''"> comp_code,</if>
+	<if test="reg_date != null and reg_date != ''"> reg_date,</if>
+	<if test="reg_money != null and reg_money != ''"> reg_money,</if>
+	<if test="comp_address != null and comp_address != ''"> comp_address,</if>
+	<if test="status != null and status != ''"> status,</if>
+	<if test="create_time != null"> create_time,</if>
+	<if test="remark != null and remark != ''"> remark,</if>
+	<if test="user_id != null and user_id != ''"> user_id,</if>
+	</sql>
+	<sql id="vals">
+	<if test="id != null and id != ''"> #{id},</if>
+	<if test="loaner_type != null and loaner_type != ''"> #{loaner_type},</if>
+	<if test="name != null and name != ''"> #{name},</if>
+	<if test="phone != null and phone != ''"> #{phone},</if>
+	<if test="idcard != null and idcard != ''"> #{idcard},</if>
+	<if test="marital != null and marital != ''"> #{marital},</if>
+	<if test="address != null and address != ''"> #{address},</if>
+	<if test="comp_alias != null and comp_alias != ''"> #{comp_alias},</if>
+	<if test="comp_name != null and comp_name != ''"> #{comp_name},</if>
+	<if test="comp_code != null and comp_code != ''"> #{comp_code},</if>
+	<if test="reg_date != null and reg_date != ''"> #{reg_date},</if>
+	<if test="reg_money != null and reg_money != ''"> #{reg_money},</if>
+	<if test="comp_address != null and comp_address != ''"> #{comp_address},</if>
+	<if test="status != null and status != ''"> #{status},</if>
+	<if test="create_time != null"> #{create_time},</if>
+	<if test="remark != null and remark != ''"> #{remark},</if>
+	<if test="user_id != null and user_id != ''"> #{user_id},</if>
+	</sql>
+	<sql id="conds">
+	<if test="id != null and id != ''"> and id = #{id}</if>
+	<if test="loaner_type != null and loaner_type != ''"> and loaner_type = #{loaner_type}</if>
+	<if test="name != null and name != ''"> and name = #{name}</if>
+	<if test="phone != null and phone != ''"> and phone = #{phone}</if>
+	<if test="idcard != null and idcard != ''"> and idcard = #{idcard}</if>
+	<if test="marital != null and marital != ''"> and marital = #{marital}</if>
+	<if test="address != null and address != ''"> and address = #{address}</if>
+	<if test="comp_alias != null and comp_alias != ''"> and comp_alias = #{comp_alias}</if>
+	<if test="comp_name != null and comp_name != ''"> and comp_name = #{comp_name}</if>
+	<if test="comp_code != null and comp_code != ''"> and comp_code = #{comp_code}</if>
+	<if test="reg_date != null and reg_date != ''"> and reg_date = #{reg_date}</if>
+	<if test="reg_money != null and reg_money != ''"> and reg_money = #{reg_money}</if>
+	<if test="comp_address != null and comp_address != ''"> and comp_address = #{comp_address}</if>
+	<if test="status != null and status != ''"> and status = #{status}</if>
+	<if test="create_time != null"> and create_time = #{create_time}</if>
+	<if test="remark != null and remark != ''"> and remark = #{remark}</if>
+	<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+	</sql>
+	<insert id="saveLoaner" parameterType="com.zdjf.domain.user.Loaner" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_loaner (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectLoaner" resultType="com.zdjf.domain.user.LoanerVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_loaner
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<delete id="deleteLoaner">
+		delete from zd_loaner
+		where id=#{id}
+	</delete>
+</mapper>

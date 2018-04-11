@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.fund.userFundStat">
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id,
+		user_id,
+		invest_sum,
+		balance,
+		recharged,
+		withdrawed,
+		pend_withdraw,
+		incomed,
+		pend_income,
+		returned,
+		pend_return,
+		coin_total,
+		coin_cost,
+		coin_balance,
+		locked_money,
+		coin_invest,
+		withdraw_coupons,
+		update_time,
+		uid,
+		invest_frequency,
+		hf_balance
+	</sql>
+	<sql id="columnsA">
+		<if test="id != null and id != ''"> id,</if>
+		<if test="user_id != null and user_id != ''"> user_id,</if>
+		<if test="invest_sum != null "> invest_sum,</if>
+		<if test="balance != null "> balance,</if>
+		<if test="recharged != null "> recharged,</if>
+		<if test="withdrawed != null "> withdrawed,</if>
+		<if test="pend_withdraw != null "> pend_withdraw,</if>
+		<if test="incomed != null "> incomed,</if>
+		<if test="pend_income != null "> pend_income,</if>
+		<if test="returned != null "> returned,</if>
+		<if test="pend_return != null "> pend_return,</if>
+		<if test="coin_total != null "> coin_total,</if>
+		<if test="coin_cost != null "> coin_cost,</if>
+		<if test="coin_balance != null "> coin_balance,</if>
+		<if test="locked_money != null "> locked_money,</if>
+		<if test="coin_invest != null "> coin_invest,</if>
+		<if test="withdraw_coupons != null "> withdraw_coupons,</if>
+		<if test="update_time != null "> update_time,</if>
+		<if test="uid != null and uid != ''"> uid,</if>
+		<if test="invest_frequency != null "> invest_frequency,</if>
+		<if test="hf_balance != null "> hf_balance,</if>
+	</sql>
+	<!-- 列值 -->
+	<sql id="vals">
+		<if test="id != null and id != ''"> #{id},</if>
+		<if test="user_id != null and user_id != ''"> #{user_id},</if>
+		<if test="invest_sum != null "> #{invest_sum},</if>
+		<if test="balance != null "> #{balance},</if>
+		<if test="recharged != null "> #{recharged},</if>
+		<if test="withdrawed != null "> #{withdrawed},</if>
+		<if test="pend_withdraw != null"> #{pend_withdraw},</if>
+		<if test="incomed != null "> #{incomed},</if>
+		<if test="pend_income != null "> #{pend_income},</if>
+		<if test="returned != null "> #{returned},</if>
+		<if test="pend_return != null "> #{pend_return},</if>
+		<if test="coin_total != null "> #{coin_total},</if>
+		<if test="coin_cost != null "> #{coin_cost},</if>
+		<if test="coin_balance != null"> #{coin_balance},</if>
+		<if test="locked_money != null "> #{locked_money},</if>
+		<if test="coin_invest != null "> #{coin_invest},</if>
+		<if test="withdraw_coupons != null "> #{withdraw_coupons},</if>
+		<if test="update_time != null "> #{update_time},</if>
+		<if test="uid != null and uid != ''"> #{uid},</if>
+		<if test="invest_frequency != null "> #{invest_frequency},</if>
+		<if test="hf_balance != null "> #{hf_balance},</if>
+	</sql>
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''"> and id = #{id}</if>
+		<if test="user_id != null and user_id != ''"> and user_id = #{user_id}</if>
+		<if test="invest_sum != null and invest_sum !=''"> and invest_sum = #{invest_sum}</if>
+		<if test="balance != null and balance !=''"> and balance = #{balance}</if>
+		<if test="recharged != null and recharged !=''"> and recharged = #{recharged}</if>
+		<if test="withdrawed != null and withdrawed !=''"> and withdrawed = #{withdrawed}</if>
+		<if test="pend_withdraw != null and pend_withdraw !=''"> and pend_withdraw = #{pend_withdraw}</if>
+		<if test="incomed != null and incomed !=''"> and incomed = #{incomed}</if>
+		<if test="pend_income != null and pend_income !=''"> and pend_income = #{pend_income}</if>
+		<if test="returned != null and returned !=''"> and returned = #{returned}</if>
+		<if test="pend_return != null and pend_return !=''"> and pend_return = #{pend_return}</if>
+		<if test="coin_total != null and coin_total !=''"> and coin_total = #{coin_total}</if>
+		<if test="coin_cost != null and coin_cost !=''"> and coin_cost = #{coin_cost}</if>
+		<if test="coin_balance != null and coin_balance !=''"> and coin_balance = #{coin_balance}</if>
+		<if test="locked_money != null and locked_money !=''"> and locked_money = #{locked_money}</if>
+		<if test="coin_invest != null and coin_invest !=''"> and coin_invest = #{coin_invest}</if>
+		<if test="withdraw_coupons != null and withdraw_coupons !=''"> and withdraw_coupons = #{withdraw_coupons}</if>
+		<if test="update_time != null"> and update_time = #{update_time}</if>
+		<if test="uid != null and uid != ''"> and uid = #{uid}</if>
+		<if test="invest_frequency != null and invest_frequency !=''"> and invest_frequency = #{invest_frequency}</if>
+		<if test="hf_balance != null and hf_balance !=''"> and hf_balance = #{hf_balance}</if>
+	</sql>
+	<insert id="saveUserFundStat" parameterType="com.zdjf.domain.fund.UserFundStat" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_user_fund_stat (
+		<trim suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>
+		) 
+		values (
+		<trim suffixOverrides=",">
+		<include refid="vals" />
+		</trim>
+		)
+	</insert>
+	<select id="loadUserFundStat" resultType="com.zdjf.domain.fund.UserFundStatVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_user_fund_stat
+		where id=#{id}
+	</select>
+	
+	<select id="selectUserFundStat" resultType="com.zdjf.domain.fund.UserFundStatVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_user_fund_stat
+		where 1=1
+		<include refid="conds" />
+	</select>
+	<select id="selectUserFundStatById" resultType="com.zdjf.domain.fund.UserFundStat">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim>
+		from zd_user_fund_stat
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.notice.news">
+<select id="updateNewsById" parameterType="com.zdjf.domain.notice.News">
+		update zd_news
+		<trim prefix="set" suffixOverrides=",">
+		<if test="id != null and id != ''">  id = #{id},</if>
+		<if test="user_id != null and user_id != ''">  user_id = #{user_id},</if>
+		<if test="title != null and title != ''">  title = #{title},</if>
+		<if test="content != null and content != ''">  content = #{content},</if>
+		<if test="url != null and url != ''">  url = #{url},</if>
+		<if test="create_time != null">  create_time = #{create_time},</if>
+		<if test="is_read != null ">  is_read = #{is_read},</if>
+		<if test="update_time != null">  update_time = #{update_time},</if>
+		</trim>
+		where 1=1
+		and id = #{id}
+	</select>
+<select id="deleteNewsById" parameterType="long">
+			delete from zd_news where 1=1
+			<include refid="conds" />
+	</select>
+	<select id="selectNewsPage" resultType="com.zdjf.domain.notice.News">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from
+		zd_news
+		where 1=1
+		<include refid="conds" />
+		order by create_time desc,is_read desc
+		limit #{firstrownum}, #{limit}
+	</select>
+	<select id="selectNewsCount" resultType="java.lang.Long">
+		select
+		count(id)
+		from zd_news
+		where 1=1
+		<include refid="conds" />
+	</select>
+</mapper>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../css/front/tg_register.css">
+</head>
+<body>
+	<div class="tg_register">
+		<div class="main">
+			<div class="tlt">
+				<img src="../../../images/front/img/active/register/tlt.png" alt="">
+			</div>
+			<div class="telReg telReg1">
+                <input type="text" placeholder="请输入手机号码" id="mobile" name="mobile" maxlength="11" onchange="phoneVerify(this.value);" />
+                <div class="ts_txt" id="error_info1"></div>
+                <div class="yzm fixed">
+                    <input type="text" placeholder="输入验证码" id="User_mobliecode" name="User_mobliecode" maxlength="6" onchange="codVerify(this.value);" />
+                    <div class="xqb_reg_ul_doubleimg">
+                        <input type="button" class="buttonInput" value="获取验证码" id="moblieCodeBut"/>
+                    </div>
+                    <input type="hidden" id="mobliecode" />
+                </div>
+                <div class="ts_txt" id="error_info2">验证码不正确！</div>
+                <div class="mm fixed">
+                    <input type="password" placeholder="请设置6-16位数字和字母组成的密码" id="password" name="password" maxlength="16" onchange="pwdVerify(this.value);">
+                </div>
+                <div class="ts_txt" id="error_info3"></div>
+                <div class="btn">
+                    <input type="button" id="qlef_btn" value="立即领取" />
+                </div>
+            </div>
+            <div class="content">
+                <div class="zxCon">
+                    <div class="zxCard">
+                        <div class="zxCard_sj"><span>9.0</span>%+0.8%</div>
+                        <div class="zxCard_con">
+                            <div>
+                                <i></i>37天
+                            </div>
+                            <div>
+                                <i></i>100元可投
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="content content2">
+                <img src="../../../images/front/img/active/register/insurance.png" alt="">
+            </div>
+            <div class="content content3">
+                <img src="../../../images/front/img/active/register/lcys.png" alt="">
+            </div>
+            <div class="content">
+                <p class="foot">客服热线:400-690-9898</p>
+                <p class="foot">官方QQ：463637911 官方微信：zdjfu161208</p>
+                <p class="foot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有</p>
+                <p class="wz">ICP经营许可证：浙B2-20170101 浙ICP备16040310号</p>
+                <p class="foot">理财有风险 投资需谨慎</p>
+            </div>
+		</div>
+	</div>
+
+	<!-- 弹窗 -->
+	<div class="qluser" id="qluser02">
+        <div class="qluser_bg"></div>
+        <div class="qluser_txt02">
+            <div class="qluser_txt02x">
+                <span id="down">×</span>
+            </div>
+            <div class="qluser_txt02ts" id="error">领取成功！</div>
+            <span id="qluser_close">进入官网</span>
+            <!-- <p class="scanCode">扫码下载APP</p> -->
+        </div>
+    </div>
+	<!-- end -->
+	<script type="text/javascript" src="../../../module/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../module/layui/layui.js"></script>
+	<script type="text/javascript" src="../../../static/zdjf_app/static/js/jquery.md5.js"></script>
+	<script type="text/javascript">
+		var hostUrl =  window.location.host;
+		if(hostUrl == 'www.zdjfu.com') {
+	    	var rootUrl = '';
+		} else {
+			var rootUrl = '/zdjf';
+		}
+		function alertErrMsg(msg) {
+	        layui.use('layer', function(){
+	            var layer = layui.layer;
+	            layer.open({
+	                type: 1,
+	                skin: 'register_bat',
+	                title: ['','background:#ffffff;text-align:center;font-size: 18px;color: #1088F1;padding: 0;height:60px;line-height: 60px;'],
+	                area: ['320px','220px'],
+	                content:'<div class="sub_box"><i class="iconfont" style="font-size: 50px;margin-top: -32px;display: block;color: #FF5959;">&#xe61c;</i><p style="color: #FF5959;font-size: 18px;margin: 10px 32px 0;">'+msg+'<br><span style="color: #333;font-size: 14px;"></span></p><p style="margin: 16px 10px;"><a href="javascript:" class="qd">确定</a></p></div>',
+	                success: function(){
+	                    $('.qd').click(function(){
+	                        layer.closeAll();
+	                    });
+	                }
+	            });
+	        });
+	    }
+		/*验证码按钮操作*/
+		$("#moblieCodeBut").click(function(){
+			var mobile = $('#mobile').val();
+	        var myReg = /^1[34578]\d{9}$/;
+	        if (mobile == null || mobile.length == 0 || !myReg.test(mobile)) {
+	            $("#error_info1").html("手机号码不正确！");
+	            $("#error_info1").show();
+	            return false;
+	        } else {
+	            $("#error_info1").html("");
+	            $("#error_info1").hide();
+	        }
+	        $.ajax({
+	            type: "post",
+	            url: rootUrl + '/m/sms/send.json',
+	            data: {
+	            	phone: mobile,
+	            	type: 1,
+	            	ip: "192.168.0.158",
+	            	sign: $.md5(mobile + "1" + "192.168.0.158" + "3QvlI7PArDBTa@4YC%efmFxU"),
+	            },
+                dataType: 'json',
+	            success: function(data) {
+	            	if(data.status==100) {
+	            		sendemail();
+	            	} else {
+	            		alertErrMsg(data.content);
+	            	}
+	            },
+	            error: function() {
+	                $("#error_info1").html('请求错误，请重新再次请求！');
+	                // 即使加载出错，也得重置
+	            }
+	        });
+		});
+		
+		$("#qlef_btn").click(function(){
+			var mobile = $('#mobile').val();
+			var User_mobliecode = $('#User_mobliecode').val();
+			var password = $('#password').val();
+			var myReg = /^1[34578]\d{9}$/;
+			var pattern = /^[0-9]{6}$/;
+			var wadpattern = /^(?=.*[0-9])(?=.*[a-zA-Z])(.{6,16})$/;
+	        if (mobile == null || mobile.length == 0 || !myReg.test(mobile)) {
+	            $("#error_info1").html("手机号码不正确！");
+	            $("#error_info1").show();
+	            return false;
+	        } else {
+	            $("#error_info1").html("");
+	            $("#error_info1").hide();
+	        }
+	        if (User_mobliecode == null || User_mobliecode.length == 0 || !pattern.test(User_mobliecode)) {
+	            $("#error_info2").html("验证码不正确！");
+	            $("#error_info2").show();
+	            return false;
+	        } else {
+	            $("#error_info2").html("");
+	            $("#error_info2").hide();
+	        }
+	        if (password == null || password.length == 0 || !wadpattern.test(password)) {
+	            $("#error_info3").html("密码必须大于6位小于16位，并且含字母与数字！");
+	            $("#error_info3").show();
+	            return false;
+	        } else {
+	            $("#error_info3").html("");
+	            $("#error_info3").hide();
+	        }
+	        $.ajax({
+	            type: "post",
+	            url: rootUrl + '/m/user/register.json',
+	            data: {
+	            	phone: mobile,
+	            	passwd: password,
+	            	verif: User_mobliecode,
+	            	reg_source: 1,
+	            	inviter_phone: "",
+	            	invite_code: "",
+	            	invite_source: 701,
+	            	ip: "192.168.0.158",
+	            	sign: $.md5(mobile + User_mobliecode + "192.168.0.158" + "3QvlI7PArDBTa@4YC%efmFxU"),
+	            },
+                dataType: 'json',
+	            success: function(data) {
+	            	if(data.status==100) {
+	            		$("#qluser02").show();
+	            		$("#down").click(function(){
+							$("#qluser02").hide();
+						});
+	            		$("#qluser_close").click(function() {
+            				window.location.href = rootUrl + "/toLogin.action";
+	            		});
+	            	} else {
+	            		alertErrMsg(data.content);
+	            	}
+	            },
+	            error: function() {
+	                $("#error_info1").html('请求错误，请重新再次请求！');
+	                // 即使加载出错，也得重置
+	            }
+	        });
+		});
+		/*手机号验证方式*/
+		function phoneVerify(value){
+			var pattern = /^1[34578]\d{9}$/;
+			if(value == null || value.length == 0 || !pattern.test(value)){
+				$("#error_info1").html("手机号码不正确！");
+				$("#error_info1").show();
+			}else{
+				$("#error_info1").html("");
+				$("#error_info1").hide();
+			}
+		}
+		/*验证码方式*/
+		function codVerify(value){
+			var pattern = /^[0-9]{6}$/;
+			if(value == null || value.length == 0 || !pattern.test(value)){
+				$("#error_info2").html("验证码不正确！");
+				$("#error_info2").show();
+			}else{
+				$("#error_info2").html("");
+				$("#error_info2").hide();
+			}
+		}
+		/*密码验证方式*/
+		function pwdVerify(value){
+			var pattern = /^(?=.*[0-9])(?=.*[a-zA-Z])(.{6,16})$/;
+			if(value == null || value.length == 0 || !pattern.test(value)){
+				$("#error_info3").html("密码必须大于6位小于16位，并且含字母与数字");
+				$("#error_info3").show();
+			} else {
+				$("#error_info3").html("");
+				$("#error_info3").hide();
+			}
+		}
+		/*验证码验证方式*/
+		var countdown=60; 
+		function sendemail(){
+		    var obj = $("#moblieCodeBut");
+		    obj.addClass('noverbtn');
+		    settime(obj);
+		}
+		function settime(obj) { //发送验证码倒计时
+		    if (countdown == 0) { 
+		    	obj.removeClass('noverbtn');
+		        obj.attr('disabled',false);
+		        obj.val("获取验证码");
+		        countdown =60; 
+		        return;
+		    } else { 
+		        obj.attr('disabled',true);
+		        obj.val("重新发送(" + countdown + ")");
+		        countdown--; 
+		    } 
+		    setTimeout(function() { 
+		    	settime(obj) 
+			},1000) 
+		}
+	</script>
+</body>
+</html>

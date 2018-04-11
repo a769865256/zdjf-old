@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.admin">
+	<!-- 所有列名 -->
+	<sql id="columns">
+		id, login_name, password, real_name, status,last_login_time,last_login_ip,create_time,update_time,
+		jurisdiction,error_count,error_time,rose
+	</sql>
+	
+	<!-- 列值 -->
+	<sql id="vals">
+		#{id}, #{login_name}, #{password}, #{real_name}, #{status}, #{last_login_time}, #{last_login_ip}
+		, #{create_time},#{update_time}, #{jurisdiction}, #{error_count}, #{error_time},#{rose}
+	</sql>
+	
+	<!-- 条件 -->
+	<sql id="conds">
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+		<if test="login_name != null and login_name != ''">
+			and login_name = #{login_name}
+		</if>
+		<if test="password != null">
+			and password = #{password}
+		</if>
+		<if test="real_name != null">
+			and real_name = #{real_name}
+		</if>
+		<if test="status != null and status != ''">
+			and status = #{status}
+		</if>
+		<if test="last_login_time != null and last_login_time != ''">
+			and last_login_time = #{last_login_time}
+		</if>
+		<if test="last_login_ip != null and last_login_ip != ''">
+			and last_login_ip = #{last_login_ip}
+		</if>
+		<if test="create_time != null and create_time != ''">
+			and create_time = #{create_time}
+		</if>
+		<if test="update_time != null and update_time != ''">
+			and update_time = #{update_time}
+		</if>
+		
+		<if test="jurisdiction != null and jurisdiction != ''">
+			and jurisdiction = #{jurisdiction}
+		</if>
+		<if test="create_time != null and create_time != ''">
+			and error_count = #{error_count}
+		</if>
+		<if test="update_time != null and update_time != ''">
+			and error_time = #{error_time}
+		</if>
+	</sql>
+
+	<insert id="saveSysUser" parameterType="com.zdjf.domain.admin.SysUser" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_sys_user (<include refid="columns" />) 
+		values (<include refid="vals" />)
+	</insert>
+
+	<delete id="deleteSysUser">
+		delete from zd_sys_user
+		where id=#{id}
+	</delete>
+
+	<delete id="deleteByExampleSysUser">
+		delete from zd_sys_user
+		where 1=1
+		<include refid="conds" />
+	</delete>
+	
+	<select id="loadSysUser" resultType="com.zdjf.domain.admin.SysUser">
+		select 
+		<include refid="columns"/>
+		from zd_sys_user
+		where id=#{id}
+	</select>
+	
+	<select id="selectSysUser" resultType="com.zdjf.domain.admin.SysUser">
+		select 
+		<include refid="columns"/>
+		from zd_sys_user
+		where 1=1
+		<include refid="conds" />
+	</select>
+
+	<update id="updateSysUser">
+		update zd_sys_user
+		<set>
+			id=#{id}, 
+			login_name=#{login_name}, 
+			password=#{password}, 
+			real_name=#{real_name}, 
+			status=#{status},
+			last_login_time=#{last_login_time}, 
+			last_login_ip=#{last_login_ip}, 
+			create_time=#{create_time}, 
+			update_time=#{update_time}, 
+			jurisdiction=#{jurisdiction}, 
+			error_count=#{error_count}, 
+			error_time=#{error_time}
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="updateIgnoreNullSysUser">
+		update zd_sys_user
+		<set>
+		<if test="id != null and id != ''">
+			id=#{id}, 
+		</if>
+		<if test="login_name != null and login_name != ''">
+			login_name=#{login_name}, 
+		</if>
+		<if test="create_time != null">
+			create_time=#{create_time}, 
+		</if>
+		<if test="update_time != null">
+			update_time=#{update_time},
+		</if>
+		<if test="status != null and status != ''">
+			status=#{status}, 
+		</if>
+		<if test="last_login_ip != null and last_login_ip != ''">
+			last_login_ip=#{last_login_ip}, 
+		</if>
+		<if test="user_login != null and user_login != ''">
+			user_login=#{user_login}, 
+		</if>
+		<if test="last_login_time != null and last_login_time != ''">
+			last_login_time=#{last_login_time}, 
+		</if>
+		<if test="password != null and password != ''">
+			password=#{password}
+		</if>
+		
+		<if test="jurisdiction != null and jurisdiction != ''">
+			and jurisdiction = #{jurisdiction}
+		</if>
+		<if test="create_time != null and create_time != ''">
+			and error_count = #{error_count}
+		</if>
+		<if test="update_time != null and update_time != ''">
+			and error_time = #{error_time}
+		</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="updateByExampleSysUser">
+		update zd_sys_user
+		<set>
+			<if test="id != null and id != ''">
+				id=#{id}, 
+			</if>
+			<if test="login_name != null and login_name != ''">
+			and login_name = #{login_name}
+			</if>
+			<if test="password != null">
+				and password = #{password}
+			</if>
+			<if test="real_name != null">
+				and real_name = #{real_name}
+			</if>
+			<if test="status != null and status != ''">
+				and status = #{status}
+			</if>
+			<if test="last_login_time != null and last_login_time != ''">
+				and last_login_time = #{last_login_time}
+			</if>
+			<if test="last_login_ip != null and last_login_ip != ''">
+				and last_login_ip = #{last_login_ip}
+			</if>
+			<if test="create_time != null and create_time != ''">
+				and create_time = #{create_time}
+			</if>
+			<if test="update_time != null and update_time != ''">
+				and update_time = #{update_time}
+			</if>
+			<if test="jurisdiction != null and jurisdiction != ''">
+				and jurisdiction = #{jurisdiction}
+			</if>
+			<if test="create_time != null and create_time != ''">
+				and error_count = #{error_count}
+			</if>
+			<if test="update_time != null and update_time != ''">
+				and error_time = #{error_time}
+			</if>
+		</set>
+		where 1=1
+		<include refid="conds" />
+	</update>
+
+</mapper>

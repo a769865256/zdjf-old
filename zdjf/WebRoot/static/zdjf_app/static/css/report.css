@@ -1,0 +1,56 @@
+body.report_year{
+    background: #311c5a;
+}
+body.report_half{
+    background: #0c0e1a;
+}
+body.report_quarter{
+    background: #4d62bf;
+}
+.swiper-container,.swiper-wrapper,.swiper-slide,.swiper-slide img{
+    width: 100%;
+    height: 100%;
+}
+.to_next_page,.to_index_page{
+    width: 100%;
+    height: 140px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+
+body.report_year .swiper-slide{
+    background: url("../img/report/bg_2017.png") center center no-repeat;
+}
+body.report_year .swiper-container,.swiper-wrapper,.swiper-slide,.con_img{
+    width: 100%;
+    height: 100%;
+}
+body.report_year .con_img{
+	
+}
+body.report_year .con_img img{
+	width:650px;
+	height:960px;
+}
+body.report_year .to_next_page{
+    width: 81px;
+    height: 124px;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    margin-left:-40px;
+}
+body.report_year .to_next_page img{
+    width: 81px;
+    height: 124px;
+}
+body.report_year .to_index_page{
+    width: 102px;
+    height: 99px;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;;
+    margin-left:-61px;
+}

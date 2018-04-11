@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdjf.dao.product.productBuyIncome">
+<sql id="columns">
+id,
+buy_id,
+product_id,
+num,
+start_date,
+end_date,
+days,
+is_return_amount,
+amount,
+interest,
+income,
+pay_date,
+act_pay_time,
+status,
+create_time,
+remark,
+income_id,
+old_buy_id,
+old_product_id,
+user_id
+</sql>
+<sql id="columnsA">
+<if test="id != null and id != ''">  id,</if>
+<if test="buy_id != null and buy_id != ''">  buy_id,</if>
+<if test="product_id != null and product_id != ''">  product_id,</if>
+<if test="num != null and num != ''">  num,</if>
+<if test="start_date != null">  start_date,</if>
+<if test="end_date != null">  end_date,</if>
+<if test="days != null and days != ''">  days,</if>
+<if test="is_return_amount != null and is_return_amount != ''">  is_return_amount,</if>
+<if test="amount != null and amount != ''">  amount,</if>
+<if test="interest != null and interest != ''">  interest,</if>
+<if test="income != null and income != ''">  income,</if>
+<if test="pay_date != null">  pay_date,</if>
+<if test="act_pay_time != null and act_pay_time != ''">  act_pay_time,</if>
+<if test="status != null and status != ''">  status,</if>
+<if test="create_time != null">  create_time,</if>
+<if test="remark != null and remark != ''">  remark,</if>
+<if test="income_id != null and income_id != ''">  income_id,</if>
+<if test="old_buy_id != null and old_buy_id != ''">  old_buy_id,</if>
+<if test="old_product_id != null and old_product_id != ''">  old_product_id,</if>
+<if test="user_id != null and user_id != ''">  user_id,</if>
+</sql>
+<sql id="vals">
+<if test="id != null and id != ''">  #{id},</if>
+<if test="buy_id != null and buy_id != ''">  #{buy_id},</if>
+<if test="product_id != null and product_id != ''">  #{product_id},</if>
+<if test="num != null and num != ''">  #{num},</if>
+<if test="start_date != null">  #{start_date},</if>
+<if test="end_date != null">  #{end_date},</if>
+<if test="days != null and days != ''">  #{days},</if>
+<if test="is_return_amount != null and is_return_amount != ''">  #{is_return_amount},</if>
+<if test="amount != null and amount != ''">  #{amount},</if>
+<if test="interest != null and interest != ''">  #{interest},</if>
+<if test="income != null and income != ''">  #{income},</if>
+<if test="pay_date != null">  #{pay_date},</if>
+<if test="act_pay_time != null and act_pay_time != ''">  #{act_pay_time},</if>
+<if test="status != null and status != ''">  #{status},</if>
+<if test="create_time != null">  #{create_time},</if>
+<if test="remark != null and remark != ''">  #{remark},</if>
+<if test="income_id != null and income_id != ''">  #{income_id},</if>
+<if test="old_buy_id != null and old_buy_id != ''">  #{old_buy_id},</if>
+<if test="old_product_id != null and old_product_id != ''">  #{old_product_id},</if>
+<if test="user_id != null and user_id != ''">  #{user_id},</if>
+</sql>
+<sql id="conds">
+<if test="id != null and id != ''">  and id = #{id}</if>
+<if test="buy_id != null and buy_id != ''">  and buy_id = #{buy_id}</if>
+<if test="product_id != null and product_id != ''">  and product_id = #{product_id}</if>
+<if test="num != null and num != ''">  and num = #{num}</if>
+<if test="start_date != null">  and start_date = #{start_date}</if>
+<if test="end_date != null">  and end_date = #{end_date}</if>
+<if test="days != null and days != ''">  and days = #{days}</if>
+<if test="is_return_amount != null and is_return_amount != ''">  and is_return_amount = #{is_return_amount}</if>
+<if test="amount != null and amount != ''">  and amount = #{amount}</if>
+<if test="interest != null and interest != ''">  and interest = #{interest}</if>
+<if test="income != null and income != ''">  and income = #{income}</if>
+<if test="pay_date != null">  and pay_date = #{pay_date}</if>
+<if test="act_pay_time != null and act_pay_time != ''">  and act_pay_time = #{act_pay_time}</if>
+<if test="status != null and status != ''">  and status = #{status}</if>
+<if test="create_time != null">  and create_time = #{create_time}</if>
+<if test="remark != null and remark != ''">  and remark = #{remark}</if>
+<if test="income_id != null and income_id != ''">  and income_id = #{income_id}</if>
+<if test="old_buy_id != null and old_buy_id != ''">  and old_buy_id = #{old_buy_id}</if>
+<if test="old_product_id != null and old_product_id != ''">  and old_product_id = #{old_product_id}</if>
+<if test="user_id != null and user_id != ''">  and user_id = #{user_id}</if>
+</sql>
+<insert id="saveProductBuyIncome" parameterType="com.zdjf.domain.product.ProductBuyIncome" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="Long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into zd_product_buy_income (
+		<trim  suffixOverrides=",">
+		<include refid="columnsA" />
+		</trim>) 
+		values (
+		<trim  suffixOverrides=",">
+		<include refid="vals" />
+		</trim>)
+	</insert>
+	<select id="selectProductBuyIncome" resultType="com.zdjf.domain.product.ProductBuyIncomeVo">
+		<trim prefix="select" suffixOverrides=",">
+		<include refid="columns"/>
+		</trim> 
+		from zd_product_buy_income
+		where 1=1
+		<include refid="conds" />
+		order by pay_date
+	</select>
+	<delete id="deleteProductBuyIncome">
+		delete from zd_product_buy_income
+		where id=#{id}
+	</delete>
+</mapper>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正道金服</title>
+	<!-- reset/iconfont -->
+	<link rel="stylesheet" href="../../../../css/front/reset.css">
+	<link rel="stylesheet" href="../../../../module/iconfont/iconfont.css">
+	<link rel="stylesheet" href="../../../../module/layui/css/layui.css">
+	<link rel="stylesheet" href="../../../../css/front/index.css">
+	<link rel="stylesheet" href="../../../../css/front/wealth.css">
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="nav">
+			<div class="pack">
+				<span><i class="iconfont">&#xe656;</i>客服电话:400-690-9898</span>
+				<div class="p_right">
+					<!-- 登录后显示 -->
+					<div class="login_ok hide">
+						<span class="user_info">130****0251</span>
+						<a href="javascript:" class="user_message">消息<i class="iconfont">&#xe602;</i></a>
+						<a href="javascript:" class="sign_out">安全退出</a>
+					</div>
+					<span><i class="iconfont"></i><a href="../downloadAPP/downloadApp.html">下载APP</a></span>
+            		<span><a href="../help/helpMain.html">帮助中心</a></span><span><a href="../guide/guide.html">新手指引</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="bar">
+			<div class="pack">
+				<div class="l_pk"></div>
+				<div class="r_pk">
+					<ul> 
+						<li><a href="../index.html">首页</a></li>
+						<li>
+							<a href="../project/project_list.html">理财项目</a>
+							<div class="nav">
+								<a href="../project/project_list.html">债转专区</a>
+							</div>
+						</li>
+						<li>
+							<a href="javascript:">信息披露</a>
+							<div class="nav">
+								<a href="javascript:">平台数据</a>
+								<a href="javascript:">安全保障</a>
+								<a href="javascript:">公司简介</a>
+								<a href="javascript:">平台事迹</a>
+								<a href="javascript:">公司动态</a>
+								<a href="javascript:">联系我们</a>
+							</div>
+						</li>
+						<li>
+							<a href="mywealth/wealth.html">我的财富</a>
+							<div class="nav">
+								<a href="javascript:">我的财富</a>
+								<a href="javascript:">资金明细</a>
+								<a href="javascript:">我的理财</a>
+								<a href="javascript:">我的优惠</a>
+								<a href="javascript:">账户设置</a>
+								<a href="javascript:">邀请有礼</a>
+								<a href="javascript:">消息中心</a>
+							</div>
+						</li>
+					</ul>
+					<div class="sign">
+						<a href="../login.html">登录签到</a>
+						<a href="../register.html">注册有礼</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- header end -->
+
+	<!-- content -->
+	<div class="open hide">
+		<div class="tlt">
+			<p>为了确保您的正常投资和资金安全，请开通上海银行存管账户。<a href="javascript:">立即开通</a></p>
+		</div>
+	</div>
+	<div class="wealth">
+		<div class="we_lf">
+			<ul>
+				<li><i class="iconfont mycf"></i><a data-html="wealthbox" href="wealth.html">我的财富</a></li>
+				<li><i class="iconfont zjmx"></i><a data-html="capitalbox" href="mycapital.html">资金明细</a></li>
+				<li class="active"><i class="iconfont mylc"></i><a data-html="duct" href="myconduct.html">我的理财</a></li>
+				<li><i class="iconfont myyh"></i><a data-html="discount" href="mydiscount.html">我的优惠</a></li>
+				<li><i class="iconfont zhsz"></i><a data-html="account" href="myaccount.html">账户设置</a></li>
+				<li><i class="iconfont yqyl"></i><a data-html="invitation" href="myinvitation.html">邀请有礼</a></li>
+				<li><i class="iconfont msg"></i><a data-html="message_center" href="mynews.html">消息中心</a></li>
+			</ul>
+			<div class="service">
+				<i class="iconfont">&#xe730;</i>
+				<p>电话：400-690-9898<br>我们将诚挚为您服务</p>
+			</div>
+		</div>
+		<div class="we_rt">
+			<!-- 我的理财 -->
+			<div class="duct we_rtbox">
+				<div class="du_tav">
+					<p>
+						<span class="active">投资记录</span>
+						<span>订单记录</span>
+					</p>
+					<a href="javascript:">立即投资></a>
+				</div>
+				<div class="du_tab">
+					<div class="ca_table">
+						<div class="du_datebox">
+							投资时间:<input type="text" placeholder="开始时间" class="layui-input" id="dufrom" readonly="readonly">到<input type="text" placeholder="结束时间" class="layui-input" id="duto" readonly="readonly">
+							<span class="active">全部</span>
+							<span>最近7天</span>
+							<span>1个月</span>
+							<span>3个月</span>
+							<p class="search">
+								<span>项目状态:</span>
+								<a href="javascript:" class="active">全部状态</a>
+								<a href="javascript:">履约中</a>
+								<a href="javascript:">锁定期</a>
+								<a href="javascript:">已回款</a>
+							</p>
+						</div>
+						<table>
+							<thead>
+								<tr>
+									<th>项目名称</th>
+									<th>预期年化收益</th>
+									<th>收益天数(天)</th>
+									<th>投资金额(元)</th>
+									<th>累计收益(元)</th>
+									<th>项目状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align: left;"><span class="zt_project">直</span><a href="../project/pro_detail.html" class="xmsee" target="_blank">车财道12548-1期</a></td>
+									<td>9.00%</td>
+									<td>25天</td>
+									<td>3,000.00</td>
+									<td>22.50</td>
+									<td>
+										<span class="state1">履约中</span>
+									</td>
+									<td><a href="look_order.html" class="see">查看</a></td>
+								</tr>
+								<tr>
+									<td style="text-align: left;"><span class="zq_project">债</span><a href="javascript:" class="xmsee" target="_blank">车财道12548-1期</a></td>
+									<td>9.00%</td>
+									<td>25天</td>
+									<td>3,000.00</td>
+									<td>22.50</td>
+									<td>
+										<span class="state2">锁定期</span>
+									</td>
+									<td><a href="look_order.html" class="see" target="_blank">查看</a></td>
+								</tr>
+								<tr>
+									<td style="text-align: left;"><span class="zt_project">直</span><a href="javascript:" class="xmsee" target="_blank">车财道12548-1期</a></td>
+									<td>9.00%</td>
+									<td>25天</td>
+									<td>3,000.00</td>
+									<td>22.50</td>
+									<td>
+										<span class="state4">已回款</span>
+									</td>
+									<td><a href="look_order.html" class="see">查看</a></td>
+								</tr>
+								<tr>
+									<td style="text-align: left;"><span class="zq_project">债</span><a href="javascript:" class="xmsee" target="_blank">车财道12548-1期</a></td>
+									<td>9.00%</td>
+									<td>25天</td>
+									<td>3,000.00</td>
+									<td>22.50</td>
+									<td>
+										<span class="state4">已回款</span>
+									</td>
+									<td><a href="look_order.html" class="see">查看</a></td>
+								</tr>
+							</tbody>
+							<tfoot style="display: none;">
+							    <tr>
+									<td colspan="7">
+										<div class="norecord">
+											<a href="javascript:">立即投资</a>
+										</div>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+						<div id="ca_page"></div>
+					</div>
+					<div class="ca_table" style="display: none;">
+						<div class="du_datebox">
+							下单时间:<input type="text" placeholder="开始时间" class="layui-input" id="dufrom2" readonly="readonly">到<input type="text" placeholder="结束时间" class="layui-input" id="duto2" readonly="readonly">
+							<span class="active">全部</span>
+							<span>最近7天</span>
+							<span>1个月</span>
+							<span>3个月</span>
+							<p class="search">
+								<span>项目状态:</span>
+								<a href="javascript:" class="active">全部状态</a>
+								<a href="javascript:">成功</a>
+								<a href="javascript:">失败</a>
+								<a href="javascript:">支付中</a>
+							</p>
+						</div>
+						<table>
+							<thead>
+								<tr>
+									<th>下单时间</th>
+									<th>订单号</th>
+									<th>项目名称</th>
+									<th>订单金额(元)</th>
+									<th>支付状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2017-10-16 19:10:55</td>
+									<td>13083070251</td>
+									<td><a href="../project/pro_detail.html" class="keepsee" target="_blank">车财道12656期</a></td>
+									<td>3,000</td>
+									<td>
+										<span class="payok">成功</span>
+									</td>
+									<td>
+										<a href="look_order.html" class="keepsee" target="_blank">查看</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2017-10-16 19:10:55</td>
+									<td>13083070251</td>
+									<td><a href="../project/pro_detail.html" class="keepsee" target="_blank">车财道12656期</a></td>
+									<td>3,000</td>
+									<td><span class="payno">失败</span></td>
+									<td>
+										<div class="keep_pay hide"><a href="javascript:">继续支付</a><a href="javascript:">取消支付</a></div>
+										<a href="look_order.html" class="keepsee" target="_blank">查看</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2017-10-16 19:10:55</td>
+									<td>13083070251</td>
+									<td><a href="../project/pro_detail.html" class="keepsee" target="_blank">车财道12656期</a></td>
+									<td>3,000</td>
+									<td><span class="close">其他</span></td>
+									<td>
+										<a href="look_order.html" class="keepsee" target="_blank">查看</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2017-10-16 19:10:55</td>
+									<td>13083070251</td>
+									<td><a href="../project/pro_detail.html" class="keepsee" target="_blank">车财道12656期</a></td>
+									<td>3,000</td>
+									<td><span class="paying">支付中</span></td>
+									<td>
+										<a href="look_order.html" class="keepsee" target="_blank">查看</a>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot style="display: none;">
+							    <tr>
+									<td colspan="6">
+										<div class="norecord">
+											<a href="javascript:">立即投资</a>
+										</div>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+						<div id="ca_page2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+	</div>
+	<!-- 弹窗提示 -->
+	<div id="czcg">
+		<div id="prompt">
+			<h3>充值成功<a href="javascript:" class="pro_close iconfont">&#xe64e;</a></h3>
+			<div class="pro_con">
+				<p>本次充值金额为<span>30.00</span>元</p>
+				<p>账户可用余额为<span>60.00</span>元</p>
+			</div>
+			<div class="probtn">
+				<a href="javascript:">查看充值记录</a>
+				<a href="javascript:">立即投资</a>
+			</div>
+		</div>
+	</div>
+	<!-- 充值失败弹窗提示 -->
+	<div id="czsb">
+		<div id="prompt">
+			<h3>充值失败<a href="javascript:" class="pro_close iconfont">&#xe64e;</a></h3>
+			<div class="pro_con">
+				<p>本次充值金额为<span>30.00</span>元</p>
+				<p>账户可用余额为<span>60.00</span>元</p>
+			</div>
+			<div class="probtn">
+				<a href="javascript:">查看充值记录</a>
+				<a href="javascript:">充值遇到问题</a>
+			</div>
+		</div>
+	</div>
+	<!-- 申请提现弹窗 -->
+	<div id="txwt">
+		<div id="with_box">
+			<h3>提现遇到问题<a href="javascript:" class="with_close iconfont">&#xe64e;</a></h3>
+			<div class="with_con">
+				<p>提现完成前请不要关闭此窗口，提现<br>完成后请根据您的需要点击下面的按钮</p>
+			</div>
+			<div class="with_btn">
+				<a href="javascript:" class="with_see">已完成</a>
+				<a href="javascript:" class="with_pay">提现遇到问题</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- footer -->
+	<!-- footer -->
+	<div id="footer">
+		<div class="f_top">
+			<div class="top_one">
+				<div class="topbox">
+					<span>信息披露</span>
+					<a href="javascript:">平台数据</a>
+					<a href="javascript:">安全保障</a>
+					<a href="javascript:">公司简介</a>
+					<a href="javascript:">公司事记</a>
+					<a href="javascript:">公司动态</a>
+					<a href="javascript:">联系我们</a>
+				</div>
+				<div class="topbox">
+					<span>帮助中心</span>
+					<a href="javascript:">常见问题</a>
+					<a href="javascript:">投资指南</a>
+					<a href="javascript:">会员福利</a>
+					<a href="javascript:">资金存管</a>
+					<a href="javascript:">其他问题</a>
+				</div>
+				<div class="topbox">
+					<span>新手指南</span>
+					<a href="javascript:">注册登录</a>
+					<a href="javascript:">充值提现</a>
+					<a href="javascript:">投资理财</a>
+				</div>
+			</div>
+			<div class="top_two">
+				<ul>
+					<li><p>官方微信</p></li><li><p>移动客户端</p></li>
+				</ul>
+			</div>
+			<div class="top_three">
+				<div class="tlt">全国服务热线</div>
+				<p class="txt">400-690-9898</p>
+				<p class="txt">0571-56929127</p>
+				<div class="tlt addtlt">
+					<p>工作日: 9:00-19:00</p>
+					<p>节假日: 10:00-17:30</p>
+				</div>
+				<div class="tlt">官方交流QQ群：463637911</div>
+				<div class="police"></div>
+			</div>
+		</div>
+		<div class="f_bot">Copyright © 2016 杭州云翳网络科技有限公司 版权所有　ICP经营许可证：浙B2-20170101 浙ICP备1</div>
+	</div>
+	<!-- footer end -->
+    <script src="../../../../module/jquery/jquery.min.js"></script>
+    <script src="../../../../module/sticky-header.js"></script>
+    <script src="../../../../module/layui/layui.js"></script>
+	<script src="../../../../js/front/wealth.js"></script>
+</body>
+</html>
